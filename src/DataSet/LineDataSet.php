@@ -141,7 +141,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string $cubicInterpolationMode
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setCubicInterpolationMode( $cubicInterpolationMode )
 	{
@@ -161,7 +161,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param float $lineTension
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setLineTension( $lineTension )
 	{
@@ -181,7 +181,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string $borderCapStyle
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setBorderCapStyle( $borderCapStyle )
 	{
@@ -201,7 +201,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param array $borderDash
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setBorderDash( $borderDash )
 	{
@@ -221,7 +221,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param float $borderDashOffset
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setBorderDashOffset( $borderDashOffset )
 	{
@@ -241,7 +241,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string $borderJoinStyle
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setBorderJoinStyle( $borderJoinStyle )
 	{
@@ -261,7 +261,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string|\string[] $pointBorderColor
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointBorderColor( $pointBorderColor )
 	{
@@ -281,7 +281,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string|\string[] $pointBackgroundColor
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointBackgroundColor( $pointBackgroundColor )
 	{
@@ -301,7 +301,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param int|\int[] $pointBorderWidth
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointBorderWidth( $pointBorderWidth )
 	{
@@ -321,7 +321,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param int|\int[] $pointRadius
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointRadius( $pointRadius )
 	{
@@ -341,7 +341,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param int|\int[] $pointHoverRadius
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointHoverRadius( $pointHoverRadius )
 	{
@@ -361,7 +361,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param int|\int[] $pointHitRadius
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointHitRadius( $pointHitRadius )
 	{
@@ -381,7 +381,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string|\string[] $pointHoverBackgroundColor
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointHoverBackgroundColor( $pointHoverBackgroundColor )
 	{
@@ -401,7 +401,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param string|\string[] $pointHoverBorderColor
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointHoverBorderColor( $pointHoverBorderColor )
 	{
@@ -421,7 +421,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param int|\int[] $pointHoverBorderWidth
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointHoverBorderWidth( $pointHoverBorderWidth )
 	{
@@ -441,7 +441,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param mixed $pointStyle
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setPointStyle( $pointStyle )
 	{
@@ -461,7 +461,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param boolean $showLine
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setShowLine( $showLine )
 	{
@@ -481,7 +481,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param boolean $spanGaps
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setSpanGaps( $spanGaps )
 	{
@@ -501,7 +501,7 @@ class LineDataSet extends DataSet
 	/**
 	 * @param boolean $steppedLine
 	 *
-	 * @return LineDataSet
+	 * @return $this
 	 */
 	public function setSteppedLine( $steppedLine )
 	{

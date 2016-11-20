@@ -29,6 +29,10 @@ $oranges->setLabel( 'oranges' )
 	) );
 $bar->addDataSet( $oranges );
 
+$scales	= $bar->options()->scales();
+$scales->xAxes()->append( $scales->createXAxis()->setStacked( true ) );
+$scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) );
+
 ?>
 
 <html>
