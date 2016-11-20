@@ -3,8 +3,10 @@
 namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
-use Halfpastfour\PHPChartJS\Options\Scales\XAxes;
-use Halfpastfour\PHPChartJS\Options\Scales\YAxes;
+use Halfpastfour\PHPChartJS\Options\Scales\XAxis;
+use Halfpastfour\PHPChartJS\Options\Scales\XAxisCollection;
+use Halfpastfour\PHPChartJS\Options\Scales\YAxis;
+use Halfpastfour\PHPChartJS\Options\Scales\YAxisCollection;
 
 /**
  * Class Scales
@@ -13,34 +15,50 @@ use Halfpastfour\PHPChartJS\Options\Scales\YAxes;
 class Scales implements ArraySerializable, \JsonSerializable
 {
 	/**
-	 * @var XAxes
+	 * @var XAxisCollection
 	 */
 	private $xAxes;
 
 	/**
-	 * @var YAxes
+	 * @var YAxisCollection
 	 */
 	private $yAxes;
 
 	/**
-	 * @return XAxes
+	 * @return XAxis
+	 */
+	public function createXAxis()
+	{
+		return new XAxis();
+	}
+
+	/**
+	 * @return YAxis
+	 */
+	public function createYAxis()
+	{
+		return new YAxis();
+	}
+
+	/**
+	 * @return XAxisCollection
 	 */
 	public function xAxes()
 	{
 		if( is_null( $this->xAxes ) ) {
-			$this->xAxes	= new XAxes();
+			$this->xAxes	= new XAxisCollection();
 		}
 
 		return $this->xAxes;
 	}
 
 	/**
-	 * @return YAxes
+	 * @return YAxisCollection
 	 */
 	public function yAxes()
 	{
 		if( is_null( $this->yAxes ) ) {
-			$this->yAxes	= new YAxes();
+			$this->yAxes	= new YAxisCollection();
 		}
 
 		return $this->yAxes;

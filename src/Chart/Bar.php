@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Chart;
 
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
+use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Renderer;
 
 /**
@@ -13,6 +14,14 @@ use Halfpastfour\PHPChartJS\Renderer;
 class Bar extends Chart implements ChartInterface
 {
 	const TYPE = 'bar';
+
+	/**
+	 * @return DataSet
+	 */
+	public function createDataSet()
+	{
+		return new DataSet();
+	}
 
 	/**
 	 * @return string

@@ -83,7 +83,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string $type
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setType( $type )
 	{
@@ -115,7 +115,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string $label
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setLabel( $label )
 	{
@@ -135,7 +135,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string $xAxisID
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setXAxisID( $xAxisID )
 	{
@@ -155,7 +155,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string $yAxisID
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setYAxisID( $yAxisID )
 	{
@@ -175,7 +175,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string|\string[] $backgroundColor
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setBackgroundColor( $backgroundColor )
 	{
@@ -195,7 +195,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string|\string[] $borderColor
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setBorderColor( $borderColor )
 	{
@@ -215,7 +215,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param int|\int[] $borderWidth
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setBorderWidth( $borderWidth )
 	{
@@ -235,7 +235,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string $borderSkipped
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setBorderSkipped( $borderSkipped )
 	{
@@ -255,7 +255,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string|\string[] $hoverBackgroundColor
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setHoverBackgroundColor( $hoverBackgroundColor )
 	{
@@ -275,7 +275,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param string|\string[] $hoverBorderColor
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setHoverBorderColor( $hoverBorderColor )
 	{
@@ -295,7 +295,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @param int|\int[] $hoverBorderWidth
 	 *
-	 * @return DataSet
+	 * @return $this
 	 */
 	public function setHoverBorderWidth( $hoverBorderWidth )
 	{
@@ -313,16 +313,16 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 			'data'	=> $this->data()->getArrayCopy()
 		);
 
-		if( $this->getType() ) $data['type'] = $this->getType();
-		if( $this->getLabel() ) $data['label'] = $this->getLabel();
-		if( $this->getXAxisID() ) $data['xAxisID'] = $this->getXAxisID();
-		if( $this->getYAxisID() ) $data['yAxisID'] = $this->getYAxisID();
-		if( $this->getBackgroundColor() ) $data['backgroundColor'] = $this->getBackgroundColor();
-		if( $this->getBorderColor() ) $data['borderColor'] = $this->getBorderColor();
-		if( $this->getBorderWidth() ) $data['borderWidth'] = $this->getBorderWidth();
-		if( $this->getHoverBackgroundColor() ) $data['backgroundColor'] = $this->getHoverBackgroundColor();
-		if( $this->getHoverBorderColor() ) $data['borderColor'] = $this->getHoverBorderColor();
-		if( $this->getHoverBorderWidth() ) $data['borderWidth'] = $this->getHoverBorderWidth();
+		if( !is_null( $this->type ) ) $data['type'] = $this->getType();
+		if( !is_null( $this->label ) ) $data['label'] = $this->getLabel();
+		if( !is_null( $this->xAxisID ) ) $data['xAxisID'] = $this->getXAxisID();
+		if( !is_null( $this->yAxisID ) ) $data['yAxisID'] = $this->getYAxisID();
+		if( !is_null( $this->backgroundColor ) ) $data['backgroundColor'] = $this->getBackgroundColor();
+		if( !is_null( $this->borderColor ) ) $data['borderColor'] = $this->getBorderColor();
+		if( !is_null( $this->borderWidth ) ) $data['borderWidth'] = $this->getBorderWidth();
+		if( !is_null( $this->hoverBackgroundColor ) ) $data['hoverBackgroundColor'] = $this->getHoverBackgroundColor();
+		if( !is_null( $this->hoverBorderColor ) ) $data['borderColor'] = $this->getHoverBorderColor();
+		if( !is_null( $this->hoverBorderWidth ) ) $data['borderWidth'] = $this->getHoverBorderWidth();
 
 		return $data;
 	}

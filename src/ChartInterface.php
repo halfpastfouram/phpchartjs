@@ -14,6 +14,11 @@ interface ChartInterface
 	public function options();
 
 	/**
+	 * @return DataSet
+	 */
+	public function createDataSet();
+
+	/**
 	 * @param DataSet $dataSet
 	 *
 	 * @return $this

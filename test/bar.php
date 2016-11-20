@@ -14,7 +14,7 @@ $bar->getLabels()->exchangeArray( array(
 ) );
 
 // Add Datasets
-$apples = new DataSet();
+$apples = $bar->createDataSet();
 $apples->setLabel( 'apples' )
 	->setBackgroundColor( 'rgba( 0, 150, 0, .5 )' )
 	->data()->exchangeArray( array(
@@ -22,7 +22,7 @@ $apples->setLabel( 'apples' )
 	) );
 $bar->addDataSet( $apples );
 
-$oranges = new DataSet();
+$oranges = $bar->createDataSet();
 $oranges->setLabel( 'oranges' )
 	->setBackgroundColor( 'rgba( 255, 153, 0, .5 )' )
 	->data()->exchangeArray( array(

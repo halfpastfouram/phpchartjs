@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Chart;
 
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
+use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
 use Halfpastfour\PHPChartJS\Renderer;
 
 /**
@@ -13,6 +14,14 @@ use Halfpastfour\PHPChartJS\Renderer;
 class Line extends Chart implements ChartInterface
 {
 	const TYPE = 'line';
+
+	/**
+	 * @return LineDataSet
+	 */
+	public function createDataSet()
+	{
+		return new LineDataSet();
+	}
 
 	/**
 	 * @return string

@@ -1,12 +1,13 @@
 <?php
 
 namespace Halfpastfour\PHPChartJS\Options\Scales;
+
 use Halfpastfour\PHPChartJS\Options\Scale;
 
 /**
- * Class YAxes
+ * Class YAxis
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class YAxes extends Scale
+class YAxis extends Scale
 {
 }

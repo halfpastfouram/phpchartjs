@@ -2,17 +2,13 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
-/**
- * Class XAxes
- * @package Halfpastfour\PHPChartJS\Options\Scales
- */
 use Halfpastfour\PHPChartJS\Options\Scale;
 
 /**
- * Class XAxes
+ * Class XAxis
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class XAxes extends Scale
+class XAxis extends Scale
 {
 	/**
 	 * @var float
