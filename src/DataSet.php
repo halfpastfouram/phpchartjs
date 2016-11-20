@@ -8,7 +8,7 @@ use Halfpastfour\PHPChartJS\Collection\Data;
  * Class DataSet
  * @package Halfpastfour\PHPChartJS
  */
-class DataSet implements ChartOwnedInterface, \JsonSerializable
+class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializable
 {
 	use ChartOwned;
 
@@ -310,7 +310,7 @@ class DataSet implements ChartOwnedInterface, \JsonSerializable
 	public function getArrayCopy()
 	{
 		$data	= array(
-			'data'	=> $this->data()->jsonSerialize()
+			'data'	=> $this->data()->getArrayCopy()
 		);
 
 		if( $this->getType() ) $data['type'] = $this->getType();

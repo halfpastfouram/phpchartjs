@@ -2,6 +2,10 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+/**
+ * Class Factory
+ * @package Halfpastfour\PHPChartJS
+ */
 class Factory
 {
 	const BAR			= 'bar';
@@ -15,7 +19,7 @@ class Factory
 	/**
 	 * @param $type
 	 *
-	 * @return ChartInterface
+	 * @return Chart
 	 */
 	public function create( $type )
 	{

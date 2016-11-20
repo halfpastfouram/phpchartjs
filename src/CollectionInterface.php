@@ -5,7 +5,7 @@ namespace Halfpastfour\PHPChartJS;
 /**
  * Interface CollectionInterface
  */
-interface CollectionInterface extends \Iterator, \ArrayAccess, \Countable
+interface CollectionInterface extends \Iterator, \ArrayAccess, \Countable, ArraySerializable
 {
 	/**
 	 * @param mixed $value
@@ -42,13 +42,6 @@ interface CollectionInterface extends \Iterator, \ArrayAccess, \Countable
 	 * @return array A bi-dimensional array
 	 */
 	public function exchangeArray( array $p_aData );
-
-	/**
-	 * Should return a multidimensional array from the collection and it's rows.
-	 *
-	 * @return array A bi-dimensional array
-	 */
-	public function getArrayCopy();
 
 	/**
 	 * Should perform the php function usort on the dataset.

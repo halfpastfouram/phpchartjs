@@ -20,24 +20,29 @@ class Renderer
 	 */
 	public function __construct( Chart $chart )
 	{
-		$this->chart	= $chart;
+		$this->chart = $chart;
 	}
 
 	/**
-	 *
+	 * Takes care of creating the JSON object required to instance a Chart with JavaScript.
 	 */
 	public function renderJSON()
 	{
-		$dataSets	= $this->chart->getDataSets()->getArrayCopy();
-		$options	= $this->chart->options()->jsonSerialize();
-		$labels		= $this->chart->getLabels()->jsonSerialize();
+		$config = array(
+			'type' => constant( get_class( $this->chart ) . "::TYPE" ),
+			'data' => array(),
+		);
 
-		var_dump( $options, $dataSets, $labels );
+		$labels = $this->chart->getLabels()->getArrayCopy();
+		if( $labels ) $config['data']['labels'] = $labels;
 
-		return json_encode( (object) array(
-			'type'		=> constant( get_class( $this->chart ) . "::TYPE" ),
-			'dataSets'	=> $dataSets,
-		) );
+		$dataSets = $this->chart->getDataSets()->getArrayCopy();
+		if( $dataSets ) $config['data']['datasets'] = $dataSets;
+
+		$options = $this->chart->options()->getArrayCopy();
+		if( $options ) $config['options'] = (object) $options;
+
+		return json_encode( $config );
 	}
 
 	/**
@@ -45,33 +50,39 @@ class Renderer
 	 */
 	public function render()
 	{
-		$dom	= new \DOMDocument();
+		$dom = new \DOMDocument();
 
 		// Render canvas HTML element
-		$canvas	= $dom->createElement( 'canvas' );
+		$canvas = $dom->createElement( 'canvas' );
 		$canvas->setAttribute( 'id', $this->chart->getId() );
 
-		// Add title, width and height if applicable
+		// Add title, height and width if applicable
 		if( $this->chart->getTitle() ) $canvas->setAttribute( 'title', $this->chart->getTitle() );
-		if( $this->chart->getWidth() ) $canvas->setAttribute( 'width', $this->chart->getWidth() );
 		if( $this->chart->getHeight() ) $canvas->setAttribute( 'height', $this->chart->getHeight() );
+		if( $this->chart->getWidth() ) $canvas->setAttribute( 'width', $this->chart->getWidth() );
 
 		$dom->appendChild( $canvas );
 
 		// Render JavaScript
-		$script	= array();
+		$script = array();
 
-		// First, setup the canvast context
-		$script[]	= "var ctx = document.getElementByid( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";
+
+		// First, setup the canvas context
+		$script[] = "var ctx = document.getElementById( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";
 
 		// Now, setup the chart instance
-		$json		= $this->renderJson();
-		$script[]	= "var chart = new Chart( ctx, {$json} );";
+		$json     = $this->renderJSON();
+
+		$script[] = "var chart = new Chart( ctx, {$json} );";
 
 		// Render the script element
-		$script	= $dom->createElement( 'script', "\n" . implode( "\n", $script ) . "\n" );
+		$script = $dom->createElement( 'script', "\nwindow.onload=(function(oldLoad){return function(){\n"
+			. "if( oldLoad ) oldLoad();\n"
+			. implode( "\n", $script ) . "\n"
+			. "}})(window.onload);\n"
+		);
 		$dom->appendChild( $script );
 
-		var_dump( $dom->saveHTML() );
+		return $dom->saveHTML();
 	}
 }

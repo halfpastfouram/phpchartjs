@@ -6,6 +6,10 @@ use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\Renderer;
 
+/**
+ * Class Bar
+ * @package Halfpastfour\PHPChartJS\Chart
+ */
 class Bar extends Chart implements ChartInterface
 {
 	const TYPE = 'bar';
@@ -16,6 +20,6 @@ class Bar extends Chart implements ChartInterface
 	public function render()
 	{
 		$renderer	= new Renderer( $this );
-		$renderer->render();
+		return $renderer->render();
 	}
 }

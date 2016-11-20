@@ -2,7 +2,7 @@
 
 namespace Halfpastfour\PHPChartJS\Options;
 
-class Hover
+class Hover implements ArraySerializable
 {
 	private $mode;
 }

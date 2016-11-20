@@ -8,6 +8,8 @@ namespace Halfpastfour\PHPChartJS;
  */
 abstract class Chart implements ChartInterface
 {
+	const TYPE	= null;
+
 	/**
 	 * @var string
 	 */
@@ -121,7 +123,7 @@ abstract class Chart implements ChartInterface
 	 */
 	public function setTitle( $title )
 	{
-		$this->title = strinval( $title );
+		$this->title = strval( $title );
 
 		return $this;
 	}
