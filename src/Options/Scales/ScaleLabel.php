@@ -73,7 +73,7 @@ class ScaleLabel implements ArraySerializable, \JsonSerializable
 	 *
 	 * @return $this
 	 */
-	public function setLabelScript( $labelString )
+	public function setLabelString( $labelString )
 	{
 		$this->labelString = strval( $labelString );
 
