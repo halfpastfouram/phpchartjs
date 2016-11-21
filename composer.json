@@ -3,6 +3,7 @@
   "description": "PHP library for ChartJS 2.0",
   "keywords": [
     "chartjs",
+    "graph",
     "php"
   ],
   "homepage": "http://github.com/halfpastfouram/chartjs",

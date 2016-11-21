@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Collection;
 
 use Halfpastfour\PHPChartJS\Collection;
 use Halfpastfour\PHPChartJS\CollectionInterface;
+use Zend\Json\Json;
 
 /**
  * Class Data
@@ -16,6 +17,6 @@ class Data extends Collection implements CollectionInterface, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->rowSet );
+		return Json::encode( $this->rowSet );
 	}
 }

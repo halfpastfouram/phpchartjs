@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Json;
 
 /**
  * Class ScaleLabel
@@ -73,7 +74,7 @@ class ScaleLabel implements ArraySerializable, \JsonSerializable
 	 *
 	 * @return $this
 	 */
-	public function setLabelScript( $labelString )
+	public function setLabelString( $labelString )
 	{
 		$this->labelString = strval( $labelString );
 
@@ -182,6 +183,6 @@ class ScaleLabel implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

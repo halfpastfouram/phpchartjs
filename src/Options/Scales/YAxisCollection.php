@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Collection;
 use Halfpastfour\PHPChartJS\CollectionInterface;
+use Zend\Json\Json;
 
 /**
  * Class YAxisCollection
@@ -30,6 +31,6 @@ class YAxisCollection extends Collection implements CollectionInterface, \JsonSe
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

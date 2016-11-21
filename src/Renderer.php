@@ -2,6 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+use Zend\Json\Json;
+
 /**
  * Class Renderer
  * @package Halfpastfour\PHPChartJS
@@ -40,9 +42,9 @@ class Renderer
 		if( $dataSets ) $config['data']['datasets'] = $dataSets;
 
 		$options = $this->chart->options()->getArrayCopy();
-		if( $options ) $config['options'] = (object) $options;
+		if( $options ) $config['options'] = $options;
 
-		return json_encode( $config );
+		return Json::encode( $config );
 	}
 
 	/**
@@ -66,17 +68,17 @@ class Renderer
 		// Render JavaScript
 		$script = array();
 
-
 		// First, setup the canvas context
 		$script[] = "var ctx = document.getElementById( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";
 
 		// Now, setup the chart instance
-		$json     = $this->renderJSON();
+		$json = Json::prettyPrint( $this->renderJSON() );
 
 		$script[] = "var chart = new Chart( ctx, {$json} );";
 
 		// Render the script element
-		$script = $dom->createElement( 'script', "\nwindow.onload=(function(oldLoad){return function(){\n"
+		$script = $dom->createElement(
+			'script', "\nwindow.onload=(function(oldLoad){return function(){\n"
 			. "if( oldLoad ) oldLoad();\n"
 			. implode( "\n", $script ) . "\n"
 			. "}})(window.onload);\n"

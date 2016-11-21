@@ -7,6 +7,7 @@ use Halfpastfour\PHPChartJS\Options\Scales\XAxis;
 use Halfpastfour\PHPChartJS\Options\Scales\XAxisCollection;
 use Halfpastfour\PHPChartJS\Options\Scales\YAxis;
 use Halfpastfour\PHPChartJS\Options\Scales\YAxisCollection;
+use Zend\Json\Json;
 
 /**
  * Class Scales
@@ -82,6 +83,6 @@ class Scales implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

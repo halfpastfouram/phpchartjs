@@ -1,9 +1,12 @@
 <?php
 
 namespace Halfpastfour\PHPChartJS;
+
 use Halfpastfour\PHPChartJS\Options\Animation;
 use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Scales;
+use Halfpastfour\PHPChartJS\Options\Title;
+use Zend\Json\Json;
 
 /**
  * Class Options
@@ -12,6 +15,11 @@ use Halfpastfour\PHPChartJS\Options\Scales;
 class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializable
 {
 	use ChartOwned;
+
+	/**
+	 * @var Title
+	 */
+	protected $title;
 
 	/**
 	 * @var Hover
@@ -29,12 +37,24 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	protected $animation;
 
 	/**
+	 * @return Title
+	 */
+	public function title()
+	{
+		if( is_null( $this->title ) ) {
+			$this->title = new Title();
+		}
+
+		return $this->title;
+	}
+
+	/**
 	 * @return Hover
 	 */
 	public function hover()
 	{
 		if( is_null( $this->hover ) ) {
-			$this->hover	= new Hover();
+			$this->hover = new Hover();
 		}
 
 		return $this->hover;
@@ -46,7 +66,7 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	public function scales()
 	{
 		if( is_null( $this->scales ) ) {
-			$this->scales	= new Scales();
+			$this->scales = new Scales();
 		}
 
 		return $this->scales;
@@ -58,7 +78,7 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	public function animation()
 	{
 		if( is_null( $this->animation ) ) {
-			$this->animation	= new Animation();
+			$this->animation = new Animation();
 		}
 
 		return $this->animation;
@@ -69,10 +89,12 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data = array();
 
+		if( !is_null( $this->title ) ) $data['title'] = $this->title()->getArrayCopy();
 		if( !is_null( $this->hover ) ) $data['hover'] = $this->hover()->getArrayCopy();
 		if( !is_null( $this->scales ) ) $data['scales'] = $this->scales()->getArrayCopy();
+		if( !is_null( $this->animation ) ) $data['animation'] = $this->animation()->getArrayCopy();
 
 		return $data;
 	}
@@ -82,6 +104,6 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

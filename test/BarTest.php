@@ -6,8 +6,15 @@ use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
+/**
+ * Class BarTest
+ * @package Test
+ */
 class BarTest extends \PHPUnit_Framework_TestCase
 {
+	/**
+	 * Test the working of the Bar chart
+	 */
 	public function testConstruct()
 	{
 		$chartData	= array( 0, 1, 4, 2, 3, 0, 5, 2, 6 );

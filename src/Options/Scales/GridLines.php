@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Json;
 
 /**
  * Class GridLines
@@ -338,6 +339,6 @@ class GridLines implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Json;
 
 /**
  * Class Legend
@@ -52,6 +53,6 @@ class Legend implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

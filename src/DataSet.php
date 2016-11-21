@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Collection\Data;
+use Zend\Json\Json;
 
 /**
  * Class DataSet
@@ -332,6 +333,6 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }
