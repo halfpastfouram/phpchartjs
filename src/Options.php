@@ -1,6 +1,7 @@
 <?php
 
 namespace Halfpastfour\PHPChartJS;
+use Halfpastfour\PHPChartJS\Options\Animation;
 use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Scales;
 
@@ -15,12 +16,17 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	/**
 	 * @var Hover
 	 */
-	private $hover;
+	protected $hover;
 
 	/**
 	 * @var Scales
 	 */
-	private $scales;
+	protected $scales;
+
+	/**
+	 * @var Animation
+	 */
+	protected $animation;
 
 	/**
 	 * @return Hover
@@ -44,6 +50,18 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 		}
 
 		return $this->scales;
+	}
+
+	/**
+	 * @return Animation
+	 */
+	public function animation()
+	{
+		if( is_null( $this->animation ) ) {
+			$this->animation	= new Animation();
+		}
+
+		return $this->animation;
 	}
 
 	/**

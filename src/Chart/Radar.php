@@ -4,6 +4,8 @@ namespace Halfpastfour\PHPChartJS\Chart;
 
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
+use Halfpastfour\PHPChartJS\DataSet\RadarDataSet;
+use Halfpastfour\PHPChartJS\Options\RadarOptions;
 use Halfpastfour\PHPChartJS\Renderer;
 
 /**
@@ -13,6 +15,26 @@ use Halfpastfour\PHPChartJS\Renderer;
 class Radar extends Chart implements ChartInterface
 {
 	const TYPE = 'radar';
+
+	/**
+	 * @return RadarDataSet
+	 */
+	public function createDataSet()
+	{
+		return new RadarDataSet();
+	}
+
+	/**
+	 * @return RadarOptions
+	 */
+	public function options()
+	{
+		if( is_null( $this->options ) ) {
+			$this->options	= new RadarOptions( $this );
+		}
+
+		return $this->options;
+	}
 
 	/**
 	 * @return string

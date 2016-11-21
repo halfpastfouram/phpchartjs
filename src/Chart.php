@@ -163,18 +163,6 @@ abstract class Chart implements ChartInterface
 	}
 
 	/**
-	 * @return Options
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new Options( $this );
-		}
-
-		return $this->options;
-	}
-
-	/**
 	 * @return DataSetCollection
 	 */
 	public function getDataSets()

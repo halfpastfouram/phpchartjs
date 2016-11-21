@@ -5,6 +5,7 @@ namespace Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
+use Halfpastfour\PHPChartJS\Options\LineOptions;
 use Halfpastfour\PHPChartJS\Renderer;
 
 /**
@@ -21,6 +22,18 @@ class Line extends Chart implements ChartInterface
 	public function createDataSet()
 	{
 		return new LineDataSet();
+	}
+
+	/**
+	 * @return LineOptions
+	 */
+	public function options()
+	{
+		if( is_null( $this->options ) ) {
+			$this->options	= new LineOptions( $this );
+		}
+
+		return $this->options;
 	}
 
 	/**

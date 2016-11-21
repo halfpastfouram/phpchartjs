@@ -1,0 +1,40 @@
+<?php
+
+require_once '../vendor/autoload.php';
+
+use Halfpastfour\PHPChartJS\Factory;
+
+$colors	= array( "#FF6384", "#4BC0C0", "#FFCE56", "#E7E9ED", "#36A2EB" );
+$factory  = new Factory();
+/** @var \Halfpastfour\PHPChartJS\Chart\PolarArea $polarArea */
+$polarArea = $factory->create( $factory::POLAR_AREA );
+
+// Set labels
+$polarArea->getLabels()->exchangeArray( array(
+	"Red",
+	"Green",
+	"Yellow",
+	"Grey",
+	"Blue"
+) );
+
+// Add Datasets
+$dataSet = $polarArea->createDataSet();
+$dataSet->setLabel( 'My dataset' )
+	->setBackgroundColor( $colors )
+	->data()->exchangeArray( array( 11, 16, 7, 3, 14 ) );
+$polarArea->addDataSet( $dataSet );
+
+?>
+
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+</head>
+<body>
+<?php
+// Render the chart
+echo $polarArea->render();
+?>
+</body>
+</html>

@@ -36,9 +36,7 @@ $dataSet->setLabel( 'My First dataset' )
 	->setPointHoverBorderWidth( 2 )
 	->setPointRadius( 1 )
 	->setPointHitRadius( 10 )
-	->data()->exchangeArray( array(
-		65, 59, 80, 81, 56, 55, 40
-	) );
+	->data()->exchangeArray( array( 65, 59, 80, 81, 56, 55, 40 	) );
 $bar->addDataSet( $dataSet );
 
 // Set mode to stacked
