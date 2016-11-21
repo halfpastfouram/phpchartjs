@@ -44,13 +44,15 @@ class Renderer
 		$options = $this->chart->options()->getArrayCopy();
 		if( $options ) $config['options'] = $options;
 
-		return Json::encode( $config );
+		return Json::encode( $config, false, array( 'enableJsonExprFinder' => true ) );
 	}
 
 	/**
+	 * @param bool $pretty
 	 *
+	 * @return string
 	 */
-	public function render()
+	public function render( $pretty = false )
 	{
 		$dom = new \DOMDocument();
 
@@ -72,8 +74,7 @@ class Renderer
 		$script[] = "var ctx = document.getElementById( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";
 
 		// Now, setup the chart instance
-		$json = Json::prettyPrint( $this->renderJSON() );
-
+		$json     = !!$pretty ? Json::prettyPrint( $this->renderJSON() ) : $this->renderJSON();
 		$script[] = "var chart = new Chart( ctx, {$json} );";
 
 		// Render the script element

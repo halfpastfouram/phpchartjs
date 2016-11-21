@@ -195,4 +195,15 @@ abstract class Chart implements ChartInterface
 	{
 		return $this->getDataSets()->offsetGet( $offset );
 	}
+
+	/**
+	 * @param bool $pretty
+	 *
+	 * @return string
+	 */
+	public function render( $pretty = false )
+	{
+		$renderer	= new Renderer( $this );
+		return $renderer->render( !!$pretty );
+	}
 }

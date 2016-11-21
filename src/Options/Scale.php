@@ -610,6 +610,6 @@ abstract class Scale implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy(), false, array( 'enableJsonExprFinder' => true ) );
 	}
 }

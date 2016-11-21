@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Expr;
 use Zend\Json\Json;
 
 /**
@@ -37,7 +38,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	private $autoSkipPadding;
 
 	/**
-	 * @var string
+	 * @var Expr
 	 */
 	private $callback;
 
@@ -201,7 +202,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function getCallback()
 	{
-		return $this->callback;
+		return strval( $this->callback );
 	}
 
 	/**
@@ -211,7 +212,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function setCallback( $callback )
 	{
-		$this->callback = strval( $callback );
+		$this->callback = new Expr( strval( $callback ) );
 
 		return $this;
 	}
@@ -469,6 +470,6 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy(), false, array( 'enableJsonExprFinder' => true ) );
 	}
 }

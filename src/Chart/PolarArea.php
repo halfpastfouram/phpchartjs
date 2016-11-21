@@ -35,13 +35,4 @@ class PolarArea extends Chart implements ChartInterface
 
 		return $this->options;
 	}
-
-	/**
-	 * @return string
-	 */
-	public function render()
-	{
-		$renderer	= new Renderer( $this );
-		return $renderer->render();
-	}
 }
