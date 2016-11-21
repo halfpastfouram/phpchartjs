@@ -4,25 +4,19 @@ require_once '../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Factory;
 
-$colors	= array( "#FF6384", "#4BC0C0", "#FFCE56", "#E7E9ED", "#36A2EB" );
+$colors	= [ "#FF6384", "#4BC0C0", "#FFCE56", "#E7E9ED", "#36A2EB" ];
 $factory  = new Factory();
 /** @var \Halfpastfour\PHPChartJS\Chart\PolarArea $polarArea */
 $polarArea = $factory->create( $factory::POLAR_AREA );
 
 // Set labels
-$polarArea->getLabels()->exchangeArray( array(
-	"Red",
-	"Green",
-	"Yellow",
-	"Grey",
-	"Blue"
-) );
+$polarArea->getLabels()->exchangeArray( [ "Red", "Green", "Yellow", "Grey", "Blue" ] );
 
 // Add Datasets
 $dataSet = $polarArea->createDataSet();
 $dataSet->setLabel( 'My dataset' )
 	->setBackgroundColor( $colors )
-	->data()->exchangeArray( array( 11, 16, 7, 3, 14 ) );
+	->data()->exchangeArray( [ 11, 16, 7, 3, 14 ] );
 $polarArea->addDataSet( $dataSet );
 
 ?>

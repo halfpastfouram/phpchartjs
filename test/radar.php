@@ -9,7 +9,7 @@ $factory  = new Factory();
 $radar = $factory->create( $factory::RADAR );
 
 // Set labels
-$radar->getLabels()->exchangeArray( array(
+$radar->getLabels()->exchangeArray( [
 	"Eating",
 	"Drinking",
 	"Sleeping",
@@ -17,7 +17,7 @@ $radar->getLabels()->exchangeArray( array(
 	"Coding",
 	"Cycling",
 	"Running",
-) );
+] );
 
 // Add Datasets
 $dataSet1 = $radar->createDataSet();
@@ -28,7 +28,7 @@ $dataSet1->setLabel( 'My first dataset' )
 	->setPointBorderColor( '#fff' )
 	->setPointHoverBackgroundColor( '#fff' )
 	->setPointHoverBorderColor( 'rgba(179,181,198,1)' )
-	->data()->exchangeArray( array( 65, 59, 90, 81, 56, 55, 40 ) );
+	->data()->exchangeArray( [ 65, 59, 90, 81, 56, 55, 40 ] );
 $radar->addDataSet( $dataSet1 );
 
 $dataSet2 = $radar->createDataSet();
@@ -39,7 +39,7 @@ $dataSet2->setLabel( 'My second dataset' )
 	->setPointBorderColor( '#fff' )
 	->setPointHoverBackgroundColor( '#fff' )
 	->setPointHoverBorderColor( 'rgba(255,99,132,1)' )
-	->data()->exchangeArray( array( 28, 48, 40, 19, 96, 27, 100 ) );
+	->data()->exchangeArray( [ 28, 48, 40, 19, 96, 27, 100 ] );
 $radar->addDataSet( $dataSet2 );
 
 ?>

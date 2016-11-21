@@ -16,7 +16,7 @@ class Hover implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		return array();
+		return [];
 	}
 
 	/**

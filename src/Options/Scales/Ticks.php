@@ -442,7 +442,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		if( !is_null( $this->suggestedMin ) ) $data['suggestedMin'] = $this->getSuggestedMin();
 		if( !is_null( $this->beginAtZero ) ) $data['beginAtZero'] = $this->isBeginAtZero();
@@ -470,6 +470,6 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->getArrayCopy(), false, array( 'enableJsonExprFinder' => true ) );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }

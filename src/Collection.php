@@ -11,7 +11,7 @@ abstract class Collection
 	/**
 	 * @var array
 	 */
-	protected $rowSet	= array();
+	protected $rowSet	= [];
 
 	/**
 	 * @var int
@@ -26,7 +26,7 @@ abstract class Collection
 	/**
 	 * @var array
 	 */
-	protected $keyMap	= array();
+	protected $keyMap	= [];
 
 
 	/**
@@ -237,7 +237,7 @@ abstract class Collection
 		// Gather return data
 		$returnArray	= $this->getArrayCopy();
 		// Reset the items
-		$this->rowSet		= array();
+		$this->rowSet		= [];
 
 		foreach( $data as $index => $row ) {
 			$this->offsetSet( $index, $row );

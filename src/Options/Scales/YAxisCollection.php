@@ -17,7 +17,7 @@ class YAxisCollection extends Collection implements CollectionInterface, \JsonSe
 	 */
 	public function getArrayCopy()
 	{
-		$rows	= array();
+		$rows	= [];
 		foreach( $this->rowSet as $row ) {
 			/** @var YAxis $row */
 			$rows[]	= $row->getArrayCopy();
@@ -31,6 +31,6 @@ class YAxisCollection extends Collection implements CollectionInterface, \JsonSe
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->getArrayCopy(), false, array( 'enableJsonExprFinder' => true ) );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }

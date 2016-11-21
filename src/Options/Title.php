@@ -241,7 +241,7 @@ class Title implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
 		if( !is_null( $this->position ) ) $data['position'] = $this->getPosition();

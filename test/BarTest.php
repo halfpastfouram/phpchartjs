@@ -17,7 +17,7 @@ class BarTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testConstruct()
 	{
-		$chartData	= array( 0, 1, 4, 2, 3, 0, 5, 2, 6 );
+		$chartData	= [ 0, 1, 4, 2, 3, 0, 5, 2, 6 ];
 		$factory	= new Factory();
 		$bar		= $factory->create( $factory::BAR );
 

@@ -9,35 +9,33 @@ $factory   = new Factory();
 $bubble       = $factory->create( $factory::BUBBLE );
 
 // Set labels
-$bubble->getLabels()->exchangeArray( array(
-	"M", "T", "W", "T", "F", "S", "S"
-) );
+$bubble->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bubble->createDataSet();
 $apples->setLabel( 'My first dataset' )
 	->setBackgroundColor( 'rgba( 0, 150, 0, .5 )' )
-	->data()->exchangeArray( array(
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-	) );
+	->data()->exchangeArray( [
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+	] );
 $bubble->addDataSet( $apples );
 
 $oranges = $bubble->createDataSet();
 $oranges->setLabel( 'My second dataset' )
 	->setBackgroundColor( 'rgba( 255, 153, 0, .5 )' )
-	->data()->exchangeArray( array(
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-		array( 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ),
-	) );
+	->data()->exchangeArray( [
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+		[ 'x' => rand( 0, 40 ), 'y' => rand( 0, 30 ), 'r' => rand( 0, 50 ) ],
+	] );
 $bubble->addDataSet( $oranges );
 
 ?>

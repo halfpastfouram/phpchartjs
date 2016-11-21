@@ -166,7 +166,7 @@ class ScaleLabel implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
 		if( !is_null( $this->labelString ) ) $data['labelString'] = $this->getLabelString();

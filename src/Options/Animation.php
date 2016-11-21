@@ -16,7 +16,7 @@ class Animation implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		return $data;
 	}

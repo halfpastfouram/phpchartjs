@@ -30,10 +30,10 @@ class Renderer
 	 */
 	public function renderJSON()
 	{
-		$config = array(
+		$config = [
 			'type' => constant( get_class( $this->chart ) . "::TYPE" ),
-			'data' => array(),
-		);
+			'data' => [],
+		];
 
 		$labels = $this->chart->getLabels()->getArrayCopy();
 		if( $labels ) $config['data']['labels'] = $labels;
@@ -44,7 +44,7 @@ class Renderer
 		$options = $this->chart->options()->getArrayCopy();
 		if( $options ) $config['options'] = $options;
 
-		return Json::encode( $config, false, array( 'enableJsonExprFinder' => true ) );
+		return Json::encode( $config, false, [ 'enableJsonExprFinder' => true ] );
 	}
 
 	/**
@@ -68,7 +68,7 @@ class Renderer
 		$dom->appendChild( $canvas );
 
 		// Render JavaScript
-		$script = array();
+		$script = [];
 
 		// First, setup the canvas context
 		$script[] = "var ctx = document.getElementById( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";

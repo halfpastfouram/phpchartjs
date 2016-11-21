@@ -85,6 +85,6 @@ class XAxis extends Scale
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->getArrayCopy(), false, array( 'enableJsonExprFinder' => true ) );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }

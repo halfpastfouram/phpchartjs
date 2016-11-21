@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Options\Animation;
 use Halfpastfour\PHPChartJS\Options\Hover;
+use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Zend\Json\Json;
@@ -35,6 +36,11 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	 * @var Animation
 	 */
 	protected $animation;
+
+	/**
+	 * @var Legend
+	 */
+	protected $legend;
 
 	/**
 	 * @return Title
@@ -85,16 +91,29 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	}
 
 	/**
+	 * @return Legend
+	 */
+	public function legend()
+	{
+		if( is_null( $this->legend ) ) {
+			$this->legend = new Legend();
+		}
+
+		return $this->legend;
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getArrayCopy()
 	{
-		$data = array();
+		$data = [];
 
 		if( !is_null( $this->title ) ) $data['title'] = $this->title()->getArrayCopy();
 		if( !is_null( $this->hover ) ) $data['hover'] = $this->hover()->getArrayCopy();
 		if( !is_null( $this->scales ) ) $data['scales'] = $this->scales()->getArrayCopy();
 		if( !is_null( $this->animation ) ) $data['animation'] = $this->animation()->getArrayCopy();
+		if( !is_null( $this->legend ) ) $data['legend'] = $this->legend()->getArrayCopy();
 
 		return $data;
 	}
@@ -104,6 +123,6 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->getArrayCopy(), false, array( 'enableJsonExprFinder' => true ) );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }
