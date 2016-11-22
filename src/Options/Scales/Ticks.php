@@ -3,6 +3,8 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Expr;
+use Zend\Json\Json;
 
 /**
  * Class Ticks
@@ -10,6 +12,21 @@ use Halfpastfour\PHPChartJS\ArraySerializable;
  */
 class Ticks implements ArraySerializable, \JsonSerializable
 {
+	/**
+	 * @var float
+	 */
+	private $suggestedMin;
+
+	/**
+	 * @var bool
+	 */
+	private $beginAtZero;
+
+	/**
+	 * @var float
+	 */
+	private $stepSize;
+
 	/**
 	 * @var bool
 	 */
@@ -21,7 +38,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	private $autoSkipPadding;
 
 	/**
-	 * @var string
+	 * @var Expr
 	 */
 	private $callback;
 
@@ -81,6 +98,66 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	private $reverse;
 
 	/**
+	 * @return float
+	 */
+	public function getSuggestedMin()
+	{
+		return $this->suggestedMin;
+	}
+
+	/**
+	 * @param float $suggestedMin
+	 *
+	 * @return $this
+	 */
+	public function setSuggestedMin( $suggestedMin )
+	{
+		$this->suggestedMin = floatval( $suggestedMin );
+
+		return $this;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function isBeginAtZero()
+	{
+		return $this->beginAtZero;
+	}
+
+	/**
+	 * @param boolean $beginAtZero
+	 *
+	 * @return $this
+	 */
+	public function setBeginAtZero( $beginAtZero )
+	{
+		$this->beginAtZero = floatval( $beginAtZero );
+
+		return $this;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getStepSize()
+	{
+		return $this->stepSize;
+	}
+
+	/**
+	 * @param float $stepSize
+	 *
+	 * @return $this
+	 */
+	public function setStepSize( $stepSize )
+	{
+		$this->stepSize = floatval( $stepSize );
+
+		return $this;
+	}
+
+	/**
 	 * @return boolean
 	 */
 	public function isAutoSkip()
@@ -125,7 +202,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function getCallback()
 	{
-		return $this->callback;
+		return strval( $this->callback );
 	}
 
 	/**
@@ -135,7 +212,7 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function setCallback( $callback )
 	{
-		$this->callback = strval( $callback );
+		$this->callback = new Expr( strval( $callback ) );
 
 		return $this;
 	}
@@ -365,8 +442,11 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
+		if( !is_null( $this->suggestedMin ) ) $data['suggestedMin'] = $this->getSuggestedMin();
+		if( !is_null( $this->beginAtZero ) ) $data['beginAtZero'] = $this->isBeginAtZero();
+		if( !is_null( $this->stepSize ) ) $data['stepSize'] = $this->getStepSize();
 		if( !is_null( $this->autoSkip ) ) $data['autoSkip'] = $this->isAutoSkip();
 		if( !is_null( $this->autoSkipPadding ) ) $data['autoSkipPadding'] = $this->getAutoSkipPadding();
 		if( !is_null( $this->callback ) ) $data['callback'] = $this->getCallback();
@@ -390,6 +470,6 @@ class Ticks implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }

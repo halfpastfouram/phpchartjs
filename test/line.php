@@ -10,9 +10,7 @@ $factory   = new Factory();
 $line       = $factory->create( $factory::LINE );
 
 // Set labels
-$line->getLabels()->exchangeArray( array(
-	"January", "February", "March", "April", "May", "June", "July"
-) );
+$line->getLabels()->exchangeArray( [ "January", "February", "March", "April", "May", "June", "July" ] );
 
 // Add Datasets
 $dataSet = $line->createDataSet();
@@ -35,9 +33,7 @@ $dataSet->setLabel( 'My First dataset' )
 	->setPointRadius( 1 )
 	->setPointHitRadius( 10 )
 	->setSpanGaps( false )
-	->data()->exchangeArray( array(
-		65, 59, 80, 81, 56, 55, 40
-	) );
+	->data()->exchangeArray( [ 65, 59, 80, 81, 56, 55, 40 ] );
 $line->addDataSet( $dataSet );
 
 // Set mode to stacked
@@ -50,18 +46,14 @@ $apples = $line->createDataSet();
 $apples->setLabel( 'apples' )
 	->setYAxisID( 'y2' )
 	->setBackgroundColor( 'rgba( 0, 150, 0, .5 )' )
-	->data()->exchangeArray( array(
-		12, 19, 3, 17, 28, 24, 7
-	) );
+	->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
 $line->addDataSet( $apples );
 
 $oranges = $line->createDataSet();
 $oranges->setLabel( 'oranges' )
 	->setYAxisID( 'y2' )
 	->setBackgroundColor( 'rgba( 255, 153, 0, .5 )' )
-	->data()->exchangeArray( array(
-		30, 29, 5, 5, 20, 3, 10
-	) );
+	->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10 ] );
 $line->addDataSet( $oranges );
 
 ?>

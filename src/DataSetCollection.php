@@ -2,6 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+use Zend\Json\Json;
+
 /**
  * Class DataSetCollection
  * @package Halfpastfour\PHPChartJS\Collection
@@ -13,7 +15,7 @@ class DataSetCollection extends Collection implements CollectionInterface, \Json
 	 */
 	public function getArrayCopy()
 	{
-		$rows	= array();
+		$rows	= [];
 		foreach( $this->rowSet as $row ) {
 			/** @var DataSet $row */
 			$rows[]	= $row->getArrayCopy();
@@ -27,6 +29,6 @@ class DataSetCollection extends Collection implements CollectionInterface, \Json
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

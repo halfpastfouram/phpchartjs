@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Json;
 
 /**
  * Class GridLines
@@ -315,7 +316,7 @@ class GridLines implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
 		if( !is_null( $this->color ) ) $data['color'] = $this->getColor();
@@ -338,6 +339,6 @@ class GridLines implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

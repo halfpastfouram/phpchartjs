@@ -4,6 +4,10 @@ namespace Halfpastfour\PHPChartJS\Options\Animation;
 
 use Halfpastfour\PHPChartJS\Options\Animation;
 
+/**
+ * Class PieAnimation
+ * @package Halfpastfour\PHPChartJS\Options\Animation
+ */
 class PieAnimation extends Animation
 {
 	/**

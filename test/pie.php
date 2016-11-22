@@ -5,7 +5,7 @@ require_once '../vendor/autoload.php';
 use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
-$colors   = array(
+$colors   = [
 	'rgb(73,10,61)',
 	'rgb(189,21,80)',
 	'rgb(233,127,2)',
@@ -13,12 +13,12 @@ $colors   = array(
 	'rgb(138,155,15)',
 	'rgb(89,79,79)',
 	'rgb(84,121,128)',
-);
+];
 $factory  = new Factory();
 $pie = $factory->create( $factory::PIE );
 
 // Set labels
-$pie->getLabels()->exchangeArray( array(
+$pie->getLabels()->exchangeArray( [
 	"Monday",
 	"Tuesday",
 	"Wednesday",
@@ -26,13 +26,13 @@ $pie->getLabels()->exchangeArray( array(
 	"Friday",
 	"Saturday",
 	"Sunday",
-) );
+] );
 
 // Add Datasets
 $apples = $pie->createDataSet();
 $apples->setLabel( 'My First dataset' )
 	->setBackgroundColor( $colors )
-	->data()->exchangeArray( array( 165, 59, 80, 81, 56, 55, 40 ) );
+	->data()->exchangeArray( [ 165, 59, 80, 81, 56, 55, 40 ] );
 $pie->addDataSet( $apples );
 
 ?>

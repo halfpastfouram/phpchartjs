@@ -3,6 +3,7 @@
 namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Json;
 
 /**
  * Class Animation
@@ -15,7 +16,7 @@ class Animation implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		return $data;
 	}
@@ -25,6 +26,6 @@ class Animation implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy() );
 	}
 }

@@ -2,7 +2,28 @@
 
 namespace Halfpastfour\PHPChartJS\Options;
 
-class Hover implements ArraySerializable
+use Halfpastfour\PHPChartJS\ArraySerializable;
+use Zend\Json\Json;
+
+/**
+ * Class Hover
+ * @package Halfpastfour\PHPChartJS\Options
+ */
+class Hover implements ArraySerializable, \JsonSerializable
 {
-	private $mode;
+	/**
+	 * @return array
+	 */
+	public function getArrayCopy()
+	{
+		return [];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function jsonSerialize()
+	{
+		return Json::encode( $this->getArrayCopy() );
+	}
 }

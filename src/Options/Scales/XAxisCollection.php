@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Collection;
 use Halfpastfour\PHPChartJS\CollectionInterface;
+use Zend\Json\Json;
 
 /**
  * Class XAxisCollection
@@ -16,7 +17,7 @@ class XAxisCollection extends Collection implements CollectionInterface, \JsonSe
 	 */
 	public function getArrayCopy()
 	{
-		$rows = array();
+		$rows = [];
 		foreach( $this->rowSet as $row ) {
 			/** @var XAxis $row */
 			$rows[] = $row->getArrayCopy();
@@ -30,6 +31,6 @@ class XAxisCollection extends Collection implements CollectionInterface, \JsonSe
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }

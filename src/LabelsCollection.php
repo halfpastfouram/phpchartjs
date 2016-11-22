@@ -2,6 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+use Zend\Json\Json;
+
 /**
  * Class LabelsCollection
  * @package Halfpastfour\PHPChartJS\Collection
@@ -13,6 +15,6 @@ class LabelsCollection extends Collection implements CollectionInterface, \JsonS
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->rowSet );
+		return Json::encode( $this->rowSet );
 	}
 }

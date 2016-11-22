@@ -6,6 +6,7 @@ use Halfpastfour\PHPChartJS\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
 use Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel;
 use Halfpastfour\PHPChartJS\Options\Scales\Ticks;
+use Zend\Json\Json;
 
 /**
  * Class Scale
@@ -570,7 +571,7 @@ abstract class Scale implements ArraySerializable, \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$data	= array();
+		$data	= [];
 
 		if( !is_null( $this->type ) ) $data['type'] = $this->getType();
 		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
@@ -609,6 +610,6 @@ abstract class Scale implements ArraySerializable, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return json_encode( $this->getArrayCopy() );
+		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
 	}
 }
