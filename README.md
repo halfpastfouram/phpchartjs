@@ -123,10 +123,19 @@ But the actual data in a dataset is also stored inside a collection:
 $dataset = $myChart->createDataSet();
 
 // Add some data 
-$dataset->data()->append( 1 )->append( 2 )
+$dataset->data()->append( 1 )->append( 2 );
+
+// Prepend some data
+$dataset->data()->prepend( 0 );
+
+// Replace data at certain position
+$dataset->data()->offsetSet( 1, 3 );
+
+// Retrieve data from certain position
+$value = $dataset->data()->offsetGet( 1 ); // 3
 
 // Add a lot of data at once whilst returning the old values
-$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3, 4 ] );
+$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3, 4 ] ); // array(3) { [0]=> int(0) [1]=> int(1) [2]=> int(3) }
 
 $myChart->addDataSet( $dataset );
 ````
