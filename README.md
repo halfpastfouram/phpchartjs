@@ -50,6 +50,32 @@ var chart = new Chart( ctx, {"type":"bar","data":{"labels":["M","T","W","T","F",
 </script>
 ````
 
+### Callbacks
+You can provide javascript callbacks with ease:
+
+````php
+$myCallback = "function( item ){ console.log( item ); }";
+$bar->options()->tooltips()->callbacks()->setAfterBody( $myCallback );
+````
+
+### Rendering
+
+Rendering the chart creates some HTML and some JavaScript. The JavaScript contains a JSON object providing the necessary
+configuration for ChartJS. Every part of the configuration can be cast to an array or a JSON object.
+
+Render isolated part of the configuration:
+
+````php
+$options = $myChart->options()->scales()->getArrayCopy();
+````
+
+Or return an array containing the set configuration:
+
+````php
+$json = $myChart->options()->scales()->jsonSerialize();
+````
+
+
 ### Pretty mode
 If you're not a fan of the long lines of code that are being generated you can force the rendering to be done in *pretty mode*, see the following example.
 
@@ -59,6 +85,52 @@ $bar->render( true );
 ````
 
 Want to see more? Fork this project and take a look at the examples in the test folder to explore the different options.
+
+## Configuration options
+Every option that is supported by ChartJS will be made available in this library.
+
+### Layers
+ChartJS requires you to build a JSON object containing the configuration options you want to set for the current chart.
+These options are spread over multiple layers inside the configuration object. Accessing these layers with PHPChartJS is
+ super easy.
+
+Let's say we wanted to access the chart's animation subtree within the options subtree:
+````php
+$animation = $myChart->options()->animation();
+````
+You can now adjust any of ChartJS's animation settings by using the getters and setters provided in that particular class.
+
+### Collections
+If ChartJS requires an array with certain items as subsets in a configuration option that array will be represented by a
+collection in PHPChartJS. The collection can always by accessed directly to add, remove and replace values.
+
+In some cases a specific object with a predetermined list of options is required in a collection. In these cases methods
+will be provided to create a new instance of said object and adding it to the collection.
+
+Datasets are stored in a collection:
+
+````php
+// Create new dataset
+$dataset = $myChart->createDataSet();
+... (add data to the dataset)
+$myChart->addDataSet( $dataset );
+````
+
+But the actual data in a dataset is also stored inside a collection:
+
+````php
+// Create new dataset
+$dataset = $myChart->createDataSet();
+
+// Add some data 
+$dataset->data()->append( 1 )->append( 2 )
+
+// Add a lot of data at once whilst returning the old values
+$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3, 4 ] );
+
+$myChart->addDataSet( $dataset );
+````
+
 
 ## Installation
 

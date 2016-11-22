@@ -7,7 +7,8 @@
     "php"
   ],
   "homepage": "http://github.com/halfpastfouram/chartjs",
-  "type": "library",
+  "type": "package",
+  "version": "dev-master",
   "license": "AGPL 3.0",
   "authors": [
     {
