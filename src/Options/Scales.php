@@ -2,7 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS\Options;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Scales\XAxis;
 use Halfpastfour\PHPChartJS\Options\Scales\XAxisCollection;
 use Halfpastfour\PHPChartJS\Options\Scales\YAxis;
@@ -13,8 +14,10 @@ use Zend\Json\Json;
  * Class Scales
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Scales implements ArraySerializable, \JsonSerializable
+class Scales implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var XAxisCollection
 	 */
@@ -63,19 +66,6 @@ class Scales implements ArraySerializable, \JsonSerializable
 		}
 
 		return $this->yAxes;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		if( !is_null( $this->xAxes ) ) $data['xAxes']	= $this->xAxes()->getArrayCopy();
-		if( !is_null( $this->yAxes ) ) $data['yAxes']	= $this->yAxes()->getArrayCopy();
-
-		return $data;
 	}
 
 	/**

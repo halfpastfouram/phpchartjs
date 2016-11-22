@@ -97,18 +97,4 @@ class PieOptions extends Options
 
 		return $this;
 	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= parent::getArrayCopy();
-
-		if( !is_null( $this->cutoutPercentage ) ) $data['cutoutPercentage'] = $this->getCutoutPercentage();
-		if( !is_null( $this->rotation ) ) $data['rotation'] = $this->getRotation();
-		if( !is_null( $this->circumference ) ) $data['circumference'] = $this->getCircumference();
-
-		return $data;
-	}
 }

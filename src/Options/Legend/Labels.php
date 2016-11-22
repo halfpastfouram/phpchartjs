@@ -2,7 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Legend;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Expr;
 use Zend\Json\Json;
 
@@ -10,8 +11,10 @@ use Zend\Json\Json;
  * Class PieLegend
  * @package Halfpastfour\PHPChartJS\Options\Legend
  */
-class Labels implements ArraySerializable, \JsonSerializable
+class Labels implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var int
 	 */
@@ -210,16 +213,6 @@ class Labels implements ArraySerializable, \JsonSerializable
 		$this->usePointStyle = !!$usePointStyle;
 
 		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		return $data;
 	}
 
 	/**

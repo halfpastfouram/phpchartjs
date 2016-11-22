@@ -2,7 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Expr;
 use Zend\Json\Json;
 
@@ -10,8 +11,10 @@ use Zend\Json\Json;
  * Class Ticks
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class Ticks implements ArraySerializable, \JsonSerializable
+class Ticks implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var float
 	 */
@@ -435,34 +438,6 @@ class Ticks implements ArraySerializable, \JsonSerializable
 		$this->reverse = !!$reverse;
 
 		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		if( !is_null( $this->suggestedMin ) ) $data['suggestedMin'] = $this->getSuggestedMin();
-		if( !is_null( $this->beginAtZero ) ) $data['beginAtZero'] = $this->isBeginAtZero();
-		if( !is_null( $this->stepSize ) ) $data['stepSize'] = $this->getStepSize();
-		if( !is_null( $this->autoSkip ) ) $data['autoSkip'] = $this->isAutoSkip();
-		if( !is_null( $this->autoSkipPadding ) ) $data['autoSkipPadding'] = $this->getAutoSkipPadding();
-		if( !is_null( $this->callback ) ) $data['callback'] = $this->getCallback();
-		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
-		if( !is_null( $this->fontColor ) ) $data['fontColor'] = $this->getFontColor();
-		if( !is_null( $this->fontFamily ) ) $data['fontFamily'] = $this->getFontFamily();
-		if( !is_null( $this->fontSize ) ) $data['fontSize'] = $this->getFontSize();
-		if( !is_null( $this->fontStyle ) ) $data['fontStyle'] = $this->getFontStyle();
-		if( !is_null( $this->labelOffset ) ) $data['labelOffset'] = $this->getLabelOffset();
-		if( !is_null( $this->maxRotation ) ) $data['maxRotation'] = $this->getMaxRotation();
-		if( !is_null( $this->minRotation ) ) $data['minRotation'] = $this->getMinRotation();
-		if( !is_null( $this->mirror ) ) $data['mirror'] = $this->isMirror();
-		if( !is_null( $this->padding ) ) $data['padding'] = $this->getPadding();
-		if( !is_null( $this->reverse ) ) $data['reverse'] = $this->isReverse();
-
-		return $data;
 	}
 
 	/**

@@ -3,75 +3,77 @@
 namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Collection\Data;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Json;
 
 /**
  * Class DataSet
  * @package Halfpastfour\PHPChartJS
  */
-class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializable
+class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
 {
 	use ChartOwned;
+	use ArraySerializable;
 
 	/**
 	 * @var string
 	 */
-	private $type;
+	protected $type;
 
 	/**
 	 * @var Data
 	 */
-	private $data;
+	protected $data;
 
 	/**
 	 * @var string
 	 */
-	private $label;
+	protected $label;
 
 	/**
 	 * @var string
 	 */
-	private $xAxisID;
+	protected $xAxisID;
 
 	/**
 	 * @var string
 	 */
-	private $yAxisID;
+	protected $yAxisID;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $backgroundColor;
+	protected $backgroundColor;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $borderColor;
+	protected $borderColor;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $borderWidth;
+	protected $borderWidth;
 
 	/**
 	 * @var string
 	 */
-	private $borderSkipped;
+	protected $borderSkipped;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $hoverBackgroundColor;
+	protected $hoverBackgroundColor;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $hoverBorderColor;
+	protected $hoverBorderColor;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $hoverBorderWidth;
+	protected $hoverBorderWidth;
 
 	/**
 	 * @return string
@@ -303,29 +305,6 @@ class DataSet implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 		$this->hoverBorderWidth = $hoverBorderWidth;
 
 		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [
-			'data'	=> $this->data()->getArrayCopy()
-		];
-
-		if( !is_null( $this->type ) ) $data['type'] = $this->getType();
-		if( !is_null( $this->label ) ) $data['label'] = $this->getLabel();
-		if( !is_null( $this->xAxisID ) ) $data['xAxisID'] = $this->getXAxisID();
-		if( !is_null( $this->yAxisID ) ) $data['yAxisID'] = $this->getYAxisID();
-		if( !is_null( $this->backgroundColor ) ) $data['backgroundColor'] = $this->getBackgroundColor();
-		if( !is_null( $this->borderColor ) ) $data['borderColor'] = $this->getBorderColor();
-		if( !is_null( $this->borderWidth ) ) $data['borderWidth'] = $this->getBorderWidth();
-		if( !is_null( $this->hoverBackgroundColor ) ) $data['hoverBackgroundColor'] = $this->getHoverBackgroundColor();
-		if( !is_null( $this->hoverBorderColor ) ) $data['borderColor'] = $this->getHoverBorderColor();
-		if( !is_null( $this->hoverBorderWidth ) ) $data['borderWidth'] = $this->getHoverBorderWidth();
-
-		return $data;
 	}
 
 	/**

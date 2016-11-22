@@ -2,20 +2,23 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Animation;
 use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
+use Halfpastfour\PHPChartJS\Options\Tooltips;
 use Zend\Json\Json;
 
 /**
  * Class Options
  * @package Halfpastfour\PHPChartJS
  */
-class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializable
+class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
 {
 	use ChartOwned;
+	use ArraySerializable;
 
 	/**
 	 * @var Title
@@ -41,6 +44,11 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	 * @var Legend
 	 */
 	protected $legend;
+
+	/**
+	 * @var Tooltips
+	 */
+	protected $tooltips;
 
 	/**
 	 * @return Title
@@ -103,19 +111,15 @@ class Options implements ChartOwnedInterface, ArraySerializable, \JsonSerializab
 	}
 
 	/**
-	 * @return array
+	 * @return Tooltips
 	 */
-	public function getArrayCopy()
+	public function tooltips()
 	{
-		$data = [];
+		if( is_null( $this->tooltips ) ) {
+			$this->tooltips = new Tooltips();
+		}
 
-		if( !is_null( $this->title ) ) $data['title'] = $this->title()->getArrayCopy();
-		if( !is_null( $this->hover ) ) $data['hover'] = $this->hover()->getArrayCopy();
-		if( !is_null( $this->scales ) ) $data['scales'] = $this->scales()->getArrayCopy();
-		if( !is_null( $this->animation ) ) $data['animation'] = $this->animation()->getArrayCopy();
-		if( !is_null( $this->legend ) ) $data['legend'] = $this->legend()->getArrayCopy();
-
-		return $data;
+		return $this->tooltips;
 	}
 
 	/**

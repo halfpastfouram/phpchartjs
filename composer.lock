@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ccb885b9e82da6670b73d581b3760e8",
+    "content-hash": "a6dc84d6fe666cdab058193543191970",
     "packages": [
         {
             "name": "zendframework/zend-json",
@@ -55,6 +55,84 @@
                 "zf2"
             ],
             "time": "2016-04-01T02:34:00+00:00"
+        },
+        {
+            "name": "zf1/zend-exception",
+            "version": "1.12.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zf1/zend-exception.git",
+                "reference": "ca30959d3e2f522f481a3d1459386acf1aa4ca74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zf1/zend-exception/zipball/ca30959d3e2f522f481a3d1459386acf1aa4ca74",
+                "reference": "ca30959d3e2f522f481a3d1459386acf1aa4ca74",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend_Exception": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Zend Framework 1 Exception package",
+            "homepage": "http://framework.zend.com/",
+            "keywords": [
+                "ZF1",
+                "exception",
+                "framework",
+                "zend"
+            ],
+            "time": "2015-04-30T11:10:20+00:00"
+        },
+        {
+            "name": "zf1/zend-reflection",
+            "version": "1.12.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zf1/zend-reflection.git",
+                "reference": "cb052c09e53bb94b8499bace2952b6263fbf05d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zf1/zend-reflection/zipball/cb052c09e53bb94b8499bace2952b6263fbf05d3",
+                "reference": "cb052c09e53bb94b8499bace2952b6263fbf05d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.11",
+                "zf1/zend-exception": "self.version"
+            },
+            "suggest": {
+                "zf1/zend-loader": "Used in special situations or with special adapters"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend_Reflection": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Zend Framework 1 Reflection package",
+            "homepage": "http://framework.zend.com/",
+            "keywords": [
+                "ZF1",
+                "framework",
+                "reflection",
+                "zend"
+            ],
+            "time": "2015-04-30T11:14:41+00:00"
         }
     ],
     "packages-dev": [

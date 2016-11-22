@@ -409,33 +409,4 @@ class RadarDataSet extends DataSet
 
 		return $this;
 	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data = parent::getArrayCopy();
-
-		if( !is_null( $this->fill ) ) $data['fill'] = $this->isFill();
-		if( !is_null( $this->lineTension ) ) $data['lineTension'] = $this->getLineTension();
-		if( !is_null( $this->borderCapStyle ) ) $data['borderCapStyle'] = $this->getBorderCapStyle();
-		if( !is_null( $this->borderDash ) ) $data['borderDash'] = $this->getBorderDash();
-		if( !is_null( $this->borderDashOffset ) ) $data['borderDashOffset'] = $this->getBorderDashOffset();
-		if( !is_null( $this->borderJoinStyle ) ) $data['borderJoinStyle'] = $this->getBorderJoinStyle();
-		if( !is_null( $this->pointBackgroundColor ) ) $data['pointBackgroundColor'] = $this->getPointBackgroundColor();
-		if( !is_null( $this->pointBorderWidth ) ) $data['pointBorderWidth'] = $this->getPointBorderWidth();
-		if( !is_null( $this->pointRadius ) ) $data['pointRadius'] = $this->getPointRadius();
-		if( !is_null( $this->pointHoverRadius ) ) $data['pointHoverRadius'] = $this->getPointHoverRadius();
-		if( !is_null( $this->hitRadius ) ) $data['hitRadius'] = $this->getHitRadius();
-		if( !is_null( $this->pointHoverBackgroundColor ) )
-			$data['pointHoverBackgroundColor'] = $this->getPointHoverBackgroundColor();
-		if( !is_null( $this->pointHoverBorderColor ) )
-			$data['pointHoverBorderColor'] = $this->getPointHoverBorderColor();
-		if( !is_null( $this->pointHoverBorderWidth ) )
-			$data['pointHoverBorderWidth'] = $this->getPointHoverBorderWidth();
-		if( !is_null( $this->pointStyle ) ) $data['pointStyle'] = $this->getPointStyle();
-
-		return $data;
-	}
 }

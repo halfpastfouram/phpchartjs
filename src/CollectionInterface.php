@@ -5,7 +5,7 @@ namespace Halfpastfour\PHPChartJS;
 /**
  * Interface CollectionInterface
  */
-interface CollectionInterface extends \Iterator, \ArrayAccess, \Countable, ArraySerializable
+interface CollectionInterface extends \Iterator, \ArrayAccess, \Countable, ArraySerializableInterface
 {
 	/**
 	 * @param mixed $value

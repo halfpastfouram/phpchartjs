@@ -2,7 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS\Options;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use Zend\Json\Expr;
 use Zend\Json\Json;
@@ -11,8 +12,10 @@ use Zend\Json\Json;
  * Class Legend
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Legend implements ArraySerializable, \JsonSerializable
+class Legend implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var bool
 	 */
@@ -109,11 +112,11 @@ class Legend implements ArraySerializable, \JsonSerializable
 	}
 
 	/**
-	 * @return string
+	 * @return Expr
 	 */
 	public function getOnClick()
 	{
-		return strval( $this->onClick );
+		return $this->onClick;
 	}
 
 	/**
@@ -175,24 +178,6 @@ class Legend implements ArraySerializable, \JsonSerializable
 		$this->reverse = !!$reverse;
 
 		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
-		if( !is_null( $this->position ) ) $data['position'] = $this->getPosition();
-		if( !is_null( $this->fullWidth ) ) $data['fullWidth'] = $this->isFullWidth();
-		if( !is_null( $this->onClick ) ) $data['onClick'] = $this->getOnClick();
-		if( !is_null( $this->onHover) ) $data['onHover'] = $this->getOnHover();
-		if( !is_null( $this->labels ) ) $data['labels'] = $this->labels()->getArrayCopy();
-		if( !is_null( $this->reverse ) ) $data['reverse'] = $this->isReverse();
-
-		return $data;
 	}
 
 	/**
