@@ -6,33 +6,36 @@ PHPChartJS acts as an interface between the ChartJS library and the server side 
 This library is still in active development and aims to implement all options ChartJS has to offer. Check the [Configuration milestone](https://github.com/halfpastfouram/PHPChartJS/milestone/1) to view the progress of implementing all existing options.
 
 ## Example use
+````php
+<?php
+use Halfpastfour\PHPChartJS\Chart\Bar;
 
-    <?php
-    use Halfpastfour\PHPChartJS\Factory;
+$bar = new Bar();
 
-    use Halfpastfour\PHPChartJS\Chart\Bar;
+// Set labels
+$bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
-    $bar = new Bar();
+// Add apples
+$apples = $bar->createDataSet();
+$apples->setLabel( "apples" )
+  ->setBackgroundColor( "rgba( 0, 150, 0, .5 )" )
+  ->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
+$bar->addDataSet( $apples );
 
-    // Set labels
-    $bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
+// Add oranges as well
+$oranges = $bar->createDataSet();
+$oranges->setLabel( "oranges" )
+  ->setBackgroundColor( "rgba( 255, 153, 0, .5 )" )
+  ->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3 ] );
+  
+// Add some extra data
+$oranges->data()->append( 10 );
 
-    // Add Datasets
-    $apples = $bar->createDataSet();
-    $apples->setLabel( "apples" )
-      ->setBackgroundColor( "rgba( 0, 150, 0, .5 )" )
-      ->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
-    $bar->addDataSet( $apples );
+$bar->addDataSet( $oranges );
 
-    $oranges = $bar->createDataSet();
-    $oranges->setLabel( "oranges" )
-      ->setBackgroundColor( "rgba( 255, 153, 0, .5 )" )
-      ->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10 ] );
-    $bar->addDataSet( $oranges );
-    
-    // Render the chart
-    echo $bar->render();
-    
+// Render the chart
+echo $bar->render();
+````
 Take a look at the examples in the test folder to explore the different options.
 
 ## Installation
