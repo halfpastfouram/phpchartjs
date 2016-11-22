@@ -49,6 +49,8 @@ var chart = new Chart( ctx, {"type":"bar","data":{"labels":["M","T","W","T","F",
 }})(window.onload);
 </script>
 ````
+
+### Pretty mode
 If you're not a fan of the long lines of code that are being generated you can force the rendering to be done in *pretty mode*, see the following example.
 
 ````php
