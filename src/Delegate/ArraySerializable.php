@@ -35,8 +35,8 @@ trait ArraySerializable
 					// Prepend 'is' to the getter method
 					$getter	= 'is' . ucfirst( $property );
 				} else {
-					if( method_exists( $this, $property ) ) {
-						// The getter method is equal to the property name
+					if( method_exists( $this, $property ) && is_object( $value ) ) {
+						// The getter method is equal to the property name and the value is an actual object
 						$getter	= $property;
 						$object	= true;
 					} else {

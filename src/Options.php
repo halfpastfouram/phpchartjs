@@ -5,6 +5,7 @@ namespace Halfpastfour\PHPChartJS;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Animation;
 use Halfpastfour\PHPChartJS\Options\Hover;
+use Halfpastfour\PHPChartJS\Options\Layout;
 use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
@@ -19,6 +20,11 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 {
 	use ChartOwned;
 	use ArraySerializable;
+
+	/**
+	 * @var Layout
+	 */
+	protected $layout;
 
 	/**
 	 * @var Title
@@ -49,6 +55,18 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 * @var Tooltips
 	 */
 	protected $tooltips;
+
+	/**
+	 * @return Layout
+	 */
+	public function layout()
+	{
+		if( is_null( $this->layout ) ) {
+			$this->layout	= new Layout();
+		}
+
+		return $this->layout();
+	}
 
 	/**
 	 * @return Title
