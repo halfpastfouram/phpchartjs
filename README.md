@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/halfpastfouram/PHPChartJS.svg?branch=master)](https://travis-ci.org/halfpastfouram/PHPChartJS)
+
 # PHPChartJS
 PHP OOP library for [ChartJS 2.4](http://www.chartjs.org/)
 
