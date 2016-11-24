@@ -30,19 +30,17 @@ trait ArraySerializable
 				$type	= $phpDoc->getTag( 'var' )->getDescription();
 				$object	= false;
 
+				// Prepend 'get' to the getter method.
+				$getter = 'get' . ucfirst( $property );
+
 				// Determine whether the getter method is equal to the property name or is prepended by 'is' or 'get'
 				if( strcmp( $type, 'bool' ) === 0 || strcmp( $type, 'boolean' ) === 0 ) {
 					// Prepend 'is' to the getter method
 					$getter	= 'is' . ucfirst( $property );
-				} else {
-					if( method_exists( $this, $property ) && is_object( $value ) ) {
-						// The getter method is equal to the property name and the value is an actual object
-						$getter	= $property;
-						$object	= true;
-					} else {
-						// Prepent 'get' to the getter method
-						$getter = 'get' . ucfirst( $property );
-					}
+				} else if ( method_exists( $this, $property ) && is_object( $this->$property ) ) {
+					// The getter method is equal to the property name and the value is an actual object
+					$getter	= $property;
+					$object	= true;
 				}
 
 				// Abort if the method does not exist

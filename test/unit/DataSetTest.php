@@ -3,6 +3,7 @@
 namespace Test;
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
+use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -18,7 +19,16 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testDataSet()
 	{
+		// Setup a new dataSet
 		$dataSet = new DataSet();
+		$this->assertNull( null, $dataSet->getOwner(), '' );
+
+		// Assign dataSet to Bar chart
+		$chart   = new Bar();
+		$chart->addDataSet( $dataSet );
+		$this->assertEquals( $chart, $dataSet->getOwner(), 'The owner of the dataSet is set and returned correctly' );
+		$this->assertInstanceOf( ChartInterface::class, $dataSet->getOwner(),
+			'The owner of the dataSet implements the correct interface' );
 
 		// Type
 		$this->assertNull( $dataSet->getType(), 'The type is not set' );

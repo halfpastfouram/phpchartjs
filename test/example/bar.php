@@ -5,12 +5,14 @@ require_once '../../vendor/autoload.php';
 use Halfpastfour\PHPChartJS\Chart\Bar;
 
 $bar = new Bar();
+$bar->setId( 'myChart' );
 
 // Set labels
 $bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bar->createDataSet();
+
 $apples->setLabel( "apples" )
 	->setBackgroundColor( "rgba( 0, 150, 0, .5 )" )
 	->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
