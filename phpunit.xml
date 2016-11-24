@@ -2,7 +2,7 @@
 <phpunit>
 	<testsuites>
 		<testsuite name="Default Unit Test Suite">
-			<directory>unit</directory>
+			<directory>test/unit</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
