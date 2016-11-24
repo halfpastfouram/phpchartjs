@@ -8,7 +8,7 @@ php:
 before_script:
   - composer self-update
   - composer install
-  - mkdir build/logs -p
+  - mkdir build/logs -P
 
 script:
   - phpunit --coverage-clover build/logs/clover.xml
