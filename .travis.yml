@@ -8,10 +8,10 @@ php:
 before_script:
   - composer self-update
   - composer install
-  - mkdir build/logs -P
+  - mkdir build/logs -p
 
 script:
-  - phpunit --coverage-clover build/logs/clover.xml
+  - phpunit
 
 after_success:
   - vendor/bin/test-reporter

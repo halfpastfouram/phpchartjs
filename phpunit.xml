@@ -5,6 +5,14 @@
 			<directory>test/unit</directory>
 		</testsuite>
 	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">src</directory>
+			<exclude>
+				<directory suffix=".php">test</directory>
+			</exclude>
+		</whitelist>
+	</filter>
 	<logging>
 		<log type="coverage-clover" target="build/logs/clover.xml"/>
 	</logging>
