@@ -6,7 +6,6 @@ use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\RadarDataSet;
 use Halfpastfour\PHPChartJS\Options\RadarOptions;
-use Halfpastfour\PHPChartJS\Renderer;
 
 /**
  * Class Radar

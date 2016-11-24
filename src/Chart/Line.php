@@ -6,7 +6,6 @@ use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
 use Halfpastfour\PHPChartJS\Options\LineOptions;
-use Halfpastfour\PHPChartJS\Renderer;
 
 /**
  * Class Line

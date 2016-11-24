@@ -6,7 +6,6 @@ use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\PieDataSet;
 use Halfpastfour\PHPChartJS\Options\PieOptions;
-use Halfpastfour\PHPChartJS\Renderer;
 
 /**
  * Class Pie

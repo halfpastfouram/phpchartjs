@@ -6,7 +6,6 @@ use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\PolarAreaDataSet;
 use Halfpastfour\PHPChartJS\Options\PolarAreaOptions;
-use Halfpastfour\PHPChartJS\Renderer;
 
 /**
  * Class PolarArea
