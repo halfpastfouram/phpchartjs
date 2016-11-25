@@ -11,12 +11,12 @@ abstract class Collection
 	/**
 	 * @var array
 	 */
-	protected $rowSet	= [];
+	protected $rowSet = [];
 
 	/**
 	 * @var int
 	 */
-	protected $cursor	= 0;
+	protected $cursor = 0;
 
 	/**
 	 * @var int
@@ -26,8 +26,7 @@ abstract class Collection
 	/**
 	 * @var array
 	 */
-	protected $keyMap	= [];
-
+	protected $keyMap = [];
 
 	/**
 	 * Calculates the keymap for the collection.
@@ -36,7 +35,8 @@ abstract class Collection
 	 */
 	protected function calculateKeyMap()
 	{
-		$this->keyMap	= array_keys( $this->rowSet );
+		$this->keyMap = array_keys( $this->rowSet );
+
 		return $this;
 	}
 
@@ -47,7 +47,8 @@ abstract class Collection
 	 */
 	public function getKeyMap()
 	{
-		if( !$this->keyMap ) $this->calculateKeyMap();
+		$this->calculateKeyMap();
+
 		return $this->keyMap;
 	}
 
@@ -60,15 +61,17 @@ abstract class Collection
 	 */
 	public function getKey( $cursor )
 	{
-		if( !$this->keyMap ) $this->calculateKeyMap();
+		$this->calculateKeyMap();
 		if( !array_key_exists( $cursor, $this->keyMap ) ) {
 			return false;
 		}
+
 		return $this->keyMap[ $cursor ];
 	}
 
 	/**
 	 * @param mixed $offset
+	 *
 	 * @return bool
 	 */
 	public function offsetExists( $offset )
@@ -77,11 +80,13 @@ abstract class Collection
 		if( !is_string( $offset ) && !is_int( $offset ) ) {
 			return false;
 		}
+
 		return array_key_exists( $offset, $this->rowSet );
 	}
 
 	/**
 	 * @param mixed $offset
+	 *
 	 * @return mixed
 	 */
 	public function offsetGet( $offset )
@@ -102,6 +107,7 @@ abstract class Collection
 	public function offsetSet( $offset, $value )
 	{
 		$this->rowSet[ $offset ] = $value;
+
 		return $this;
 	}
 
@@ -115,6 +121,7 @@ abstract class Collection
 		if( $this->offsetExists( $offset ) ) {
 			unset( $this->rowSet[ $offset ] );
 		}
+
 		return $this;
 	}
 
@@ -137,7 +144,7 @@ abstract class Collection
 	 */
 	public function append( $value )
 	{
-		$this->rowSet[]	= $value;
+		$this->rowSet[] = $value;
 
 		return $this;
 	}
@@ -147,7 +154,7 @@ abstract class Collection
 	 */
 	public function count()
 	{
-		return $this->count	= count( $this->rowSet );
+		return $this->count = count( $this->rowSet );
 	}
 
 	/**
@@ -172,6 +179,7 @@ abstract class Collection
 	public function previous()
 	{
 		$this->cursor--;
+
 		return $this->offsetGet( $this->getKey( $this->getCursor() ) );
 	}
 
@@ -181,6 +189,7 @@ abstract class Collection
 	public function next()
 	{
 		$this->cursor++;
+
 		return $this->offsetGet( $this->getKey( $this->getCursor() ) );
 	}
 
@@ -205,8 +214,9 @@ abstract class Collection
 	 */
 	public function rewind()
 	{
-		$this->cursor	= 0;
+		$this->cursor = 0;
 		reset( $this->rowSet );
+
 		return $this;
 	}
 
@@ -235,9 +245,9 @@ abstract class Collection
 		}
 
 		// Gather return data
-		$returnArray	= $this->getArrayCopy();
+		$returnArray = $this->getArrayCopy();
 		// Reset the items
-		$this->rowSet		= [];
+		$this->rowSet = [];
 
 		foreach( $data as $index => $row ) {
 			$this->offsetSet( $index, $row );
@@ -255,6 +265,7 @@ abstract class Collection
 	{
 		usort( $this->rowSet, $callback );
 		$this->rewind();
+
 		return $this;
 	}
 
@@ -264,6 +275,7 @@ abstract class Collection
 	public function ksort()
 	{
 		ksort( $this->rowSet );
+
 		return $this;
 	}
 }

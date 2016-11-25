@@ -2,9 +2,14 @@
 
 namespace Test;
 
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Collection;
 use Halfpastfour\PHPChartJS\CollectionInterface;
 
+/**
+ * Class MyCollection
+ * @package Test
+ */
 class MyCollection extends Collection implements CollectionInterface {}
 
 /**
@@ -18,6 +23,9 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $collection;
 
+	/**
+	 *
+	 */
 	public function setUp()
 	{
 		$this->collection = new MyCollection();
@@ -28,33 +36,57 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testImplementation()
 	{
-		$this->assertInstanceOf( Collection::class, $this->collection, 'Extends correct abstract class' );
-		$this->assertInstanceOf( CollectionInterface::class, $this->collection, 'Implements correct interface' );
+		$this->assertInstanceOf( Collection::class, $this->collection );
+		$this->assertInstanceOf( CollectionInterface::class, $this->collection );
+		$this->assertInstanceOf( \Iterator::class, $this->collection );
+		$this->assertInstanceOf( \ArrayAccess::class, $this->collection );
+		$this->assertInstanceOf( \Countable::class, $this->collection );
+		$this->assertInstanceOf( \Countable::class, $this->collection );
+		$this->assertInstanceOf( ArraySerializableInterface::class, $this->collection );
 	}
 
-	public function testValues()
+	/**
+	 *
+	 */
+	public function testAppend()
 	{
-		$this->assertEmpty( $this->collection->getArrayCopy(), 'The data inside the dataSet is empty' );
+		$this->assertInstanceOf( Collection::class, $this->collection->append( 'Bar' ) );
+		$this->assertEquals( 'Bar', $this->collection->current() );
+	}
 
-		$this->collection->append( 1 );
-		$this->assertEquals( [ 1 ] , $this->collection->getArrayCopy(), 'The data consists of one value: 1' );
+	/**
+	 *
+	 */
+	public function testPrepend()
+	{
+		$this->assertInstanceOf( Collection::class, $this->collection->prepend( 'Foo' ) );
+		$this->assertEquals( 'Foo', $this->collection->current() );
+	}
 
-		$this->collection->prepend( 0 );
-		$this->assertEquals( [ 0, 1 ] , $this->collection->getArrayCopy(), 'The data consists of values: 0, 1' );
+	/**
+	 *
+	 */
+	public function testAlteration()
+	{
+		$this->assertTrue( is_array( $this->collection->getArrayCopy() ) );
+		$this->assertEmpty( $this->collection->getArrayCopy() );
 
-		$this->collection->offsetSet( 2, 2 );
-		$this->assertEquals( [ 0, 1, 2 ] , $this->collection->getArrayCopy(), 'The data consists of values: 0, 1, 2' );
-		$this->assertEquals( 1, $this->collection->offsetGet( 1 ), 'The value at position 1 equals 1' );
+		$this->collection->append( 'Bar' )->prepend( 'Foo' );
+		$this->assertEquals( [ 'Foo', 'Bar' ], $this->collection->getArrayCopy() );
+
+		$this->collection->offsetSet( 2, 'Baz' );
+		$this->assertEquals( [ 'Foo', 'Bar', 'Baz' ], $this->collection->getArrayCopy() );
 
 		$this->collection->offsetUnset( 1 );
-		$this->assertArrayNotHasKey( 1, $this->collection->getArrayCopy(), 'Value at offset 1 has been removed' );
+		$this->assertArrayNotHasKey( 1, $this->collection->getArrayCopy() );
+		$this->assertEquals( [ 0 => 'Foo', 2 => 'Baz' ], $this->collection->getArrayCopy() );
 
-		$expectedValue = [ 0 => 0, 2 => 2 ];
-		$this->assertEquals( $expectedValue, $this->collection->getArrayCopy(), 'The data consists of values: 0, 2' );
+		$this->assertFalse( $this->collection->offsetExists( 1 ) );
+		$this->assertTrue( $this->collection->offsetExists( 2 ) );
 
 		$newValues = [ 1, 2, 3, 'Foo', 'Bar', 'Baz' ];
-		$result    = $this->collection->exchangeArray( $newValues );
-		$this->assertEquals( $expectedValue, $result, 'Exchanging array returns correct value' );
-		$this->assertEquals( $newValues, $this->collection->getArrayCopy(), 'New values have been set correctly' );
+		$oldValues = $this->collection->exchangeArray( $newValues );
+		$this->assertEquals( [ 0 => 'Foo', 2 => 'Baz' ], $oldValues );
+		$this->assertEquals( $newValues, $this->collection->getArrayCopy() );
 	}
 }
