@@ -6,7 +6,7 @@
     "graph",
     "php"
   ],
-  "homepage": "http://github.com/halfpastfouram/chartjs",
+  "homepage": "http://github.com/halfpastfouram/PHPChartJS",
   "type": "package",
   "version": "dev-master",
   "license": "AGPL 3.0",
