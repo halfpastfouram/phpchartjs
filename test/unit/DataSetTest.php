@@ -83,37 +83,6 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf(
 			\JsonSerializable::class, $dataCollection, 'The data collection implements JsonSerializable'
 		);
-
-
-		$this->assertEmpty( $dataSet->data()->getArrayCopy(), 'The data inside the dataSet is empty' );
-
-		$dataCollection->append( 1 );
-		$this->assertEquals( [ 1 ] , $dataCollection->getArrayCopy(), 'The data consists of one value: 1' );
-
-		$dataCollection->prepend( 0 );
-		$this->assertEquals( [ 0, 1 ] , $dataCollection->getArrayCopy(), 'The data consists of values: 0, 1' );
-
-		$dataCollection->offsetSet( 2, 2 );
-		$this->assertEquals( [ 0, 1, 2 ] , $dataCollection->getArrayCopy(), 'The data consists of values: 0, 1, 2' );
-		$this->assertEquals( 1, $dataCollection->offsetGet( 1 ), 'The value at position 1 equals 1' );
-
-		$dataCollection->offsetUnset( 1 );
-		$this->assertArrayNotHasKey( 1, $dataCollection->getArrayCopy(), 'Value at offset 1 has been removed' );
-
-		$expectedValue = [ 0 => 0, 2 => 2 ];
-		$this->assertEquals( $expectedValue, $dataCollection->getArrayCopy(), 'The data consists of values: 0, 2' );
-
-		$this->assertEquals(
-			Json::encode( $expectedValue ), $dataCollection->jsonSerialize(), 'The serialized data is correct'
-		);
-
-		$newValues = [ 1, 2, 3, 'Foo', 'Bar', 'Baz' ];
-		$result    = $dataCollection->exchangeArray( $newValues );
-		$this->assertEquals( $expectedValue, $result, 'Exchanging array returns correct value' );
-		$this->assertEquals( $newValues, $dataCollection->getArrayCopy(), 'New values have been set correctly' );
-		$this->assertEquals(
-			Json::encode( $newValues ), $dataCollection->jsonSerialize(), 'The serialized data is correct'
-		);
 	}
 
 	/**
@@ -209,5 +178,58 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 				'yAxisID' => 'myYAxis'
 			] ), $dataSet->jsonSerialize(), 'The serialized data is correct'
 		);
+	}
+
+	/**
+	 *
+	 */
+	public function testHoverBackgroundColor()
+	{
+		$dataSet	= new DataSet();
+
+		$this->assertNull( $dataSet->getHoverBackgroundColor(), 'The hoverBackgroundColor value is not set' );
+
+		$this->assertInstanceOf( DataSet::class, $dataSet->setHoverBackgroundColor( '#fff' ) );
+		$this->assertEquals( '#fff', $dataSet->getHoverBackgroundColor(), 'The correct value is returned' );
+
+		$newColors	= [ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )' ];
+		$dataSet->setHoverBackgroundColor( $newColors );
+		$this->assertEquals( $newColors, $dataSet->getHoverBackgroundColor(), 'The correct value is returned' );
+	}
+
+	/**
+	 *
+	 */
+	public function testHoverBorderColor()
+	{
+		$dataSet	= new DataSet();
+
+		$this->assertNull( $dataSet->getHoverBorderColor(), 'The hoverBorderColor value is not set' );
+
+		$this->assertInstanceOf( DataSet::class, $dataSet->setHoverBorderColor( '#fff' ) );
+		$this->assertEquals( '#fff', $dataSet->getHoverBorderColor(), 'The correct value is returned' );
+
+		$dataSet->setHoverBorderColor( [ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )', 0 ] );
+		$this->assertEquals(
+			[ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )', '0' ],
+			$dataSet->getHoverBorderColor(),
+			'The correct value is returned'
+		);
+	}
+
+	/**
+	 *
+	 */
+	public function testHoverBorderWidth()
+	{
+		$dataSet	= new DataSet();
+
+		$this->assertNull( $dataSet->getHoverBorderWidth(), 'The hoverBorderWidth value is not set' );
+
+		$this->assertInstanceOf( DataSet::class, $dataSet->setHoverBorderWidth( 1 ) );
+		$this->assertEquals( 1, $dataSet->getHoverBorderWidth(), 'The correct value is returned' );
+
+		$dataSet->setHoverBorderWidth( [ 1, 10, '5a', 0 ] );
+		$this->assertEquals( [ 1, 10, 5, 0 ], $dataSet->getHoverBorderWidth(), 'The correct value is returned' );
 	}
 }

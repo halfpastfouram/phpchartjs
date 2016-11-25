@@ -101,7 +101,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	public function data()
 	{
 		if( is_null( $this->data ) ) {
-			$this->data	= new Data();
+			$this->data = new Data();
 		}
 
 		return $this->data;
@@ -182,6 +182,9 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 */
 	public function setBackgroundColor( $backgroundColor )
 	{
+		if( is_array( $backgroundColor ) ) $backgroundColor = array_map( 'strval',$backgroundColor );
+		if( !is_array( $backgroundColor ) ) $backgroundColor = strval( $backgroundColor );
+
 		$this->backgroundColor = $backgroundColor;
 
 		return $this;
@@ -202,6 +205,9 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 */
 	public function setBorderColor( $borderColor )
 	{
+		if( is_array( $borderColor ) ) $borderColor = array_map( 'strval', $borderColor );
+		if( !is_array( $borderColor ) ) $borderColor = strval( $borderColor );
+
 		$this->borderColor = $borderColor;
 
 		return $this;
@@ -222,6 +228,9 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 */
 	public function setBorderWidth( $borderWidth )
 	{
+		if( is_array( $borderWidth ) ) $borderWidth = array_map( 'intval', $borderWidth );
+		if( !is_array( $borderWidth ) ) $borderWidth = intval( $borderWidth );
+
 		$this->borderWidth = $borderWidth;
 
 		return $this;
@@ -262,6 +271,9 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 */
 	public function setHoverBackgroundColor( $hoverBackgroundColor )
 	{
+		if( is_array( $hoverBackgroundColor ) ) $hoverBackgroundColor = array_map( 'strval', $hoverBackgroundColor );
+		if( !is_array( $hoverBackgroundColor ) ) $hoverBackgroundColor = strval( $hoverBackgroundColor );
+
 		$this->hoverBackgroundColor = $hoverBackgroundColor;
 
 		return $this;
@@ -282,6 +294,9 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 */
 	public function setHoverBorderColor( $hoverBorderColor )
 	{
+		if( is_array( $hoverBorderColor ) ) $hoverBorderColor = array_map( 'strval', $hoverBorderColor );
+		if( !is_array( $hoverBorderColor ) ) $hoverBorderColor = strval( $hoverBorderColor );
+
 		$this->hoverBorderColor = $hoverBorderColor;
 
 		return $this;
@@ -302,6 +317,9 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	 */
 	public function setHoverBorderWidth( $hoverBorderWidth )
 	{
+		if( is_array( $hoverBorderWidth ) ) $hoverBorderWidth = array_map( 'intval', $hoverBorderWidth );
+		if( !is_array( $hoverBorderWidth ) ) $hoverBorderWidth = intval( $hoverBorderWidth );
+
 		$this->hoverBorderWidth = $hoverBorderWidth;
 
 		return $this;
