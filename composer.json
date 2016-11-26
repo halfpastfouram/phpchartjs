@@ -22,8 +22,7 @@
     "rexxars/html-validator": "2.0.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "5.2.*",
-    "codeclimate/php-test-reporter": "dev-master"
+    "phpunit/phpunit": "5.2.*"
   },
   "autoload": {
     "psr-4": {
