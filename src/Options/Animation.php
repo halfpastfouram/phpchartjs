@@ -84,13 +84,13 @@ class Animation implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @param Expr $onProgress
+	 * @param string $onProgress
 	 *
 	 * @return $this
 	 */
 	public function setOnProgress( $onProgress )
 	{
-		$this->onProgress = $onProgress;
+		$this->onProgress = new Expr( strval( $onProgress ) );
 
 		return $this;
 	}
@@ -104,13 +104,13 @@ class Animation implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @param Expr $onComplete
+	 * @param string $onComplete
 	 *
 	 * @return $this
 	 */
 	public function setOnComplete( $onComplete )
 	{
-		$this->onComplete = $onComplete;
+		$this->onComplete = new Expr( strval( $onComplete ) );
 
 		return $this;
 	}
