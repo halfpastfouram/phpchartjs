@@ -15,6 +15,6 @@ class LabelsCollection extends Collection implements CollectionInterface, \JsonS
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->rowSet );
+		return Json::encode( $this->data );
 	}
 }

@@ -18,7 +18,7 @@ class XAxisCollection extends Collection implements CollectionInterface, \JsonSe
 	public function getArrayCopy()
 	{
 		$rows = [];
-		foreach( $this->rowSet as $row ) {
+		foreach( $this->data as $row ) {
 			/** @var XAxis $row */
 			$rows[] = $row->getArrayCopy();
 		}

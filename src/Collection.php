@@ -9,21 +9,29 @@ namespace Halfpastfour\PHPChartJS;
 abstract class Collection
 {
 	/**
+	 * The internal set of data.
+	 *
 	 * @var array
 	 */
-	protected $rowSet = [];
+	protected $data = [];
 
 	/**
+	 * The current internal cursor position.
+	 *
 	 * @var int
 	 */
 	protected $cursor = 0;
 
 	/**
+	 * The calulated count of the set of data.
+	 *
 	 * @var int
 	 */
 	protected $count;
 
 	/**
+	 * The calculated key map.
+	 *
 	 * @var array
 	 */
 	protected $keyMap = [];
@@ -35,7 +43,7 @@ abstract class Collection
 	 */
 	protected function calculateKeyMap()
 	{
-		$this->keyMap = array_keys( $this->rowSet );
+		$this->keyMap = array_keys( $this->data );
 
 		return $this;
 	}
@@ -53,9 +61,9 @@ abstract class Collection
 	}
 
 	/**
-	 * Returns key by given cursor
+	 * Returns key by given cursor position.
 	 *
-	 * @param int $cursor
+	 * @param int $cursor The cursor position to check.
 	 *
 	 * @return mixed
 	 */
@@ -70,94 +78,110 @@ abstract class Collection
 	}
 
 	/**
-	 * @param mixed $offset
+	 * Check if the given offset exists in the set of data.
+	 *
+	 * @param mixed $offset The offset to check.
 	 *
 	 * @return bool
 	 */
 	public function offsetExists( $offset )
 	{
-		// Can not retrieve a key based on a value other than a string and integer
+		// Can not retrieve a key based on a value other than a string or integer
 		if( !is_string( $offset ) && !is_int( $offset ) ) {
 			return false;
 		}
 
-		return array_key_exists( $offset, $this->rowSet );
+		return array_key_exists( $offset, $this->data );
 	}
 
 	/**
-	 * @param mixed $offset
+	 * Get a value from the given offset.
+	 *
+	 * @param mixed $offset The offset to get the value from.
 	 *
 	 * @return mixed
 	 */
 	public function offsetGet( $offset )
 	{
 		if( $this->offsetExists( $offset ) ) {
-			return $this->rowSet[ $offset ];
+			return $this->data[ $offset ];
 		} else {
 			return false;
 		}
 	}
 
 	/**
-	 * @param mixed $offset
-	 * @param mixed $value
+	 * Set a value at the given offset.
+	 *
+	 * @param mixed $offset The offset to set the value at.
+	 * @param mixed $value  The value to set.
 	 *
 	 * @return $this
 	 */
 	public function offsetSet( $offset, $value )
 	{
-		$this->rowSet[ $offset ] = $value;
+		$this->data[ $offset ] = $value;
 
 		return $this;
 	}
 
 	/**
-	 * @param mixed $offset
+	 * Unset a value at the given offset. Does nothing if the offset is not found.
+	 *
+	 * @param mixed $offset The offset to unset the value from.
 	 *
 	 * @return $this
 	 */
 	public function offsetUnset( $offset )
 	{
 		if( $this->offsetExists( $offset ) ) {
-			unset( $this->rowSet[ $offset ] );
+			unset( $this->data[ $offset ] );
 		}
 
 		return $this;
 	}
 
 	/**
-	 * @param mixed $value
+	 * Add a value to the beginning of the set of data. This will change existing keys.
+	 *
+	 * @param mixed $value The value to prepend.
 	 *
 	 * @return $this
 	 */
 	public function prepend( $value )
 	{
-		array_unshift( $this->rowSet, $value );
+		array_unshift( $this->data, $value );
 
 		return $this;
 	}
 
 	/**
-	 * @param mixed $value
+	 * Add a value to the end of the set of data.
+	 *
+	 * @param mixed $value The value to append.
 	 *
 	 * @return $this
 	 */
 	public function append( $value )
 	{
-		$this->rowSet[] = $value;
+		$this->data[] = $value;
 
 		return $this;
 	}
 
 	/**
+	 * Count the rows of data the collection contains.
+	 *
 	 * @return int
 	 */
 	public function count()
 	{
-		return $this->count = count( $this->rowSet );
+		return $this->count = count( $this->data );
 	}
 
 	/**
+	 * Get the internal cursor.
+	 *
 	 * @return int
 	 */
 	public function getCursor()
@@ -166,6 +190,8 @@ abstract class Collection
 	}
 
 	/**
+	 * Return the value of the current internal cursor position.
+	 *
 	 * @return mixed
 	 */
 	public function current()
@@ -174,6 +200,8 @@ abstract class Collection
 	}
 
 	/**
+	 * Decrease the internal cursor by one and return the value of the new internal cursor position.
+	 *
 	 * @return mixed
 	 */
 	public function previous()
@@ -184,6 +212,8 @@ abstract class Collection
 	}
 
 	/**
+	 * Increase the internal cursor by one and return the value of the new internal cursor position.
+	 *
 	 * @return mixed
 	 */
 	public function next()
@@ -194,7 +224,9 @@ abstract class Collection
 	}
 
 	/**
-	 * @return mixed
+	 * Return the current key according to the internal cursor position.
+	 *
+	 * @return string|int|bool
 	 */
 	public function key()
 	{
@@ -202,20 +234,24 @@ abstract class Collection
 	}
 
 	/**
+	 * Test if the current internal cursor position is valid.
+	 *
 	 * @return bool
 	 */
 	public function valid()
 	{
-		return !!$this->current();
+		return !!$this->key();
 	}
 
 	/**
+	 * Set the internal cursor to the first value in the array of data.
+	 *
 	 * @return $this
 	 */
 	public function rewind()
 	{
 		$this->cursor = 0;
-		reset( $this->rowSet );
+		reset( $this->data );
 
 		return $this;
 	}
@@ -227,27 +263,22 @@ abstract class Collection
 	 */
 	public function getArrayCopy()
 	{
-		return $this->rowSet;
+		return $this->data;
 	}
 
 	/**
 	 * Should set the data for the collection and return the previous set of data.
 	 *
-	 * @param array $data The data should be a bi-dimensional array.
-	 *
-	 * @return array A bi-dimensional array
+	 * @param array $data
+§	 *
+	 * @return array
 	 */
 	public function exchangeArray( array $data )
 	{
-		// Prevent the array from being one-dimensional
-		if( $this->count() == count( $data, COUNT_RECURSIVE ) ) {
-			throw new \InvalidArgumentException( 'Given argument must be bi-dimensional.' );
-		}
-
 		// Gather return data
 		$returnArray = $this->getArrayCopy();
 		// Reset the items
-		$this->rowSet = [];
+		$this->data = [];
 
 		foreach( $data as $index => $row ) {
 			$this->offsetSet( $index, $row );
@@ -257,24 +288,30 @@ abstract class Collection
 	}
 
 	/**
-	 * @param \Closure $callback
+	 * Provide a callback to use for sorting the data.
+	 *
+	 * @param \Closure $callback The callback to be used.
 	 *
 	 * @return $this
 	 */
 	public function usort( \Closure $callback )
 	{
-		usort( $this->rowSet, $callback );
+		usort( $this->data, $callback );
 		$this->rewind();
 
 		return $this;
 	}
 
 	/**
+	 * Sort the data by key.
+	 *
+	 * @param int $sortFlags Optional flags to provide to ksort.
+	 *
 	 * @return $this
 	 */
-	public function ksort()
+	public function ksort( $sortFlags = null )
 	{
-		ksort( $this->rowSet );
+		ksort( $this->data, $sortFlags );
 
 		return $this;
 	}
