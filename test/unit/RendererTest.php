@@ -41,7 +41,8 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Test and validate generated JSON. See http://www.ietf.org/rfc/rfc4627.txt and http://json.org/
+	 * Test and validate generated JSON. See http://www.ietf.org/rfc/rfc4627.txt and http://json.org/.
+	 * JavaScript functions will not be recognized and will result in failures of this test.
 	 */
 	public function testJson()
 	{
