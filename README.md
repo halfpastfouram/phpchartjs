@@ -1,4 +1,4 @@
-![TeamCity Build Status](http://halfpastfour.am:8111/app/rest/builds/buildType:(id:PHPChartJS_UnitTesting)/statusIcon)
+[![TeamCity Build Status](http://halfpastfour.am:8111/app/rest/builds/buildType:(id:PHPChartJS_UnitTesting)/statusIcon)](http://halfpastfour.am:8111/viewType.html?buildTypeId=PHPChartJS_UnitTesting)
 [![Build Status](https://travis-ci.org/halfpastfouram/PHPChartJS.svg?branch=master)](https://travis-ci.org/halfpastfouram/PHPChartJS)
 [![Code Climate](https://codeclimate.com/github/halfpastfouram/PHPChartJS/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/PHPChartJS)
 [![Test Coverage](https://codeclimate.com/github/halfpastfouram/PHPChartJS/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/PHPChartJS/coverage)
