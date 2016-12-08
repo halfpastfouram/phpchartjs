@@ -1,8 +1,8 @@
 <?php
 
-namespace Test;
+namespace Test\Chart;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\ChartInterface;
@@ -10,7 +10,7 @@ use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
 
 /**
  * Class BarTest
- * @package Test
+ * @package Test\Chart
  */
 class BarTest extends \PHPUnit_Framework_TestCase
 {
