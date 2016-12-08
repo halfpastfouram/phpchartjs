@@ -138,6 +138,41 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * Test setting and getting the border width.
+	 */
+	public function testBorderWidth()
+	{
+		$dataSet	= new DataSet();
+		$this->assertNull( $dataSet->getBorderWidth(), 'The border width is not set' );
+
+		$this->assertEquals(
+			$dataSet, $dataSet->setBorderWidth( 10 ), 'Setting the border width should return the DataSet instance'
+		);
+		$this->assertTrue( is_int( $dataSet->getBorderWidth() ), 'Return type should be int' );
+		$this->assertEquals( 10, $dataSet->getBorderWidth(), 'The border width should equal int 10' );
+
+		$dataSet->setBorderWidth( '20' );
+		$this->assertTrue( is_int( $dataSet->getBorderWidth() ), 'Return type should be int' );
+		$this->assertEquals( 20, $dataSet->getBorderWidth(), 'The border width should equal int 20' );
+
+		$dataSet->setBorderWidth( '30abc' );
+		$this->assertTrue( is_int( $dataSet->getBorderWidth() ), 'Return type should be int' );
+		$this->assertEquals( 30, $dataSet->getBorderWidth(), 'The border width should equal int 30' );
+
+		$dataSet->setBorderWidth( 40.00 );
+		$this->assertTrue( is_int( $dataSet->getBorderWidth() ), 'Return type should be int' );
+		$this->assertEquals( 40, $dataSet->getBorderWidth(), 'The border width should equal int 40' );
+
+		$dataSet->setBorderWidth( 'abc50' );
+		$this->assertTrue( is_int( $dataSet->getBorderWidth() ), 'Return type should be int' );
+		$this->assertEquals( 0, $dataSet->getBorderWidth(), 'The border width should equal int 0' );
+
+		$dataSet->setBorderWidth( [ 10, '20', '30abc', 40.00, 'abc50' ] );
+		$this->assertTrue( is_array( $dataSet->getBorderWidth() ), 'Return type should be array' );
+		$this->assertEquals( [ 10, 20, 30, 40, 0 ], $dataSet->getBorderWidth(), 'Return value should be array of int' );
+	}
+
+	/**
 	 *
 	 */
 	public function testBorderSkipped()
