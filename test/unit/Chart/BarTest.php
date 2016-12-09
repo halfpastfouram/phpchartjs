@@ -7,6 +7,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
+use Halfpastfour\PHPChartJS\Options\BarOptions;
 
 /**
  * Class BarTest
@@ -19,7 +20,7 @@ class BarTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testBar()
 	{
-		$bar     = new Bar();
+		$bar = new Bar();
 
 		// Check if correct class is returned.
 		$this->assertInstanceOf( ChartInterface::class, $bar, 'The correct interface has been implemented' );
@@ -44,5 +45,14 @@ class BarTest extends \PHPUnit_Framework_TestCase
 		// Check if data is still correct.
 		$bar->addDataSet( $dataSet );
 		$this->assertEquals( $chartData, $bar->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+	}
+
+	/**
+	 *
+	 */
+	public function testOptions()
+	{
+		$bar = new Bar();
+		$this->assertInstanceOf( BarOptions::class, $bar->options(), 'The correct class should be created' );
 	}
 }

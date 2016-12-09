@@ -7,6 +7,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 use Halfpastfour\PHPChartJS\Chart\Bubble;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BubbleDataSet;
+use Halfpastfour\PHPChartJS\Options\BubbleOptions;
 
 /**
  * Class BubbleTest
@@ -51,5 +52,14 @@ class BubbleTest extends \PHPUnit_Framework_TestCase
 		// Check if data is still correct.
 		$bubble->addDataSet( $dataSet );
 		$this->assertEquals( $chartData, $bubble->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+	}
+
+	/**
+	 *
+	 */
+	public function testOptions()
+	{
+		$bar = new Bubble();
+		$this->assertInstanceOf( BubbleOptions::class, $bar->options(), 'The correct class should be created' );
 	}
 }

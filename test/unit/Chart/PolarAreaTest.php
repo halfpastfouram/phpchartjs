@@ -1,0 +1,60 @@
+<?php
+
+namespace Test\Chart;
+
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
+use Halfpastfour\PHPChartJS\Chart\PolarArea;
+use Halfpastfour\PHPChartJS\ChartInterface;
+use Halfpastfour\PHPChartJS\DataSet\PolarAreaDataSet;
+use Halfpastfour\PHPChartJS\Options\PolarAreaOptions;
+
+/**
+ * Class PolarAreaTest
+ * @package Test\Chart
+ */
+class PolarAreaTest extends \PHPUnit_Framework_TestCase
+{
+	/**
+	 * Test the factory for creating a PolarArea chart
+	 */
+	public function testPolarArea()
+	{
+		$PolarArea = new PolarArea();
+
+		// Check if correct class is returned.
+		$this->assertInstanceOf( ChartInterface::class, $PolarArea, 'The correct interface has been implemented' );
+		$this->assertInstanceOf( PolarArea::class, $PolarArea, 'The correct class has been created' );
+	}
+
+	/**
+	 * Test the DataSet created by the PolarArea chart
+	 */
+	public function testDataSet()
+	{
+		$PolarArea = new PolarArea();
+		$chartData = [ 0, 1, 4, 2, 3, 0, 5, 2, 6 ];
+
+		// DataSet
+		$dataSet = $PolarArea->createDataSet();
+		$this->assertInstanceOf( PolarAreaDataSet::class, $dataSet, 'The correct class has been created by the chart' );
+
+		// Populate the collection
+		$dataSet->data()->exchangeArray( $chartData );
+
+		// Check if data is still correct.
+		$PolarArea->addDataSet( $dataSet );
+		$this->assertEquals( $chartData, $PolarArea->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+	}
+
+	/**
+	 *
+	 */
+	public function testOptions()
+	{
+		$PolarArea = new PolarArea();
+		$this->assertInstanceOf(
+			PolarAreaOptions::class, $PolarArea->options(), 'The correct class should be created'
+		);
+	}
+}
