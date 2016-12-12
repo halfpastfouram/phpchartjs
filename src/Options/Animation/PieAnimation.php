@@ -59,17 +59,4 @@ class PieAnimation extends Animation
 
 		return $this;
 	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= parent::getArrayCopy();
-
-		if( !is_null( $this->animateRotate ) ) $data['animateRotate'] = $this->isAnimateRotate();
-		if( !is_null( $this->animateScale ) ) $data['animateScale'] = $this->isAnimateScale();
-
-		return $data;
-	}
 }

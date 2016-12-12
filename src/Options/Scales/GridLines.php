@@ -2,15 +2,18 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Json;
 
 /**
  * Class GridLines
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class GridLines implements ArraySerializable, \JsonSerializable
+class GridLines implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var bool
 	 */
@@ -309,29 +312,6 @@ class GridLines implements ArraySerializable, \JsonSerializable
 		$this->offsetGridLines = $offsetGridLines;
 
 		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
-		if( !is_null( $this->color ) ) $data['color'] = $this->getColor();
-		if( !is_null( $this->borderDash ) ) $data['borderDash'] = $this->getBorderDash();
-		if( !is_null( $this->borderDashOffset ) ) $data['borderDashOffset'] = $this->getBorderDashOffset();
-		if( !is_null( $this->lineWidth ) ) $data['lineWidth'] = $this->getLineWidth();
-		if( !is_null( $this->drawBorder ) ) $data['drawBorder'] = $this->isDrawBorder();
-		if( !is_null( $this->drawOnChartArea ) ) $data['drawOnChartArea'] = $this->isDrawOnChartArea();
-		if( !is_null( $this->drawTicks ) ) $data['drawTicks'] = $this->isDrawTicks();
-		if( !is_null( $this->tickMarkLength ) ) $data['tickMarkLength'] = $this->getTickMarkLength();
-		if( !is_null( $this->zeroLineWidth ) ) $data['zeroLineWidth'] = $this->getZeroLineWidth();
-		if( !is_null( $this->zeroLineColor ) ) $data['zeroLineColor'] = $this->getZeroLineColor();
-		if( !is_null( $this->offsetGridLines ) ) $data['offsetGridLines'] = $this->isOffsetGridLines();
-
-		return $data;
 	}
 
 	/**

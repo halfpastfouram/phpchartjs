@@ -18,17 +18,21 @@ class Renderer
 	/**
 	 * Renderer constructor.
 	 *
-	 * @param Chart $chart
+	 * @param ChartInterface $chart
 	 */
-	public function __construct( Chart $chart )
+	public function __construct( ChartInterface $chart )
 	{
 		$this->chart = $chart;
 	}
 
 	/**
 	 * Takes care of creating the JSON object required to instance a Chart with JavaScript.
+	 *
+	 * @param bool $pretty
+	 *
+	 * @return string
 	 */
-	public function renderJSON()
+	public function renderJSON( $pretty = false )
 	{
 		$config = [
 			'type' => constant( get_class( $this->chart ) . "::TYPE" ),
@@ -44,10 +48,15 @@ class Renderer
 		$options = $this->chart->options()->getArrayCopy();
 		if( $options ) $config['options'] = $options;
 
-		return Json::encode( $config, false, [ 'enableJsonExprFinder' => true ] );
+		$output	= Json::encode( $config, false, [ 'enableJsonExprFinder' => true ] );
+		if( !!$pretty ) $output = Json::prettyPrint( $output );
+
+		return $output;
 	}
 
 	/**
+	 * Renders the necessary HTML and JavaScript for the chart to function in the frontend.
+	 *
 	 * @param bool $pretty
 	 *
 	 * @return string
@@ -74,7 +83,7 @@ class Renderer
 		$script[] = "var ctx = document.getElementById( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";
 
 		// Now, setup the chart instance
-		$json     = !!$pretty ? Json::prettyPrint( $this->renderJSON() ) : $this->renderJSON();
+		$json     = $this->renderJSON( !!$pretty );
 		$script[] = "var chart = new Chart( ctx, {$json} );";
 
 		// Render the script element

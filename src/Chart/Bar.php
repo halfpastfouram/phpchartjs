@@ -4,10 +4,8 @@ namespace Halfpastfour\PHPChartJS\Chart;
 
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\ChartInterface;
-use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
 use Halfpastfour\PHPChartJS\Options\BarOptions;
-use Halfpastfour\PHPChartJS\Renderer;
 
 /**
  * Class Bar

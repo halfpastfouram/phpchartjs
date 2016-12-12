@@ -1,8 +1,7 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
-use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
 $colors   = [
@@ -15,10 +14,10 @@ $colors   = [
 	'rgb(84,121,128)',
 ];
 $factory  = new Factory();
-$doughnut = $factory->create( $factory::DOUGHNUT );
+$pie = $factory->create( $factory::PIE );
 
 // Set labels
-$doughnut->getLabels()->exchangeArray( [
+$pie->getLabels()->exchangeArray( [
 	"Monday",
 	"Tuesday",
 	"Wednesday",
@@ -29,17 +28,11 @@ $doughnut->getLabels()->exchangeArray( [
 ] );
 
 // Add Datasets
-$apples = $doughnut->createDataSet();
-$apples->setLabel( 'apples' )
+$apples = $pie->createDataSet();
+$apples->setLabel( 'My First dataset' )
 	->setBackgroundColor( $colors )
-	->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7, ] );
-$doughnut->addDataSet( $apples );
-
-$oranges = $doughnut->createDataSet();
-$oranges->setLabel( 'oranges' )
-	->setBackgroundColor( $colors )
-	->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10, ] );
-$doughnut->addDataSet( $oranges );
+	->data()->exchangeArray( [ 165, 59, 80, 81, 56, 55, 40 ] );
+$pie->addDataSet( $apples );
 
 ?>
 
@@ -50,7 +43,7 @@ $doughnut->addDataSet( $oranges );
 <body>
 <?php
 // Render the chart
-echo $doughnut->render();
+echo $pie->render();
 ?>
 </body>
 </html>

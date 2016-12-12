@@ -6,7 +6,7 @@ namespace Halfpastfour\PHPChartJS;
  * Class Chart
  * @package Halfpastfour\PHPChartJS
  */
-abstract class Chart implements ChartInterface
+abstract class Chart
 {
 	const TYPE	= null;
 

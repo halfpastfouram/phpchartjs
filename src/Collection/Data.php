@@ -17,6 +17,6 @@ class Data extends Collection implements CollectionInterface, \JsonSerializable
 	 */
 	public function jsonSerialize()
 	{
-		return Json::encode( $this->rowSet );
+		return Json::encode( $this->data );
 	}
 }

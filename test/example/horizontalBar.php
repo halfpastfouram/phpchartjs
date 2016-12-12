@@ -1,17 +1,14 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
-use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
 $factory   = new Factory();
-$bar       = $factory->create( $factory::BAR );
+$bar       = $factory->create( $factory::HORIZONTAL_BAR );
 
 // Set labels
-$bar->getLabels()->exchangeArray( [
-	"M", "T", "W", "T", "F", "S", "S"
-] );
+$bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bar->createDataSet();
@@ -26,7 +23,9 @@ $oranges->setLabel( 'oranges' )
 	->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10 ] );
 $bar->addDataSet( $oranges );
 
-
+$scales	= $bar->options()->scales();
+$scales->xAxes()->append( $scales->createXAxis()->setStacked( true ) );
+$scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) );
 
 ?>
 
@@ -36,8 +35,8 @@ $bar->addDataSet( $oranges );
 </head>
 <body>
 <?php
-	// Render the chart
-	echo $bar->render();
+// Render the chart
+echo $bar->render();
 ?>
 </body>
 </html>

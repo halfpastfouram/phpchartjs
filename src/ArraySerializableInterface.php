@@ -3,10 +3,10 @@
 namespace Halfpastfour\PHPChartJS;
 
 /**
- * Interface ArraySerializable
+ * Interface ArraySerializableInterface
  * @package Halfpastfour\PHPChartJS
  */
-interface ArraySerializable
+interface ArraySerializableInterface
 {
 	/**
 	 * Should return a multidimensional array from the collection and it's rows.

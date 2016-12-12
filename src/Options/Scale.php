@@ -2,7 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS\Options;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
 use Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel;
 use Halfpastfour\PHPChartJS\Options\Scales\Ticks;
@@ -12,8 +13,10 @@ use Zend\Json\Json;
  * Class Scale
  * @package Halfpastfour\PHPChartJS\Options
  */
-abstract class Scale implements ArraySerializable, \JsonSerializable
+abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var string
 	 */
@@ -564,45 +567,6 @@ abstract class Scale implements ArraySerializable, \JsonSerializable
 		}
 
 		return $this->ticks;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		if( !is_null( $this->type ) ) $data['type'] = $this->getType();
-		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
-		if( !is_null( $this->id ) ) $data['id'] = $this->getId();
-		if( !is_null( $this->stacked ) ) $data['stacked'] = $this->isStacked();
-		if( !is_null( $this->barThickness ) ) $data['barThickness'] = $this->getBarThickness();
-		if( !is_null( $this->position ) ) $data['position'] = $this->getPosition();
-		if( !is_null( $this->gridLines ) ) $data['gridLines'] = $this->gridLines()->getArrayCopy();
-		if( !is_null( $this->beforeUpdate ) ) $data['beforeUpdate'] = $this->getBeforeUpdate();
-		if( !is_null( $this->afterUpdate ) ) $data['afterUpdate'] = $this->getAfterUpdate();
-		if( !is_null( $this->beforeSetDimensions ) ) $data['beforeSetDimensions'] = $this->getBeforeSetDimensions();
-		if( !is_null( $this->afterSetDimensions ) ) $data['afterSetDimensions'] = $this->getAfterSetDimensions();
-		if( !is_null( $this->beforeDataLimits ) ) $data['beforeDataLimits'] = $this->getBeforeDataLimits();
-		if( !is_null( $this->afterDataLimits ) ) $data['afterDataLimits'] = $this->getAfterDataLimits();
-		if( !is_null( $this->beforeBuildTicks ) ) $data['beforeBuildTicks'] = $this->getBeforeBuildTicks();
-		if( !is_null( $this->afterBuildTicks ) ) $data['afterBuildTicks'] = $this->getAfterBuildTicks();
-		if( !is_null( $this->beforeTickToLabelConversion ) )
-			$data['beforeTickToLabelConversion'] = $this->getBeforeTickToLabelConversion();
-		if( !is_null( $this->afterTickToLabelConversion ) )
-			$data['afterTickToLabelConversion'] = $this->getAfterTickToLabelConversion();
-		if( !is_null( $this->beforeCalculateTickRotation ) )
-			$data['beforeCalculateTickRotation'] = $this->getBeforeCalculateTickRotation();
-		if( !is_null( $this->afterCalculateTickRotation ) )
-			$data['afterCalculateTickRotation'] = $this->getAfterCalculateTickRotation();
-		if( !is_null( $this->beforeFit ) ) $data['beforeFit'] = $this->getBeforeFit();
-		if( !is_null( $this->afterFit ) ) $data['afterFit'] = $this->getAfterFit();
-		if( !is_null( $this->gridLines) ) $data['gridLines']	= $this->gridLines()->getArrayCopy();
-		if( !is_null( $this->scaleLabel ) ) $data['scaleLabel']	= $this->scaleLabel()->getArrayCopy();
-		if( !is_null( $this->ticks ) ) $data['ticks']	= $this->ticks()->getArrayCopy();
-
-		return $data;
 	}
 
 	/**

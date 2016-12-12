@@ -1,8 +1,7 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
-use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
 $factory   = new Factory();

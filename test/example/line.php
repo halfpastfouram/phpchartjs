@@ -1,22 +1,19 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
-use Halfpastfour\PHPChartJS\DataSet;
-use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
 $factory   = new Factory();
-/** @var \Halfpastfour\PHPChartJS\Chart\Line $bar */
-$bar       = $factory->create( $factory::BAR );
+/** @var \Halfpastfour\PHPChartJS\Chart\Line $line */
+$line       = $factory->create( $factory::LINE );
 
 // Set labels
-$bar->getLabels()->exchangeArray( [ "January", "February", "March", "April", "May", "June", "July" ] );
+$line->getLabels()->exchangeArray( [ "January", "February", "March", "April", "May", "June", "July" ] );
 
 // Add Datasets
-$dataSet = new LineDataSet();
+$dataSet = $line->createDataSet();
 $dataSet->setLabel( 'My First dataset' )
-	->setType( 'line' )
 	->setFill( false )
 	->setLineTension( 0.1 )
 	->setBackgroundColor( 'rgba(75,192,192,0.4)' )
@@ -34,28 +31,29 @@ $dataSet->setLabel( 'My First dataset' )
 	->setPointHoverBorderWidth( 2 )
 	->setPointRadius( 1 )
 	->setPointHitRadius( 10 )
+	->setSpanGaps( false )
 	->data()->exchangeArray( [ 65, 59, 80, 81, 56, 55, 40 ] );
-$bar->addDataSet( $dataSet );
+$line->addDataSet( $dataSet );
 
 // Set mode to stacked
-$scales	= $bar->options()->scales();
+$scales	= $line->options()->scales();
 $scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) )
 	->append( $scales->createYAxis()->setPosition( 'right' )->setId( 'y2' ) );
 
 // Add even more data
-$apples = $bar->createDataSet();
+$apples = $line->createDataSet();
 $apples->setLabel( 'apples' )
 	->setYAxisID( 'y2' )
 	->setBackgroundColor( 'rgba( 0, 150, 0, .5 )' )
 	->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
-$bar->addDataSet( $apples );
+$line->addDataSet( $apples );
 
-$oranges = $bar->createDataSet();
+$oranges = $line->createDataSet();
 $oranges->setLabel( 'oranges' )
 	->setYAxisID( 'y2' )
 	->setBackgroundColor( 'rgba( 255, 153, 0, .5 )' )
 	->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10 ] );
-$bar->addDataSet( $oranges );
+$line->addDataSet( $oranges );
 
 ?>
 
@@ -65,8 +63,8 @@ $bar->addDataSet( $oranges );
 </head>
 <body>
 <?php
-// Render the chart
-echo $bar->render();
+	// Render the chart
+	echo $line->render();
 ?>
 </body>
 </html>

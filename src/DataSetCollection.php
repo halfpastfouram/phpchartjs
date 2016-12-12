@@ -16,7 +16,7 @@ class DataSetCollection extends Collection implements CollectionInterface, \Json
 	public function getArrayCopy()
 	{
 		$rows	= [];
-		foreach( $this->rowSet as $row ) {
+		foreach( $this->data as $row ) {
 			/** @var DataSet $row */
 			$rows[]	= $row->getArrayCopy();
 		}

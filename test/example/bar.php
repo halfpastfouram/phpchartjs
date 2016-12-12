@@ -1,31 +1,28 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
-use Halfpastfour\PHPChartJS\Factory;
+use Halfpastfour\PHPChartJS\Chart\Bar;
 
-$factory   = new Factory();
-$bar       = $factory->create( $factory::HORIZONTAL_BAR );
+$bar = new Bar();
+$bar->setId( 'myChart' );
 
 // Set labels
 $bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bar->createDataSet();
-$apples->setLabel( 'apples' )
-	->setBackgroundColor( 'rgba( 0, 150, 0, .5 )' )
+
+$apples->setLabel( "apples" )
+	->setBackgroundColor( "rgba( 0, 150, 0, .5 )" )
 	->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
 $bar->addDataSet( $apples );
 
 $oranges = $bar->createDataSet();
-$oranges->setLabel( 'oranges' )
+$oranges->setLabel( "oranges" )
 	->setBackgroundColor( 'rgba( 255, 153, 0, .5 )' )
 	->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10 ] );
 $bar->addDataSet( $oranges );
-
-$scales	= $bar->options()->scales();
-$scales->xAxes()->append( $scales->createXAxis()->setStacked( true ) );
-$scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) );
 
 ?>
 
@@ -35,8 +32,8 @@ $scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) );
 </head>
 <body>
 <?php
-// Render the chart
-echo $bar->render();
+	// Render the chart
+	echo $bar->render();
 ?>
 </body>
 </html>

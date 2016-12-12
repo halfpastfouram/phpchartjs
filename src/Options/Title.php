@@ -2,15 +2,18 @@
 
 namespace Halfpastfour\PHPChartJS\Options;
 
-use Halfpastfour\PHPChartJS\ArraySerializable;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Json;
 
 /**
  * Class LineOptions
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Title implements ArraySerializable, \JsonSerializable
+class Title implements ArraySerializableInterface, \JsonSerializable
 {
+	use ArraySerializable;
+
 	/**
 	 * @var bool
 	 */
@@ -234,26 +237,6 @@ class Title implements ArraySerializable, \JsonSerializable
 		$this->text = strval( $text );
 
 		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$data	= [];
-
-		if( !is_null( $this->display ) ) $data['display'] = $this->isDisplay();
-		if( !is_null( $this->position ) ) $data['position'] = $this->getPosition();
-		if( !is_null( $this->fullWidth ) ) $data['fullWidth'] = $this->isFullWidth();
-		if( !is_null( $this->fontSize ) ) $data['fontSize'] = $this->getFontSize();
-		if( !is_null( $this->fontFamily ) ) $data['fontFamily'] = $this->getFontFamily();
-		if( !is_null( $this->fontColor ) ) $data['fontColor'] = $this->getFontColor();
-		if( !is_null( $this->fontStyle ) ) $data['fontStyle'] = $this->getFontStyle();
-		if( !is_null( $this->padding ) ) $data['padding'] = $this->getPadding();
-		if( !is_null( $this->text ) ) $data['text'] = $this->getText();
-
-		return $data;
 	}
 
 	/**
