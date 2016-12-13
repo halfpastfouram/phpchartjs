@@ -12,6 +12,9 @@ use Halfpastfour\PHPChartJS\Options\LineOptions;
  */
 class Line extends Chart
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE = 'line';
 
 	/**
