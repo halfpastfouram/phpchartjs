@@ -10,28 +10,22 @@ use Halfpastfour\PHPChartJS\Options\BubbleOptions;
 /**
  * Class Bubble
  * @package Halfpastfour\PHPChartJS\Chart
+ *
+ * @method BubbleDataSet createDataSet
+ * @method BubbleOptions options
  */
-class Bubble extends Chart implements ChartInterface
+class Bubble extends Chart
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE = 'bubble';
 
 	/**
-	 * @return BubbleDataSet
+	 * The list of models that should be used for this chart type.
 	 */
-	public function createDataSet()
-	{
-		return new BubbleDataSet();
-	}
-
-	/**
-	 * @return BubbleOptions
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new BubbleOptions( $this );
-		}
-
-		return $this->options;
-	}
+	const MODEL = [
+		'dataset' => BubbleDataSet::class,
+		'options' => BubbleOptions::class,
+	];
 }

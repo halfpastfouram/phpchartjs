@@ -6,9 +6,20 @@ namespace Halfpastfour\PHPChartJS;
  * Class Chart
  * @package Halfpastfour\PHPChartJS
  */
-abstract class Chart
+abstract class Chart implements ChartInterface
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE	= null;
+
+	/**
+	 * The list of models that should be used for this chart type.
+	 */
+	const MODEL	= [
+		'dataset'	=> DataSet::class,
+		'options'	=> Options::class
+	];
 
 	/**
 	 * @var string
@@ -205,5 +216,27 @@ abstract class Chart
 	{
 		$renderer	= new Renderer( $this );
 		return $renderer->render( !!$pretty );
+	}
+
+	/**
+	 * @return DataSet
+	 */
+	public function createDataSet()
+	{
+		$datasetClass	= static::MODEL['dataset'];
+		return new $datasetClass();
+	}
+
+	/**
+	 * @return Options
+	 */
+	public function options()
+	{
+		if( is_null( $this->options ) ) {
+			$optionsClass	= static::MODEL['options'];
+			$this->options	= new $optionsClass( $this );
+		}
+
+		return $this->options;
 	}
 }
