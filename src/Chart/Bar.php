@@ -10,28 +10,22 @@ use Halfpastfour\PHPChartJS\Options\BarOptions;
 /**
  * Class Bar
  * @package Halfpastfour\PHPChartJS\Chart
+ *
+ * @method BarDataSet createDataSet
+ * @method BarOptions options
  */
-class Bar extends Chart implements ChartInterface
+class Bar extends Chart
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE = 'bar';
 
 	/**
-	 * @return BarDataSet
+	 * The list of models that should be used for this chart type.
 	 */
-	public function createDataSet()
-	{
-		return new BarDataSet();
-	}
-
-	/**
-	 * @return BarOptions
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new BarOptions( $this );
-		}
-
-		return $this->options;
-	}
+	const MODEL = [
+		'dataset' => BarDataSet::class,
+		'options' => BarOptions::class,
+	];
 }
