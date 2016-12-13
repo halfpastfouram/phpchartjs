@@ -16,22 +16,10 @@ class Radar extends Chart implements ChartInterface
 	const TYPE = 'radar';
 
 	/**
-	 * @return RadarDataSet
+	 * The list of models that should be used for this chart type.
 	 */
-	public function createDataSet()
-	{
-		return new RadarDataSet();
-	}
-
-	/**
-	 * @return RadarOptions
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new RadarOptions( $this );
-		}
-
-		return $this->options;
-	}
+	const MODEL = [
+		'dataset' => RadarDataSet::class,
+		'options' => RadarOptions::class,
+	];
 }

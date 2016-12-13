@@ -16,22 +16,10 @@ class Pie extends Chart implements ChartInterface
 	const TYPE = 'pie';
 
 	/**
-	 * @return PieDataSet
+	 * The list of models that should be used for this chart type.
 	 */
-	public function createDataSet()
-	{
-		return new PieDataSet();
-	}
-
-	/**
-	 * @return PieOptions
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new PieOptions( $this );
-		}
-
-		return $this->options;
-	}
+	const MODEL = [
+		'dataset' => PieDataSet::class,
+		'options' => PieOptions::class,
+	];
 }

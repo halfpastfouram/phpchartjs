@@ -16,22 +16,10 @@ class PolarArea extends Chart implements ChartInterface
 	const TYPE = 'polarArea';
 
 	/**
-	 * @return PolarAreaDataSet
+	 * The list of models that should be used for this chart type.
 	 */
-	public function createDataSet()
-	{
-		return new PolarAreaDataSet();
-	}
-
-	/**
-	 * @return PolarAreaOptions
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new PolarAreaOptions( $this );
-		}
-
-		return $this->options;
-	}
+	const MODEL = [
+		'dataset' => PolarAreaDataSet::class,
+		'options' => PolarAreaOptions::class,
+	];
 }

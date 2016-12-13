@@ -3,7 +3,6 @@
 namespace Halfpastfour\PHPChartJS\Chart;
 
 use Halfpastfour\PHPChartJS\Chart;
-use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BubbleDataSet;
 use Halfpastfour\PHPChartJS\Options\BubbleOptions;
 

@@ -3,7 +3,6 @@
 namespace Halfpastfour\PHPChartJS\Chart;
 
 use Halfpastfour\PHPChartJS\Chart;
-use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
 use Halfpastfour\PHPChartJS\Options\LineOptions;
 
@@ -11,27 +10,15 @@ use Halfpastfour\PHPChartJS\Options\LineOptions;
  * Class Line
  * @package Halfpastfour\PHPChartJS\Chart
  */
-class Line extends Chart implements ChartInterface
+class Line extends Chart
 {
 	const TYPE = 'line';
 
 	/**
-	 * @return LineDataSet
+	 * The list of models that should be used for this chart type.
 	 */
-	public function createDataSet()
-	{
-		return new LineDataSet();
-	}
-
-	/**
-	 * @return LineOptions
-	 */
-	public function options()
-	{
-		if( is_null( $this->options ) ) {
-			$this->options	= new LineOptions( $this );
-		}
-
-		return $this->options;
-	}
+	const MODEL = [
+		'dataset' => LineDataSet::class,
+		'options' => LineOptions::class,
+	];
 }
