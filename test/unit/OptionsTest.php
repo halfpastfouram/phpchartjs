@@ -22,7 +22,9 @@ use Halfpastfour\PHPChartJS\Options\Legend;
  */
 class OptionsTest extends \PHPUnit_Framework_TestCase
 {
-	/** @var  Options $options */
+	/**
+	 * @var Options $options
+	 */
 	private $options;
 
 	/**
