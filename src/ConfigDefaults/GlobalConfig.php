@@ -11,7 +11,7 @@ class GlobalConfig
 	/**
 	 * @var GlobalConfig
 	 */
-	private $instance;
+	private static $instance;
 
 	/**
 	 * @var string
@@ -71,7 +71,7 @@ class GlobalConfig
 	public static function getInstance()
 	{
 		if( is_null( self::$instance ) ) {
-			self::$instance	= new self;
+			self::$instance = new self;
 		}
 
 		return self::$instance;
@@ -132,7 +132,7 @@ class GlobalConfig
 	 */
 	public function setDefaultFontSize( $defaultFontSize )
 	{
-		$this->defaultFontSize = strval( $defaultFontSize );
+		$this->defaultFontSize = intval( $defaultFontSize );
 
 		return $this;
 	}
@@ -163,7 +163,7 @@ class GlobalConfig
 	public function layout()
 	{
 		if( is_null( $this->layout ) ) {
-			$this->layout	= new LayoutConfig();
+			$this->layout = new LayoutConfig();
 		}
 
 		return $this->layout;
@@ -175,7 +175,7 @@ class GlobalConfig
 	public function tooltips()
 	{
 		if( is_null( $this->tooltips ) ) {
-			$this->tooltips	= new TooltipsConfig();
+			$this->tooltips = new TooltipsConfig();
 		}
 
 		return $this->tooltips;
@@ -187,7 +187,7 @@ class GlobalConfig
 	public function hover()
 	{
 		if( is_null( $this->hover ) ) {
-			$this->hover	= new HoverConfig();
+			$this->hover = new HoverConfig();
 		}
 
 		return $this->hover;
@@ -199,7 +199,7 @@ class GlobalConfig
 	public function animation()
 	{
 		if( is_null( $this->animation ) ) {
-			$this->animation	= new AnimationConfig();
+			$this->animation = new AnimationConfig();
 		}
 
 		return $this->animation;
@@ -211,7 +211,7 @@ class GlobalConfig
 	public function elements()
 	{
 		if( is_null( $this->elements ) ) {
-			$this->elements	= new ElementsConfig();
+			$this->elements = new ElementsConfig();
 		}
 
 		return $this->elements;
