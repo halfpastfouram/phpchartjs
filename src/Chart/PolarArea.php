@@ -13,6 +13,9 @@ use Halfpastfour\PHPChartJS\Options\PolarAreaOptions;
  */
 class PolarArea extends Chart implements ChartInterface
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE = 'polarArea';
 
 	/**

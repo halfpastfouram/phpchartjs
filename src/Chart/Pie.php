@@ -13,6 +13,9 @@ use Halfpastfour\PHPChartJS\Options\PieOptions;
  */
 class Pie extends Chart implements ChartInterface
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE = 'pie';
 
 	/**

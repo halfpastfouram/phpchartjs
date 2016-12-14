@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 14-12-2016
- * Time: 12:24
- */
 
 namespace Halfpastfour\PHPChartJS;
 
@@ -22,7 +16,9 @@ use Halfpastfour\PHPChartJS\Options\Legend;
  */
 class OptionsTest extends \PHPUnit_Framework_TestCase
 {
-	/** @var  Options $options */
+	/**
+	 * @var Options $options
+	 */
 	private $options;
 
 	/**

@@ -13,6 +13,9 @@ use Halfpastfour\PHPChartJS\Options\RadarOptions;
  */
 class Radar extends Chart implements ChartInterface
 {
+	/**
+	 * The internal type of chart.
+	 */
 	const TYPE = 'radar';
 
 	/**
