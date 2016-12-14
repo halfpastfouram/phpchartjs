@@ -9,9 +9,9 @@ namespace Halfpastfour\PHPChartJS;
 interface ArraySerializableInterface
 {
 	/**
-	 * Should return a multidimensional array from the collection and it's rows.
+	 * Should return an array containing all values.
 	 *
-	 * @return array A bi-dimensional array
+	 * @return array
 	 */
 	public function getArrayCopy();
 }

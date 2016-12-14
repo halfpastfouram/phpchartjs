@@ -8,7 +8,7 @@ use Zend\Json\Json;
  * Class LabelsCollection
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class LabelsCollection extends Collection implements CollectionInterface, \JsonSerializable
+class LabelsCollection extends Collection implements \JsonSerializable
 {
 	/**
 	 * return string

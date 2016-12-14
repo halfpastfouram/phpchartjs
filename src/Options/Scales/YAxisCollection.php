@@ -3,14 +3,13 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Collection;
-use Halfpastfour\PHPChartJS\CollectionInterface;
 use Zend\Json\Json;
 
 /**
  * Class YAxisCollection
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class YAxisCollection extends Collection implements CollectionInterface, \JsonSerializable
+class YAxisCollection extends Collection implements \JsonSerializable
 {
 	/**
 	 * @return array

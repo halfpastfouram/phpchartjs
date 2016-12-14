@@ -8,7 +8,7 @@ use Zend\Json\Json;
  * Class DataSetCollection
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class DataSetCollection extends Collection implements CollectionInterface, \JsonSerializable
+class DataSetCollection extends Collection\ArrayAccess implements \JsonSerializable
 {
 	/**
 	 * @return array

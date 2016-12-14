@@ -10,7 +10,7 @@ use Halfpastfour\PHPChartJS\CollectionInterface;
  * Class MyCollection
  * @package Test
  */
-class MyCollection extends Collection implements CollectionInterface {}
+class MyCollection extends Collection\ArrayAccess {}
 
 /**
  * Class CollectionTest
@@ -19,7 +19,7 @@ class MyCollection extends Collection implements CollectionInterface {}
 class CollectionTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var Collection
+	 * @var Collection\ArrayAccess
 	 */
 	private $collection;
 
@@ -38,7 +38,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertInstanceOf( Collection::class, $this->collection );
 		$this->assertInstanceOf( CollectionInterface::class, $this->collection );
-		$this->assertInstanceOf( \Iterator::class, $this->collection );
+		$this->assertInstanceOf( \Iterator::class, $this->collection->getIterator() );
 		$this->assertInstanceOf( \ArrayAccess::class, $this->collection );
 		$this->assertInstanceOf( \Countable::class, $this->collection );
 		$this->assertInstanceOf( \Countable::class, $this->collection );
@@ -51,7 +51,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	public function testAppend()
 	{
 		$this->assertInstanceOf( Collection::class, $this->collection->append( 'Bar' ) );
-		$this->assertEquals( 'Bar', $this->collection->current() );
+		$this->assertEquals( 'Bar', $this->collection->getIterator()->current() );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	public function testPrepend()
 	{
 		$this->assertInstanceOf( Collection::class, $this->collection->prepend( 'Foo' ) );
-		$this->assertEquals( 'Foo', $this->collection->current() );
+		$this->assertEquals( 'Foo', $this->collection->getIterator()->current() );
 	}
 
 	/**
@@ -101,31 +101,35 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	public function testCursor()
 	{
 		$this->collection->exchangeArray( [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] );
-		$this->assertEquals( 1, $this->collection->current() );
-		$this->assertEquals( 2, $this->collection->next() );
+		$iterator	= $this->collection->getIterator();
+		$this->assertEquals( 1, $iterator->current() );
+		$iterator->next();
+		$this->assertEquals( 2, $iterator->current() );
 
 		// Skip two values
-		$this->collection->next();
-		$this->collection->next();
-		$this->assertEquals( 3, $this->collection->previous() );
-		$this->assertEquals( 2, $this->collection->getCursor() );
+		$this->collection->getIterator()->next();
+		$this->collection->getIterator()->next();
+		$this->collection->getIterator()->previous();
+		$this->assertEquals( 3, $this->collection->getIterator()->current() );
+		$this->assertEquals( 2, $this->collection->getIterator()->getCursor() );
 
 		// skip all the way to the end
-		$this->collection->next();
-		$this->collection->next();
-		$this->collection->next();
-		$this->collection->next();
-		$this->collection->next();
-		$this->collection->next();
-		$this->collection->next();
+		$iterator->next();
+		$iterator->next();
+		$iterator->next();
+		$iterator->next();
+		$iterator->next();
+		$iterator->next();
+		$iterator->next();
 
-		$this->assertTrue( $this->collection->valid() );
-		$this->assertFalse( $this->collection->next() );
-		$this->assertFalse( $this->collection->valid() );
+		$this->assertTrue( $iterator->valid() );
+		$iterator->next();
+		$this->assertFalse( $iterator->current() );
+		$this->assertFalse( $iterator->valid() );
 
 		// Rewind
-		$this->collection->rewind();
-		$this->assertEquals( 1, $this->collection->current() );
+		$this->collection->getIterator()->rewind();
+		$this->assertEquals( 1, $iterator->current() );
 	}
 
 	/**
@@ -174,7 +178,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 	{
 		$data = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'foo', 'bar', 'baz' => array( 'apple', 'orange', 'pear' ) ];
 		$this->collection->exchangeArray( $data );
-		$this->assertEquals( array_keys( $data ), $this->collection->getKeyMap() );
-
+		$this->assertEquals( array_keys( $data ), $this->collection->getIterator()->getKeyMap() );
 	}
 }
