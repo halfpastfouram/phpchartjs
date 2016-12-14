@@ -65,7 +65,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 			$this->layout	= new Layout();
 		}
 
-		return $this->layout();
+		return $this->layout;
 	}
 
 	/**
