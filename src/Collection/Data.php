@@ -2,14 +2,13 @@
 
 namespace Halfpastfour\PHPChartJS\Collection;
 
-use Halfpastfour\PHPChartJS\Collection;
 use Zend\Json\Json;
 
 /**
  * Class Data
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class Data extends Collection implements \JsonSerializable
+class Data extends ArrayAccess implements \JsonSerializable
 {
 	/**
 	 * @return string

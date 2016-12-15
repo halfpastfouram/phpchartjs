@@ -2,14 +2,14 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
-use Halfpastfour\PHPChartJS\Collection;
+use Halfpastfour\PHPChartJS\Collection\ArrayAccess;
 use Zend\Json\Json;
 
 /**
  * Class XAxisCollection
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class XAxisCollection extends Collection implements \JsonSerializable
+class XAxisCollection extends ArrayAccess implements \JsonSerializable
 {
 	/**
 	 * @return array
