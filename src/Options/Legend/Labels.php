@@ -180,7 +180,7 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function getGenerateLabels()
 	{
-		return strval( $this->generateLabels );
+		return is_null($this->generateLabels) ? null : strval( $this->generateLabels );
 	}
 
 	/**
