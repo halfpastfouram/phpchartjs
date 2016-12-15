@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 14-12-2016
- * Time: 13:18
- */
 
 namespace ConfigDefaults;
 
@@ -33,11 +27,31 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $config_values_1 = [
+	private $data_types = [
+		'defaultFontColor'  => '',
+		'defaultFontFamily' => '',
+		'defaultFontSize'   => 1,
+		'defaultFontStyle'  => '',
+	];
+
+	/**
+	 * @var array
+	 */
+	private $input_data = [
 		'defaultFontColor'  => 'defaultFontColor',
 		'defaultFontFamily' => 'defaultFontFamily',
 		'defaultFontSize'   => 2,
 		'defaultFontStyle'  => 'defaultFontStyle',
+	];
+
+	/**
+	 * @var array
+	 */
+	private $empty_data = [
+		'defaultFontColor'  => null,
+		'defaultFontFamily' => null,
+		'defaultFontSize'   => null,
+		'defaultFontStyle'  => null,
 	];
 
 	/**
@@ -46,17 +60,27 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$this->config = GlobalConfig::getInstance();
-		TestUtils::setAttributes( $this->config, $this->config_values_1 );
 	}
 
 	/**
 	 *
 	 */
-	public function testAttributes()
+	public function testEmpty()
 	{
-		$result   = TestUtils::getAttributes( $this->config, $this->config_values_1 );
-		$expected = $this->config_values_1;
-		self::assertSame( $expected, $result, "result should have the same attributes as input" );
+		$result   = TestUtils::getAttributes( $this->config, $this->data_types );
+		$expected = $this->empty_data;
+		self::assertSame( $expected, $result );
+	}
+
+	/**
+	 *
+	 */
+	public function testGetAndSet()
+	{
+		TestUtils::setAttributes( $this->config, $this->input_data );
+		$result   = TestUtils::getAttributes( $this->config, $this->data_types );
+		$expected = $this->input_data;
+		self::assertSame( $expected, $result );
 	}
 
 	/**
@@ -103,5 +127,4 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
 		$result = $this->config->elements();
 		self::assertInstanceOf( ElementsConfig::class, $result );
 	}
-
 }
