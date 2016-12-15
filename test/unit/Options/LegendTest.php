@@ -12,7 +12,7 @@ use Test\TestUtils;
 class LegendTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var
+	 * @var Legend
 	 */
 	private $legend;
 
@@ -79,5 +79,14 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		TestUtils::setAttributes( $this->legend, $this->input_data );
 		$result = TestUtils::getAttributes( $this->legend, $this->data_types );
 		self::assertSame( $expected, $result );
+	}
+
+	public function testJsonSerialize() {
+		$result = json_decode( $this->legend->jsonSerialize() );
+		self::assertSame( [], $result );
+		$jsClosure = "function() { console.log( 'test' )}";
+		$this->legend->setOnHover( $jsClosure );
+		$result = json_decode( $this->legend->jsonSerialize(), true );
+		self::assertSame( [ 'onHover' => $jsClosure ], $result );
 	}
 }

@@ -62,4 +62,14 @@ class PaddingTest extends \PHPUnit_Framework_TestCase
 		$this->padding->setTop( 20 );
 		$this->assertSame( 20, $this->padding->getTop() );
 	}
+
+	/**
+	 *
+	 */
+	public function testJsonSerialize()
+	{
+		$this->padding->setTop( 20 );
+		$result = json_decode( $this->padding->jsonSerialize(), true );
+		self::assertSame( [ 'top' => 20 ], $result );
+	}
 }
