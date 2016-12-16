@@ -145,8 +145,6 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 			}
 			);
 			$this->borderDash = $borderDash;
-		} else {
-			$this->borderDash = is_null( $borderDash ) ? null : floatval( $borderDash );
 		}
 
 		return $this;
