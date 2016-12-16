@@ -109,7 +109,16 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setColor( $color )
 	{
-		$this->color = $color;
+		if( is_array( $color ) ) {
+			array_walk_recursive(
+				$color, function ( &$value ) {
+				$value = strval( $value );
+			}
+			);
+			$this->color = $color;
+		} else {
+			$this->color = is_null( $color ) ? null : strval( $color );
+		}
 
 		return $this;
 	}
@@ -129,7 +138,16 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setBorderDash( $borderDash )
 	{
-		$this->borderDash = $borderDash;
+		if( is_array( $borderDash ) ) {
+			array_walk_recursive(
+				$borderDash, function ( &$value ) {
+				$value = floatval( $value );
+			}
+			);
+			$this->borderDash = $borderDash;
+		} else {
+			$this->borderDash = is_null( $borderDash ) ? null : floatval( $borderDash );
+		}
 
 		return $this;
 	}
@@ -149,7 +167,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setBorderDashOffset( $borderDashOffset )
 	{
-		$this->borderDashOffset = $borderDashOffset;
+		$this->borderDashOffset = floatval( $borderDashOffset );
 
 		return $this;
 	}
@@ -169,7 +187,16 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setLineWidth( $lineWidth )
 	{
-		$this->lineWidth = $lineWidth;
+		if( is_array( $lineWidth ) ) {
+			array_walk_recursive(
+				$lineWidth, function ( &$value ) {
+				$value = intval( $value );
+			}
+			);
+			$this->lineWidth = $lineWidth;
+		} else {
+			$this->lineWidth = is_null( $lineWidth ) ? null : intval( $lineWidth );
+		}
 
 		return $this;
 	}
@@ -189,7 +216,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setDrawBorder( $drawBorder )
 	{
-		$this->drawBorder = $drawBorder;
+		$this->drawBorder = boolval( $drawBorder );
 
 		return $this;
 	}
@@ -209,7 +236,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setDrawOnChartArea( $drawOnChartArea )
 	{
-		$this->drawOnChartArea = $drawOnChartArea;
+		$this->drawOnChartArea = boolval( $drawOnChartArea );
 
 		return $this;
 	}
@@ -229,7 +256,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setDrawTicks( $drawTicks )
 	{
-		$this->drawTicks = $drawTicks;
+		$this->drawTicks = boolval( $drawTicks );
 
 		return $this;
 	}
@@ -249,7 +276,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setTickMarkLength( $tickMarkLength )
 	{
-		$this->tickMarkLength = $tickMarkLength;
+		$this->tickMarkLength = intval( $tickMarkLength );
 
 		return $this;
 	}
@@ -269,7 +296,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setZeroLineWidth( $zeroLineWidth )
 	{
-		$this->zeroLineWidth = $zeroLineWidth;
+		$this->zeroLineWidth = intval( $zeroLineWidth );
 
 		return $this;
 	}
@@ -289,7 +316,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setZeroLineColor( $zeroLineColor )
 	{
-		$this->zeroLineColor = $zeroLineColor;
+		$this->zeroLineColor = is_null( $zeroLineColor ) ? null : strval( $zeroLineColor );
 
 		return $this;
 	}
@@ -309,7 +336,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setOffsetGridLines( $offsetGridLines )
 	{
-		$this->offsetGridLines = $offsetGridLines;
+		$this->offsetGridLines = boolval( $offsetGridLines );
 
 		return $this;
 	}
