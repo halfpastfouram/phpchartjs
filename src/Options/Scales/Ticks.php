@@ -215,7 +215,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setCallback( $callback )
 	{
-		$this->callback = is_null( $callback ) ? null : new Expr( strval( $callback ) );
+		$this->callback = new Expr( strval( $callback ) );
 
 		return $this;
 	}
