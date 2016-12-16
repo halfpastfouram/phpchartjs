@@ -135,7 +135,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setBeginAtZero( $beginAtZero )
 	{
-		$this->beginAtZero = floatval( $beginAtZero );
+		$this->beginAtZero = boolval( $beginAtZero );
 
 		return $this;
 	}
@@ -205,7 +205,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function getCallback()
 	{
-		return strval( $this->callback );
+		return is_null( $this->callback ) ? null : strval( $this->callback );
 	}
 
 	/**
@@ -215,7 +215,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setCallback( $callback )
 	{
-		$this->callback = new Expr( strval( $callback ) );
+		$this->callback = is_null( $callback ) ? null : new Expr( strval( $callback ) );
 
 		return $this;
 	}
