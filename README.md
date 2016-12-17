@@ -144,43 +144,7 @@ $oldData = $dataset->data()->exchangeArray( [ 1, 2, 3 ] ); // array(3) { [0]=> i
 
 $myChart->addDataSet( $dataset );
 ````
-
-### Control over collections
-You can traverse all objects that extend the `Collection` class. To give you more flexibility, all collections in this project extends the `Collection\ArrayAccess` class which provides direct access as if you were talking to an array. This class also provides an iterator that can be used in loops or even manually.
-
-#### Array access example
-
-````php
-$data = $myChart->getDataSet()->data();
-$data[] = 0;
-$data[5] = 12;
-````
-
-#### Traversing
-
-````php
-foreach( $myChart->getDataSet()->data() as $key => $value ) {
-    var_dump( $key, $value );
-}
-````
-
-#### Manual traversing
-
-````php
-$data = $myChart->getDataSet()->data();
-$iterator = $data->getIterator();
-
-// Jump forward to next position
-$iterator->next();
-var_dump( $iterator->current() );
-
-// Go back one position
-$iterator->previous();
-var_dump( $iterator->getKey(), $iterator->current() );
-
-// Receive the list of keys in the dataset.
-var_dump( $iterator->calculateKeyMap() );
-````
+For more information about the collections visit the [halfpastfouram/collection](https://github.com/halfpastfouram/collection) project.
 
 ## Installation
 
