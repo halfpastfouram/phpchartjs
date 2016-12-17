@@ -71,13 +71,13 @@ configuration for ChartJS. Every part of the configuration can be cast to an arr
 Render isolated part of the configuration:
 
 ````php
-$options = $myChart->options()->scales()->getArrayCopy();
+$json = $myChart->options()->scales()->jsonSerialize();
 ````
 
 Or return an array containing the set configuration:
 
 ````php
-$json = $myChart->options()->scales()->jsonSerialize();
+$options = $myChart->options()->scales()->getArrayCopy();
 ````
 
 
@@ -140,11 +140,47 @@ $dataset->data()->offsetSet( 1, 3 );
 $value = $dataset->data()->offsetGet( 1 ); // 3
 
 // Add a lot of data at once whilst returning the old values
-$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3, 4 ] ); // array(3) { [0]=> int(0) [1]=> int(1) [2]=> int(3) }
+$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3 ] ); // array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }
 
 $myChart->addDataSet( $dataset );
 ````
 
+### Control over datasets
+You can traverse all objects that extend the `Collection` class. To give you more flexibility, all collections in this project extends the `Collection\ArrayAccess` class which provides direct access as if you were talking to an array. This class also provides an iterator that can be used in loops or even manually.
+
+#### Array access example
+
+````php
+$dataSet = $myChart->getDataSet();
+$dataSet[] = 0;
+$dataSet[5] = 12;
+````
+
+#### Traversing
+
+````php
+foreach( $myChart->getDataSet() as $key => $value ) {
+    var_dump( $key, $value );
+}
+````
+
+#### Manual traversing
+
+````php
+$dataSet = $myChart->getDataSet();
+$iterator = $dataSet->getIterator();
+
+// Jump forward to next position
+$iterator->next();
+var_dump( $iterator->current() );
+
+// Go back one position
+$iterator->previous();
+var_dump( $iterator->getKey(), $iterator->current() );
+
+// Receive the list of keys in the dataset.
+var_dump( $iterator->calculateKeyMap() );
+````
 
 ## Installation
 
