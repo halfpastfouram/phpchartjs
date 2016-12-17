@@ -105,7 +105,7 @@ $animation = $myChart->options()->animation();
 ````
 You can now adjust any of ChartJS's animation settings by using the getters and setters provided in that particular class.
 
-### Collections
+## Collections
 If ChartJS requires an array with certain items as subsets in a configuration option that array will be represented by a
 collection in PHPChartJS. The collection can always by accessed directly to add, remove and replace values.
 
@@ -145,21 +145,21 @@ $oldData = $dataset->data()->exchangeArray( [ 1, 2, 3 ] ); // array(3) { [0]=> i
 $myChart->addDataSet( $dataset );
 ````
 
-### Control over datasets
+### Control over collections
 You can traverse all objects that extend the `Collection` class. To give you more flexibility, all collections in this project extends the `Collection\ArrayAccess` class which provides direct access as if you were talking to an array. This class also provides an iterator that can be used in loops or even manually.
 
 #### Array access example
 
 ````php
-$dataSet = $myChart->getDataSet();
-$dataSet[] = 0;
-$dataSet[5] = 12;
+$data = $myChart->getDataSet()->data();
+$data[] = 0;
+$data[5] = 12;
 ````
 
 #### Traversing
 
 ````php
-foreach( $myChart->getDataSet() as $key => $value ) {
+foreach( $myChart->getDataSet()->data() as $key => $value ) {
     var_dump( $key, $value );
 }
 ````
@@ -167,8 +167,8 @@ foreach( $myChart->getDataSet() as $key => $value ) {
 #### Manual traversing
 
 ````php
-$dataSet = $myChart->getDataSet();
-$iterator = $dataSet->getIterator();
+$data = $myChart->getDataSet()->data();
+$iterator = $data->getIterator();
 
 // Jump forward to next position
 $iterator->next();
