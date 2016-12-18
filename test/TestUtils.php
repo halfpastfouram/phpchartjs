@@ -35,7 +35,8 @@ class TestUtils
 	 * $input_data and calls the getter. It returns the resulting array.
 	 *
 	 * @param       $obj
-	 * @param array $input_data
+	 * @param array $input_data is an associative array that refers fieldnames to values.
+	 *                          The values could be any primitive type, including an array.
 	 *
 	 * @return array
 	 */

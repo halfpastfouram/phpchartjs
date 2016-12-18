@@ -71,13 +71,13 @@ configuration for ChartJS. Every part of the configuration can be cast to an arr
 Render isolated part of the configuration:
 
 ````php
-$options = $myChart->options()->scales()->getArrayCopy();
+$json = $myChart->options()->scales()->jsonSerialize();
 ````
 
 Or return an array containing the set configuration:
 
 ````php
-$json = $myChart->options()->scales()->jsonSerialize();
+$options = $myChart->options()->scales()->getArrayCopy();
 ````
 
 
@@ -105,7 +105,7 @@ $animation = $myChart->options()->animation();
 ````
 You can now adjust any of ChartJS's animation settings by using the getters and setters provided in that particular class.
 
-### Collections
+## Collections
 If ChartJS requires an array with certain items as subsets in a configuration option that array will be represented by a
 collection in PHPChartJS. The collection can always by accessed directly to add, remove and replace values.
 
@@ -140,11 +140,11 @@ $dataset->data()->offsetSet( 1, 3 );
 $value = $dataset->data()->offsetGet( 1 ); // 3
 
 // Add a lot of data at once whilst returning the old values
-$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3, 4 ] ); // array(3) { [0]=> int(0) [1]=> int(1) [2]=> int(3) }
+$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3 ] ); // array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }
 
 $myChart->addDataSet( $dataset );
 ````
-
+For more information about the collections visit the [halfpastfouram/collection](https://github.com/halfpastfouram/collection) project.
 
 ## Installation
 
