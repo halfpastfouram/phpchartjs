@@ -2,7 +2,7 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
-use Halfpastfour\PHPChartJS\Collection\ArrayAccess;
+use Halfpastfour\Collection\Collection\ArrayAccess;
 use Zend\Json\Json;
 
 /**

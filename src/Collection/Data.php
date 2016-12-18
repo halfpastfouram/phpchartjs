@@ -2,6 +2,7 @@
 
 namespace Halfpastfour\PHPChartJS\Collection;
 
+use Halfpastfour\Collection\Collection\ArrayAccess;
 use Zend\Json\Json;
 
 /**

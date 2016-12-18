@@ -2,13 +2,12 @@
 
 namespace Test;
 
+use Halfpastfour\Collection\Collection\ArrayAccess;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\ChartOwnedInterface;
-use Halfpastfour\PHPChartJS\Collection;
 use Halfpastfour\PHPChartJS\Collection\Data;
-use Halfpastfour\PHPChartJS\CollectionInterface;
 use Halfpastfour\PHPChartJS\DataSet;
 use Zend\Json\Json;
 
@@ -76,10 +75,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 
 		$dataCollection	= $dataSet->data();
 		$this->assertInstanceOf( Data::class, $dataCollection, 'The data collection is the right class' );
-		$this->assertInstanceOf( Collection::class, $dataCollection, 'The data collection extends Collection' );
-		$this->assertInstanceOf(
-			CollectionInterface::class, $dataCollection, 'The data collection implements CollectionInterface'
-		);
+		$this->assertInstanceOf( ArrayAccess::class, $dataCollection, 'The data collection extends Collection' );
 		$this->assertInstanceOf(
 			\JsonSerializable::class, $dataCollection, 'The data collection implements JsonSerializable'
 		);

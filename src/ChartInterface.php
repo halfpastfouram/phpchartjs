@@ -2,6 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+use Halfpastfour\Collection\CollectionInterface;
+
 /**
  * Interface ChartInterface
  * @package Halfpastfour\PHPChartJS

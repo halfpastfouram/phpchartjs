@@ -2,12 +2,12 @@
 
 namespace Halfpastfour\PHPChartJS;
 
-use Halfpastfour\PHPChartJS\Collection\ArrayAccess;
+use Halfpastfour\Collection\Collection\ArrayAccess;
 use Zend\Json\Json;
 
 /**
  * Class LabelsCollection
- * @package Halfpastfour\PHPChartJS\Collection
+ * @package Halfpastfour\PHPChartJS
  */
 class LabelsCollection extends ArrayAccess implements \JsonSerializable
 {
