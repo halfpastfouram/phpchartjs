@@ -76,11 +76,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	private $dataPoints;
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getBeforeTitle()
 	{
-		return $this->beforeTitle;
+		return is_null( $this->beforeTitle ) ? null : strval( $this->beforeTitle );
 	}
 
 	/**
@@ -96,11 +96,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getTitle()
 	{
-		return $this->title;
+		return is_null( $this->title ) ? null : strval( $this->title );
 	}
 
 	/**
@@ -116,11 +116,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getAfterTitle()
 	{
-		return $this->afterTitle;
+		return is_null( $this->afterTitle ) ? null : strval( $this->afterTitle );
 	}
 
 	/**
@@ -136,11 +136,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getBeforeLabel()
 	{
-		return $this->beforeLabel;
+		return is_null( $this->beforeLabel ) ? null : strval( $this->beforeLabel );
 	}
 
 	/**
@@ -156,11 +156,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getLabel()
 	{
-		return $this->label;
+		return is_null( $this->label ) ? null : strval( $this->label );
 	}
 
 	/**
@@ -176,11 +176,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getLabelColor()
 	{
-		return $this->labelColor;
+		return is_null( $this->labelColor ) ? null : strval( $this->labelColor );
 	}
 
 	/**
@@ -196,11 +196,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getAfterLabel()
 	{
-		return $this->afterLabel;
+		return is_null( $this->afterLabel ) ? null : strval( $this->afterLabel );
 	}
 
 	/**
@@ -216,11 +216,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getAfterBody()
 	{
-		return $this->afterBody;
+		return is_null( $this->afterBody ) ? null : strval( $this->afterBody );
 	}
 
 	/**
@@ -236,11 +236,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getBeforeFooter()
 	{
-		return $this->beforeFooter;
+		return is_null( $this->beforeFooter ) ? null : strval( $this->beforeFooter );
 	}
 
 	/**
@@ -256,11 +256,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getFooter()
 	{
-		return $this->footer;
+		return is_null( $this->footer ) ? null : strval( $this->footer );
 	}
 
 	/**
@@ -276,11 +276,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getAfterFooter()
 	{
-		return $this->afterFooter;
+		return is_null( $this->afterFooter ) ? null : strval( $this->afterFooter );
 	}
 
 	/**
@@ -296,11 +296,11 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return Expr
+	 * @return null|string
 	 */
 	public function getDataPoints()
 	{
-		return $this->dataPoints;
+		return is_null( $this->dataPoints ) ? null : strval( $this->dataPoints );
 	}
 
 	/**
