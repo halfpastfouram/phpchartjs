@@ -2,6 +2,8 @@
 
 namespace Options\Tooltips;
 
+use Zend\Json\Expr;
+
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
 use Test\TestUtils;
 
@@ -38,24 +40,24 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 	 * @var array
 	 */
 	private $input_data = [
-		'beforeTitle'  => 'beforeTitle',
-		'title'        => 'title',
-		'afterTitle'   => 'afterTitle',
-		'beforeLabel'  => 'beforeLabel',
-		'label'        => 'label',
-		'labelColor'   => 'labelColor',
-		'afterLabel'   => 'afterLabel',
-		'afterBody'    => 'afterBody',
-		'beforeFooter' => 'beforeFooter',
-		'footer'       => 'footer',
-		'afterFooter'  => 'afterFooter',
-		'dataPoints'   => 'dataPoints',
+		'beforeTitle'  => "function() { echo 'Hello'; }",
+		'title'        => "function() { echo 'Hello'; }",
+		'afterTitle'   => "function() { echo 'Hello'; }",
+		'beforeLabel'  => "function() { echo 'Hello'; }",
+		'label'        => "function() { echo 'Hello'; }",
+		'labelColor'   => "function() { echo 'Hello'; }",
+		'afterLabel'   => "function() { echo 'Hello'; }",
+		'afterBody'    => "function() { echo 'Hello'; }",
+		'beforeFooter' => "function() { echo 'Hello'; }",
+		'footer'       => "function() { echo 'Hello'; }",
+		'afterFooter'  => "function() { echo 'Hello'; }",
+		'dataPoints'   => "function() { echo 'Hello'; }",
 	];
 
 	/**
 	 * @var array
 	 */
-	private $empty_data = [
+	private $empty_data   = [
 		'beforeTitle'  => null,
 		'title'        => null,
 		'afterTitle'   => null,
@@ -70,12 +72,20 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 		'dataPoints'   => null,
 	];
 
+	private $initial_data = [];
+
 	/**
 	 *
 	 */
 	public function setUp()
 	{
 		$this->callbacks = new Callbacks();
+
+		// Re-initialize Expr properties
+		$keys = array_keys( $this->empty_data );
+		foreach( $keys as $key ) {
+			$this->initial_data[ $key ] = new Expr( '' );
+		}
 	}
 
 	/**
@@ -96,17 +106,12 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 		$expected = $this->input_data;
 		TestUtils::setAttributes( $this->callbacks, $this->input_data );
 		$result = TestUtils::getAttributes( $this->callbacks, $this->data_types );
+		array_walk(
+			$result, function ( &$value ) {
+			$value = strval( $value );
+		}
+		);
 		self::assertSame( $expected, $result );
 	}
 
-	/**
-	 *
-	 */
-	public function testJsonSerialize()
-	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->callbacks, $this->input_data );
-		$result = json_decode( $this->callbacks->jsonSerialize(), true );
-		self::assertSame( $expected, $result );
-	}
 }
