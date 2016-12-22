@@ -4,6 +4,7 @@ namespace Options;
 
 use Halfpastfour\PHPChartJS\Options\Legend;
 use Test\TestUtils;
+use Zend\Json\Expr;
 
 /**
  * Class LegendTest
@@ -31,12 +32,24 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $input_data = [
+	private $input_data_1 = [
+		'display'   => true,
+		'position'  => 'position',
+		'fullWidth' => true,
+		'onClick'   => null,
+		'onHover'   => null,
+		'reverse'   => true,
+	];
+
+	/**
+	 * @var array
+	 */
+	private $input_data_2 = [
 		'display'   => true,
 		'position'  => 'position',
 		'fullWidth' => true,
 		'onClick'   => 'onClick',
-		'onHover'   => 'onData',
+		'onHover'   => 'onHover',
 		'reverse'   => true,
 	];
 
@@ -58,6 +71,9 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$this->legend = new Legend();
+
+		$this->input_data_2['onClick'] = new Expr( $this->input_data_2['onClick'] );
+		$this->input_data_2['onHover'] = new Expr( $this->input_data_2['onHover'] );
 	}
 
 	/**
@@ -73,20 +89,33 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	/**
 	 *
 	 */
-	public function testGetAndSet()
+	public function testGetAndSetWithoutExpr()
 	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->legend, $this->input_data );
+		$expected = $this->input_data_1;
+		TestUtils::setAttributes( $this->legend, $this->input_data_1 );
 		$result = TestUtils::getAttributes( $this->legend, $this->data_types );
 		self::assertSame( $expected, $result );
 	}
 
-	public function testJsonSerialize() {
-		$result = json_decode( $this->legend->jsonSerialize() );
-		self::assertSame( [], $result );
-		$jsClosure = "function() { console.log( 'test' )}";
-		$this->legend->setOnHover( $jsClosure );
-		$result = json_decode( $this->legend->jsonSerialize(), true );
-		self::assertSame( [ 'onHover' => $jsClosure ], $result );
+	/**
+	 *
+	 */
+	public function testOnClickExpr()
+	{
+		TestUtils::setAttributes( $this->legend, $this->input_data_2 );
+		$result   = $this->legend->getOnClick()->__toString();
+		$expected = $this->input_data_2['onClick']->__toString();
+		self::assertEquals( $expected, $result );
+	}
+
+	/**
+	 *
+	 */
+	public function testOnHoverExpr()
+	{
+		TestUtils::setAttributes( $this->legend, $this->input_data_2 );
+		$result   = $this->legend->getOnHover()->__toString();
+		$expected = $this->input_data_2['onHover']->__toString();
+		self::assertEquals( $expected, $result );
 	}
 }

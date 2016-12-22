@@ -8,6 +8,12 @@
 
 namespace Test;
 
+use Zend\Json\Expr;
+
+/**
+ * Class TestUtils
+ * @package Test
+ */
 class TestUtils
 {
 	/**
@@ -25,8 +31,11 @@ class TestUtils
 		}
 
 		foreach( $data as $key => $value ) {
-			$function = 'set' . ucfirst( $key );
-			$obj->$function( $value );
+			$function      = 'set' . ucfirst( $key );
+			$value_derived = is_object( $value ) && $value instanceof Expr ? $value->__toString() : $value;
+			if( !is_null( $value_derived ) ) {
+				$obj->$function( $value_derived );
+			}
 		}
 	}
 

@@ -116,7 +116,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function getOnClick()
 	{
-		return is_null( $this->onClick ) ? null : strval( $this->onClick );
+		return $this->onClick;
 	}
 
 	/**
@@ -132,11 +132,11 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return string
+	 * @return Expr
 	 */
 	public function getOnHover()
 	{
-		return is_null( $this->onHover ) ? null : strval( $this->onHover );
+		return $this->onHover;
 	}
 
 	/**
