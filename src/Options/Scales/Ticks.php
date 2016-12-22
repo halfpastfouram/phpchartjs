@@ -201,11 +201,11 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return string
+	 * @return Expr
 	 */
 	public function getCallback()
 	{
-		return is_null( $this->callback ) ? null : strval( $this->callback );
+		return $this->callback;
 	}
 
 	/**

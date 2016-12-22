@@ -42,7 +42,30 @@ class TicksTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $input_data = [
+	private $input_data_1 = [
+		'suggestedMin'    => 2.0,
+		'beginAtZero'     => true,
+		'stepSize'        => 3.0,
+		'autoSkip'        => true,
+		'autoSkipPadding' => 4,
+		'callback'        => null,
+		'display'         => true,
+		'fontColor'       => 'fontColor',
+		'fontFamily'      => 'fontFamily',
+		'fontSize'        => 5,
+		'fontStyle'       => 'fontStyle',
+		'labelOffset'     => 6,
+		'maxRotation'     => 7,
+		'minRotation'     => 8,
+		'mirror'          => true,
+		'padding'         => 9,
+		'reverse'         => true,
+	];
+
+	/**
+	 * @var array
+	 */
+	private $input_data_2 = [
 		'suggestedMin'    => 2.0,
 		'beginAtZero'     => true,
 		'stepSize'        => 3.0,
@@ -106,11 +129,22 @@ class TicksTest extends \PHPUnit_Framework_TestCase
 	/**
 	 *
 	 */
-	public function testGetAndSet()
+	public function testGetAndSetWithoutExpr()
 	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->ticks, $this->input_data );
+		$expected = $this->input_data_1;
+		TestUtils::setAttributes( $this->ticks, $this->input_data_1 );
 		$result = TestUtils::getAttributes( $this->ticks, $this->data_types );
+		self::assertSame( $expected, $result );
+	}
+
+	/**
+	 *
+	 */
+	public function testExpr()
+	{
+		TestUtils::setAttributes( $this->ticks, $this->input_data_2 );
+		$result = $this->ticks->getCallback()->__toString();
+		$expected = $this->input_data_2['callback'];
 		self::assertSame( $expected, $result );
 	}
 
@@ -121,10 +155,15 @@ class TicksTest extends \PHPUnit_Framework_TestCase
 	 * will not work as expected.
 	 *
 	 */
-	public function testJsonSerialize()
+	public function testJsonSerializeWithoutExpr()
 	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->ticks, $this->input_data );
+		array_walk( $this->input_data_1, function($value, $key) {
+			if (is_null($value)) {
+				unset($this->input_data_1[$key]);
+			}
+		});
+		$expected = $this->input_data_1;
+		TestUtils::setAttributes( $this->ticks, $this->input_data_1 );
 		$result = json_decode( $this->ticks->jsonSerialize(), true );
 		self::assertEquals( $expected, $result );
 	}

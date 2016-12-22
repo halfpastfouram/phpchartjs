@@ -113,4 +113,24 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
 		$expected = $this->input_data_2['generateLabels'];
 		self::assertSame( $expected, $result );
 	}
+
+	/**
+	 * This test uses assertEquals in stead of assertSame because json_encode / json_decode
+	 * transform the float numbers to string, after which the decimal zero's disappear. It is
+	 * still a float, but will be recognized by assertSame as an int. For that reason assertSame
+	 * will not work as expected.
+	 *
+	 */
+	public function testJsonSerializeWithoutExpr()
+	{
+		array_walk( $this->input_data_1, function($value, $key) {
+			if (is_null($value)) {
+				unset($this->input_data_1[$key]);
+			}
+		});
+		$expected = $this->input_data_1;
+		TestUtils::setAttributes( $this->labels, $this->input_data_1 );
+		$result = json_decode( $this->labels->jsonSerialize(), true );
+		self::assertEquals( $expected, $result );
+	}
 }
