@@ -176,11 +176,11 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return string
+	 * @return Expr
 	 */
 	public function getGenerateLabels()
 	{
-		return is_null($this->generateLabels) ? null : strval( $this->generateLabels );
+		return $this->generateLabels;
 	}
 
 	/**
@@ -190,7 +190,7 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function setGenerateLabels( $generateLabels )
 	{
-		$this->generateLabels = new Expr( $generateLabels );
+		$this->generateLabels = new Expr( strval( $generateLabels ) );
 
 		return $this;
 	}

@@ -35,7 +35,21 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $input_data = [
+	private $input_data_1 = [
+		'boxWidth'       => 12,
+		'fontSize'       => 13,
+		'fontStyle'      => 'fontStyle',
+		'fontColor'      => 'fontColor',
+		'fontFamily'     => 'fontFamily',
+		'generateLabels' => null,
+		'padding'        => 14,
+		'usePointStyle'  => true,
+	];
+
+	/**
+	 * @var array
+	 */
+	private $input_data_2 = [
 		'boxWidth'       => 12,
 		'fontSize'       => 13,
 		'fontStyle'      => 'fontStyle',
@@ -81,25 +95,22 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
 	/**
 	 *
 	 */
-	public function testGetAndSet()
+	public function testGetAndSetWithoutExpr()
 	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->labels, $this->input_data );
+		$expected = $this->input_data_1;
+		TestUtils::setAttributes( $this->labels, $this->input_data_1 );
 		$result = TestUtils::getAttributes( $this->labels, $this->data_types );
 		self::assertSame( $expected, $result );
 	}
 
 	/**
-	 * A circomspect way of testing jsonSerialize(). Just a basic test, nothing fancy.
 	 *
 	 */
-	public function testJsonSerialize()
+	public function testExpr()
 	{
-		$result = json_decode( $this->labels->jsonSerialize() );
-		self::assertSame( [], $result );
-		$jsClosure = "function() { console.log( 'test' )}";
-		$this->labels->setGenerateLabels( $jsClosure );
-		$result = json_decode( $this->labels->jsonSerialize(), true );
-		self::assertSame( [ 'generateLabels' => $jsClosure ], $result );
+		TestUtils::setAttributes( $this->labels, $this->input_data_2 );
+		$result   = $this->labels->getGenerateLabels()->__toString();
+		$expected = $this->input_data_2['generateLabels'];
+		self::assertSame( $expected, $result );
 	}
 }
