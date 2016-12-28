@@ -58,8 +58,11 @@ class TestUtils
 
 		$array = [];
 		foreach( $input_data as $key => $value ) {
-			$function      = ( gettype( $value ) == "boolean" ? 'is' : 'get' ) . ucfirst( $key );
-			$array[ $key ] = $obj->$function( $value );
+			$function = ( gettype( $value ) == "boolean" ? 'is' : 'get' ) . ucfirst( $key );
+			$function = method_exists( $obj, $function ) ? $function : $key;
+			if( method_exists( $obj, $function ) ) {
+				$array[ $key ] = $obj->$function( $value );
+			}
 		}
 
 		return $array;
