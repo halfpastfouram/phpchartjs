@@ -23,7 +23,7 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $data_types = [
 		'beforeTitle'  => '',
-		'title'        => '',
+		'title'     => '',
 		'afterTitle'   => '',
 		'beforeLabel'  => '',
 		'label'        => '',

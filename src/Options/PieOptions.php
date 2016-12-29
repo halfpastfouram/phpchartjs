@@ -29,7 +29,7 @@ class PieOptions extends Options
 	/**
 	 * @return Animation
 	 */
-	public function animation()
+	public function getAnimation()
 	{
 		if( is_null( $this->animation ) ) {
 			$this->animation	= new PieAnimation();

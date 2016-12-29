@@ -36,8 +36,8 @@ $dataSet->setLabel( 'My First dataset' )
 $line->addDataSet( $dataSet );
 
 // Set mode to stacked
-$scales	= $line->options()->scales();
-$scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) )
+$scales	= $line->options()->getScales();
+$scales->getYAxes()->append( $scales->createYAxis()->setStacked( true ) )
 	->append( $scales->createYAxis()->setPosition( 'right' )->setId( 'y2' ) );
 
 // Add even more data

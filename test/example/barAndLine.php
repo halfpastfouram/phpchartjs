@@ -37,8 +37,8 @@ $dataSet->setLabel( 'My First dataset' )
 $bar->addDataSet( $dataSet );
 
 // Set mode to stacked
-$scales	= $bar->options()->scales();
-$scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) )
+$scales	= $bar->options()->getScales();
+$scales->getYAxes()->append( $scales->createYAxis()->setStacked( true ) )
 	->append( $scales->createYAxis()->setPosition( 'right' )->setId( 'y2' ) );
 
 // Add even more data

@@ -59,7 +59,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Layout
 	 */
-	public function layout()
+	public function getLayout()
 	{
 		if( is_null( $this->layout ) ) {
 			$this->layout	= new Layout();
@@ -71,7 +71,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Title
 	 */
-	public function title()
+	public function getTitle()
 	{
 		if( is_null( $this->title ) ) {
 			$this->title = new Title();
@@ -83,7 +83,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Hover
 	 */
-	public function hover()
+	public function getHover()
 	{
 		if( is_null( $this->hover ) ) {
 			$this->hover = new Hover();
@@ -95,7 +95,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Scales
 	 */
-	public function scales()
+	public function getScales()
 	{
 		if( is_null( $this->scales ) ) {
 			$this->scales = new Scales();
@@ -107,7 +107,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Animation
 	 */
-	public function animation()
+	public function getAnimation()
 	{
 		if( is_null( $this->animation ) ) {
 			$this->animation = new Animation();
@@ -119,7 +119,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Legend
 	 */
-	public function legend()
+	public function getLegend()
 	{
 		if( is_null( $this->legend ) ) {
 			$this->legend = new Legend();
@@ -131,7 +131,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 	/**
 	 * @return Tooltips
 	 */
-	public function tooltips()
+	public function getTooltips()
 	{
 		if( is_null( $this->tooltips ) ) {
 			$this->tooltips = new Tooltips();

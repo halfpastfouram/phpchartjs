@@ -21,6 +21,80 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $options;
 
+	private $empty_options = [
+		'layout'    => [
+			'padding' => null,
+		],
+		'title'     => [
+			'display'    => null,
+			'position'   => null,
+			'fullWidth'  => null,
+			'fontSize'   => null,
+			'fontFamily' => null,
+			'fontColor'  => null,
+			'fontStyle'  => null,
+			'padding'    => null,
+			'text'       => null,
+		],
+		'hover'     => [
+			'mode'              => null,
+			'intersect'         => null,
+			'animationDuration' => null,
+			'onHover'           => null,
+		],
+		'scales'    => [
+			'xAxes' => [],
+			'yAxes' => [],
+		],
+		'animation' => [
+			'duration'   => null,
+			'easing'     => null,
+			'onProgress' => null,
+			'onComplete' => null,
+		],
+		'legend'    => [
+			'display'   => null,
+			'position'  => null,
+			'fullWidth' => null,
+			'onClick'   => null,
+			'onHover'   => null,
+			'reverse'   => null,
+		],
+		'tooltips'  => [
+			'enabled'            => null,
+			'custom'             => null,
+			'mode'               => null,
+			'intersect'          => null,
+			'position'           => null,
+			'itemSort'           => null,
+			'filter'             => null,
+			'backgroundColor'    => null,
+			'titleFontFamily'    => null,
+			'titleFontSize'      => null,
+			'titleFontStyle'     => null,
+			'titleFontColor'     => null,
+			'titleSpacing'       => null,
+			'titleMarginBottom'  => null,
+			'bodyFontFamily'     => null,
+			'bodyFontSize'       => null,
+			'bodyFontStyle'      => null,
+			'bodyFontColor'      => null,
+			'bodySpacing'        => null,
+			'footerFontFamily'   => null,
+			'footerFontSize'     => null,
+			'footerFontStyle'    => null,
+			'footerFontColor'    => null,
+			'footerSpacing'      => null,
+			'footerMarginTop'    => null,
+			'xPadding'           => null,
+			'yPadding'           => null,
+			'caretSize'          => null,
+			'cornerRadius'       => null,
+			'multiKeyBackground' => null,
+			'displayColors'      => null,
+		],
+	];
+
 	/**
 	 *
 	 */
@@ -34,7 +108,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testTitle()
 	{
-		$title = $this->options->title();
+		$title = $this->options->getTitle();
 		self::assertInstanceOf( Title::class, $title );
 	}
 
@@ -43,7 +117,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testLayout()
 	{
-		$layout = $this->options->layout();
+		$layout = $this->options->getLayout();
 		self::assertInstanceOf( Layout::class, $layout );
 	}
 
@@ -52,7 +126,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAnimation()
 	{
-		$animation = $this->options->animation();
+		$animation = $this->options->getAnimation();
 		self::assertInstanceOf( Animation::class, $animation );
 	}
 
@@ -61,7 +135,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testHover()
 	{
-		$hover = $this->options->hover();
+		$hover = $this->options->getHover();
 		self::assertInstanceOf( Hover::class, $hover );
 	}
 
@@ -70,7 +144,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testScales()
 	{
-		$scales = $this->options->scales();
+		$scales = $this->options->getScales();
 		self::assertInstanceOf( Scales::class, $scales );
 	}
 
@@ -79,7 +153,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testLagend()
 	{
-		$legend = $this->options->legend();
+		$legend = $this->options->getLegend();
 		self::assertInstanceOf( Legend::class, $legend );
 	}
 
@@ -88,7 +162,14 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testTooltips()
 	{
-		$tooltips = $this->options->tooltips();
+		$tooltips = $this->options->getTooltips();
 		self::assertInstanceOf( Tooltips::class, $tooltips );
+	}
+
+	public function testJsonSerialize()
+	{
+		$expected = $this->empty_options;
+		$result   = json_decode( $this->options->jsonSerialize(), true );
+		self::assertEquals( $expected, $result );
 	}
 }

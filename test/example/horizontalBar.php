@@ -23,9 +23,9 @@ $oranges->setLabel( 'oranges' )
 	->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3, 10 ] );
 $bar->addDataSet( $oranges );
 
-$scales	= $bar->options()->scales();
-$scales->xAxes()->append( $scales->createXAxis()->setStacked( true ) );
-$scales->yAxes()->append( $scales->createYAxis()->setStacked( true ) );
+$scales	= $bar->options()->getScales();
+$scales->getXAxes()->append( $scales->createXAxis()->setStacked( true ) );
+$scales->getYAxes()->append( $scales->createYAxis()->setStacked( true ) );
 
 ?>
 

@@ -18,12 +18,12 @@ $dataSet->setLabel( 'Scatter Dataset' )
 	] );
 $line->addDataSet( $dataSet );
 
-$scales	= $line->options()->scales();
+$scales	= $line->options()->getScales();
 $xAxis	= $scales->createXAxis();
 $xAxis->setType( 'linear' )
 	->setPosition( 'bottom' );
 
-$scales->xAxes()->append( $xAxis );
+$scales->getXAxes()->append( $xAxis );
 
 ?>
 

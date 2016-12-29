@@ -9,6 +9,7 @@ use Halfpastfour\PHPChartJS\Options\LineOptions;
 /**
  * Class Line
  * @package Halfpastfour\PHPChartJS\Chart
+ * @method LineDataSet createDataSet()
  */
 class Line extends Chart
 {

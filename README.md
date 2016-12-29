@@ -60,7 +60,7 @@ You can provide javascript callbacks with ease:
 
 ````php
 $myCallback = "function( item ){ console.log( item ); }";
-$bar->options()->tooltips()->callbacks()->setAfterBody( $myCallback );
+$bar->options()->getTooltips()->callbacks()->setAfterBody( $myCallback );
 ````
 
 ### Rendering
@@ -71,13 +71,13 @@ configuration for ChartJS. Every part of the configuration can be cast to an arr
 Render isolated part of the configuration:
 
 ````php
-$json = $myChart->options()->scales()->jsonSerialize();
+$json = $myChart->options()->getScales()->jsonSerialize();
 ````
 
 Or return an array containing the set configuration:
 
 ````php
-$options = $myChart->options()->scales()->getArrayCopy();
+$options = $myChart->options()->getScales()->getArrayCopy();
 ````
 
 
@@ -99,11 +99,11 @@ ChartJS requires you to build a JSON object containing the configuration options
 These options are spread over multiple layers inside the configuration object. Accessing these layers with PHPChartJS is
  super easy.
 
-Let's say we wanted to access the chart's animation subtree within the options subtree:
+Let's say we wanted to access the chart's getAnimation subtree within the options subtree:
 ````php
-$animation = $myChart->options()->animation();
+$getAnimation = $myChart->options()->getAnimation();
 ````
-You can now adjust any of ChartJS's animation settings by using the getters and setters provided in that particular class.
+You can now adjust any of ChartJS's getAnimation settings by using the getters and setters provided in that particular class.
 
 ## Collections
 If ChartJS requires an array with certain items as subsets in a configuration option that array will be represented by a

@@ -34,8 +34,8 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 		$chart->addDataSet( $dataSet = $chart->createDataSet() );
 		$dataSet->setLabel( 'My First Dataset' );
 
-		$chart->options()->title()->setText( 'My cool graph' );
-		$chart->options()->legend()->setDisplay( false );
+		$chart->options()->getTitle()->setText( 'My cool graph' );
+		$chart->options()->getLegend()->setDisplay( false );
 
 		$this->chart	= $chart;
 	}
