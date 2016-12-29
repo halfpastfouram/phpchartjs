@@ -33,7 +33,7 @@ class Layout implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function getPadding()
 	{
-		return $this->padding ? intval( $this->padding ) : null;
+		return $this->padding;
 	}
 
 	/**
