@@ -45,7 +45,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 		self::assertEquals( $expected, $result );
 	}
 
-	public function testGetAndSetWithoutExpr()
+	public function testGetAndSet()
 	{
 		$expected = $this->input_data;
 		TestUtils::setAttributes( $this->animation, $this->input_data );
