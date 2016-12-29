@@ -18,5 +18,5 @@ interface ChartOwnedInterface
 	/**
 	 * @return ChartInterface
 	 */
-	public function getOwner();
+	public function owner();
 }

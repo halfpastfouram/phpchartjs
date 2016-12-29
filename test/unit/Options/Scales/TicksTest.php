@@ -108,6 +108,8 @@ class TicksTest extends \PHPUnit_Framework_TestCase
 		'reverse'         => null,
 	];
 
+	private $scratch_input_data_1 = [];
+
 	/**
 	 *
 	 */
@@ -157,13 +159,14 @@ class TicksTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJsonSerializeWithoutExpr()
 	{
-		array_walk( $this->input_data_1, function($value, $key) {
+		$this->scratch_input_data_1 = $this->input_data_1;
+		array_walk( $this->scratch_input_data_1, function($value, $key) {
 			if (is_null($value)) {
-				unset($this->input_data_1[$key]);
+				unset($this->scratch_input_data_1[$key]);
 			}
 		});
 		$expected = $this->input_data_1;
-		TestUtils::setAttributes( $this->ticks, $this->input_data_1 );
+		TestUtils::setAttributes( $this->ticks, $this->scratch_input_data_1 );
 		$result = json_decode( $this->ticks->jsonSerialize(), true );
 		self::assertEquals( $expected, $result );
 	}

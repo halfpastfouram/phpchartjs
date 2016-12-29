@@ -28,7 +28,7 @@ trait ChartOwned
 	/**
 	 * @return ChartInterface
 	 */
-	public function getOwner()
+	public function owner()
 	{
 		return $this->owner;
 	}

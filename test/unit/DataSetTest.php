@@ -9,7 +9,6 @@ use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\ChartOwnedInterface;
 use Halfpastfour\PHPChartJS\Collection\Data;
 use Halfpastfour\PHPChartJS\DataSet;
-use Zend\Json\Json;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
@@ -41,14 +40,14 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	{
 		$dataSet = new DataSet();
 
-		$this->assertNull( $dataSet->getOwner(), 'The dataset has no owner' );
+		$this->assertNull( $dataSet->owner(), 'The dataset has no owner' );
 
 		$chart = new Bar();
 		$chart->addDataSet( $dataSet );
 
-		$this->assertEquals( $chart, $dataSet->getOwner(), 'The owner of the dataSet is set and returned correctly' );
+		$this->assertEquals( $chart, $dataSet->owner(), 'The owner of the dataSet is set and returned correctly' );
 		$this->assertInstanceOf(
-			ChartInterface::class, $dataSet->getOwner(),
+			ChartInterface::class, $dataSet->owner(),
 			'The owner of the dataSet implements the correct interface'
 		);
 	}
@@ -194,20 +193,20 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 
 		$this->assertInstanceOf( DataSet::class, $dataSet->setXAxisID( 'myXAxis' ) );
 		$this->assertEquals( 'myXAxis', $dataSet->getXAxisID(), 'The correct value is returned' );
-		$this->assertEquals( [ 'xAxisID' => 'myXAxis' ], $dataSet->getArrayCopy() );
-		$this->assertEquals(
-			Json::encode( [ 'xAxisID' => 'myXAxis' ] ), $dataSet->jsonSerialize(), 'The serialized data is correct'
+		$this->assertArraySubset( [ 'xAxisID' => 'myXAxis' ], $dataSet->getArrayCopy() );
+		$this->assertArraySubset(
+			[ 'xAxisID' => 'myXAxis' ] , json_decode($dataSet->jsonSerialize(), true), 'Serialized data is not correct'
 		);
 
 		$this->assertNull( $dataSet->getYAxisID(), 'The yAxisID value is not set' );
 
 		$this->assertInstanceOf( DataSet::class, $dataSet->setYAxisID( 'myYAxis' ) );
-		$this->assertEquals( 'myYAxis', $dataSet->getYAxisID(), 'The correct value is returned' );
-		$this->assertEquals(
-			Json::encode( [
+		$this->assertEquals( 'myYAxis', $dataSet->getYAxisID(), 'The correct value is not returned' );
+		$this->assertArraySubset(
+			[
 				'xAxisID' => 'myXAxis',
 				'yAxisID' => 'myYAxis'
-			] ), $dataSet->jsonSerialize(), 'The serialized data is correct'
+			], json_decode($dataSet->jsonSerialize(), true), 'The serialized data is not correct'
 		);
 	}
 

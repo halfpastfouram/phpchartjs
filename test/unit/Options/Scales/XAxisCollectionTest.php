@@ -28,7 +28,6 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->xAxisCollection = new XAxisCollection();
 		$this->input_data      = [];
-		$this->input_data[]    = new XAxis();
 		foreach( $this->input_data as $value ) {
 			$this->xAxisCollection[] = $value;
 		}
@@ -39,8 +38,9 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetArrayCopyEmpty()
 	{
-		$expected = [ [] ];
-		$result   = $this->xAxisCollection->getArrayCopy();
+		$expected = [];
+		$xAxisCollection = new XAxisCollection();
+		$result   = $xAxisCollection->getArrayCopy();
 		self::assertSame( $expected, $result );
 	}
 
@@ -62,8 +62,8 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJsonSerializeEmpty()
 	{
-		$expected = [ [] ];
-		$result   = json_decode( $this->xAxisCollection->jsonSerialize() );
+		$expected = [];
+		$result   = json_decode( $this->xAxisCollection->jsonSerialize(), true );
 		self::assertSame( $expected, $result );
 	}
 
@@ -76,7 +76,7 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
 		$x                       = new XAxis();
 		$expected[]              = $x->getArrayCopy();
 		$this->xAxisCollection[] = $x;
-		$result                  = json_decode( $this->xAxisCollection->jsonSerialize() );
+		$result                  = json_decode( $this->xAxisCollection->jsonSerialize(), true );
 		self::assertSame( $expected, $result );
 	}
 }
