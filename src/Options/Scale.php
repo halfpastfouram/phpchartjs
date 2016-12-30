@@ -534,6 +534,13 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
+	 * @return \Halfpastfour\PHPChartJS\Options\Scales\GridLines
+	 */
+	public function getGridLines() {
+		return $this->gridLines;
+	}
+
+	/**
 	 * @return GridLines
 	 */
 	public function gridLines()
@@ -546,6 +553,13 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
+	 * @return \Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel
+	 */
+	public function getScaleLabel() {
+		return $this->scaleLabel;
+	}
+
+	/**
 	 * @return ScaleLabel
 	 */
 	public function scaleLabel()
@@ -555,6 +569,13 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 		}
 
 		return $this->scaleLabel;
+	}
+
+	/**
+	 * @return \Halfpastfour\PHPChartJS\Options\Scales\Ticks
+	 */
+	public function getTicks() {
+		return $this->ticks;
 	}
 
 	/**
