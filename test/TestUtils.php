@@ -43,12 +43,12 @@ class TestUtils
 	 * $input_data and calls the getter. It returns the resulting array.
 	 *
 	 * @param       $obj
-	 * @param array $input_data is an associative array that refers fieldnames to values.
+	 * @param array $dataTypes  is an associative array that refers fieldnames to values.
 	 *                          The values could be any primitive type, including an array.
 	 *
 	 * @return array
 	 */
-	public static function getAttributes( $obj, array $input_data )
+	public static function getAttributes( $obj, array $dataTypes )
 	{
 
 		if( !is_object( $obj ) ) {
@@ -56,7 +56,7 @@ class TestUtils
 		}
 
 		$array = [];
-		foreach( $input_data as $key => $value ) {
+		foreach( $dataTypes as $key => $value ) {
 			$function = ( gettype( $value ) == "boolean" ? 'is' : 'get' ) . ucfirst( $key );
 			$function = method_exists( $obj, $function ) ? $function : $key;
 			if( method_exists( $obj, $function ) ) {
