@@ -56,4 +56,24 @@ class LayoutTest extends \PHPUnit_Framework_TestCase
 		$this->layout->padding()->setLeft(2.1);
 		self::assertEquals(2, $this->layout->padding()->getLeft());
 	}
+
+	public function testJsonSerializeAllInt() {
+		$expected = $this->input_data;
+		TestUtils::setAttributes($this->layout, $this->input_data);
+		$result = json_decode($this->layout->jsonSerialize(), true);
+		self::assertEquals($expected, $result);
+	}
+	public function testJsonSerializePaddingObj() {
+		$expected = $this->empty_data;
+		$expected['padding'] = [
+			"bottom" => null,
+			"left"	=> null,
+			"right"	=> 5,
+			"top"	=> null,
+		];
+
+		$this->layout->padding()->setRight(5);
+		$result = json_decode($this->layout->jsonSerialize(), true);
+		self::assertSame($expected, $result);
+	}
 }
