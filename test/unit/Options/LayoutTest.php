@@ -47,8 +47,13 @@ class LayoutTest extends \PHPUnit_Framework_TestCase
 		self::assertEquals($expected, $result);
 	}
 
+	/**
+	 * Test whether Layout stores the Padding object correctly and
+	 * relays changes correctly. We are *not* testing Padding
+	 */
 	public function testPaddingObject() {
-		$obj = $this->layout->padding();
-		self::assertInstanceOf(Layout\Padding::class, $obj);
+		self::assertInstanceOf(Layout\Padding::class, $this->layout->padding());
+		$this->layout->padding()->setLeft(2.1);
+		self::assertEquals(2, $this->layout->padding()->getLeft());
 	}
 }
