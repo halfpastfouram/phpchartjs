@@ -32,7 +32,7 @@ class TestUtils
 
 		foreach( $data as $key => $value ) {
 			$function      = 'set' . ucfirst( $key );
-			if( !is_null( $value ) ) {
+			if( !is_null( $value ) && method_exists($obj, $function)) {
 				$obj->$function( $value );
 			}
 		}
