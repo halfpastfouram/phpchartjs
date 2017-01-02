@@ -45,8 +45,22 @@ trait ArraySerializable
 				// Only if the method exists
 				if (method_exists( $this, $getter )) {
 					// Assign the contents of the property to the data array
+					$obj = $this->$getter();
+					$getArrayCopyFound = false;
+					if (is_object($obj)) {
+						$reflectionClass = new \ReflectionClass($obj);
+						$methods = $reflectionClass->getMethods();
+						$className = (new \ReflectionClass($this))->getName();
+						/** @var \ReflectionMethod $method */
+						foreach($methods as $method) {
+							if ($method->getName() == "getArrayCopy") {
+								$getArrayCopyFound = true;
+								break;
+							}
+						}
+					}
 					$data[ $property ]	=
-						is_object($this->$getter()) ? $this->$getter()->getArrayCopy() : $this->$getter();
+						$getArrayCopyFound ? $this->$getter()->getArrayCopy() : $this->$getter();
 				}
 			}
 		}
