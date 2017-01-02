@@ -31,8 +31,8 @@ class TestUtils
 		}
 
 		foreach( $data as $key => $value ) {
-			$function      = 'set' . ucfirst( $key );
-			if( !is_null( $value ) && method_exists($obj, $function)) {
+			$function = 'set' . ucfirst( $key );
+			if( !is_null( $value ) && method_exists( $obj, $function ) ) {
 				$obj->$function( $value );
 			}
 		}
@@ -58,10 +58,10 @@ class TestUtils
 		$array = [];
 		foreach( $dataTypes as $key => $value ) {
 			$function = ( gettype( $value ) == "boolean" ? 'is' : 'get' ) . ucfirst( $key );
-			$function = method_exists( $obj, $function ) ? $function : $key;
+//			$function = method_exists( $obj, $function ) ? $function : $key;
 			if( method_exists( $obj, $function ) ) {
-				$getResult = $obj->$function( $value );
-				$getResult = $getResult instanceof Expr ? $getResult->__toString() : $getResult;
+				$getResult     = $obj->$function( $value );
+				$getResult     = $getResult instanceof Expr ? $getResult->__toString() : $getResult;
 				$array[ $key ] = $getResult;
 			}
 		}

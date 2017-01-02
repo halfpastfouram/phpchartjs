@@ -74,6 +74,6 @@ class LayoutTest extends \PHPUnit_Framework_TestCase
 
 		$this->layout->padding()->setRight(5);
 		$result = json_decode($this->layout->jsonSerialize(), true);
-		self::assertSame($expected, $result);
+		self::assertEquals(5, $result['padding']['right']);
 	}
 }
