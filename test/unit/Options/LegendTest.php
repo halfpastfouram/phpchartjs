@@ -46,6 +46,18 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
+	private $input_data_no_expressions = [
+		'display'   => true,
+		'position'  => 'position',
+		'fullWidth' => true,
+		'onClick'   => null,
+		'onHover'   => null,
+		'reverse'   => true,
+	];
+
+	/**
+	 * @var array
+	 */
 	private $empty_data = [
 		'display'   => null,
 		'position'  => null,
@@ -91,5 +103,12 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		$labels = $this->legend->labels();
 		self::assertNotNull($labels);
 		self::assertInstanceOf(LabelsCollection::class, $labels);
+	}
+
+	public function testJsonSerializeWithoutExpressions() {
+		$expected = $this->input_data_no_expressions;
+		TestUtils::setAttributes($this->legend, $this->input_data_no_expressions);
+		$result = json_decode($this->legend->jsonSerialize(), true);
+		self::assertSame($expected, $result);
 	}
 }
