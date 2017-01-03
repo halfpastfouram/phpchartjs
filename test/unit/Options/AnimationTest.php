@@ -5,6 +5,10 @@ namespace Options;
 use Halfpastfour\PHPChartJS\Options\Animation;
 use Test\TestUtils;
 
+/**
+ * Class AnimationTest
+ * @package Options
+ */
 class AnimationTest extends \PHPUnit_Framework_TestCase
 {
 	/**
@@ -12,20 +16,39 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $animation;
 
-	private $data_types = [
+	/**
+	 * @var array
+	 */
+	private $data_types                  = [
 		'duration'   => 1,
 		'easing'     => '',
 		'onProgress' => '',
 		'onComplete' => '',
 	];
 
-	private $input_data = [
+	/**
+	 * @var array
+	 */
+	private $input_data_no_expressions   = [
+		'duration'   => 1,
+		'easing'     => '',
+		'onProgress' => null,
+		'onComplete' => null,
+	];
+
+	/**
+	 * @var array
+	 */
+	private $input_data_with_expressions = [
 		'duration'   => 1,
 		'easing'     => '',
 		'onProgress' => 'function() { echo "onProgress"; }',
 		'onComplete' => 'function() { echo "onComplete"; }',
 	];
 
+	/**
+	 * @var array
+	 */
 	private $empty_data = [
 		'duration'   => null,
 		'easing'     => null,
@@ -33,11 +56,17 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 		'onComplete' => null,
 	];
 
+	/**
+	 *
+	 */
 	public function setUp()
 	{
 		$this->animation = new Animation();
 	}
 
+	/**
+	 *
+	 */
 	public function testEmpty()
 	{
 		$expected = $this->empty_data;
@@ -45,12 +74,25 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 		self::assertEquals( $expected, $result );
 	}
 
-	public function testGetAndSet()
+	/**
+	 *
+	 */
+	public function testGetAndSetWithExpressions()
 	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->animation, $this->input_data );
+		$expected = $this->input_data_with_expressions;
+		TestUtils::setAttributes( $this->animation, $this->input_data_with_expressions );
 		$result = TestUtils::getAttributes( $this->animation, $this->data_types );
 		self::assertEquals( $expected, $result );
 	}
 
+	/**
+	 *
+	 */
+	public function testJsonSerializeNoExpressions()
+	{
+		$expected = $this->input_data_no_expressions;
+		TestUtils::setAttributes( $this->animation, $this->input_data_no_expressions );
+		$result = json_decode( $this->animation->jsonSerialize(), true );
+		self::assertSame( $expected, $result );
+	}
 }
