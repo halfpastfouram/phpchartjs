@@ -12,7 +12,7 @@ use Test\TestUtils;
 class HoverTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var
+	 * @var Hover
 	 */
 	private $hover;
 
@@ -29,7 +29,17 @@ class HoverTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $input_data = [
+	private $input_data_no_expressions = [
+		'mode'              => 'mode',
+		'intersect'         => true,
+		'animationDuration' => 2,
+		'onHover'           => null,
+	];
+
+	/**
+	 * @var array
+	 */
+	private $input_data_with_expressions = [
 		'mode'              => 'mode',
 		'intersect'         => true,
 		'animationDuration' => 2,
@@ -67,11 +77,19 @@ class HoverTest extends \PHPUnit_Framework_TestCase
 	/**
 	 *
 	 */
-	public function testGetAndSet()
+	public function testGetAndSetWithExpressions()
 	{
-		$expected = $this->input_data;
-		TestUtils::setAttributes( $this->hover, $this->input_data );
+		$expected = $this->input_data_with_expressions;
+		TestUtils::setAttributes( $this->hover, $this->input_data_with_expressions );
 		$result = TestUtils::getAttributes( $this->hover, $this->data_types );
 		self::assertEquals( $expected, $result );
 	}
+
+	public function testJsonSerializeWithoutExpressions() {
+		$expected = $this->input_data_no_expressions;
+		TestUtils::setAttributes($this->hover, $this->input_data_no_expressions);
+		$result = json_decode($this->hover->jsonSerialize(), true);
+		self::assertSame($expected, $result);
+	}
+
 }
