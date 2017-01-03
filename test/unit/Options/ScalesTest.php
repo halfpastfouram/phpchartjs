@@ -25,6 +25,14 @@ class ScalesTest extends \PHPUnit_Framework_TestCase
 
 	//TODO: Needs re-evaluation. We should be able to get "null" returned when empty.
 	//TODO: Rest of testcases need development after decision on empty objects.
+
+	public function testCreateXAxis() {
+		self::assertInstanceOf(Scales\XAxis::class, $this->scales->createXAxis());
+	}
+
+	public function testCreateYAxis() {
+		self::assertInstanceOf(Scales\YAxis::class, $this->scales->createYAxis());
+	}
 	/**
 	 *
 	 */
