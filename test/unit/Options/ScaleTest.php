@@ -169,4 +169,11 @@ class ScaleTest extends \PHPUnit_Framework_TestCase
 		$t = $this->scale->ticks();
 		self::assertInstanceOf( Ticks::class, $t );
 	}
+
+	public function testJsonSerializeNoObjects() {
+		$expected = $this->input_data;
+		TestUtils::setAttributes($this->scale, $this->input_data);
+		$result = json_decode($this->scale->jsonSerialize(), true);
+		self::assertSame($expected, $result);
+	}
 }
