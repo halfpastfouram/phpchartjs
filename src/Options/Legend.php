@@ -156,6 +156,9 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
 	 */
 	public function labels()
 	{
+		if( is_null( $this->labels ) ) {
+			$this->labels = new LabelsCollection();
+		}
 
 		return $this->labels;
 	}

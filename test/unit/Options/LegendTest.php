@@ -2,6 +2,7 @@
 
 namespace Options;
 
+use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\Legend;
 use Test\TestUtils;
 use Zend\Json\Expr;
@@ -27,24 +28,13 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		'onClick'   => '',
 		'onHover'   => '',
 		'reverse'   => false,
+		'labels'	=> '', /* LabelsCollection */
 	];
 
 	/**
 	 * @var array
 	 */
-	private $input_data_1 = [
-		'display'   => true,
-		'position'  => 'position',
-		'fullWidth' => true,
-		'onClick'   => null,
-		'onHover'   => null,
-		'reverse'   => true,
-	];
-
-	/**
-	 * @var array
-	 */
-	private $input_data_2 = [
+	private $input_data_with_expressions = [
 		'display'   => true,
 		'position'  => 'position',
 		'fullWidth' => true,
@@ -72,8 +62,8 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->legend = new Legend();
 
-		$this->input_data_2['onClick'] = new Expr( $this->input_data_2['onClick'] );
-		$this->input_data_2['onHover'] = new Expr( $this->input_data_2['onHover'] );
+		$this->input_data_with_expressions['onClick'] = new Expr( $this->input_data_with_expressions['onClick'] );
+		$this->input_data_with_expressions['onHover'] = new Expr( $this->input_data_with_expressions['onHover'] );
 	}
 
 	/**
@@ -89,33 +79,17 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	/**
 	 *
 	 */
-	public function testGetAndSetWithoutExpr()
+	public function testGetAndSetWithExpr()
 	{
-		$expected = $this->input_data_1;
-		TestUtils::setAttributes( $this->legend, $this->input_data_1 );
+		$expected = $this->input_data_with_expressions;
+		TestUtils::setAttributes( $this->legend, $this->input_data_with_expressions );
 		$result = TestUtils::getAttributes( $this->legend, $this->data_types );
-		self::assertSame( $expected, $result );
-	}
-
-	/**
-	 *
-	 */
-	public function testOnClickExpr()
-	{
-		TestUtils::setAttributes( $this->legend, $this->input_data_2 );
-		$result   = $this->legend->getOnClick()->__toString();
-		$expected = $this->input_data_2['onClick']->__toString();
 		self::assertEquals( $expected, $result );
 	}
 
-	/**
-	 *
-	 */
-	public function testOnHoverExpr()
-	{
-		TestUtils::setAttributes( $this->legend, $this->input_data_2 );
-		$result   = $this->legend->getOnHover()->__toString();
-		$expected = $this->input_data_2['onHover']->__toString();
-		self::assertEquals( $expected, $result );
+	public function testLabelsCollection() {
+		$labels = $this->legend->labels();
+		self::assertNotNull($labels);
+		self::assertInstanceOf(LabelsCollection::class, $labels);
 	}
 }
