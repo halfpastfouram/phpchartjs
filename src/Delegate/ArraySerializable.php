@@ -20,10 +20,10 @@ trait ArraySerializable
 		// We want the classes from top to bottom
 		// So that subclass attributes will overwrite superclass attributes
 		// with the same name
-		$hierarchy = [];
+		$hierarchy       = [];
 		$reflectionClass = new \ReflectionClass( $this );
-		while ($reflectionClass) {
-			array_push($hierarchy, $reflectionClass);
+		while( $reflectionClass ) {
+			array_push( $hierarchy, $reflectionClass );
 			$reflectionClass = $reflectionClass->getParentClass();
 		}
 
@@ -31,35 +31,35 @@ trait ArraySerializable
 		 * Fill the array with attributes and values, for each level in the hierarchy
 		 * dropping to the most specialized subclass.
 		 */
-		foreach($hierarchy as $reflectionClass) {
+		foreach( $hierarchy as $reflectionClass ) {
 			$reflectionProperties = $reflectionClass->getProperties();
 			/** @var \Zend_Reflection_Property $reflectionProperty */
-			foreach($reflectionProperties as $reflectionProperty) {
-				$property = $reflectionProperty->getName();
-				$phpDoc = $reflectionProperty->getDocComment();
-				$phpDocClass = new \Zend_Reflection_Docblock($phpDoc);
-				$tag = $phpDocClass->getTag('var');
-				$type = $tag->getDescription();
-				$getter = strcmp($type, 'bool') === 0 || strcmp($type, 'boolean') === 0 ?
-					'is' . ucfirst($property) : 'get' . ucfirst($property);
+			foreach( $reflectionProperties as $reflectionProperty ) {
+				$property    = $reflectionProperty->getName();
+				$phpDoc      = $reflectionProperty->getDocComment();
+				$phpDocClass = new \Zend_Reflection_Docblock( $phpDoc );
+				$tag         = $phpDocClass->getTag( 'var' );
+				$type        = $tag->getDescription();
+				$getter      = strcmp( $type, 'bool' ) === 0 || strcmp( $type, 'boolean' ) === 0 ?
+					'is' . ucfirst( $property ) : 'get' . ucfirst( $property );
+				$getter = method_exists($this, $getter) ? $getter : $property;
 				// Only if the method exists
-				if (method_exists( $this, $getter )) {
+				if( method_exists( $this, $getter ) ) {
 					// Assign the contents of the property to the data array
-					$obj = $this->$getter();
+					$obj               = $this->$getter();
 					$getArrayCopyFound = false;
-					if (is_object($obj)) {
-						$reflectionClass = new \ReflectionClass($obj);
-						$methods = $reflectionClass->getMethods();
-						$className = (new \ReflectionClass($this))->getName();
+					if( is_object( $obj ) ) {
+						$reflectionClass = new \ReflectionClass( $obj );
+						$methods         = $reflectionClass->getMethods();
 						/** @var \ReflectionMethod $method */
-						foreach($methods as $method) {
-							if ($method->getName() == "getArrayCopy") {
+						foreach( $methods as $method ) {
+							if( $method->getName() == "getArrayCopy" ) {
 								$getArrayCopyFound = true;
 								break;
 							}
 						}
 					}
-					$data[ $property ]	=
+					$data[ $property ] =
 						$getArrayCopyFound ? $this->$getter()->getArrayCopy() : $this->$getter();
 				}
 			}

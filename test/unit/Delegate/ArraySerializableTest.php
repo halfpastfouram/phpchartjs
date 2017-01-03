@@ -36,7 +36,7 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSuperclass()
 	{
-		$expected = [ 'a' => 1, 'b' => 2 ];
+		$expected = [ 'a' => 1, 'b' => 2 , 'x' => null];
 		ksort( $expected );
 		$result = $this->classA->getArrayCopy();
 		ksort( $result );
@@ -48,7 +48,7 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSubclass()
 	{
-		$expected = [ 'a' => 3, 'b' => 4, 'c' => 5, 'd' => 6 ];
+		$expected = [ 'a' => 3, 'b' => 4, 'c' => 5, 'd' => 6 , 'x' => null];
 		ksort( $expected );
 		$result = $this->classB->getArrayCopy();
 		ksort( $result );

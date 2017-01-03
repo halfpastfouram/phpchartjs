@@ -59,6 +59,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 			'onClick'   => null,
 			'onHover'   => null,
 			'reverse'   => null,
+			'labels'    => [],
 		],
 		'tooltips'  => [
 			'enabled'            => null,
@@ -92,7 +93,22 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 			'cornerRadius'       => null,
 			'multiKeyBackground' => null,
 			'displayColors'      => null,
+			'callbacks'          => [
+				'beforeTitle'  => null,
+				'title'        => null,
+				'afterTitle'   => null,
+				'beforeLabel'  => null,
+				'label'        => null,
+				'labelColor'   => null,
+				'afterLabel'   => null,
+				'afterBody'    => null,
+				'beforeFooter' => null,
+				'footer'       => null,
+				'afterFooter'  => null,
+				'dataPoints'   => null,
+			],
 		],
+		'owner'			=> null,
 	];
 
 	/**

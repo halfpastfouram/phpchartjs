@@ -87,10 +87,10 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	{
 		$dataSet = new DataSet();
 
-		$this->assertNull( $dataSet->getLabel(), 'The label is not set' );
+		$this->assertNull( $dataSet->getLabel(), 'The label should not be set' );
 
 		$dataSet->setLabel( 'Foo' );
-		$this->assertEquals( 'Foo', $dataSet->getLabel(), 'The label is set and returned correctly' );
+		$this->assertEquals( 'Foo', $dataSet->getLabel(), 'The label should have been set correctly' );
 	}
 
 	/**
@@ -189,7 +189,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	{
 		$dataSet = new DataSet();
 
-		$this->assertNull( $dataSet->getXAxisID(), 'The xAxisID value is not set' );
+		$this->assertNull( $dataSet->getXAxisID(), 'The xAxisID value should not be set' );
 
 		$this->assertInstanceOf( DataSet::class, $dataSet->setXAxisID( 'myXAxis' ) );
 		$this->assertEquals( 'myXAxis', $dataSet->getXAxisID(), 'The correct value is returned' );

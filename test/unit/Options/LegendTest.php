@@ -52,6 +52,7 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		'fullWidth' => true,
 		'onClick'   => null,
 		'onHover'   => null,
+		'labels'	=> [],
 		'reverse'   => true,
 	];
 

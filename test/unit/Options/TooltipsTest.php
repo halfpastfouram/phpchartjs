@@ -7,8 +7,6 @@ use Test\TestUtils;
 
 class TooltipsTest extends \PHPUnit_Framework_TestCase
 {
-
-
 	/**
 	 * @var Tooltips
 	 */
@@ -114,6 +112,20 @@ class TooltipsTest extends \PHPUnit_Framework_TestCase
 		'cornerRadius' => 13, /* int */
 		'multiKeyBackground' => 'multiKeyBackground', /* string */
 		'displayColors' => true, /* bool */
+		'callbacks'          => [
+			'beforeTitle'  => null,
+			'title'        => null,
+			'afterTitle'   => null,
+			'beforeLabel'  => null,
+			'label'        => null,
+			'labelColor'   => null,
+			'afterLabel'   => null,
+			'afterBody'    => null,
+			'beforeFooter' => null,
+			'footer'       => null,
+			'afterFooter'  => null,
+			'dataPoints'   => null,
+		],
 	];
 
 	public $empty_data = [
