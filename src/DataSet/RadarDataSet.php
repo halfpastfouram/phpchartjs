@@ -13,82 +13,82 @@ class RadarDataSet extends DataSet
 	/**
 	 * @var bool
 	 */
-	private $fill;
+	protected $fill;
 
 	/**
-	 * @var int
+	 * @var float
 	 */
-	private $lineTension;
+	protected $lineTension;
 
 	/**
 	 * @var string
 	 */
-	private $borderCapStyle;
+	protected $borderCapStyle;
 
 	/**
 	 * @var int[]
 	 */
-	private $borderDash;
+	protected $borderDash;
 
 	/**
 	 * @var int
 	 */
-	private $borderDashOffset;
+	protected $borderDashOffset;
 
 	/**
 	 * @var string
 	 */
-	private $borderJoinStyle;
+	protected $borderJoinStyle;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointBorderColor;
+	protected $pointBorderColor;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointBackgroundColor;
+	protected $pointBackgroundColor;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointBorderWidth;
+	protected $pointBorderWidth;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointRadius;
+	protected $pointRadius;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointHoverRadius;
+	protected $pointHoverRadius;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $hitRadius;
+	protected $hitRadius;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointHoverBackgroundColor;
+	protected $pointHoverBackgroundColor;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointHoverBorderColor;
+	protected $pointHoverBorderColor;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointHoverBorderWidth;
+	protected $pointHoverBorderWidth;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointStyle;
+	protected $pointStyle;
 
 	/**
 	 * @return boolean
@@ -119,7 +119,7 @@ class RadarDataSet extends DataSet
 	}
 
 	/**
-	 * @param int $lineTension
+	 * @param float $lineTension
 	 *
 	 * @return $this
 	 */

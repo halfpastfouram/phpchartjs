@@ -13,102 +13,102 @@ class LineDataSet extends DataSet
 	/**
 	 * @var bool|string
 	 */
-	private $fill;
+	protected $fill;
 
 	/**
 	 * @var string
 	 */
-	private $cubicInterpolationMode;
+	protected $cubicInterpolationMode;
 
 	/**
 	 * @var int
 	 */
-	private $lineTension;
+	protected $lineTension;
 
 	/**
 	 * @var string
 	 */
-	private $borderCapStyle;
+	protected $borderCapStyle;
 
 	/**
 	 * @var array
 	 */
-	private $borderDash;
+	protected $borderDash;
 
 	/**
 	 * @var float
 	 */
-	private $borderDashOffset;
+	protected $borderDashOffset;
 
 	/**
 	 * @var string
 	 */
-	private $borderJoinStyle;
+	protected $borderJoinStyle;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointBorderColor;
+	protected $pointBorderColor;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointBackgroundColor;
+	protected $pointBackgroundColor;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointBorderWidth;
+	protected $pointBorderWidth;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointRadius;
+	protected $pointRadius;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointHoverRadius;
+	protected $pointHoverRadius;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointHitRadius;
+	protected $pointHitRadius;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointHoverBackgroundColor;
+	protected $pointHoverBackgroundColor;
 
 	/**
 	 * @var string|string[]
 	 */
-	private $pointHoverBorderColor;
+	protected $pointHoverBorderColor;
 
 	/**
 	 * @var int|int[]
 	 */
-	private $pointHoverBorderWidth;
+	protected $pointHoverBorderWidth;
 
 	/**
 	 * @var mixed
 	 */
-	private $pointStyle;
+	protected $pointStyle;
 
 	/**
 	 * @var bool
 	 */
-	private $showLine;
+	protected $showLine;
 
 	/**
 	 * @var bool
 	 */
-	private $spanGaps;
+	protected $spanGaps;
 
 	/**
 	 * @var bool
 	 */
-	private $steppedLine;
+	protected $steppedLine;
 	
 	/**
 	 * @return boolean
