@@ -10,6 +10,9 @@ use Halfpastfour\PHPChartJS\Options\RadarOptions;
 /**
  * Class Radar
  * @package Halfpastfour\PHPChartJS\Chart
+ *
+ * @method RadarDataSet createDataSet
+ * @method RadarOptions options
  */
 class Radar extends Chart implements ChartInterface
 {

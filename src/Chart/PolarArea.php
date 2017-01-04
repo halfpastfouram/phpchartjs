@@ -10,6 +10,9 @@ use Halfpastfour\PHPChartJS\Options\PolarAreaOptions;
 /**
  * Class PolarArea
  * @package Halfpastfour\PHPChartJS\Chart
+ *
+ * @method PolarAreaDataSet createDataSet
+ * @method PolarAreaOptions options
  */
 class PolarArea extends Chart implements ChartInterface
 {

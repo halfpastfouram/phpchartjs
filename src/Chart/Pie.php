@@ -10,6 +10,9 @@ use Halfpastfour\PHPChartJS\Options\PieOptions;
 /**
  * Class Pie
  * @package Halfpastfour\PHPChartJS\Chart
+ *
+ * @method PieDataSet createDataSet
+ * @method PieOptions options
  */
 class Pie extends Chart implements ChartInterface
 {
