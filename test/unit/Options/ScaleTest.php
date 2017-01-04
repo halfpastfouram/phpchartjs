@@ -171,7 +171,7 @@ class ScaleTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function testJsonSerializeNoObjects() {
-		$expected = $this->input_data;
+		$expected = TestUtils::removeNullsFromArray($this->input_data);
 		TestUtils::setAttributes($this->scale, $this->input_data);
 		$result = json_decode($this->scale->jsonSerialize(), true);
 		self::assertSame($expected, $result);

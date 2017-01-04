@@ -86,7 +86,7 @@ class HoverTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function testJsonSerializeWithoutExpressions() {
-		$expected = $this->input_data_no_expressions;
+		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
 		TestUtils::setAttributes($this->hover, $this->input_data_no_expressions);
 		$result = json_decode($this->hover->jsonSerialize(), true);
 		self::assertSame($expected, $result);

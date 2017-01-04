@@ -36,21 +36,9 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSuperclass()
 	{
-		$expected = [ 'a' => 1, 'b' => 2 , 'x' => null];
+		$expected = [ 'a' => 1, 'b' => 2 ];
 		ksort( $expected );
 		$result = $this->classA->getArrayCopy();
-		ksort( $result );
-		self::assertSame( $expected, $result );
-	}
-
-	/**
-	 *
-	 */
-	public function testSubclass()
-	{
-		$expected = [ 'a' => 3, 'b' => 4, 'c' => 5, 'd' => 6 , 'x' => null];
-		ksort( $expected );
-		$result = $this->classB->getArrayCopy();
 		ksort( $result );
 		self::assertSame( $expected, $result );
 	}
@@ -67,19 +55,22 @@ class A
 	/**
 	 * @var int
 	 */
-	private $a;
+	protected $a;
 
 	/**
 	 * @var int
 	 */
-	private $b;
+	protected $b;
 
 	/**
+	 *
+	 * should not show (private)
 	 * @var int
 	 */
 	private $x;
 
 	/**
+	 * should not show (private)
 	 * @var int
 	 */
 	private $y;
@@ -131,7 +122,7 @@ class A
 	/**
 	 * @return int
 	 */
-	public function X()
+	public function getX()
 	{
 		return $this->x;
 	}
@@ -142,7 +133,7 @@ class A
 	 *
 	 * @return int
 	 */
-	public function isY()
+	public function getY()
 	{
 		return $this->y;
 	}
@@ -157,12 +148,12 @@ class B extends A
 	/**
 	 * @var int
 	 */
-	private $c;
+	protected $c;
 
 	/**
 	 * @var int
 	 */
-	private $d;
+	protected $d;
 
 	/**
 	 * B constructor.

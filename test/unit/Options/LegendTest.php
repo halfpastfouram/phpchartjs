@@ -52,7 +52,7 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		'fullWidth' => true,
 		'onClick'   => null,
 		'onHover'   => null,
-		'labels'	=> [],
+		'labels'	=> null,
 		'reverse'   => true,
 	];
 
@@ -107,7 +107,7 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 	}
 
 	public function testJsonSerializeWithoutExpressions() {
-		$expected = $this->input_data_no_expressions;
+		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
 		TestUtils::setAttributes($this->legend, $this->input_data_no_expressions);
 		$result = json_decode($this->legend->jsonSerialize(), true);
 		self::assertSame($expected, $result);
