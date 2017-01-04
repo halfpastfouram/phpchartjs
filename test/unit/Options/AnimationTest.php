@@ -53,7 +53,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 		'duration'   => null,
 		'easing'     => null,
 		'onProgress' => null,
-		'onComplete' => null,
+	    'onComplete' => null,
 	];
 
 	/**
@@ -90,7 +90,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJsonSerializeNoExpressions()
 	{
-		$expected = $this->input_data_no_expressions;
+		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
 		TestUtils::setAttributes( $this->animation, $this->input_data_no_expressions );
 		$result = json_decode( $this->animation->jsonSerialize(), true );
 		self::assertSame( $expected, $result );

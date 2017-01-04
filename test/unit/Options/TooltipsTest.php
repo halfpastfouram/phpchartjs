@@ -112,20 +112,6 @@ class TooltipsTest extends \PHPUnit_Framework_TestCase
 		'cornerRadius' => 13, /* int */
 		'multiKeyBackground' => 'multiKeyBackground', /* string */
 		'displayColors' => true, /* bool */
-		'callbacks'          => [
-			'beforeTitle'  => null,
-			'title'        => null,
-			'afterTitle'   => null,
-			'beforeLabel'  => null,
-			'label'        => null,
-			'labelColor'   => null,
-			'afterLabel'   => null,
-			'afterBody'    => null,
-			'beforeFooter' => null,
-			'footer'       => null,
-			'afterFooter'  => null,
-			'dataPoints'   => null,
-		],
 	];
 
 	public $empty_data = [
@@ -187,8 +173,8 @@ class TooltipsTest extends \PHPUnit_Framework_TestCase
 
 	public function testJsonSerializeNoExpressions()
 	{
-		$expected = $this->input_data_no_expressions;
-		TestUtils::setAttributes($this->tooltips, $this->input_data_no_expressions);
+		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
+		TestUtils::setAttributes($this->tooltips, $expected);
 		$result = json_decode($this->tooltips->jsonSerialize(), true);
 		self::assertSame($expected, $result);
 	}

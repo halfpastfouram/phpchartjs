@@ -68,4 +68,22 @@ class TestUtils
 
 		return $array;
 	}
+
+	/**
+	 * @param $input_array
+	 *
+	 * @return mixed
+	 */
+	public static function removeNullsFromArray( $input_array )
+	{
+		$array = $input_array;
+		$keys  = array_keys( $array );
+		foreach( $keys as $key ) {
+			if( is_null( $array[ $key ] ) ) {
+				unset( $array[ $key ] );
+			}
+		}
+
+		return $array;
+	}
 }

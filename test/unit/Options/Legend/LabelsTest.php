@@ -60,8 +60,6 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
 		'usePointStyle'  => true,
 	];
 
-	private $scratch_input_data_1 = [];
-
 	/**
 	 * @var array
 	 */
@@ -125,14 +123,8 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJsonSerializeWithoutExpr()
 	{
-		$this->scratch_input_data_1 = $this->input_data_1;
-		array_walk( $this->scratch_input_data_1, function($value, $key) {
-			if (is_null($value)) {
-				unset($this->scratch_input_data_1[$key]);
-			}
-		});
-		$expected = $this->input_data_1;
-		TestUtils::setAttributes( $this->labels, $this->scratch_input_data_1 );
+		$expected = TestUtils::removeNullsFromArray($this->input_data_1);
+		TestUtils::setAttributes( $this->labels, $expected );
 		$result = json_decode( $this->labels->jsonSerialize(), true );
 		self::assertEquals( $expected, $result );
 	}
