@@ -114,4 +114,10 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 		self::assertSame( $expected, $result );
 	}
 
+	public function testJsonSerializeEmpty() {
+		$expected = "[]";
+		$result = $this->callbacks->jsonSerialize();
+		self::assertSame($expected, $result);
+	}
+
 }
