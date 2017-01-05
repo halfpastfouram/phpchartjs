@@ -8,7 +8,7 @@ $bar = new Bar();
 $bar->setId( 'myChart' );
 
 // Set labels
-$bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
+$bar->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bar->createDataSet();

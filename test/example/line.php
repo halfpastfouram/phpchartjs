@@ -9,7 +9,7 @@ $factory   = new Factory();
 $line       = $factory->create( $factory::LINE );
 
 // Set labels
-$line->getLabels()->exchangeArray( [ "January", "February", "March", "April", "May", "June", "July" ] );
+$line->labels()->exchangeArray( [ "January", "February", "March", "April", "May", "June", "July" ] );
 
 // Add Datasets
 $dataSet = $line->createDataSet();

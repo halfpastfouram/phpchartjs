@@ -37,7 +37,7 @@ interface ChartInterface
 	/**
 	 * @return CollectionInterface
 	 */
-	public function getDataSets();
+	public function dataSets();
 
 	/**
 	 * @return string

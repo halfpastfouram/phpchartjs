@@ -8,7 +8,7 @@ $factory   = new Factory();
 $bubble       = $factory->create( $factory::BUBBLE );
 
 // Set labels
-$bubble->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
+$bubble->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bubble->createDataSet();

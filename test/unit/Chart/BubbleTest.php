@@ -51,7 +51,7 @@ class BubbleTest extends \PHPUnit_Framework_TestCase
 
 		// Check if data is still correct.
 		$bubble->addDataSet( $dataSet );
-		$this->assertEquals( $chartData, $bubble->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+		$this->assertEquals( $chartData, $bubble->dataSets()->offsetGet( 0 )->data()->getArrayCopy() );
 	}
 
 	/**

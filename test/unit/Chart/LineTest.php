@@ -44,7 +44,7 @@ class LineTest extends \PHPUnit_Framework_TestCase
 
 		// Check if data is still correct.
 		$Line->addDataSet( $dataSet );
-		$this->assertEquals( $chartData, $Line->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+		$this->assertEquals( $chartData, $Line->dataSets()->offsetGet( 0 )->data()->getArrayCopy() );
 	}
 
 	/**

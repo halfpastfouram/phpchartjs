@@ -19,7 +19,7 @@ $bar = new Bar();
 $bar->setId( "myBar" );
 
 // Set labels
-$bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
+$bar->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add apples
 $apples = $bar->createDataSet();

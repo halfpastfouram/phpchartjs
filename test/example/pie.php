@@ -17,7 +17,7 @@ $factory  = new Factory();
 $pie = $factory->create( $factory::PIE );
 
 // Set labels
-$pie->getLabels()->exchangeArray( [
+$pie->labels()->exchangeArray( [
 	"Monday",
 	"Tuesday",
 	"Wednesday",

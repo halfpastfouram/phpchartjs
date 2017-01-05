@@ -8,7 +8,7 @@ $factory   = new Factory();
 $bar       = $factory->create( $factory::HORIZONTAL_BAR );
 
 // Set labels
-$bar->getLabels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
+$bar->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
 
 // Add Datasets
 $apples = $bar->createDataSet();

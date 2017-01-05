@@ -17,7 +17,7 @@ $factory  = new Factory();
 $doughnut = $factory->create( $factory::DOUGHNUT );
 
 // Set labels
-$doughnut->getLabels()->exchangeArray( [
+$doughnut->labels()->exchangeArray( [
 	"Monday",
 	"Tuesday",
 	"Wednesday",

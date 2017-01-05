@@ -44,7 +44,7 @@ class PolarAreaTest extends \PHPUnit_Framework_TestCase
 
 		// Check if data is still correct.
 		$PolarArea->addDataSet( $dataSet );
-		$this->assertEquals( $chartData, $PolarArea->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+		$this->assertEquals( $chartData, $PolarArea->dataSets()->offsetGet( 0 )->data()->getArrayCopy() );
 	}
 
 	/**

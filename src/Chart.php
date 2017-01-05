@@ -142,7 +142,7 @@ abstract class Chart implements ChartInterface
 	/**
 	 * @return LabelsCollection
 	 */
-	public function getLabels()
+	public function labels()
 	{
 		if( is_null( $this->labels ) ) {
 			$this->labels	= new LabelsCollection();
@@ -158,7 +158,7 @@ abstract class Chart implements ChartInterface
 	 */
 	public function addLabel( $label )
 	{
-		$this->getLabels()->append( $label );
+		$this->labels()->append( $label );
 
 		return $this;
 	}
@@ -170,13 +170,13 @@ abstract class Chart implements ChartInterface
 	 */
 	public function getLabel( $offset )
 	{
-		return $this->getLabels()->offsetGet( $offset );
+		return $this->labels()->offsetGet( $offset );
 	}
 
 	/**
 	 * @return DataSetCollection
 	 */
-	public function getDataSets()
+	public function dataSets()
 	{
 		if( is_null( $this->dataSets ) ) {
 			$this->dataSets	= new DataSetCollection();
@@ -192,7 +192,7 @@ abstract class Chart implements ChartInterface
 	 */
 	public function addDataSet( DataSet $dataSet )
 	{
-		$this->getDataSets()->append( $dataSet->setOwner( $this ) );
+		$this->dataSets()->append( $dataSet->setOwner( $this ) );
 
 		return $this;
 	}
@@ -204,7 +204,7 @@ abstract class Chart implements ChartInterface
 	 */
 	public function getDataSet( $offset )
 	{
-		return $this->getDataSets()->offsetGet( $offset );
+		return $this->dataSets()->offsetGet( $offset );
 	}
 
 	/**

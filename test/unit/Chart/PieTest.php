@@ -44,7 +44,7 @@ class PieTest extends \PHPUnit_Framework_TestCase
 
 		// Check if data is still correct.
 		$Pie->addDataSet( $dataSet );
-		$this->assertEquals( $chartData, $Pie->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+		$this->assertEquals( $chartData, $Pie->dataSets()->offsetGet( 0 )->data()->getArrayCopy() );
 	}
 
 	/**

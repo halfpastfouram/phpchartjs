@@ -10,7 +10,7 @@ $factory  = new Factory();
 $polarArea = $factory->create( $factory::POLAR_AREA );
 
 // Set labels
-$polarArea->getLabels()->exchangeArray( [ "Red", "Green", "Yellow", "Grey", "Blue" ] );
+$polarArea->labels()->exchangeArray( [ "Red", "Green", "Yellow", "Grey", "Blue" ] );
 
 // Add Datasets
 $dataSet = $polarArea->createDataSet();

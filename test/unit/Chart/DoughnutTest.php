@@ -44,7 +44,7 @@ class DoughnutTest extends \PHPUnit_Framework_TestCase
 
 		// Check if data is still correct.
 		$Doughnut->addDataSet( $dataSet );
-		$this->assertEquals( $chartData, $Doughnut->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+		$this->assertEquals( $chartData, $Doughnut->dataSets()->offsetGet( 0 )->data()->getArrayCopy() );
 	}
 
 	/**

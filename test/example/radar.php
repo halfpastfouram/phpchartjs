@@ -9,7 +9,7 @@ $factory  = new Factory();
 $radar = $factory->create( $factory::RADAR );
 
 // Set labels
-$radar->getLabels()->exchangeArray( [
+$radar->labels()->exchangeArray( [
 	"Eating",
 	"Drinking",
 	"Sleeping",

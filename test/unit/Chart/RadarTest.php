@@ -44,7 +44,7 @@ class RadarTest extends \PHPUnit_Framework_TestCase
 
 		// Check if data is still correct.
 		$Radar->addDataSet( $dataSet );
-		$this->assertEquals( $chartData, $Radar->getDataSets()->offsetGet( 0 )->data()->getArrayCopy() );
+		$this->assertEquals( $chartData, $Radar->dataSets()->offsetGet( 0 )->data()->getArrayCopy() );
 	}
 
 	/**

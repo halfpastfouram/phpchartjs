@@ -39,10 +39,10 @@ class Renderer
 			'data' => [],
 		];
 
-		$labels = $this->chart->getLabels()->getArrayCopy();
+		$labels = $this->chart->labels()->getArrayCopy();
 		if( $labels ) $config['data']['labels'] = $labels;
 
-		$dataSets = $this->chart->getDataSets()->getArrayCopy();
+		$dataSets = $this->chart->dataSets()->getArrayCopy();
 		if( $dataSets ) $config['data']['datasets'] = $dataSets;
 
 		$options = $this->chart->options()->getArrayCopy();
