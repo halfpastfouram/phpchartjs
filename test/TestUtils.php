@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 15-12-2016
- * Time: 09:36
- */
 
 namespace Test;
 
@@ -58,7 +52,6 @@ class TestUtils
 		$array = [];
 		foreach( $dataTypes as $key => $value ) {
 			$function = ( gettype( $value ) == "boolean" ? 'is' : 'get' ) . ucfirst( $key );
-//			$function = method_exists( $obj, $function ) ? $function : $key;
 			if( method_exists( $obj, $function ) ) {
 				$getResult     = $obj->$function( $value );
 				$getResult     = $getResult instanceof Expr ? $getResult->__toString() : $getResult;
