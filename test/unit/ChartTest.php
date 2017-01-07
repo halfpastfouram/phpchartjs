@@ -1,16 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 4-1-2017
- * Time: 14:08
- */
 
-namespace Halfpastfour\PHPChartJS;
+namespace Test;
 
+use Halfpastfour\PHPChartJS\Chart;
+use Halfpastfour\PHPChartJS\Chart\Bar;
+use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
+use Halfpastfour\PHPChartJS\DataSetCollection;
+use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\BarOptions;
-use Test\TestUtils;
 
 /**
  * Class ChartTest
@@ -18,7 +16,9 @@ use Test\TestUtils;
  */
 class ChartTest extends \PHPUnit_Framework_TestCase
 {
-	/** @var  Chart */
+	/**
+	 * @var Chart
+	 */
 	private $chart;
 
 	/**
@@ -47,7 +47,7 @@ class ChartTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		$this->chart = new Chart\Bar();
+		$this->chart = new Bar();
 	}
 
 	/**

@@ -7,7 +7,7 @@ use Test\TestUtils;
 
 /**
  * Class AnimationTest
- * @package Options
+ * @package Test\Options
  */
 class AnimationTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $data_types                  = [
+	private $data_types = [
 		'duration'   => 1,
 		'easing'     => '',
 		'onProgress' => '',
@@ -29,7 +29,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @var array
 	 */
-	private $input_data_no_expressions   = [
+	private $input_data_no_expressions = [
 		'duration'   => 1,
 		'easing'     => '',
 		'onProgress' => null,
@@ -53,7 +53,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 		'duration'   => null,
 		'easing'     => null,
 		'onProgress' => null,
-	    'onComplete' => null,
+		'onComplete' => null,
 	];
 
 	/**
@@ -90,7 +90,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJsonSerializeNoExpressions()
 	{
-		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
+		$expected = TestUtils::removeNullsFromArray( $this->input_data_no_expressions );
 		TestUtils::setAttributes( $this->animation, $this->input_data_no_expressions );
 		$result = json_decode( $this->animation->jsonSerialize(), true );
 		self::assertSame( $expected, $result );

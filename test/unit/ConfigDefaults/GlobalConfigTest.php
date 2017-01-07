@@ -1,6 +1,6 @@
 <?php
 
-namespace ConfigDefaults;
+namespace Test\ConfigDefaults;
 
 use Halfpastfour\PHPChartJS\ConfigDefaults\AnimationConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\ElementsConfig;
@@ -12,13 +12,10 @@ use Test\TestUtils;
 
 /**
  * Class GlobalConfigTest
- * @package ConfigDefaults
+ * @package Test\ConfigDefaults
  */
 class GlobalConfigTest extends \PHPUnit_Framework_TestCase
 {
-	/*
-	 * @var GlobalConfig $config
-	 */
 	/**
 	 * @var GlobalConfig $config
 	 */

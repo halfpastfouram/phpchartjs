@@ -1,13 +1,13 @@
 <?php
 
-namespace Options\Legend;
+namespace Test\Options\Legend;
 
 use Halfpastfour\PHPChartJS\Options\Legend\Labels;
 use Test\TestUtils;
 
 /**
  * Class LabelsTest
- * @package Options\Legend
+ * @package Test\Options\Legend
  */
 class LabelsTest extends \PHPUnit_Framework_TestCase
 {
@@ -123,7 +123,7 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJsonSerializeWithoutExpr()
 	{
-		$expected = TestUtils::removeNullsFromArray($this->input_data_1);
+		$expected = TestUtils::removeNullsFromArray( $this->input_data_1 );
 		TestUtils::setAttributes( $this->labels, $expected );
 		$result = json_decode( $this->labels->jsonSerialize(), true );
 		self::assertEquals( $expected, $result );

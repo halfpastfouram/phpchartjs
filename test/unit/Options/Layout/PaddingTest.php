@@ -1,12 +1,12 @@
 <?php
 
-namespace Options\Layout;
+namespace Test\Options\Layout;
 
 use Halfpastfour\PHPChartJS\Options\Layout\Padding;
 
 /**
  * Class PaddingTest
- * @package Options\Layout
+ * @package Test\Options\Layout
  */
 class PaddingTest extends \PHPUnit_Framework_TestCase
 {

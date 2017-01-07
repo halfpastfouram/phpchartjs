@@ -1,13 +1,13 @@
 <?php
 
-namespace Options\Scales;
+namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel;
 use Test\TestUtils;
 
 /**
  * Class ScaleLabelTest
- * @package Options\Scales
+ * @package Test\Options\Scales
  */
 class ScaleLabelTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Options;
+namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Scale;
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
@@ -10,7 +10,7 @@ use Test\TestUtils;
 
 /**
  * Class AScale
- * @package Options
+ * @package Test\Options
  */
 class AScale extends Scale
 {
@@ -18,7 +18,7 @@ class AScale extends Scale
 
 /**
  * Class ScaleTest
- * @package Options
+ * @package Test\Options
  */
 class ScaleTest extends \PHPUnit_Framework_TestCase
 {
@@ -170,10 +170,14 @@ class ScaleTest extends \PHPUnit_Framework_TestCase
 		self::assertInstanceOf( Ticks::class, $t );
 	}
 
-	public function testJsonSerializeNoObjects() {
-		$expected = TestUtils::removeNullsFromArray($this->input_data);
-		TestUtils::setAttributes($this->scale, $this->input_data);
-		$result = json_decode($this->scale->jsonSerialize(), true);
-		self::assertSame($expected, $result);
+	/**
+	 *
+	 */
+	public function testJsonSerializeNoObjects()
+	{
+		$expected = TestUtils::removeNullsFromArray( $this->input_data );
+		TestUtils::setAttributes( $this->scale, $this->input_data );
+		$result = json_decode( $this->scale->jsonSerialize(), true );
+		self::assertSame( $expected, $result );
 	}
 }

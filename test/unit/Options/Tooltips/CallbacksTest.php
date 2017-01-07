@@ -1,6 +1,6 @@
 <?php
 
-namespace Options\Tooltips;
+namespace Test\Options\Tooltips;
 
 use Zend\Json\Expr;
 
@@ -9,7 +9,7 @@ use Test\TestUtils;
 
 /**
  * Class CallbacksTest
- * @package Options\Tooltips
+ * @package Test\Options\Tooltips
  */
 class CallbacksTest extends \PHPUnit_Framework_TestCase
 {
@@ -40,18 +40,18 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 	 * @var array
 	 */
 	private $input_data = [
-		'beforeTitle'  => "function() { echo 'Hello'; }",
-		'title'        => "function() { echo 'Hello'; }",
-		'afterTitle'   => "function() { echo 'Hello'; }",
-		'beforeLabel'  => "function() { echo 'Hello'; }",
-		'label'        => "function() { echo 'Hello'; }",
-		'labelColor'   => "function() { echo 'Hello'; }",
-		'afterLabel'   => "function() { echo 'Hello'; }",
-		'afterBody'    => "function() { echo 'Hello'; }",
-		'beforeFooter' => "function() { echo 'Hello'; }",
-		'footer'       => "function() { echo 'Hello'; }",
-		'afterFooter'  => "function() { echo 'Hello'; }",
-		'dataPoints'   => "function() { echo 'Hello'; }",
+		'beforeTitle'  => "function() { alert( 'Hello' ); }",
+		'title'        => "function() { alert( 'Hello' ); }",
+		'afterTitle'   => "function() { alert( 'Hello' ); }",
+		'beforeLabel'  => "function() { alert( 'Hello' ); }",
+		'label'        => "function() { alert( 'Hello' ); }",
+		'labelColor'   => "function() { alert( 'Hello' ); }",
+		'afterLabel'   => "function() { alert( 'Hello' ); }",
+		'afterBody'    => "function() { alert( 'Hello' ); }",
+		'beforeFooter' => "function() { alert( 'Hello' ); }",
+		'footer'       => "function() { alert( 'Hello' ); }",
+		'afterFooter'  => "function() { alert( 'Hello' ); }",
+		'dataPoints'   => "function() { alert( 'Hello' ); }",
 	];
 
 	/**

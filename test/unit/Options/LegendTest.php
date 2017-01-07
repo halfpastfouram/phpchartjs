@@ -1,6 +1,6 @@
 <?php
 
-namespace Options;
+namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\Legend;
@@ -9,7 +9,7 @@ use Zend\Json\Expr;
 
 /**
  * Class LegendTest
- * @package Options
+ * @package Test\Options
  */
 class LegendTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,7 +28,7 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		'onClick'   => '',
 		'onHover'   => '',
 		'reverse'   => false,
-		'labels'	=> '', /* LabelsCollection */
+		'labels'    => '', /* LabelsCollection */
 	];
 
 	/**
@@ -52,7 +52,7 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		'fullWidth' => true,
 		'onClick'   => null,
 		'onHover'   => null,
-		'labels'	=> null,
+		'labels'    => null,
 		'reverse'   => true,
 	];
 
@@ -100,16 +100,24 @@ class LegendTest extends \PHPUnit_Framework_TestCase
 		self::assertEquals( $expected, $result );
 	}
 
-	public function testLabelsCollection() {
+	/**
+	 *
+	 */
+	public function testLabelsCollection()
+	{
 		$labels = $this->legend->labels();
-		self::assertNotNull($labels);
-		self::assertInstanceOf(LabelsCollection::class, $labels);
+		self::assertNotNull( $labels );
+		self::assertInstanceOf( LabelsCollection::class, $labels );
 	}
 
-	public function testJsonSerializeWithoutExpressions() {
-		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
-		TestUtils::setAttributes($this->legend, $this->input_data_no_expressions);
-		$result = json_decode($this->legend->jsonSerialize(), true);
-		self::assertSame($expected, $result);
+	/**
+	 *
+	 */
+	public function testJsonSerializeWithoutExpressions()
+	{
+		$expected = TestUtils::removeNullsFromArray( $this->input_data_no_expressions );
+		TestUtils::setAttributes( $this->legend, $this->input_data_no_expressions );
+		$result = json_decode( $this->legend->jsonSerialize(), true );
+		self::assertSame( $expected, $result );
 	}
 }

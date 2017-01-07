@@ -1,13 +1,13 @@
 <?php
 
-namespace Options\Scales;
+namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\Ticks;
 use Test\TestUtils;
 
 /**
  * Class TicksTest
- * @package Options\Scales
+ * @package Test\Options\Scales
  */
 class TicksTest extends \PHPUnit_Framework_TestCase
 {

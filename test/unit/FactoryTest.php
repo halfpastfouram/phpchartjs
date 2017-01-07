@@ -26,7 +26,7 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testFactory()
 	{
-		$factory	= new Factory();
+		$factory = new Factory();
 
 		$this->assertInstanceOf( Factory::class, $factory, 'Factory is correct class' );
 	}

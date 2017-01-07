@@ -1,13 +1,13 @@
 <?php
 
-namespace Options\Scales;
+namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\XAxis;
 use Halfpastfour\PHPChartJS\Options\Scales\XAxisCollection;
 
 /**
  * Class XAxisCollectionTest
- * @package Options\Scales
+ * @package Test\Options\Scales
  */
 class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
 {

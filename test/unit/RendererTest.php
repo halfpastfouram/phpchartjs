@@ -3,9 +3,10 @@
 namespace Test;
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
-use Halfpastfour\PHPChartJS\ChartInterface;
+use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\DataSet;
-use Halfpastfour\PHPChartJS\Renderer;
+use Halfpastfour\PHPChartJS\Renderer\Html;
+use Halfpastfour\PHPChartJS\Renderer\Json;
 
 /**
  * Class RendererTest
@@ -14,7 +15,7 @@ use Halfpastfour\PHPChartJS\Renderer;
 class RendererTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var ChartInterface
+	 * @var Chart
 	 */
 	private $chart;
 
@@ -23,7 +24,7 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		$chart    = new Bar();
+		$chart = new Bar();
 		$chart->setId( 'myChart' )
 			->addLabel( 'Label 1' )->addLabel( 'Label 2' )
 			->setTitle( 'My beautiful chart' )
@@ -37,7 +38,7 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 		$chart->options()->getTitle()->setText( 'My cool graph' );
 		$chart->options()->getLegend()->setDisplay( false );
 
-		$this->chart	= $chart;
+		$this->chart = $chart;
 	}
 
 	/**
@@ -46,9 +47,9 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testJson()
 	{
-		$renderer = new Renderer( $this->chart );
-		$json     = $renderer->renderJSON();
-		$result	  = preg_match( '/
+		$renderer = new Json( $this->chart );
+		$json     = $renderer->render();
+		$result   = preg_match( '/
 		  (?(DEFINE)
 			 (?<number>   -? (?= [1-9]|0(?!\d) ) \d+ (\.\d+)? ([eE] [+-]? \d+)? )    
 			 (?<boolean>   true | false | null )
@@ -59,7 +60,8 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 			 (?<json>   \s* (?: (?&number) | (?&boolean) | (?&string) | (?&array) | (?&object) ) \s* )
 		  )
 		  \A (?&json) \Z
-		  /six', $json, $matches );
+		  /six', $json, $matches
+		);
 
 		$this->assertEquals( 1, $result, 'Validate JSON output' );
 	}
@@ -69,7 +71,7 @@ class RendererTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testHtml()
 	{
-		$renderer	= new Renderer( $this->chart );
+		$renderer = new Html( $this->chart );
 
 		$this->assertTrue( is_string( $renderer->render() ), 'Validate HTML output' );
 	}

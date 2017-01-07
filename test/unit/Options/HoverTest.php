@@ -1,13 +1,13 @@
 <?php
 
-namespace Options;
+namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Hover;
 use Test\TestUtils;
 
 /**
  * Class HoverTest
- * @package Options
+ * @package Test\Options
  */
 class HoverTest extends \PHPUnit_Framework_TestCase
 {
@@ -85,6 +85,9 @@ class HoverTest extends \PHPUnit_Framework_TestCase
 		self::assertEquals( $expected, $result );
 	}
 
+	/**
+	 *
+	 */
 	public function testJsonSerializeWithoutExpressions() {
 		$expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
 		TestUtils::setAttributes($this->hover, $this->input_data_no_expressions);

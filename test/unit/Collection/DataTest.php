@@ -10,7 +10,9 @@ use Halfpastfour\PHPChartJS\Collection\Data;
  */
 class DataTest extends \PHPUnit_Framework_TestCase
 {
-	/** @var  Data */
+	/**
+	 * @var  Data
+	 */
 	private $data;
 
 	/**

@@ -1,10 +1,14 @@
 <?php
 
-namespace Options;
+namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Title;
 use Test\TestUtils;
 
+/**
+ * Class TitleTest
+ * @package Test\Options
+ */
 class TitleTest extends \PHPUnit_Framework_TestCase
 {
 	/**
@@ -12,6 +16,9 @@ class TitleTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $title;
 
+	/**
+	 * @var array
+	 */
 	private $data_types = [
 		'display'    => false, /* bool */
 		'position'   => '', /* string */
@@ -24,6 +31,9 @@ class TitleTest extends \PHPUnit_Framework_TestCase
 		'text'       => '', /* string */
 	];
 
+	/**
+	 * @var array
+	 */
 	private $input_data = [
 		'display'    => true, /* bool */
 		'position'   => 'position', /* string */
@@ -36,6 +46,9 @@ class TitleTest extends \PHPUnit_Framework_TestCase
 		'text'       => 'text', /* string */
 	];
 
+	/**
+	 * @var array
+	 */
 	private $empty_data = [
 		'display'    => null, /* bool */
 		'position'   => null, /* string */
@@ -48,29 +61,43 @@ class TitleTest extends \PHPUnit_Framework_TestCase
 		'text'       => null, /* string */
 	];
 
+	/**
+	 *
+	 */
 	public function setUp()
 	{
 		$this->title = new Title();
 	}
 
-	public function testEmpty() {
+	/**
+	 *
+	 */
+	public function testEmpty()
+	{
 		$expected = $this->empty_data;
-		$result = TestUtils::getAttributes($this->title, $this->data_types);
-		self::assertSame($expected, $result);
+		$result   = TestUtils::getAttributes( $this->title, $this->data_types );
+		self::assertSame( $expected, $result );
 	}
 
-	public function testGetAndSet() {
+	/**
+	 *
+	 */
+	public function testGetAndSet()
+	{
 		$expected = $this->input_data;
-		TestUtils::setAttributes($this->title, $this->input_data);
-		$result = TestUtils::getAttributes($this->title, $this->data_types);
-		self::assertSame($expected, $result);
+		TestUtils::setAttributes( $this->title, $this->input_data );
+		$result = TestUtils::getAttributes( $this->title, $this->data_types );
+		self::assertSame( $expected, $result );
 	}
 
-	public function testJsonSerialize() {
+	/**
+	 *
+	 */
+	public function testJsonSerialize()
+	{
 		$expected = $this->input_data;
-		TestUtils::setAttributes($this->title, $this->input_data);
-		$result = json_decode($this->title->jsonSerialize(), true);
-		self::assertSame($expected, $result);
-
+		TestUtils::setAttributes( $this->title, $this->input_data );
+		$result = json_decode( $this->title->jsonSerialize(), true );
+		self::assertSame( $expected, $result );
 	}
 }

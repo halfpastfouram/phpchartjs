@@ -72,7 +72,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	{
 		$dataSet = new DataSet();
 
-		$dataCollection	= $dataSet->data();
+		$dataCollection = $dataSet->data();
 		$this->assertInstanceOf( Data::class, $dataCollection, 'The data collection is the right class' );
 		$this->assertInstanceOf( ArrayAccess::class, $dataCollection, 'The data collection extends Collection' );
 		$this->assertInstanceOf(
@@ -137,7 +137,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testBorderWidth()
 	{
-		$dataSet	= new DataSet();
+		$dataSet = new DataSet();
 		$this->assertNull( $dataSet->getBorderWidth(), 'The border width is not set' );
 
 		$this->assertEquals(
@@ -195,7 +195,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals( 'myXAxis', $dataSet->getXAxisID(), 'The correct value is returned' );
 		$this->assertArraySubset( [ 'xAxisID' => 'myXAxis' ], $dataSet->getArrayCopy() );
 		$this->assertArraySubset(
-			[ 'xAxisID' => 'myXAxis' ] , json_decode($dataSet->jsonSerialize(), true), 'Serialized data is not correct'
+			[ 'xAxisID' => 'myXAxis' ], json_decode( $dataSet->jsonSerialize(), true ), 'Serialized data is not correct'
 		);
 
 		$this->assertNull( $dataSet->getYAxisID(), 'The yAxisID value is not set' );
@@ -205,8 +205,8 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 		$this->assertArraySubset(
 			[
 				'xAxisID' => 'myXAxis',
-				'yAxisID' => 'myYAxis'
-			], json_decode($dataSet->jsonSerialize(), true), 'The serialized data is not correct'
+				'yAxisID' => 'myYAxis',
+			], json_decode( $dataSet->jsonSerialize(), true ), 'The serialized data is not correct'
 		);
 	}
 
@@ -215,14 +215,14 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testHoverBackgroundColor()
 	{
-		$dataSet	= new DataSet();
+		$dataSet = new DataSet();
 
 		$this->assertNull( $dataSet->getHoverBackgroundColor(), 'The hoverBackgroundColor value is not set' );
 
 		$this->assertInstanceOf( DataSet::class, $dataSet->setHoverBackgroundColor( '#fff' ) );
 		$this->assertEquals( '#fff', $dataSet->getHoverBackgroundColor(), 'The correct value is returned' );
 
-		$newColors	= [ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )' ];
+		$newColors = [ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )' ];
 		$dataSet->setHoverBackgroundColor( $newColors );
 		$this->assertEquals( $newColors, $dataSet->getHoverBackgroundColor(), 'The correct value is returned' );
 	}
@@ -232,7 +232,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testHoverBorderColor()
 	{
-		$dataSet	= new DataSet();
+		$dataSet = new DataSet();
 
 		$this->assertNull( $dataSet->getHoverBorderColor(), 'The hoverBorderColor value is not set' );
 
@@ -252,7 +252,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testHoverBorderWidth()
 	{
-		$dataSet	= new DataSet();
+		$dataSet = new DataSet();
 
 		$this->assertNull( $dataSet->getHoverBorderWidth(), 'The hoverBorderWidth value is not set' );
 

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 5-1-2017
- * Time: 13:38
- */
 
 namespace Halfpastfour\PHPChartJS;
 

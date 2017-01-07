@@ -1,7 +1,8 @@
 <?php
 
-namespace Halfpastfour\PHPChartJS;
+namespace Test;
 
+use Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\Options\Layout;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Animation;
@@ -12,7 +13,7 @@ use Halfpastfour\PHPChartJS\Options\Legend;
 
 /**
  * Class OptionsTest
- * @package Halfpastfour\PHPChartJS
+ * @package Test
  */
 class OptionsTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,8 +22,10 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	private $options;
 
-	private $empty_options = [
-	];
+	/**
+	 * @var array
+	 */
+	private $empty_options = [];
 
 	/**
 	 *
@@ -95,6 +98,9 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 		self::assertInstanceOf( Tooltips::class, $tooltips );
 	}
 
+	/**
+	 *
+	 */
 	public function testJsonSerialize()
 	{
 		$expected = $this->empty_options;

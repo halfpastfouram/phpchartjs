@@ -1,19 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 15-12-2016
- * Time: 13:32
- */
 
-namespace Options\Scales;
+namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
 use Test\TestUtils;
 
 /**
  * Class GridLinesTest
- * @package Options\Scales
+ * @package Test\Options\Scales
  */
 class GridLinesTest extends \PHPUnit_Framework_TestCase
 {

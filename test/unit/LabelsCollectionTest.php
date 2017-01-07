@@ -1,30 +1,29 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gbonnema
- * Date: 5-1-2017
- * Time: 13:54
- */
 
-namespace Halfpastfour\PHPChartJS;
+namespace Test;
+
+use Halfpastfour\PHPChartJS\LabelsCollection;
 
 /**
  * Class LabelsCollectionTest
- * @package Halfpastfour\PHPChartJS
+ * @package Test
  */
 class LabelsCollectionTest extends \PHPUnit_Framework_TestCase
 {
-	/** @var  LabelsCollection */
+	/**
+	 * @var  LabelsCollection
+	 */
 	private $labelsCollectionEmpty;
 
-	/** @var  LabelsCollection */
+	/**
+	 * @var  LabelsCollection
+	 */
 	private $labelsCollection;
 
 	/**
 	 * @var array
 	 */
-	private $labelsArray =
-		[ "startingLabel", "label1", "label2", "endLabel" ];
+	private $labelsArray = [ 'startingLabel', 'label1', 'label2', 'endLabel' ];
 
 	/**
 	 *

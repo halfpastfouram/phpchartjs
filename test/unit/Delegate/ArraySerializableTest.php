@@ -46,7 +46,7 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
 
 /**
  * Class A
- * @package Delegate
+ * @package Test\Delegate
  */
 class A
 {
@@ -141,7 +141,7 @@ class A
 
 /**
  * Class B
- * @package Delegate
+ * @package Test\Delegate
  */
 class B extends A
 {
