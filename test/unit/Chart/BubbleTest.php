@@ -2,8 +2,6 @@
 
 namespace Test\Chart;
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
-
 use Halfpastfour\PHPChartJS\Chart\Bubble;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BubbleDataSet;
