@@ -132,7 +132,6 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	 */
 	protected $ticks;
 
-
 	/**
 	 * @return string
 	 */
@@ -534,9 +533,10 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @return \Halfpastfour\PHPChartJS\Options\Scales\GridLines
+	 * @return GridLines
 	 */
-	public function getGridLines() {
+	public function getGridLines()
+	{
 		return $this->gridLines;
 	}
 
@@ -546,16 +546,17 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	public function gridLines()
 	{
 		if( is_null( $this->gridLines ) ) {
-			$this->gridLines	= new GridLines();
+			$this->gridLines = new GridLines();
 		}
 
 		return $this->gridLines;
 	}
 
 	/**
-	 * @return \Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel
+	 * @return ScaleLabel
 	 */
-	public function getScaleLabel() {
+	public function getScaleLabel()
+	{
 		return $this->scaleLabel;
 	}
 
@@ -565,16 +566,17 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	public function scaleLabel()
 	{
 		if( is_null( $this->scaleLabel ) ) {
-			$this->scaleLabel	= new ScaleLabel();
+			$this->scaleLabel = new ScaleLabel();
 		}
 
 		return $this->scaleLabel;
 	}
 
 	/**
-	 * @return \Halfpastfour\PHPChartJS\Options\Scales\Ticks
+	 * @return Ticks
 	 */
-	public function getTicks() {
+	public function getTicks()
+	{
 		return $this->ticks;
 	}
 
@@ -584,7 +586,7 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 	public function ticks()
 	{
 		if( is_null( $this->ticks ) ) {
-			$this->ticks	= new Ticks();
+			$this->ticks = new Ticks();
 		}
 
 		return $this->ticks;

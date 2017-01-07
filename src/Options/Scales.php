@@ -50,7 +50,7 @@ class Scales implements ArraySerializableInterface, \JsonSerializable
 	public function getXAxes()
 	{
 		if( is_null( $this->xAxes ) ) {
-			$this->xAxes	= new XAxisCollection();
+			$this->xAxes = new XAxisCollection();
 		}
 
 		return $this->xAxes;
@@ -62,7 +62,7 @@ class Scales implements ArraySerializableInterface, \JsonSerializable
 	public function getYAxes()
 	{
 		if( is_null( $this->yAxes ) ) {
-			$this->yAxes	= new YAxisCollection();
+			$this->yAxes = new YAxisCollection();
 		}
 
 		return $this->yAxes;

@@ -802,7 +802,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
 	public function callbacks()
 	{
 		if( is_null( $this->callbacks ) ) {
-			$this->callbacks	= new Callbacks();
+			$this->callbacks = new Callbacks();
 		}
 
 		return $this->callbacks;

@@ -16,10 +16,10 @@ class YAxisCollection extends ArrayAccess implements \JsonSerializable
 	 */
 	public function getArrayCopy()
 	{
-		$rows	= [];
+		$rows = [];
 		foreach( $this->data as $row ) {
 			/** @var YAxis $row */
-			$rows[]	= $row->getArrayCopy();
+			$rows[] = $row->getArrayCopy();
 		}
 
 		return $rows;
