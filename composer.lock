@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7614a701c8eaed0e76fce0dda609106",
-    "content-hash": "50f509efdb6e244a5dd18376e6a4a4c7",
+    "hash": "d8c129484e56902a7ec61660f6f14880",
+    "content-hash": "fbcf9d544630de781fc8cf3e77fe05c6",
     "packages": [
         {
             "name": "halfpastfouram/collection",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/halfpastfouram/collection.git",
-                "reference": "07f69a162d05269c173ac5cadc35d9df26357940"
+                "reference": "0862d0b431fef9dc2245518dc06b86ff00dcd102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/halfpastfouram/collection/zipball/07f69a162d05269c173ac5cadc35d9df26357940",
-                "reference": "07f69a162d05269c173ac5cadc35d9df26357940",
+                "url": "https://api.github.com/repos/halfpastfouram/collection/zipball/0862d0b431fef9dc2245518dc06b86ff00dcd102",
+                "reference": "0862d0b431fef9dc2245518dc06b86ff00dcd102",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "collection",
                 "php"
             ],
-            "time": "2016-12-18 09:50:30"
+            "time": "2016-12-18 13:04:48"
         },
         {
             "name": "zendframework/zend-json",
@@ -2206,7 +2206,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "halfpastfouram/collection": 20,
         "codeclimate/php-test-reporter": 20
     },
     "prefer-stable": false,

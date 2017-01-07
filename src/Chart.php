@@ -2,6 +2,8 @@
 
 namespace Halfpastfour\PHPChartJS;
 
+use Halfpastfour\PHPChartJS\Renderer\Html;
+
 /**
  * Class Chart
  * @package Halfpastfour\PHPChartJS
@@ -214,8 +216,9 @@ abstract class Chart implements ChartInterface
 	 */
 	public function render( $pretty = false )
 	{
-		$renderer	= new Renderer( $this );
-		return $renderer->render( !!$pretty );
+		$renderer	= new Html( $this );
+
+		return $renderer->render( !!$pretty ? $renderer::RENDER_PRETTY : null );
 	}
 
 	/**

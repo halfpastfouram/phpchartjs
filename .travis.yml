@@ -17,3 +17,8 @@ after_success:
 
 after_script:
   - rm -rf build/logs
+
+branches:
+  only:
+  - master
+  - dev
