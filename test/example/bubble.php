@@ -4,8 +4,9 @@ require_once '../../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Factory;
 
-$factory   = new Factory();
-$bubble       = $factory->create( $factory::BUBBLE );
+$factory = new Factory();
+/** @var \Halfpastfour\PHPChartJS\Chart\Bubble $bubble */
+$bubble = $factory->create( $factory::BUBBLE );
 
 // Set labels
 $bubble->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );

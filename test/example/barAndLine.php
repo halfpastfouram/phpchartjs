@@ -5,9 +5,9 @@ require_once '../../vendor/autoload.php';
 use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
 use Halfpastfour\PHPChartJS\Factory;
 
-$factory   = new Factory();
+$factory = new Factory();
 /** @var \Halfpastfour\PHPChartJS\Chart\Line $bar */
-$bar       = $factory->create( $factory::BAR );
+$bar = $factory->create( $factory::BAR );
 
 // Set labels
 $bar->labels()->exchangeArray( [ "January", "February", "March", "April", "May", "June", "July" ] );

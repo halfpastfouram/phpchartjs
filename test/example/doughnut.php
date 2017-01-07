@@ -13,7 +13,8 @@ $colors   = [
 	'rgb(89,79,79)',
 	'rgb(84,121,128)',
 ];
-$factory  = new Factory();
+$factory = new Factory();
+/** @var \Halfpastfour\PHPChartJS\Chart\Doughnut $doughnut */
 $doughnut = $factory->create( $factory::DOUGHNUT );
 
 // Set labels

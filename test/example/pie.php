@@ -4,7 +4,7 @@ require_once '../../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Factory;
 
-$colors   = [
+$colors  = [
 	'rgb(73,10,61)',
 	'rgb(189,21,80)',
 	'rgb(233,127,2)',
@@ -13,8 +13,10 @@ $colors   = [
 	'rgb(89,79,79)',
 	'rgb(84,121,128)',
 ];
-$factory  = new Factory();
-$pie = $factory->create( $factory::PIE );
+
+$factory = new Factory();
+/** @var \Halfpastfour\PHPChartJS\Chart\Pie $pie */
+$pie     = $factory->create( $factory::PIE );
 
 // Set labels
 $pie->labels()->exchangeArray( [

@@ -4,8 +4,9 @@ require_once '../../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Factory;
 
-$factory   = new Factory();
-$bar       = $factory->create( $factory::HORIZONTAL_BAR );
+$factory = new Factory();
+/** @var \Halfpastfour\PHPChartJS\Chart\HorizontalBar $bar */
+$bar = $factory->create( $factory::HORIZONTAL_BAR );
 
 // Set labels
 $bar->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );

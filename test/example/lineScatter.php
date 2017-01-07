@@ -4,9 +4,9 @@ require_once '../../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Factory;
 
-$factory   = new Factory();
+$factory = new Factory();
 /** @var \Halfpastfour\PHPChartJS\Chart\Line $line */
-$line       = $factory->create( $factory::LINE );
+$line    = $factory->create( $factory::LINE );
 
 // Add Datasets
 $dataSet = $line->createDataSet();
