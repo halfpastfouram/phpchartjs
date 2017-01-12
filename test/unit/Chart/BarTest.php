@@ -2,6 +2,8 @@
 
 namespace Test\Chart;
 
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BarDataSet;

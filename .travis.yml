@@ -5,7 +5,6 @@ php:
   - nightly
 
 before_script:
-  - phpunit --self-update
   - composer self-update
   - composer install
   - mkdir build/logs -p
