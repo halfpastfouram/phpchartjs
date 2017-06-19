@@ -101,6 +101,11 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	private $reverse;
 
 	/**
+	 * @var int
+	 */
+	private $max;
+
+	/**
 	 * @return float
 	 */
 	public function getSuggestedMin()
@@ -438,6 +443,22 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 		$this->reverse = !!$reverse;
 
 		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getMax()
+	{
+		return $this->max;
+	}
+
+	/**
+	 * @param int $max
+	 */
+	public function setMax($max)
+	{
+		$this->max = $max;
 	}
 
 	/**
