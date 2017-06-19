@@ -42,6 +42,15 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
 		ksort( $result );
 		self::assertSame( $expected, $result );
 	}
+
+    public function testBoolean()
+    {
+        $expected = [ 'a' => true, 'b' => 2 ];
+        $class = new A(true, 2);
+        ksort( $expected );
+        $result = $class->getArrayCopy();
+        ksort( $result );
+    }
 }
 
 /**
@@ -53,7 +62,7 @@ class A
 	use ArraySerializable;
 
 	/**
-	 * @var int
+	 * @var bool|int
 	 */
 	protected $a;
 
@@ -90,7 +99,7 @@ class A
 	/**
 	 * @return int
 	 */
-	public function getA()
+	public function isA()
 	{
 		return $this->a;
 	}
