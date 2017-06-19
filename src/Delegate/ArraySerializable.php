@@ -88,6 +88,10 @@ trait ArraySerializable
 					// If 'getSomething' doesn't exist, try to use 'isSomething'
 					$getter = 'is' . ucfirst( $property );
 				}
+				// Finally simply use the property
+				if( !method_exists($this, $getter) ) {
+					$getter = $property;
+				}
 
 				// Abort if none of the above methods exit
 				if( !method_exists( $this, $getter ) ) continue;
