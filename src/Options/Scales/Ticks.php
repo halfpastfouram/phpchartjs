@@ -454,11 +454,15 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @param int $max
+	 * @param $max
+	 *
+	 * @return $this
 	 */
 	public function setMax($max)
 	{
 		$this->max = $max;
+
+		return $this;
 	}
 
 	/**
