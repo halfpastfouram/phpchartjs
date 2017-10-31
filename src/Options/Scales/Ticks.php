@@ -454,7 +454,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 	}
 
 	/**
-	 * @param $max
+	 * @param int $max
 	 *
 	 * @return $this
 	 */
