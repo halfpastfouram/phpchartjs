@@ -21,6 +21,10 @@ after_success:
 after_script:
   - rm -rf build/logs
 
+matrix:
+  allow_failures:
+    - php: nightly
+
 branches:
   only:
   - master
