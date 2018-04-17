@@ -9,6 +9,7 @@ use Zend\Json\Json;
 
 /**
  * Class Ticks
+ *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
 class Ticks implements ArraySerializableInterface, \JsonSerializable
@@ -458,9 +459,9 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      *
      * @return $this
      */
-    public function setMax( $max )
+    public function setMax($max)
     {
-        $this->max = intval( $max );
+        $this->max = intval($max);
 
         return $this;
     }
@@ -470,6 +471,6 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return Json::encode($this->getArrayCopy(), false, ['enableJsonExprFinder' => true]);
     }
 }
