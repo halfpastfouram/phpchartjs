@@ -4,5 +4,5 @@ namespace Halfpastfour\PHPChartJS\ConfigDefaults;
 
 class HoverConfig
 {
-	
+
 }

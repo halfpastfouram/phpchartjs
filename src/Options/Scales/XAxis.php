@@ -11,61 +11,61 @@ use Zend\Json\Json;
  */
 class XAxis extends Scale
 {
-	/**
-	 * @var float
-	 */
-	private $categoryPercentage;
+    /**
+     * @var float
+     */
+    private $categoryPercentage;
 
-	/**
-	 * @var float
-	 */
-	private $barPercentage;
+    /**
+     * @var float
+     */
+    private $barPercentage;
 
-	/**
-	 * @return float
-	 */
-	public function getCategoryPercentage()
-	{
-		return $this->categoryPercentage;
-	}
+    /**
+     * @return float
+     */
+    public function getCategoryPercentage()
+    {
+        return $this->categoryPercentage;
+    }
 
-	/**
-	 * @param float $categoryPercentage
-	 *
-	 * @return $this
-	 */
-	public function setCategoryPercentage( $categoryPercentage )
-	{
-		$this->categoryPercentage = floatval( $categoryPercentage );
+    /**
+     * @param float $categoryPercentage
+     *
+     * @return $this
+     */
+    public function setCategoryPercentage($categoryPercentage)
+    {
+        $this->categoryPercentage = floatval($categoryPercentage);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return float
-	 */
-	public function getBarPercentage()
-	{
-		return $this->barPercentage;
-	}
+    /**
+     * @return float
+     */
+    public function getBarPercentage()
+    {
+        return $this->barPercentage;
+    }
 
-	/**
-	 * @param float $barPercentage
-	 *
-	 * @return $this
-	 */
-	public function setBarPercentage( $barPercentage )
-	{
-		$this->barPercentage = floatval( $barPercentage );
+    /**
+     * @param float $barPercentage
+     *
+     * @return $this
+     */
+    public function setBarPercentage($barPercentage)
+    {
+        $this->barPercentage = floatval($barPercentage);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+    }
 }

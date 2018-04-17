@@ -16,16 +16,16 @@ use Halfpastfour\PHPChartJS\Options\RadarOptions;
  */
 class Radar extends Chart implements ChartInterface
 {
-	/**
-	 * The internal type of chart.
-	 */
-	const TYPE = 'radar';
+    /**
+     * The internal type of chart.
+     */
+    const TYPE = 'radar';
 
-	/**
-	 * The list of models that should be used for this chart type.
-	 */
-	const MODEL = [
-		'dataset' => RadarDataSet::class,
-		'options' => RadarOptions::class,
-	];
+    /**
+     * The list of models that should be used for this chart type.
+     */
+    const MODEL = [
+        'dataset' => RadarDataSet::class,
+        'options' => RadarOptions::class,
+    ];
 }

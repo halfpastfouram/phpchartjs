@@ -13,213 +13,213 @@ use Zend\Json\Json;
  */
 class Labels implements ArraySerializableInterface, \JsonSerializable
 {
-	use ArraySerializable;
+    use ArraySerializable;
 
-	/**
-	 * @var int
-	 */
-	private $boxWidth;
+    /**
+     * @var int
+     */
+    private $boxWidth;
 
-	/**
-	 * @var int
-	 */
-	private $fontSize;
+    /**
+     * @var int
+     */
+    private $fontSize;
 
-	/**
-	 * @var string
-	 */
-	private $fontStyle;
+    /**
+     * @var string
+     */
+    private $fontStyle;
 
-	/**
-	 * @var string
-	 */
-	private $fontColor;
+    /**
+     * @var string
+     */
+    private $fontColor;
 
-	/**
-	 * @var string
-	 */
-	private $fontFamily;
+    /**
+     * @var string
+     */
+    private $fontFamily;
 
-	/**
-	 * @var int
-	 */
-	private $padding;
+    /**
+     * @var int
+     */
+    private $padding;
 
-	/**
-	 * @var Expr
-	 */
-	private $generateLabels;
+    /**
+     * @var Expr
+     */
+    private $generateLabels;
 
-	/**
-	 * @var bool
-	 */
-	private $usePointStyle;
+    /**
+     * @var bool
+     */
+    private $usePointStyle;
 
-	/**
-	 * @return int
-	 */
-	public function getBoxWidth()
-	{
-		return $this->boxWidth;
-	}
+    /**
+     * @return int
+     */
+    public function getBoxWidth()
+    {
+        return $this->boxWidth;
+    }
 
-	/**
-	 * @param int $boxWidth
-	 *
-	 * @return Labels
-	 */
-	public function setBoxWidth( $boxWidth )
-	{
-		$this->boxWidth = intval( $boxWidth );
+    /**
+     * @param int $boxWidth
+     *
+     * @return Labels
+     */
+    public function setBoxWidth($boxWidth)
+    {
+        $this->boxWidth = intval($boxWidth);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getFontSize()
-	{
-		return $this->fontSize;
-	}
+    /**
+     * @return mixed
+     */
+    public function getFontSize()
+    {
+        return $this->fontSize;
+    }
 
-	/**
-	 * @param int $fontSize
-	 *
-	 * @return Labels
-	 */
-	public function setFontSize( $fontSize )
-	{
-		$this->fontSize = intval( $fontSize );
+    /**
+     * @param int $fontSize
+     *
+     * @return Labels
+     */
+    public function setFontSize($fontSize)
+    {
+        $this->fontSize = intval($fontSize);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontStyle()
-	{
-		return $this->fontStyle;
-	}
+    /**
+     * @return string
+     */
+    public function getFontStyle()
+    {
+        return $this->fontStyle;
+    }
 
-	/**
-	 * @param string $fontStyle
-	 *
-	 * @return Labels
-	 */
-	public function setFontStyle( $fontStyle )
-	{
-		$this->fontStyle = strval( $fontStyle );
+    /**
+     * @param string $fontStyle
+     *
+     * @return Labels
+     */
+    public function setFontStyle($fontStyle)
+    {
+        $this->fontStyle = strval($fontStyle);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontColor()
-	{
-		return $this->fontColor;
-	}
+    /**
+     * @return string
+     */
+    public function getFontColor()
+    {
+        return $this->fontColor;
+    }
 
-	/**
-	 * @param string $fontColor
-	 *
-	 * @return Labels
-	 */
-	public function setFontColor( $fontColor )
-	{
-		$this->fontColor = strval( $fontColor );
+    /**
+     * @param string $fontColor
+     *
+     * @return Labels
+     */
+    public function setFontColor($fontColor)
+    {
+        $this->fontColor = strval($fontColor);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontFamily()
-	{
-		return $this->fontFamily;
-	}
+    /**
+     * @return string
+     */
+    public function getFontFamily()
+    {
+        return $this->fontFamily;
+    }
 
-	/**
-	 * @param string $fontFamily
-	 *
-	 * @return Labels
-	 */
-	public function setFontFamily( $fontFamily )
-	{
-		$this->fontFamily = strval( $fontFamily );
+    /**
+     * @param string $fontFamily
+     *
+     * @return Labels
+     */
+    public function setFontFamily($fontFamily)
+    {
+        $this->fontFamily = strval($fontFamily);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getPadding()
-	{
-		return $this->padding;
-	}
+    /**
+     * @return int
+     */
+    public function getPadding()
+    {
+        return $this->padding;
+    }
 
-	/**
-	 * @param int $padding
-	 *
-	 * @return Labels
-	 */
-	public function setPadding( $padding )
-	{
-		$this->padding = intval( $padding );
+    /**
+     * @param int $padding
+     *
+     * @return Labels
+     */
+    public function setPadding($padding)
+    {
+        $this->padding = intval($padding);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return Expr
-	 */
-	public function getGenerateLabels()
-	{
-		return $this->generateLabels;
-	}
+    /**
+     * @return Expr
+     */
+    public function getGenerateLabels()
+    {
+        return $this->generateLabels;
+    }
 
-	/**
-	 * @param string $generateLabels
-	 *
-	 * @return Labels
-	 */
-	public function setGenerateLabels( $generateLabels )
-	{
-		$this->generateLabels = new Expr( strval( $generateLabels ) );
+    /**
+     * @param string $generateLabels
+     *
+     * @return Labels
+     */
+    public function setGenerateLabels($generateLabels)
+    {
+        $this->generateLabels = new Expr(strval($generateLabels));
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return boolean
-	 */
-	public function isUsePointStyle()
-	{
-		return $this->usePointStyle;
-	}
+    /**
+     * @return boolean
+     */
+    public function isUsePointStyle()
+    {
+        return $this->usePointStyle;
+    }
 
-	/**
-	 * @param boolean $usePointStyle
-	 *
-	 * @return Labels
-	 */
-	public function setUsePointStyle( $usePointStyle )
-	{
-		$this->usePointStyle = !!$usePointStyle;
+    /**
+     * @param boolean $usePointStyle
+     *
+     * @return Labels
+     */
+    public function setUsePointStyle($usePointStyle)
+    {
+        $this->usePointStyle = ! ! $usePointStyle;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+    }
 }

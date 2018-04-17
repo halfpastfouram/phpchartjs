@@ -15,16 +15,16 @@ use Halfpastfour\PHPChartJS\Options\BubbleOptions;
  */
 class Bubble extends Chart
 {
-	/**
-	 * The internal type of chart.
-	 */
-	const TYPE = 'bubble';
+    /**
+     * The internal type of chart.
+     */
+    const TYPE = 'bubble';
 
-	/**
-	 * The list of models that should be used for this chart type.
-	 */
-	const MODEL = [
-		'dataset' => BubbleDataSet::class,
-		'options' => BubbleOptions::class,
-	];
+    /**
+     * The list of models that should be used for this chart type.
+     */
+    const MODEL = [
+        'dataset' => BubbleDataSet::class,
+        'options' => BubbleOptions::class,
+    ];
 }
