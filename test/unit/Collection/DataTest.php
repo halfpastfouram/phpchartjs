@@ -10,26 +10,26 @@ use Halfpastfour\PHPChartJS\Collection\Data;
  */
 class DataTest extends \PHPUnit_Framework_TestCase
 {
-	/**
-	 * @var  Data
-	 */
-	private $data;
+    /**
+     * @var  Data
+     */
+    private $data;
 
-	/**
-	 *
-	 */
-	public function setUp()
-	{
-		$this->data = new Data();
-	}
+    /**
+     *
+     */
+    public function setUp()
+    {
+        $this->data = new Data();
+    }
 
-	/**
-	 *
-	 */
-	public function testJsonSerializeEmpty()
-	{
-		$expected = "[]";
-		$result   = $this->data->jsonSerialize();
-		self::assertSame( $expected, $result );
-	}
+    /**
+     *
+     */
+    public function testJsonSerializeEmpty()
+    {
+        $expected = "[]";
+        $result   = $this->data->jsonSerialize();
+        self::assertSame($expected, $result);
+    }
 }

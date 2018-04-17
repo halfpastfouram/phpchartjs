@@ -11,90 +11,90 @@ use Halfpastfour\PHPChartJS\Options\Animation\PieAnimation;
  */
 class PieOptions extends Options
 {
-	/**
-	 * @var int
-	 */
-	private $cutoutPercentage;
+    /**
+     * @var int
+     */
+    private $cutoutPercentage;
 
-	/**
-	 * @var float
-	 */
-	private $rotation;
+    /**
+     * @var float
+     */
+    private $rotation;
 
-	/**
-	 * @var float
-	 */
-	private $circumference;
+    /**
+     * @var float
+     */
+    private $circumference;
 
-	/**
-	 * @return Animation
-	 */
-	public function getAnimation()
-	{
-		if( is_null( $this->animation ) ) {
-			$this->animation	= new PieAnimation();
-		}
+    /**
+     * @return Animation
+     */
+    public function getAnimation()
+    {
+        if (is_null($this->animation)) {
+            $this->animation    = new PieAnimation();
+        }
 
-		return $this->animation;
-	}
+        return $this->animation;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getCutoutPercentage()
-	{
-		return $this->cutoutPercentage;
-	}
+    /**
+     * @return int
+     */
+    public function getCutoutPercentage()
+    {
+        return $this->cutoutPercentage;
+    }
 
-	/**
-	 * @param int $cutoutPercentage
-	 *
-	 * @return $this
-	 */
-	public function setCutoutPercentage( $cutoutPercentage )
-	{
-		$this->cutoutPercentage = $cutoutPercentage;
+    /**
+     * @param int $cutoutPercentage
+     *
+     * @return $this
+     */
+    public function setCutoutPercentage($cutoutPercentage)
+    {
+        $this->cutoutPercentage = $cutoutPercentage;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return float
-	 */
-	public function getRotation()
-	{
-		return $this->rotation;
-	}
+    /**
+     * @return float
+     */
+    public function getRotation()
+    {
+        return $this->rotation;
+    }
 
-	/**
-	 * @param float $rotation
-	 *
-	 * @return $this
-	 */
-	public function setRotation( $rotation )
-	{
-		$this->rotation = $rotation;
+    /**
+     * @param float $rotation
+     *
+     * @return $this
+     */
+    public function setRotation($rotation)
+    {
+        $this->rotation = $rotation;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return float
-	 */
-	public function getCircumference()
-	{
-		return $this->circumference;
-	}
+    /**
+     * @return float
+     */
+    public function getCircumference()
+    {
+        return $this->circumference;
+    }
 
-	/**
-	 * @param float $circumference
-	 *
-	 * @return $this
-	 */
-	public function setCircumference( $circumference )
-	{
-		$this->circumference = $circumference;
+    /**
+     * @param float $circumference
+     *
+     * @return $this
+     */
+    public function setCircumference($circumference)
+    {
+        $this->circumference = $circumference;
 
-		return $this;
-	}
+        return $this;
+    }
 }

@@ -10,53 +10,53 @@ use Halfpastfour\PHPChartJS\Options\Animation;
  */
 class PieAnimation extends Animation
 {
-	/**
-	 * @var bool
-	 */
-	private $animateRotate;
+    /**
+     * @var bool
+     */
+    private $animateRotate;
 
-	/**
-	 * @var bool
-	 */
-	private $animateScale;
+    /**
+     * @var bool
+     */
+    private $animateScale;
 
-	/**
-	 * @return boolean
-	 */
-	public function isAnimateRotate()
-	{
-		return $this->animateRotate;
-	}
+    /**
+     * @return boolean
+     */
+    public function isAnimateRotate()
+    {
+        return $this->animateRotate;
+    }
 
-	/**
-	 * @param boolean $animateRotate
-	 *
-	 * @return PieAnimation
-	 */
-	public function setAnimateRotate( $animateRotate )
-	{
-		$this->animateRotate = $animateRotate;
+    /**
+     * @param boolean $animateRotate
+     *
+     * @return PieAnimation
+     */
+    public function setAnimateRotate($animateRotate)
+    {
+        $this->animateRotate = $animateRotate;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return boolean
-	 */
-	public function isAnimateScale()
-	{
-		return $this->animateScale;
-	}
+    /**
+     * @return boolean
+     */
+    public function isAnimateScale()
+    {
+        return $this->animateScale;
+    }
 
-	/**
-	 * @param boolean $animateScale
-	 *
-	 * @return PieAnimation
-	 */
-	public function setAnimateScale( $animateScale )
-	{
-		$this->animateScale = $animateScale;
+    /**
+     * @param boolean $animateScale
+     *
+     * @return PieAnimation
+     */
+    public function setAnimateScale($animateScale)
+    {
+        $this->animateScale = $animateScale;
 
-		return $this;
-	}
+        return $this;
+    }
 }

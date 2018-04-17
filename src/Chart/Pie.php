@@ -16,16 +16,16 @@ use Halfpastfour\PHPChartJS\Options\PieOptions;
  */
 class Pie extends Chart implements ChartInterface
 {
-	/**
-	 * The internal type of chart.
-	 */
-	const TYPE = 'pie';
+    /**
+     * The internal type of chart.
+     */
+    const TYPE = 'pie';
 
-	/**
-	 * The list of models that should be used for this chart type.
-	 */
-	const MODEL = [
-		'dataset' => PieDataSet::class,
-		'options' => PieOptions::class,
-	];
+    /**
+     * The list of models that should be used for this chart type.
+     */
+    const MODEL = [
+        'dataset' => PieDataSet::class,
+        'options' => PieOptions::class,
+    ];
 }

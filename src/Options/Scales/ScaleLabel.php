@@ -12,163 +12,163 @@ use Zend\Json\Json;
  */
 class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
 {
-	use ArraySerializable;
+    use ArraySerializable;
 
-	/**
-	 * @var bool
-	 */
-	private $display;
+    /**
+     * @var bool
+     */
+    private $display;
 
-	/**
-	 * @var string
-	 */
-	private $labelString;
+    /**
+     * @var string
+     */
+    private $labelString;
 
-	/**
-	 * @var string
-	 */
-	private $fontColor;
+    /**
+     * @var string
+     */
+    private $fontColor;
 
-	/**
-	 * @var string
-	 */
-	private $fontFamily;
+    /**
+     * @var string
+     */
+    private $fontFamily;
 
-	/**
-	 * @var int
-	 */
-	private $fontSize;
+    /**
+     * @var int
+     */
+    private $fontSize;
 
-	/**
-	 * @var string
-	 */
-	private $fontStyle;
+    /**
+     * @var string
+     */
+    private $fontStyle;
 
-	/**
-	 * @return boolean
-	 */
-	public function isDisplay()
-	{
-		return $this->display;
-	}
+    /**
+     * @return boolean
+     */
+    public function isDisplay()
+    {
+        return $this->display;
+    }
 
-	/**
-	 * @param boolean $display
-	 *
-	 * @return $this
-	 */
-	public function setDisplay( $display )
-	{
-		$this->display = !!$display;
+    /**
+     * @param boolean $display
+     *
+     * @return $this
+     */
+    public function setDisplay($display)
+    {
+        $this->display = ! ! $display;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getLabelString()
-	{
-		return $this->labelString;
-	}
+    /**
+     * @return string
+     */
+    public function getLabelString()
+    {
+        return $this->labelString;
+    }
 
-	/**
-	 * @param string $labelString
-	 *
-	 * @return $this
-	 */
-	public function setLabelString( $labelString )
-	{
-		$this->labelString = strval( $labelString );
+    /**
+     * @param string $labelString
+     *
+     * @return $this
+     */
+    public function setLabelString($labelString)
+    {
+        $this->labelString = strval($labelString);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontColor()
-	{
-		return $this->fontColor;
-	}
+    /**
+     * @return string
+     */
+    public function getFontColor()
+    {
+        return $this->fontColor;
+    }
 
-	/**
-	 * @param string $fontColor
-	 *
-	 * @return $this
-	 */
-	public function setFontColor( $fontColor )
-	{
-		$this->fontColor = strval( $fontColor );
+    /**
+     * @param string $fontColor
+     *
+     * @return $this
+     */
+    public function setFontColor($fontColor)
+    {
+        $this->fontColor = strval($fontColor);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontFamily()
-	{
-		return $this->fontFamily;
-	}
+    /**
+     * @return string
+     */
+    public function getFontFamily()
+    {
+        return $this->fontFamily;
+    }
 
-	/**
-	 * @param string $fontFamily
-	 *
-	 * @return $this
-	 */
-	public function setFontFamily( $fontFamily )
-	{
-		$this->fontFamily = strval( $fontFamily );
+    /**
+     * @param string $fontFamily
+     *
+     * @return $this
+     */
+    public function setFontFamily($fontFamily)
+    {
+        $this->fontFamily = strval($fontFamily);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getFontSize()
-	{
-		return $this->fontSize;
-	}
+    /**
+     * @return int
+     */
+    public function getFontSize()
+    {
+        return $this->fontSize;
+    }
 
-	/**
-	 * @param int $fontSize
-	 *
-	 * @return $this
-	 */
-	public function setFontSize( $fontSize )
-	{
-		$this->fontSize = intval( $fontSize );
+    /**
+     * @param int $fontSize
+     *
+     * @return $this
+     */
+    public function setFontSize($fontSize)
+    {
+        $this->fontSize = intval($fontSize);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontStyle()
-	{
-		return $this->fontStyle;
-	}
+    /**
+     * @return string
+     */
+    public function getFontStyle()
+    {
+        return $this->fontStyle;
+    }
 
-	/**
-	 * @param string $fontStyle
-	 *
-	 * @return $this
-	 */
-	public function setFontStyle( $fontStyle )
-	{
-		$this->fontStyle = strval( $fontStyle );
+    /**
+     * @param string $fontStyle
+     *
+     * @return $this
+     */
+    public function setFontStyle($fontStyle)
+    {
+        $this->fontStyle = strval($fontStyle);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy() );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy());
+    }
 }

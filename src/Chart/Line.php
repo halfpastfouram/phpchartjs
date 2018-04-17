@@ -13,16 +13,16 @@ use Halfpastfour\PHPChartJS\Options\LineOptions;
  */
 class Line extends Chart
 {
-	/**
-	 * The internal type of chart.
-	 */
-	const TYPE = 'line';
+    /**
+     * The internal type of chart.
+     */
+    const TYPE = 'line';
 
-	/**
-	 * The list of models that should be used for this chart type.
-	 */
-	const MODEL = [
-		'dataset' => LineDataSet::class,
-		'options' => LineOptions::class,
-	];
+    /**
+     * The list of models that should be used for this chart type.
+     */
+    const MODEL = [
+        'dataset' => LineDataSet::class,
+        'options' => LineOptions::class,
+    ];
 }
