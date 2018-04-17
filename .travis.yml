@@ -13,6 +13,7 @@ before_script:
 
 script:
   - phpunit
+  - composer cs-check
 
 after_success:
   - vendor/bin/test-reporter

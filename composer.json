@@ -23,12 +23,18 @@
   },
   "require-dev": {
     "phpunit/phpunit": "5.7.*",
-    "codeclimate/php-test-reporter": "dev-master"
+    "codeclimate/php-test-reporter": "dev-master",
+    "friendsofphp/php-cs-fixer": "^1.11",
+    "squizlabs/php_codesniffer": "2.*"
   },
   "autoload": {
     "psr-4": {
       "Halfpastfour\\PHPChartJS\\": "src/",
       "Test\\": "test/"
     }
+  },
+  "scripts": {
+    "cs-check": "./vendor/bin/phpcs",
+    "cs-fix": "./vendor/bin/phpcbf"
   }
 }
