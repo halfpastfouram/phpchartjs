@@ -1,11 +1,14 @@
 ### Stable
-[![TeamCity Build Status](http://halfpastfour.am:8111/app/rest/builds/buildType:(id:PHPChartJS_UnitTesting)/statusIcon)](http://halfpastfour.am:8111/viewType.html?buildTypeId=PHPChartJS_UnitTesting)
+[![Latest Stable Version](https://poser.pugx.org/halfpastfouram/phpchartjs/v/stable)](https://packagist.org/packages/halfpastfouram/phpchartjs)
+[![Total Downloads](https://poser.pugx.org/halfpastfouram/phpchartjs/downloads)](https://packagist.org/packages/halfpastfouram/phpchartjs)
+[![License](https://poser.pugx.org/halfpastfouram/phpchartjs/license)](https://packagist.org/packages/halfpastfouram/phpchartjs)
+[![composer.lock](https://poser.pugx.org/halfpastfouram/phpchartjs/composerlock)](https://packagist.org/packages/halfpastfouram/phpchartjs)
 [![Build Status](https://travis-ci.org/halfpastfouram/PHPChartJS.svg?branch=master)](https://travis-ci.org/halfpastfouram/PHPChartJS)
 [![Code Climate](https://codeclimate.com/github/halfpastfouram/PHPChartJS/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/PHPChartJS)
 [![Test Coverage](https://codeclimate.com/github/halfpastfouram/PHPChartJS/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/PHPChartJS/coverage)
 
 ### Development
-[![TeamCity Build Status](http://halfpastfour.am:8111/app/rest/builds/buildType:(id:PHPChartJS_UnitTesting_Dev)/statusIcon)](http://halfpastfour.am:8111/viewType.html?buildTypeId=PHPChartJS_UnitTesting_Dev)
+[![Latest Unstable Version](https://poser.pugx.org/halfpastfouram/phpchartjs/v/unstable)](https://packagist.org/packages/halfpastfouram/phpchartjs)
 [![Build Status](https://travis-ci.org/halfpastfouram/PHPChartJS.svg?branch=dev)](https://travis-ci.org/halfpastfouram/PHPChartJS)
 
 # PHPChartJS
@@ -21,28 +24,28 @@ This library is still in active development and aims to implement all options Ch
 use Halfpastfour\PHPChartJS\Chart\Bar;
 
 $bar = new Bar();
-$bar->setId( "myBar" );
+$bar->setId("myBar");
 
 // Set labels
-$bar->labels()->exchangeArray( [ "M", "T", "W", "T", "F", "S", "S" ] );
+$bar->labels()->exchangeArray(["M", "T", "W", "T", "F", "S", "S"]);
 
 // Add apples
 $apples = $bar->createDataSet();
-$apples->setLabel( "apples" )
-  ->setBackgroundColor( "rgba( 0, 150, 0, .5 )" )
-  ->data()->exchangeArray( [ 12, 19, 3, 17, 28, 24, 7 ] );
-$bar->addDataSet( $apples );
+$apples->setLabel("apples")
+  ->setBackgroundColor("rgba( 0, 150, 0, .5 )")
+  ->data()->exchangeArray([12, 19, 3, 17, 28, 24, 7]);
+$bar->addDataSet($apples);
 
 // Add oranges as well
 $oranges = $bar->createDataSet();
-$oranges->setLabel( "oranges" )
-  ->setBackgroundColor( "rgba( 255, 153, 0, .5 )" )
-  ->data()->exchangeArray( [ 30, 29, 5, 5, 20, 3 ] );
+$oranges->setLabel("oranges")
+  ->setBackgroundColor("rgba( 255, 153, 0, .5 )")
+  ->data()->exchangeArray([ 30, 29, 5, 5, 20, 3 ]);
   
 // Add some extra data
-$oranges->data()->append( 10 );
+$oranges->data()->append(10);
 
-$bar->addDataSet( $oranges );
+$bar->addDataSet($oranges);
 
 // Render the chart
 echo $bar->render();
@@ -64,8 +67,8 @@ var chart = new Chart( ctx, {"type":"bar","data":{"labels":["M","T","W","T","F",
 You can provide javascript callbacks with ease:
 
 ````php
-$myCallback = "function( item ){ console.log( item ); }";
-$bar->options()->getTooltips()->callbacks()->setAfterBody( $myCallback );
+$myCallback = "function(item){ console.log(item); }";
+$bar->options()->getTooltips()->callbacks()->setAfterBody($myCallback);
 ````
 
 ### Rendering
@@ -91,7 +94,7 @@ If you're not a fan of the long lines of code that are being generated you can f
 
 ````php
 // Render in pretty mode
-$bar->render( true );
+$bar->render(true);
 ````
 
 Want to see more? Fork this project and take a look at the examples in the test folder to explore the different options.
@@ -123,7 +126,7 @@ Datasets are stored in a collection:
 // Create new dataset
 $dataset = $myChart->createDataSet();
 ... (add data to the dataset)
-$myChart->addDataSet( $dataset );
+$myChart->addDataSet($dataset);
 ````
 
 But the actual data in a dataset is also stored inside a collection:
@@ -133,21 +136,21 @@ But the actual data in a dataset is also stored inside a collection:
 $dataset = $myChart->createDataSet();
 
 // Add some data 
-$dataset->data()->append( 1 )->append( 2 );
+$dataset->data()->append(1)->append(2);
 
 // Prepend some data
-$dataset->data()->prepend( 0 );
+$dataset->data()->prepend(0);
 
 // Replace data at certain position
-$dataset->data()->offsetSet( 1, 3 );
+$dataset->data()->offsetSet(1, 3);
 
 // Retrieve data from certain position
-$value = $dataset->data()->offsetGet( 1 ); // 3
+$value = $dataset->data()->offsetGet(1); // 3
 
 // Add a lot of data at once whilst returning the old values
-$oldData = $dataset->data()->exchangeArray( [ 1, 2, 3 ] ); // array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }
+$oldData = $dataset->data()->exchangeArray([1, 2, 3]); // array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }
 
-$myChart->addDataSet( $dataset );
+$myChart->addDataSet($dataset);
 ````
 For more information about the collections visit the [halfpastfouram/collection](https://github.com/halfpastfouram/collection) project.
 
