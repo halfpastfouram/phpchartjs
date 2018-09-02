@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use Halfpastfour\PHPChartJS\Delegate\StringUtils;
 use Zend\Json\Json;
 
 /**
@@ -13,6 +14,7 @@ use Zend\Json\Json;
 class GridLines implements ArraySerializableInterface, \JsonSerializable
 {
     use ArraySerializable;
+    use StringUtils;
 
     /**
      * @var bool
@@ -110,13 +112,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setColor($color)
     {
         if (is_array($color)) {
-            array_walk_recursive(
-                $color,
-                function (&$value) {
-                    $value = strval($value);
-                }
-            );
-            $this->color = $color;
+            $this->color = $this->recursiveToString($color);
         } else {
             $this->color = is_null($color) ? null : strval($color);
         }
@@ -140,13 +136,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setBorderDash($borderDash)
     {
         if (is_array($borderDash)) {
-            array_walk_recursive(
-                $borderDash,
-                function (&$value) {
-                    $value = floatval($value);
-                }
-            );
-            $this->borderDash = $borderDash;
+            $this->borderDash = $this->recursiveToString($borderDash);
         }
 
         return $this;
@@ -188,13 +178,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setLineWidth($lineWidth)
     {
         if (is_array($lineWidth)) {
-            array_walk_recursive(
-                $lineWidth,
-                function (&$value) {
-                    $value = intval($value);
-                }
-            );
-            $this->lineWidth = $lineWidth;
+            $this->lineWidth = $this->recursiveToString($lineWidth);
         } else {
             $this->lineWidth = is_null($lineWidth) ? null : intval($lineWidth);
         }
