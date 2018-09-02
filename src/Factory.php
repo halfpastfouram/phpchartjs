@@ -16,6 +16,7 @@ class Factory
     const PIE            = 'pie';
     const POLAR_AREA     = 'polarArea';
     const RADAR          = 'radar';
+    const SCATTER        = 'scatter';
 
     /**
      * @param $type
