@@ -153,7 +153,7 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplay()
     {
@@ -161,7 +161,7 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $display
+     * @param bool $display
      *
      * @return $this
      */
@@ -193,7 +193,7 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isStacked()
     {
@@ -201,7 +201,7 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $stacked
+     * @param bool $stacked
      *
      * @return $this
      */

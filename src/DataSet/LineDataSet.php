@@ -111,15 +111,15 @@ class LineDataSet extends DataSet
     protected $steppedLine;
 
     /**
-     * @return boolean
+     * @return bool|string
      */
-    public function isFill()
+    public function getFill()
     {
         return $this->fill;
     }
 
     /**
-     * @param boolean|string $fill
+     * @param bool|string $fill
      *
      * @return $this
      */
@@ -451,7 +451,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isShowLine()
     {
@@ -459,7 +459,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param boolean $showLine
+     * @param bool $showLine
      *
      * @return $this
      */
@@ -471,7 +471,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isSpanGaps()
     {
@@ -479,7 +479,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param boolean $spanGaps
+     * @param bool $spanGaps
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isSteppedLine()
     {
@@ -499,7 +499,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param boolean $steppedLine
+     * @param bool $steppedLine
      *
      * @return $this
      */

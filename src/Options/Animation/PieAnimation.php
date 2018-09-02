@@ -21,7 +21,7 @@ class PieAnimation extends Animation
     private $animateScale;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isAnimateRotate()
     {
@@ -29,7 +29,7 @@ class PieAnimation extends Animation
     }
 
     /**
-     * @param boolean $animateRotate
+     * @param bool $animateRotate
      *
      * @return PieAnimation
      */
@@ -41,7 +41,7 @@ class PieAnimation extends Animation
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isAnimateScale()
     {
@@ -49,7 +49,7 @@ class PieAnimation extends Animation
     }
 
     /**
-     * @param boolean $animateScale
+     * @param bool $animateScale
      *
      * @return PieAnimation
      */

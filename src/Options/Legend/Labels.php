@@ -196,7 +196,7 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isUsePointStyle()
     {
@@ -204,7 +204,7 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $usePointStyle
+     * @param bool $usePointStyle
      *
      * @return Labels
      */

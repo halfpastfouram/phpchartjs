@@ -91,7 +91,7 @@ class RadarDataSet extends DataSet
     protected $pointStyle;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isFill()
     {
@@ -99,7 +99,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param boolean $fill
+     * @param bool $fill
      *
      * @return $this
      */
