@@ -6,6 +6,7 @@ use Halfpastfour\PHPChartJS\Renderer\Html;
 
 /**
  * Class Chart
+ *
  * @package Halfpastfour\PHPChartJS
  */
 abstract class Chart implements ChartInterface
@@ -13,14 +14,14 @@ abstract class Chart implements ChartInterface
     /**
      * The internal type of chart.
      */
-    const TYPE  = null;
+    const TYPE = null;
 
     /**
      * The list of models that should be used for this chart type.
      */
     const MODEL = [
-        'dataset'   => DataSet::class,
-        'options'   => Options::class
+        'dataset' => DataSet::class,
+        'options' => Options::class,
     ];
 
     /**
@@ -64,8 +65,9 @@ abstract class Chart implements ChartInterface
     public function getId()
     {
         if (is_null($this->id)) {
-            $this->id   = uniqid('chart');
+            $this->id = uniqid('chart');
         }
+
         return $this->id;
     }
 
@@ -76,7 +78,7 @@ abstract class Chart implements ChartInterface
      */
     public function setId($id)
     {
-        $this->id   = strval($id);
+        $this->id = strval($id);
 
         return $this;
     }
@@ -147,7 +149,7 @@ abstract class Chart implements ChartInterface
     public function labels()
     {
         if (is_null($this->labels)) {
-            $this->labels   = new LabelsCollection();
+            $this->labels = new LabelsCollection();
         }
 
         return $this->labels;
@@ -216,7 +218,7 @@ abstract class Chart implements ChartInterface
      */
     public function render($pretty = false)
     {
-        $renderer   = new Html($this);
+        $renderer = new Html($this);
 
         return $renderer->render(! ! $pretty ? $renderer::RENDER_PRETTY : null);
     }
@@ -226,7 +228,8 @@ abstract class Chart implements ChartInterface
      */
     public function createDataSet()
     {
-        $datasetClass   = static::MODEL['dataset'];
+        $datasetClass = static::MODEL['dataset'];
+
         return new $datasetClass();
     }
 
@@ -236,8 +239,8 @@ abstract class Chart implements ChartInterface
     public function options()
     {
         if (is_null($this->options)) {
-            $optionsClass   = static::MODEL['options'];
-            $this->options  = new $optionsClass( $this );
+            $optionsClass  = static::MODEL['options'];
+            $this->options = new $optionsClass($this);
         }
 
         return $this->options;
