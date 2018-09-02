@@ -9,6 +9,7 @@ use Zend\Json\Json;
 
 /**
  * Class Layout
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
 class Layout implements ArraySerializableInterface, \JsonSerializable
@@ -29,7 +30,7 @@ class Layout implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return int
+     * @return int|Padding
      */
     public function getPadding()
     {
@@ -42,7 +43,7 @@ class Layout implements ArraySerializableInterface, \JsonSerializable
     public function padding()
     {
         if (is_null($this->padding)) {
-            $this->padding  = new Padding();
+            $this->padding = new Padding();
         }
 
         return $this->padding;
@@ -50,6 +51,8 @@ class Layout implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
