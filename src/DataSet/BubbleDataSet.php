@@ -6,6 +6,7 @@ use Halfpastfour\PHPChartJS\DataSet;
 
 /**
  * Class BubbleDataSet
+ *
  * @package Halfpastfour\PHPChartJS\DataSet
  */
 class BubbleDataSet extends DataSet
@@ -56,7 +57,7 @@ class BubbleDataSet extends DataSet
     public function setRadius($radius)
     {
         $this->radius = $radius;
-        
+
         return $this;
     }
 }
