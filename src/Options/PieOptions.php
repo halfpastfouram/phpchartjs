@@ -14,17 +14,17 @@ class PieOptions extends Options
     /**
      * @var int
      */
-    private $cutoutPercentage;
+    protected $cutoutPercentage;
 
     /**
      * @var float
      */
-    private $rotation;
+    protected $rotation;
 
     /**
      * @var float
      */
-    private $circumference;
+    protected $circumference;
 
     /**
      * @return Animation
