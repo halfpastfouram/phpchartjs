@@ -6,6 +6,7 @@
 [![Build Status](https://travis-ci.org/halfpastfouram/PHPChartJS.svg?branch=master)](https://travis-ci.org/halfpastfouram/PHPChartJS)
 [![Code Climate](https://codeclimate.com/github/halfpastfouram/PHPChartJS/badges/gpa.svg)](https://codeclimate.com/github/halfpastfouram/PHPChartJS)
 [![Test Coverage](https://codeclimate.com/github/halfpastfouram/PHPChartJS/badges/coverage.svg)](https://codeclimate.com/github/halfpastfouram/PHPChartJS/coverage)
+[![Quality](https://scrutinizer-ci.com/g/halfpastfouram/PHPChartJS/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/halfpastfouram/PHPChartJS/)
 
 ### Development
 [![Latest Unstable Version](https://poser.pugx.org/halfpastfouram/phpchartjs/v/unstable)](https://packagist.org/packages/halfpastfouram/phpchartjs)
