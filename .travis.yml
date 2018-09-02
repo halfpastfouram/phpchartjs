@@ -2,6 +2,8 @@ language: php
 php:
   - '5.6'
   - '7.0'
+  - '7.1'
+  - '7.2'
   - nightly
 
 before_script:
@@ -11,12 +13,17 @@ before_script:
 
 script:
   - phpunit
+  - composer cs-check
 
 after_success:
   - vendor/bin/test-reporter
 
 after_script:
   - rm -rf build/logs
+
+matrix:
+  allow_failures:
+    - php: nightly
 
 branches:
   only:

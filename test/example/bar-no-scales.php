@@ -3,6 +3,7 @@
 require_once '../../vendor/autoload.php';
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
+use Halfpastfour\PHPChartJS\Options\BarOptions;
 
 $bar = new Bar();
 $bar->setId('myChart');
@@ -23,6 +24,17 @@ $oranges->setLabel("oranges")
         ->setBackgroundColor('rgba( 255, 153, 0, .5 )')
         ->data()->exchangeArray([30, 29, 5, 5, 20, 3, 10]);
 $bar->addDataSet($oranges);
+
+/** @var BarOptions $options */
+$options = $bar->options();
+$xAxis = $options->getScales()->createXAxis();
+$yAxis = $options->getScales()->createYAxis();
+
+$xAxis->setDisplay(false);
+$yAxis->setDisplay(false);
+
+$options->getScales()->getXAxes()->append($xAxis);
+$options->getScales()->getYAxes()->append($yAxis);
 
 ?>
 

@@ -3,12 +3,11 @@
 namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\Options;
-use Halfpastfour\PHPChartJS\Options\Animation\PieAnimation;
 
 /**
- * Class RadarOptions
+ * Class ScatterOptions
  * @package Halfpastfour\PHPChartJS\Options
  */
-class RadarOptions extends Options
+class ScatterOptions extends Options
 {
 }

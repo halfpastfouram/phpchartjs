@@ -11,25 +11,25 @@ use Zend\Json\Json;
  */
 class DataSetCollection extends ArrayAccess implements \JsonSerializable
 {
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$rows	= [];
-		foreach( $this->data as $row ) {
-			/** @var DataSet $row */
-			$rows[]	= $row->getArrayCopy();
-		}
+    /**
+     * @return array
+     */
+    public function getArrayCopy()
+    {
+        $rows   = [];
+        foreach ($this->data as $row) {
+            /** @var DataSet $row */
+            $rows[] = $row->getArrayCopy();
+        }
 
-		return $rows;
-	}
+        return $rows;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy() );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy());
+    }
 }

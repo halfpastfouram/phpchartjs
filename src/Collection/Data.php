@@ -11,11 +11,11 @@ use Zend\Json\Json;
  */
 class Data extends ArrayAccess implements \JsonSerializable
 {
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->data );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->data);
+    }
 }

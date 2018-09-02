@@ -12,238 +12,238 @@ use Zend\Json\Json;
  */
 class Title implements ArraySerializableInterface, \JsonSerializable
 {
-	use ArraySerializable;
+    use ArraySerializable;
 
-	/**
-	 * @var bool
-	 */
-	private $display;
+    /**
+     * @var bool
+     */
+    private $display;
 
-	/**
-	 * @var string
-	 */
-	private $position;
+    /**
+     * @var string
+     */
+    private $position;
 
-	/**
-	 * @var bool
-	 */
-	private $fullWidth;
+    /**
+     * @var bool
+     */
+    private $fullWidth;
 
-	/**
-	 * @var int
-	 */
-	private $fontSize;
+    /**
+     * @var int
+     */
+    private $fontSize;
 
-	/**
-	 * @var string
-	 */
-	private $fontFamily;
+    /**
+     * @var string
+     */
+    private $fontFamily;
 
-	/**
-	 * @var string
-	 */
-	private $fontColor;
+    /**
+     * @var string
+     */
+    private $fontColor;
 
-	/**
-	 * @var string
-	 */
-	private $fontStyle;
+    /**
+     * @var string
+     */
+    private $fontStyle;
 
-	/**
-	 * @var int
-	 */
-	private $padding;
+    /**
+     * @var int
+     */
+    private $padding;
 
-	/**
-	 * @var string
-	 */
-	private $text;
+    /**
+     * @var string
+     */
+    private $text;
 
-	/**
-	 * @return boolean
-	 */
-	public function isDisplay()
-	{
-		return $this->display;
-	}
+    /**
+     * @return boolean
+     */
+    public function isDisplay()
+    {
+        return $this->display;
+    }
 
-	/**
-	 * @param boolean $display
-	 *
-	 * @return $this
-	 */
-	public function setDisplay( $display )
-	{
-		$this->display = !!$display;
+    /**
+     * @param boolean $display
+     *
+     * @return $this
+     */
+    public function setDisplay($display)
+    {
+        $this->display = ! ! $display;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getPosition()
-	{
-		return $this->position;
-	}
+    /**
+     * @return string
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
 
-	/**
-	 * @param string $position
-	 *
-	 * @return $this
-	 */
-	public function setPosition( $position )
-	{
-		$this->position = strval( $position );
+    /**
+     * @param string $position
+     *
+     * @return $this
+     */
+    public function setPosition($position)
+    {
+        $this->position = strval($position);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return boolean
-	 */
-	public function isFullWidth()
-	{
-		return $this->fullWidth;
-	}
+    /**
+     * @return boolean
+     */
+    public function isFullWidth()
+    {
+        return $this->fullWidth;
+    }
 
-	/**
-	 * @param boolean $fullWidth
-	 *
-	 * @return $this
-	 */
-	public function setFullWidth( $fullWidth )
-	{
-		$this->fullWidth = !!$fullWidth;
+    /**
+     * @param boolean $fullWidth
+     *
+     * @return $this
+     */
+    public function setFullWidth($fullWidth)
+    {
+        $this->fullWidth = ! ! $fullWidth;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getFontSize()
-	{
-		return $this->fontSize;
-	}
+    /**
+     * @return int
+     */
+    public function getFontSize()
+    {
+        return $this->fontSize;
+    }
 
-	/**
-	 * @param int $fontSize
-	 *
-	 * @return $this
-	 */
-	public function setFontSize( $fontSize )
-	{
-		$this->fontSize = intval( $fontSize );
+    /**
+     * @param int $fontSize
+     *
+     * @return $this
+     */
+    public function setFontSize($fontSize)
+    {
+        $this->fontSize = intval($fontSize);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontFamily()
-	{
-		return $this->fontFamily;
-	}
+    /**
+     * @return string
+     */
+    public function getFontFamily()
+    {
+        return $this->fontFamily;
+    }
 
-	/**
-	 * @param string $fontFamily
-	 *
-	 * @return $this
-	 */
-	public function setFontFamily( $fontFamily )
-	{
-		$this->fontFamily = strval( $fontFamily );
+    /**
+     * @param string $fontFamily
+     *
+     * @return $this
+     */
+    public function setFontFamily($fontFamily)
+    {
+        $this->fontFamily = strval($fontFamily);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontColor()
-	{
-		return $this->fontColor;
-	}
+    /**
+     * @return string
+     */
+    public function getFontColor()
+    {
+        return $this->fontColor;
+    }
 
-	/**
-	 * @param string $fontColor
-	 *
-	 * @return $this
-	 */
-	public function setFontColor( $fontColor )
-	{
-		$this->fontColor = strval( $fontColor );
+    /**
+     * @param string $fontColor
+     *
+     * @return $this
+     */
+    public function setFontColor($fontColor)
+    {
+        $this->fontColor = strval($fontColor);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFontStyle()
-	{
-		return $this->fontStyle;
-	}
+    /**
+     * @return string
+     */
+    public function getFontStyle()
+    {
+        return $this->fontStyle;
+    }
 
-	/**
-	 * @param string $fontStyle
-	 *
-	 * @return $this
-	 */
-	public function setFontStyle( $fontStyle )
-	{
-		$this->fontStyle = strval( $fontStyle );
+    /**
+     * @param string $fontStyle
+     *
+     * @return $this
+     */
+    public function setFontStyle($fontStyle)
+    {
+        $this->fontStyle = strval($fontStyle);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getPadding()
-	{
-		return $this->padding;
-	}
+    /**
+     * @return int
+     */
+    public function getPadding()
+    {
+        return $this->padding;
+    }
 
-	/**
-	 * @param int $padding
-	 *
-	 * @return $this
-	 */
-	public function setPadding( $padding )
-	{
-		$this->padding = intval( $padding );
+    /**
+     * @param int $padding
+     *
+     * @return $this
+     */
+    public function setPadding($padding)
+    {
+        $this->padding = intval($padding);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getText()
-	{
-		return $this->text;
-	}
+    /**
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
 
-	/**
-	 * @param string $text
-	 *
-	 * @return $this
-	 */
-	public function setText( $text )
-	{
-		$this->text = strval( $text );
+    /**
+     * @param string $text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->text = strval($text);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy() );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy());
+    }
 }

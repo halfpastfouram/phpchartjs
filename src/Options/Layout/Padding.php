@@ -12,113 +12,113 @@ use Zend\Json\Json;
  */
 class Padding implements ArraySerializableInterface, \JsonSerializable
 {
-	use ArraySerializable;
+    use ArraySerializable;
 
-	/**
-	 * @var int
-	 */
-	private $bottom;
+    /**
+     * @var int
+     */
+    private $bottom;
 
-	/**
-	 * @var int
-	 */
-	private $left;
+    /**
+     * @var int
+     */
+    private $left;
 
-	/**
-	 * @var int
-	 */
-	private $right;
+    /**
+     * @var int
+     */
+    private $right;
 
-	/**
-	 * @var int
-	 */
-	private $top;
+    /**
+     * @var int
+     */
+    private $top;
 
-	/**
-	 * @return int
-	 */
-	public function getBottom()
-	{
-		return $this->bottom;
-	}
+    /**
+     * @return int
+     */
+    public function getBottom()
+    {
+        return $this->bottom;
+    }
 
-	/**
-	 * @param int $bottom
-	 *
-	 * @return $this
-	 */
-	public function setBottom( $bottom )
-	{
-		$this->bottom = intval( $bottom );
+    /**
+     * @param int $bottom
+     *
+     * @return $this
+     */
+    public function setBottom($bottom)
+    {
+        $this->bottom = intval($bottom);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getLeft()
-	{
-		return $this->left;
-	}
+    /**
+     * @return int
+     */
+    public function getLeft()
+    {
+        return $this->left;
+    }
 
-	/**
-	 * @param int $left
-	 *
-	 * @return $this
-	 */
-	public function setLeft( $left )
-	{
-		$this->left = intval( $left );
+    /**
+     * @param int $left
+     *
+     * @return $this
+     */
+    public function setLeft($left)
+    {
+        $this->left = intval($left);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getRight()
-	{
-		return $this->right;
-	}
+    /**
+     * @return int
+     */
+    public function getRight()
+    {
+        return $this->right;
+    }
 
-	/**
-	 * @param int $right
-	 *
-	 * @return $this
-	 */
-	public function setRight( $right )
-	{
-		$this->right = intval( $right );
+    /**
+     * @param int $right
+     *
+     * @return $this
+     */
+    public function setRight($right)
+    {
+        $this->right = intval($right);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getTop()
-	{
-		return $this->top;
-	}
+    /**
+     * @return int
+     */
+    public function getTop()
+    {
+        return $this->top;
+    }
 
-	/**
-	 * @param int $top
-	 *
-	 * @return $this
-	 */
-	public function setTop( $top )
-	{
-		$this->top = intval( $top );
+    /**
+     * @param int $top
+     *
+     * @return $this
+     */
+    public function setTop($top)
+    {
+        $this->top = intval($top);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy() );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy());
+    }
 }

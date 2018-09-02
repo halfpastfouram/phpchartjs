@@ -8,10 +8,10 @@ namespace Halfpastfour\PHPChartJS;
  */
 interface ArraySerializableInterface
 {
-	/**
-	 * Should return an array containing all values.
-	 *
-	 * @return array
-	 */
-	public function getArrayCopy();
+    /**
+     * Should return an array containing all values.
+     *
+     * @return array
+     */
+    public function getArrayCopy();
 }

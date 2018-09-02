@@ -8,8 +8,8 @@ namespace Halfpastfour\PHPChartJS\Chart;
  */
 class Doughnut extends Pie
 {
-	/**
-	 * The internal type of chart.
-	 */
-	const TYPE = 'doughnut';
+    /**
+     * The internal type of chart.
+     */
+    const TYPE = 'doughnut';
 }
