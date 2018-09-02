@@ -52,7 +52,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     private $reverse;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplay()
     {
@@ -60,7 +60,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $display
+     * @param bool $display
      *
      * @return $this
      */
@@ -92,7 +92,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isFullWidth()
     {
@@ -100,7 +100,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $fullWidth
+     * @param bool $fullWidth
      *
      * @return $this
      */
@@ -164,7 +164,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isReverse()
     {
@@ -172,7 +172,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $reverse
+     * @param bool $reverse
      *
      * @return $this
      */

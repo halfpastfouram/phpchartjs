@@ -60,7 +60,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     private $text;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplay()
     {
@@ -68,7 +68,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $display
+     * @param bool $display
      *
      * @return $this
      */
@@ -100,7 +100,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isFullWidth()
     {
@@ -108,7 +108,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $fullWidth
+     * @param bool $fullWidth
      *
      * @return $this
      */

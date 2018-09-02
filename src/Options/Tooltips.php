@@ -177,7 +177,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     private $callbacks;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isEnabled()
     {
@@ -185,7 +185,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $enabled
+     * @param bool $enabled
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isIntersect()
     {
@@ -245,7 +245,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $intersect
+     * @param bool $intersect
      *
      * @return $this
      */
@@ -777,7 +777,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplayColors()
     {
@@ -785,7 +785,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $displayColors
+     * @param bool $displayColors
      *
      * @return $this
      */

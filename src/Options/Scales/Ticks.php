@@ -127,7 +127,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isBeginAtZero()
     {
@@ -135,7 +135,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $beginAtZero
+     * @param bool $beginAtZero
      *
      * @return $this
      */
@@ -167,7 +167,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isAutoSkip()
     {
@@ -175,7 +175,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $autoSkip
+     * @param bool $autoSkip
      *
      * @return $this
      */
@@ -227,7 +227,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplay()
     {
@@ -235,7 +235,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $display
+     * @param bool $display
      *
      * @return $this
      */
@@ -387,7 +387,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isMirror()
     {
@@ -395,7 +395,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $mirror
+     * @param bool $mirror
      *
      * @return $this
      */

@@ -56,7 +56,7 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isIntersect()
     {
@@ -64,7 +64,7 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $intersect
+     * @param bool $intersect
      *
      * @return $this
      */

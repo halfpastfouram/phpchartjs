@@ -45,7 +45,7 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     private $fontStyle;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplay()
     {
@@ -53,7 +53,7 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $display
+     * @param bool $display
      *
      * @return $this
      */

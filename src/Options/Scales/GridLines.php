@@ -75,7 +75,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     private $offsetGridLines;
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDisplay()
     {
@@ -83,7 +83,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $display
+     * @param bool $display
      *
      * @return $this
      */
@@ -203,7 +203,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDrawBorder()
     {
@@ -211,7 +211,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $drawBorder
+     * @param bool $drawBorder
      *
      * @return $this
      */
@@ -223,7 +223,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDrawOnChartArea()
     {
@@ -231,7 +231,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $drawOnChartArea
+     * @param bool $drawOnChartArea
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isDrawTicks()
     {
@@ -251,7 +251,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $drawTicks
+     * @param bool $drawTicks
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isOffsetGridLines()
     {
@@ -331,7 +331,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param boolean $offsetGridLines
+     * @param bool $offsetGridLines
      *
      * @return $this
      */
