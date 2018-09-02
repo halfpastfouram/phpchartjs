@@ -3,3 +3,5 @@
 /composer.phar
 composer.phar
 /vendor/
+codeCoverage
+build
