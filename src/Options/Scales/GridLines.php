@@ -173,7 +173,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getLineWidth()
     {
@@ -181,7 +181,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param int|\int[] $lineWidth
+     * @param int|int[] $lineWidth
      *
      * @return $this
      */

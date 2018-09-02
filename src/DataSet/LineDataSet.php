@@ -291,7 +291,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointBorderWidth()
     {
@@ -299,7 +299,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointBorderWidth
+     * @param int|int[] $pointBorderWidth
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointRadius()
     {
@@ -319,7 +319,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointRadius
+     * @param int|int[] $pointRadius
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointHoverRadius()
     {
@@ -339,7 +339,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointHoverRadius
+     * @param int|int[] $pointHoverRadius
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointHitRadius()
     {
@@ -359,7 +359,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointHitRadius
+     * @param int|int[] $pointHitRadius
      *
      * @return $this
      */
@@ -411,7 +411,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointHoverBorderWidth()
     {
@@ -419,7 +419,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointHoverBorderWidth
+     * @param int|int[] $pointHoverBorderWidth
      *
      * @return $this
      */

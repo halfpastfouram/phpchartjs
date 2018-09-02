@@ -223,7 +223,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getBorderWidth()
     {
@@ -231,7 +231,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param int|\int[] $borderWidth
+     * @param int|int[] $borderWidth
      *
      * @return $this
      */
@@ -324,7 +324,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getHoverBorderWidth()
     {
@@ -332,7 +332,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param int|\int[] $hoverBorderWidth
+     * @param int|int[] $hoverBorderWidth
      *
      * @return $this
      */

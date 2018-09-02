@@ -151,7 +151,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @return \int[]
+     * @return int[]
      */
     public function getBorderDash()
     {
@@ -159,7 +159,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param \int[] $borderDash
+     * @param int[] $borderDash
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointBorderWidth()
     {
@@ -259,7 +259,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointBorderWidth
+     * @param int|int[] $pointBorderWidth
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointRadius()
     {
@@ -279,7 +279,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointRadius
+     * @param int|int[] $pointRadius
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointHoverRadius()
     {
@@ -299,7 +299,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointHoverRadius
+     * @param int|int[] $pointHoverRadius
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getHitRadius()
     {
@@ -319,7 +319,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $hitRadius
+     * @param int|int[] $hitRadius
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @return int|\int[]
+     * @return int|int[]
      */
     public function getPointHoverBorderWidth()
     {
@@ -379,7 +379,7 @@ class RadarDataSet extends DataSet
     }
 
     /**
-     * @param int|\int[] $pointHoverBorderWidth
+     * @param int|int[] $pointHoverBorderWidth
      *
      * @return $this
      */
