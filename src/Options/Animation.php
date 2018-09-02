@@ -13,113 +13,113 @@ use Zend\Json\Json;
  */
 class Animation implements ArraySerializableInterface, \JsonSerializable
 {
-	use ArraySerializable;
+    use ArraySerializable;
 
-	/**
-	 * @var int
-	 */
-	private $duration;
+    /**
+     * @var int
+     */
+    private $duration;
 
-	/**
-	 * @var string
-	 */
-	private $easing;
+    /**
+     * @var string
+     */
+    private $easing;
 
-	/**
-	 * @var Expr
-	 */
-	private $onProgress;
+    /**
+     * @var Expr
+     */
+    private $onProgress;
 
-	/**
-	 * @var Expr
-	 */
-	private $onComplete;
+    /**
+     * @var Expr
+     */
+    private $onComplete;
 
-	/**
-	 * @return int
-	 */
-	public function getDuration()
-	{
-		return $this->duration;
-	}
+    /**
+     * @return int
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
 
-	/**
-	 * @param int $duration
-	 *
-	 * @return $this
-	 */
-	public function setDuration( $duration )
-	{
-		$this->duration = $duration;
+    /**
+     * @param int $duration
+     *
+     * @return $this
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getEasing()
-	{
-		return $this->easing;
-	}
+    /**
+     * @return string
+     */
+    public function getEasing()
+    {
+        return $this->easing;
+    }
 
-	/**
-	 * @param string $easing
-	 *
-	 * @return $this
-	 */
-	public function setEasing( $easing )
-	{
-		$this->easing = $easing;
+    /**
+     * @param string $easing
+     *
+     * @return $this
+     */
+    public function setEasing($easing)
+    {
+        $this->easing = $easing;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return Expr
-	 */
-	public function getOnProgress()
-	{
-		return $this->onProgress;
-	}
+    /**
+     * @return Expr
+     */
+    public function getOnProgress()
+    {
+        return $this->onProgress;
+    }
 
-	/**
-	 * @param string $onProgress
-	 *
-	 * @return $this
-	 */
-	public function setOnProgress( $onProgress )
-	{
-		$this->onProgress = new Expr( strval( $onProgress ) );
+    /**
+     * @param string $onProgress
+     *
+     * @return $this
+     */
+    public function setOnProgress($onProgress)
+    {
+        $this->onProgress = new Expr(strval($onProgress));
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return Expr
-	 */
-	public function getOnComplete()
-	{
-		return $this->onComplete;
-	}
+    /**
+     * @return Expr
+     */
+    public function getOnComplete()
+    {
+        return $this->onComplete;
+    }
 
-	/**
-	 * @param string $onComplete
-	 *
-	 * @return $this
-	 */
-	public function setOnComplete( $onComplete )
-	{
-		$this->onComplete = new Expr( strval( $onComplete ) );
+    /**
+     * @param string $onComplete
+     *
+     * @return $this
+     */
+    public function setOnComplete($onComplete)
+    {
+        $this->onComplete = new Expr(strval($onComplete));
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+    }
 }

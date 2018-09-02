@@ -8,15 +8,15 @@ namespace Halfpastfour\PHPChartJS;
  */
 interface ChartOwnedInterface
 {
-	/**
-	 * @param ChartInterface $chart
-	 *
-	 * @return $this
-	 */
-	public function setOwner( ChartInterface $chart );
+    /**
+     * @param ChartInterface $chart
+     *
+     * @return $this
+     */
+    public function setOwner(ChartInterface $chart);
 
-	/**
-	 * @return ChartInterface
-	 */
-	public function owner();
+    /**
+     * @return ChartInterface
+     */
+    public function owner();
 }

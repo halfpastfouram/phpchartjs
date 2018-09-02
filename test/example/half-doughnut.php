@@ -16,6 +16,12 @@ $colors  = [
 $factory = new Factory();
 /** @var \Halfpastfour\PHPChartJS\Chart\Doughnut $doughnut */
 $doughnut = $factory->create($factory::DOUGHNUT);
+/** @var \Halfpastfour\PHPChartJS\Options\PieOptions $options */
+$options = $doughnut->options();
+$options->setCutoutPercentage(50)
+    ->setCircumference(pi())
+    ->setRotation(pi())
+    ->getAnimation()->setDuration(1);
 
 // Set labels
 $doughnut->labels()->exchangeArray([

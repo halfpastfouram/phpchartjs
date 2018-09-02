@@ -13,46 +13,46 @@ use Zend\Json\Json;
  */
 class Layout implements ArraySerializableInterface, \JsonSerializable
 {
-	use ArraySerializable;
+    use ArraySerializable;
 
-	/**
-	 * @var int|Padding
-	 */
-	private $padding;
+    /**
+     * @var int|Padding
+     */
+    private $padding;
 
-	/**
-	 * @param int $padding
-	 */
-	public function setPadding( $padding )
-	{
-		$this->padding = intval( $padding );
-	}
+    /**
+     * @param int $padding
+     */
+    public function setPadding($padding)
+    {
+        $this->padding = intval($padding);
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getPadding()
-	{
-		return $this->padding;
-	}
+    /**
+     * @return int
+     */
+    public function getPadding()
+    {
+        return $this->padding;
+    }
 
-	/**
-	 * @return Padding
-	 */
-	public function padding()
-	{
-		if( is_null( $this->padding ) ) {
-			$this->padding	= new Padding();
-		}
+    /**
+     * @return Padding
+     */
+    public function padding()
+    {
+        if (is_null($this->padding)) {
+            $this->padding  = new Padding();
+        }
 
-		return $this->padding;
-	}
+        return $this->padding;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy() );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy());
+    }
 }

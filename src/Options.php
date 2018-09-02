@@ -18,133 +18,133 @@ use Zend\Json\Json;
  */
 class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
 {
-	use ChartOwned;
-	use ArraySerializable;
+    use ChartOwned;
+    use ArraySerializable;
 
-	/**
-	 * @var Layout
-	 */
-	protected $layout;
+    /**
+     * @var Layout
+     */
+    protected $layout;
 
-	/**
-	 * @var Title
-	 */
-	protected $title;
+    /**
+     * @var Title
+     */
+    protected $title;
 
-	/**
-	 * @var Hover
-	 */
-	protected $hover;
+    /**
+     * @var Hover
+     */
+    protected $hover;
 
-	/**
-	 * @var Scales
-	 */
-	protected $scales;
+    /**
+     * @var Scales
+     */
+    protected $scales;
 
-	/**
-	 * @var Animation
-	 */
-	protected $animation;
+    /**
+     * @var Animation
+     */
+    protected $animation;
 
-	/**
-	 * @var Legend
-	 */
-	protected $legend;
+    /**
+     * @var Legend
+     */
+    protected $legend;
 
-	/**
-	 * @var Tooltips
-	 */
-	protected $tooltips;
+    /**
+     * @var Tooltips
+     */
+    protected $tooltips;
 
-	/**
-	 * @return Layout
-	 */
-	public function getLayout()
-	{
-		if( is_null( $this->layout ) ) {
-			$this->layout	= new Layout();
-		}
+    /**
+     * @return Layout
+     */
+    public function getLayout()
+    {
+        if (is_null($this->layout)) {
+            $this->layout   = new Layout();
+        }
 
-		return $this->layout;
-	}
+        return $this->layout;
+    }
 
-	/**
-	 * @return Title
-	 */
-	public function getTitle()
-	{
-		if( is_null( $this->title ) ) {
-			$this->title = new Title();
-		}
+    /**
+     * @return Title
+     */
+    public function getTitle()
+    {
+        if (is_null($this->title)) {
+            $this->title = new Title();
+        }
 
-		return $this->title;
-	}
+        return $this->title;
+    }
 
-	/**
-	 * @return Hover
-	 */
-	public function getHover()
-	{
-		if( is_null( $this->hover ) ) {
-			$this->hover = new Hover();
-		}
+    /**
+     * @return Hover
+     */
+    public function getHover()
+    {
+        if (is_null($this->hover)) {
+            $this->hover = new Hover();
+        }
 
-		return $this->hover;
-	}
+        return $this->hover;
+    }
 
-	/**
-	 * @return Scales
-	 */
-	public function getScales()
-	{
-		if( is_null( $this->scales ) ) {
-			$this->scales = new Scales();
-		}
+    /**
+     * @return Scales
+     */
+    public function getScales()
+    {
+        if (is_null($this->scales)) {
+            $this->scales = new Scales();
+        }
 
-		return $this->scales;
-	}
+        return $this->scales;
+    }
 
-	/**
-	 * @return Animation
-	 */
-	public function getAnimation()
-	{
-		if( is_null( $this->animation ) ) {
-			$this->animation = new Animation();
-		}
+    /**
+     * @return Animation
+     */
+    public function getAnimation()
+    {
+        if (is_null($this->animation)) {
+            $this->animation = new Animation();
+        }
 
-		return $this->animation;
-	}
+        return $this->animation;
+    }
 
-	/**
-	 * @return Legend
-	 */
-	public function getLegend()
-	{
-		if( is_null( $this->legend ) ) {
-			$this->legend = new Legend();
-		}
+    /**
+     * @return Legend
+     */
+    public function getLegend()
+    {
+        if (is_null($this->legend)) {
+            $this->legend = new Legend();
+        }
 
-		return $this->legend;
-	}
+        return $this->legend;
+    }
 
-	/**
-	 * @return Tooltips
-	 */
-	public function getTooltips()
-	{
-		if( is_null( $this->tooltips ) ) {
-			$this->tooltips = new Tooltips();
-		}
+    /**
+     * @return Tooltips
+     */
+    public function getTooltips()
+    {
+        if (is_null($this->tooltips)) {
+            $this->tooltips = new Tooltips();
+        }
 
-		return $this->tooltips;
-	}
+        return $this->tooltips;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+    }
 }

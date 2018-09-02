@@ -2,12 +2,10 @@
 
 namespace Halfpastfour\PHPChartJS\DataSet;
 
-use Halfpastfour\PHPChartJS\DataSet;
-
 /**
- * Class PolarAreaDataSet
+ * Class ScatterDataSet
  * @package Halfpastfour\PHPChartJS\DataSet
  */
-class PolarAreaDataSet extends DataSet
+class ScatterDataSet extends LineDataSet
 {
 }

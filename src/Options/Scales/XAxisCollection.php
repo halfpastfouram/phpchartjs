@@ -11,25 +11,25 @@ use Zend\Json\Json;
  */
 class XAxisCollection extends ArrayAccess implements \JsonSerializable
 {
-	/**
-	 * @return array
-	 */
-	public function getArrayCopy()
-	{
-		$rows = [];
-		foreach( $this->data as $row ) {
-			/** @var XAxis $row */
-			$rows[] = $row->getArrayCopy();
-		}
+    /**
+     * @return array
+     */
+    public function getArrayCopy()
+    {
+        $rows = [];
+        foreach ($this->data as $row) {
+            /** @var XAxis $row */
+            $rows[] = $row->getArrayCopy();
+        }
 
-		return $rows;
-	}
+        return $rows;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function jsonSerialize()
-	{
-		return Json::encode( $this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ] );
-	}
+    /**
+     * @return string
+     */
+    public function jsonSerialize()
+    {
+        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+    }
 }
