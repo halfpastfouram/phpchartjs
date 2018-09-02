@@ -8,6 +8,7 @@ use Zend\Json\Json;
 
 /**
  * Class GridLines
+ *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
 class GridLines implements ArraySerializableInterface, \JsonSerializable
@@ -125,7 +126,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return float[]
+     * @return \float[]
      */
     public function getBorderDash()
     {
@@ -133,7 +134,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param float[] $borderDash
+     * @param \float[] $borderDash
      *
      * @return $this
      */
@@ -344,6 +345,8 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
