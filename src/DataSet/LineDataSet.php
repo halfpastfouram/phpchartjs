@@ -111,15 +111,15 @@ class LineDataSet extends DataSet
     protected $steppedLine;
 
     /**
-     * @return boolean
+     * @return bool|string
      */
-    public function isFill()
+    public function getFill()
     {
         return $this->fill;
     }
 
     /**
-     * @param boolean|string $fill
+     * @param bool|string $fill
      *
      * @return $this
      */
