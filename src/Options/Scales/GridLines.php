@@ -95,7 +95,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getColor()
     {
@@ -103,7 +103,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param string|\string[] $color
+     * @param string|string[] $color
      *
      * @return $this
      */

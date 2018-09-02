@@ -8,6 +8,7 @@ use Zend\Json\Json;
 
 /**
  * Class DataSet
+ *
  * @package Halfpastfour\PHPChartJS
  */
 class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
@@ -168,7 +169,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getBackgroundColor()
     {
@@ -176,7 +177,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param string|\string[] $backgroundColor
+     * @param string|string[] $backgroundColor
      *
      * @return $this
      */
@@ -195,7 +196,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getBorderColor()
     {
@@ -203,7 +204,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param string|\string[] $borderColor
+     * @param string|string[] $borderColor
      *
      * @return $this
      */
@@ -269,7 +270,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getHoverBackgroundColor()
     {
@@ -277,7 +278,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param string|\string[] $hoverBackgroundColor
+     * @param string|string[] $hoverBackgroundColor
      *
      * @return $this
      */
@@ -296,7 +297,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getHoverBorderColor()
     {
@@ -304,7 +305,7 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param string|\string[] $hoverBorderColor
+     * @param string|string[] $hoverBorderColor
      *
      * @return $this
      */

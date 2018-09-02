@@ -251,7 +251,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getPointBorderColor()
     {
@@ -259,7 +259,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param string|\string[] $pointBorderColor
+     * @param string|string[] $pointBorderColor
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getPointBackgroundColor()
     {
@@ -279,7 +279,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param string|\string[] $pointBackgroundColor
+     * @param string|string[] $pointBackgroundColor
      *
      * @return $this
      */
@@ -371,7 +371,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getPointHoverBackgroundColor()
     {
@@ -379,7 +379,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param string|\string[] $pointHoverBackgroundColor
+     * @param string|string[] $pointHoverBackgroundColor
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @return string|\string[]
+     * @return string|string[]
      */
     public function getPointHoverBorderColor()
     {
@@ -399,7 +399,7 @@ class LineDataSet extends DataSet
     }
 
     /**
-     * @param string|\string[] $pointHoverBorderColor
+     * @param string|string[] $pointHoverBorderColor
      *
      * @return $this
      */
