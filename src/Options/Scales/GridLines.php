@@ -18,67 +18,75 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    private $display;
+    protected $display;
 
     /**
      * @var string|string[]
      */
-    private $color;
+    protected $color;
 
     /**
      * @var float[]
      */
-    private $borderDash;
+    protected $borderDash;
 
     /**
      * @var float
      */
-    private $borderDashOffset;
+    protected $borderDashOffset;
 
     /**
      * @var int|int[]
      */
-    private $lineWidth;
+    protected $lineWidth;
 
     /**
      * @var bool
      */
-    private $drawBorder;
+    protected $drawBorder;
 
     /**
      * @var bool
      */
-    private $drawOnChartArea;
+    protected $drawOnChartArea;
 
     /**
      * @var bool
      */
-    private $drawTicks;
+    protected $drawTicks;
 
     /**
      * @var int
      */
-    private $tickMarkLength;
+    protected $tickMarkLength;
 
     /**
      * @var int
      */
-    private $zeroLineWidth;
+    protected $zeroLineWidth;
 
     /**
      * @var string
      */
-    private $zeroLineColor;
+    protected $zeroLineColor;
 
     /**
      * @var bool
      */
-    private $offsetGridLines;
+    protected $offsetGridLines;
 
     /**
      * @return bool
      */
     public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisplay()
     {
         return $this->display;
     }
@@ -212,6 +220,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getDrawBorder()
+    {
+        return $this->drawBorder;
+    }
+
+    /**
      * @param bool $drawBorder
      *
      * @return $this
@@ -232,6 +248,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getDrawOnChartArea()
+    {
+        return $this->drawOnChartArea;
+    }
+
+    /**
      * @param bool $drawOnChartArea
      *
      * @return $this
@@ -241,6 +265,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
         $this->drawOnChartArea = boolval($drawOnChartArea);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDrawTicks()
+    {
+        return $this->drawTicks;
     }
 
     /**
@@ -327,6 +359,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isOffsetGridLines()
+    {
+        return $this->offsetGridLines;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getOffsetGridLines()
     {
         return $this->offsetGridLines;
     }

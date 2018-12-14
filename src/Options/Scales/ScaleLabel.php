@@ -17,37 +17,45 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    private $display;
+    protected $display;
 
     /**
      * @var string
      */
-    private $labelString;
+    protected $labelString;
 
     /**
      * @var string
      */
-    private $fontColor;
+    protected $fontColor;
 
     /**
      * @var string
      */
-    private $fontFamily;
+    protected $fontFamily;
 
     /**
      * @var int
      */
-    private $fontSize;
+    protected $fontSize;
 
     /**
      * @var string
      */
-    private $fontStyle;
+    protected $fontStyle;
 
     /**
      * @return bool
      */
     public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisplay()
     {
         return $this->display;
     }
@@ -166,6 +174,8 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

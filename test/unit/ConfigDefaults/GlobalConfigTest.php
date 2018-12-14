@@ -3,6 +3,7 @@
 namespace Test\ConfigDefaults;
 
 use Halfpastfour\PHPChartJS\ConfigDefaults\AnimationConfig;
+use Halfpastfour\PHPChartJS\ConfigDefaults\ClickConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\ElementsConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\GlobalConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\HoverConfig;
@@ -105,6 +106,15 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
     {
         $result = $this->config->hover();
         self::assertInstanceOf(HoverConfig::class, $result);
+    }
+
+    /**
+     *
+     */
+    public function testClick()
+    {
+        $result = $this->config->click();
+        self::assertInstanceOf(ClickConfig::class, $result);
     }
 
     /**

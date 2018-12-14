@@ -17,52 +17,60 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    private $display;
+    protected $display;
 
     /**
      * @var string
      */
-    private $position;
+    protected $position;
 
     /**
      * @var bool
      */
-    private $fullWidth;
+    protected $fullWidth;
 
     /**
      * @var int
      */
-    private $fontSize;
+    protected $fontSize;
 
     /**
      * @var string
      */
-    private $fontFamily;
+    protected $fontFamily;
 
     /**
      * @var string
      */
-    private $fontColor;
+    protected $fontColor;
 
     /**
      * @var string
      */
-    private $fontStyle;
+    protected $fontStyle;
 
     /**
      * @var int
      */
-    private $padding;
+    protected $padding;
 
     /**
      * @var string
      */
-    private $text;
+    protected $text;
 
     /**
      * @return bool
      */
     public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisplay()
     {
         return $this->display;
     }
@@ -103,6 +111,14 @@ class Title implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isFullWidth()
+    {
+        return $this->fullWidth;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getFullWidth()
     {
         return $this->fullWidth;
     }
@@ -241,6 +257,8 @@ class Title implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

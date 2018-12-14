@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Animation;
+use Halfpastfour\PHPChartJS\Options\Click;
 use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Layout;
 use Halfpastfour\PHPChartJS\Options\Legend;
@@ -35,6 +36,11 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
      * @var Hover
      */
     protected $hover;
+
+    /**
+     * @var Click
+     */
+    protected $click;
 
     /**
      * @var Scales
@@ -93,6 +99,18 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
+     * @return Click
+     */
+    public function getCLick()
+    {
+        if (is_null($this->click)) {
+            $this->click = new Click();
+        }
+
+        return $this->click;
+    }
+
+    /**
      * @return Scales
      */
     public function getScales()
@@ -142,6 +160,8 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

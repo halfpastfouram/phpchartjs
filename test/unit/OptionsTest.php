@@ -3,6 +3,7 @@
 namespace Test;
 
 use Halfpastfour\PHPChartJS\Options;
+use Halfpastfour\PHPChartJS\Options\Click;
 use Halfpastfour\PHPChartJS\Options\Layout;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Animation;
@@ -69,6 +70,15 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     {
         $hover = $this->options->getHover();
         self::assertInstanceOf(Hover::class, $hover);
+    }
+
+    /**
+     *
+     */
+    public function testClick()
+    {
+        $click = $this->options->getCLick();
+        self::assertInstanceOf(Click::class, $click);
     }
 
     /**

@@ -19,92 +19,92 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var float
      */
-    private $suggestedMin;
+    protected $suggestedMin;
 
     /**
      * @var bool
      */
-    private $beginAtZero;
+    protected $beginAtZero;
 
     /**
      * @var float
      */
-    private $stepSize;
+    protected $stepSize;
 
     /**
      * @var bool
      */
-    private $autoSkip;
+    protected $autoSkip;
 
     /**
      * @var int
      */
-    private $autoSkipPadding;
+    protected $autoSkipPadding;
 
     /**
      * @var Expr
      */
-    private $callback;
+    protected $callback;
 
     /**
      * @var bool
      */
-    private $display;
+    protected $display;
 
     /**
      * @var string
      */
-    private $fontColor;
+    protected $fontColor;
 
     /**
      * @var string
      */
-    private $fontFamily;
+    protected $fontFamily;
 
     /**
      * @var int
      */
-    private $fontSize;
+    protected $fontSize;
 
     /**
      * @var string
      */
-    private $fontStyle;
+    protected $fontStyle;
 
     /**
      * @var int
      */
-    private $labelOffset;
+    protected $labelOffset;
 
     /**
      * @var int
      */
-    private $maxRotation;
+    protected $maxRotation;
 
     /**
      * @var int
      */
-    private $minRotation;
+    protected $minRotation;
 
     /**
      * @var bool
      */
-    private $mirror;
+    protected $mirror;
 
     /**
      * @var int
      */
-    private $padding;
+    protected $padding;
 
     /**
      * @var bool
      */
-    private $reverse;
+    protected $reverse;
 
     /**
      * @var int
      */
-    private $max;
+    protected $max;
 
     /**
      * @return float
@@ -130,6 +130,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isBeginAtZero()
+    {
+        return $this->beginAtZero;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getBeginAtZero()
     {
         return $this->beginAtZero;
     }
@@ -170,6 +178,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isAutoSkip()
+    {
+        return $this->autoSkip;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getAutoSkip()
     {
         return $this->autoSkip;
     }
@@ -230,6 +246,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisplay()
     {
         return $this->display;
     }
@@ -395,6 +419,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getMirror()
+    {
+        return $this->mirror;
+    }
+
+    /**
      * @param bool $mirror
      *
      * @return $this
@@ -435,6 +467,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getReverse()
+    {
+        return $this->reverse;
+    }
+
+    /**
      * @param bool $reverse
      *
      * @return $this
@@ -468,6 +508,8 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

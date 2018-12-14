@@ -19,167 +19,175 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    private $enabled;
+    protected $enabled;
 
     /**
      * @var Expr
      */
-    private $custom;
+    protected $custom;
 
     /**
      * @var string
      */
-    private $mode;
+    protected $mode;
 
     /**
      * @var bool
      */
-    private $intersect;
+    protected $intersect;
 
     /**
      * @var string
      */
-    private $position;
+    protected $position;
 
     /**
      * @var Expr
      */
-    private $itemSort;
+    protected $itemSort;
 
     /**
      * @var Expr
      */
-    private $filter;
+    protected $filter;
 
     /**
      * @var string
      */
-    private $backgroundColor;
+    protected $backgroundColor;
 
     /**
      * @var string
      */
-    private $titleFontFamily;
+    protected $titleFontFamily;
 
     /**
      * @var int
      */
-    private $titleFontSize;
+    protected $titleFontSize;
 
     /**
      * @var string
      */
-    private $titleFontStyle;
+    protected $titleFontStyle;
 
     /**
      * @var string
      */
-    private $titleFontColor;
+    protected $titleFontColor;
 
     /**
      * @var int
      */
-    private $titleSpacing;
+    protected $titleSpacing;
 
     /**
      * @var int
      */
-    private $titleMarginBottom;
+    protected $titleMarginBottom;
 
     /**
      * @var string
      */
-    private $bodyFontFamily;
+    protected $bodyFontFamily;
 
     /**
      * @var int
      */
-    private $bodyFontSize;
+    protected $bodyFontSize;
 
     /**
      * @var string
      */
-    private $bodyFontStyle;
+    protected $bodyFontStyle;
 
     /**
      * @var string
      */
-    private $bodyFontColor;
+    protected $bodyFontColor;
 
     /**
      * @var int
      */
-    private $bodySpacing;
+    protected $bodySpacing;
 
     /**
      * @var string
      */
-    private $footerFontFamily;
+    protected $footerFontFamily;
 
     /**
      * @var int
      */
-    private $footerFontSize;
+    protected $footerFontSize;
 
     /**
      * @var string
      */
-    private $footerFontStyle;
+    protected $footerFontStyle;
 
     /**
      * @var string
      */
-    private $footerFontColor;
+    protected $footerFontColor;
 
     /**
      * @var int
      */
-    private $footerSpacing;
+    protected $footerSpacing;
 
     /**
      * @var int
      */
-    private $footerMarginTop;
+    protected $footerMarginTop;
 
     /**
      * @var int
      */
-    private $xPadding;
+    protected $xPadding;
 
     /**
      * @var int
      */
-    private $yPadding;
+    protected $yPadding;
 
     /**
      * @var int
      */
-    private $caretSize;
+    protected $caretSize;
 
     /**
      * @var int
      */
-    private $cornerRadius;
+    protected $cornerRadius;
 
     /**
      * @var string
      */
-    private $multiKeyBackground;
+    protected $multiKeyBackground;
 
     /**
      * @var bool
      */
-    private $displayColors;
+    protected $displayColors;
 
     /**
      * @var Callbacks
      */
-    private $callbacks;
+    protected $callbacks;
 
     /**
      * @return bool
      */
     public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getEnabled()
     {
         return $this->enabled;
     }
@@ -240,6 +248,14 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isIntersect()
+    {
+        return $this->intersect;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIntersect()
     {
         return $this->intersect;
     }
@@ -780,6 +796,14 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isDisplayColors()
+    {
+        return $this->displayColors;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDisplayColors()
     {
         return $this->displayColors;
     }

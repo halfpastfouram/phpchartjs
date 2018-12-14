@@ -11,7 +11,7 @@ use Zend\Json\Json;
  * Class Hover
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Hover implements ArraySerializableInterface, \JsonSerializable
+class Click implements ArraySerializableInterface, \JsonSerializable
 {
     use ArraySerializable;
 
@@ -33,7 +33,7 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var Expr
      */
-    private $onHover;
+    private $onClick;
 
     /**
      * @return string
@@ -106,19 +106,19 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return \Zend\Json\Expr
      */
-    public function getOnHover()
+    public function getOnClick()
     {
-        return $this->onHover;
+        return $this->onClick;
     }
 
     /**
-     * @param Expr $onHover
+     * @param Expr $onClick
      *
      * @return $this
      */
-    public function setOnHover($onHover)
+    public function setOnClick($onClick)
     {
-        $this->onHover = new Expr(strval($onHover));
+        $this->onClick = new Expr(strval($onClick));
 
         return $this;
     }
