@@ -2,8 +2,9 @@
 
 namespace Test\Options;
 
-use Halfpastfour\PHPChartJS\Options\Click;
+use Halfpastfour\PHPChartJS\Options;
 use Test\TestUtils;
+use Zend\Json\Expr;
 
 /**
  * Class ClickTest
@@ -12,56 +13,24 @@ use Test\TestUtils;
 class ClickTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Click
+     * @var Options
      */
-    private $click;
+    private $options;
 
-    /**
-     * @var array
-     */
     private $data_types = [
-        'mode'              => '',
-        'intersect'         => false,
-        'animationDuration' => 1,
-        'onClick'           => '',
+        'onClick' => null,
     ];
 
-    /**
-     * @var array
-     */
-    private $input_data_no_expressions = [
-        'mode'              => 'mode',
-        'intersect'         => true,
-        'animationDuration' => 2,
-        'onClick'           => null,
-    ];
-
-    /**
-     * @var array
-     */
-    private $input_data_with_expressions = [
-        'mode'              => 'mode',
-        'intersect'         => true,
-        'animationDuration' => 2,
-        'onClick'           => 'function(event, array) { echo "onClick"; }',
-    ];
-
-    /**
-     * @var array
-     */
-    private $empty_data = [
-        'mode'              => null,
-        'intersect'         => null,
-        'animationDuration' => null,
-        'onClick'           => null,
-    ];
+    private $input_data_no_expressions = ['onClick' => null];
+    private $input_data_with_expressions = null;
 
     /**
      *
      */
     public function setUp()
     {
-        $this->click = new Click();
+        $this->options = new Options();
+        $this->input_data_with_expressions = ['onClick' => new Expr('function(event, array) { echo "onClick"; }')];
     }
 
     /**
@@ -69,8 +38,9 @@ class ClickTest extends \PHPUnit_Framework_TestCase
      */
     public function testEmpty()
     {
-        $expected = $this->empty_data;
-        $result   = TestUtils::getAttributes($this->click, $this->data_types);
+        $expected = $this->input_data_no_expressions;
+        TestUtils::setAttributes($this->options, $this->input_data_no_expressions);
+        $result = TestUtils::getAttributes($this->options, $this->data_types);
         self::assertEquals($expected, $result);
     }
 
@@ -80,8 +50,8 @@ class ClickTest extends \PHPUnit_Framework_TestCase
     public function testGetAndSetWithExpressions()
     {
         $expected = $this->input_data_with_expressions;
-        TestUtils::setAttributes($this->click, $this->input_data_with_expressions);
-        $result = TestUtils::getAttributes($this->click, $this->data_types);
+        TestUtils::setAttributes($this->options, $this->input_data_with_expressions);
+        $result = TestUtils::getAttributes($this->options, $this->data_types);
         self::assertEquals($expected, $result);
     }
 
@@ -91,8 +61,8 @@ class ClickTest extends \PHPUnit_Framework_TestCase
     public function testJsonSerializeWithoutExpressions()
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
-        TestUtils::setAttributes($this->click, $this->input_data_no_expressions);
-        $result = json_decode($this->click->jsonSerialize(), true);
+        TestUtils::setAttributes($this->options, $this->input_data_no_expressions);
+        $result = json_decode($this->options->jsonSerialize(), true);
         self::assertSame($expected, $result);
     }
 }

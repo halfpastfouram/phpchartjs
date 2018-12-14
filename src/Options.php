@@ -11,6 +11,7 @@ use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
+use Zend\Json\Expr;
 use Zend\Json\Json;
 
 /**
@@ -38,9 +39,9 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     protected $hover;
 
     /**
-     * @var Click
+     * @var \Zend\Json\Expr
      */
-    protected $click;
+    protected $onClick;
 
     /**
      * @var Scales
@@ -99,15 +100,23 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return Click
+     * @return \Zend\Json\Expr
      */
-    public function getCLick()
+    public function getOnClick()
     {
-        if (is_null($this->click)) {
-            $this->click = new Click();
-        }
+        return $this->onClick;
+    }
 
-        return $this->click;
+    /**
+     * @param Expr $onClick
+     *
+     * @return $this
+     */
+    public function setOnClick($onClick)
+    {
+        $this->onClick = new Expr(strval($onClick));
+
+        return $this;
     }
 
     /**

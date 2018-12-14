@@ -49,11 +49,6 @@ class GlobalConfig
     private $hover;
 
     /**
-     * @var ClickConfig
-     */
-    private $click;
-
-    /**
      * @var AnimationConfig
      */
     private $animation;
@@ -196,18 +191,6 @@ class GlobalConfig
         }
 
         return $this->hover;
-    }
-
-    /**
-     * @return ClickConfig
-     */
-    public function click()
-    {
-        if (is_null($this->click)) {
-            $this->click = new ClickConfig();
-        }
-
-        return $this->click;
     }
 
     /**
