@@ -19,92 +19,92 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var float
      */
-    protected $suggestedMin;
+    private $suggestedMin;
 
     /**
      * @var bool
      */
-    protected $beginAtZero;
+    private $beginAtZero;
 
     /**
      * @var float
      */
-    protected $stepSize;
+    private $stepSize;
 
     /**
      * @var bool
      */
-    protected $autoSkip;
+    private $autoSkip;
 
     /**
      * @var int
      */
-    protected $autoSkipPadding;
+    private $autoSkipPadding;
 
     /**
      * @var Expr
      */
-    protected $callback;
+    private $callback;
 
     /**
      * @var bool
      */
-    protected $display;
+    private $display;
 
     /**
      * @var string
      */
-    protected $fontColor;
+    private $fontColor;
 
     /**
      * @var string
      */
-    protected $fontFamily;
+    private $fontFamily;
 
     /**
      * @var int
      */
-    protected $fontSize;
+    private $fontSize;
 
     /**
      * @var string
      */
-    protected $fontStyle;
+    private $fontStyle;
 
     /**
      * @var int
      */
-    protected $labelOffset;
+    private $labelOffset;
 
     /**
      * @var int
      */
-    protected $maxRotation;
+    private $maxRotation;
 
     /**
      * @var int
      */
-    protected $minRotation;
+    private $minRotation;
 
     /**
      * @var bool
      */
-    protected $mirror;
+    private $mirror;
 
     /**
      * @var int
      */
-    protected $padding;
+    private $padding;
 
     /**
      * @var bool
      */
-    protected $reverse;
+    private $reverse;
 
     /**
      * @var int
      */
-    protected $max;
+    private $max;
 
     /**
      * @return float

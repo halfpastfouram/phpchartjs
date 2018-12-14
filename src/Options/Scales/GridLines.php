@@ -18,62 +18,62 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    protected $display;
+    private $display;
 
     /**
      * @var string|string[]
      */
-    protected $color;
+    private $color;
 
     /**
      * @var float[]
      */
-    protected $borderDash;
+    private $borderDash;
 
     /**
      * @var float
      */
-    protected $borderDashOffset;
+    private $borderDashOffset;
 
     /**
      * @var int|int[]
      */
-    protected $lineWidth;
+    private $lineWidth;
 
     /**
      * @var bool
      */
-    protected $drawBorder;
+    private $drawBorder;
 
     /**
      * @var bool
      */
-    protected $drawOnChartArea;
+    private $drawOnChartArea;
 
     /**
      * @var bool
      */
-    protected $drawTicks;
+    private $drawTicks;
 
     /**
      * @var int
      */
-    protected $tickMarkLength;
+    private $tickMarkLength;
 
     /**
      * @var int
      */
-    protected $zeroLineWidth;
+    private $zeroLineWidth;
 
     /**
      * @var string
      */
-    protected $zeroLineColor;
+    private $zeroLineColor;
 
     /**
      * @var bool
      */
-    protected $offsetGridLines;
+    private $offsetGridLines;
 
     /**
      * @return bool

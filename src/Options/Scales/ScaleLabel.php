@@ -17,32 +17,32 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    protected $display;
+    private $display;
 
     /**
      * @var string
      */
-    protected $labelString;
+    private $labelString;
 
     /**
      * @var string
      */
-    protected $fontColor;
+    private $fontColor;
 
     /**
      * @var string
      */
-    protected $fontFamily;
+    private $fontFamily;
 
     /**
      * @var int
      */
-    protected $fontSize;
+    private $fontSize;
 
     /**
      * @var string
      */
-    protected $fontStyle;
+    private $fontStyle;
 
     /**
      * @return bool

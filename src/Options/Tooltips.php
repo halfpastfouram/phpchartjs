@@ -19,162 +19,162 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    protected $enabled;
+    private $enabled;
 
     /**
      * @var Expr
      */
-    protected $custom;
+    private $custom;
 
     /**
      * @var string
      */
-    protected $mode;
+    private $mode;
 
     /**
      * @var bool
      */
-    protected $intersect;
+    private $intersect;
 
     /**
      * @var string
      */
-    protected $position;
+    private $position;
 
     /**
      * @var Expr
      */
-    protected $itemSort;
+    private $itemSort;
 
     /**
      * @var Expr
      */
-    protected $filter;
+    private $filter;
 
     /**
      * @var string
      */
-    protected $backgroundColor;
+    private $backgroundColor;
 
     /**
      * @var string
      */
-    protected $titleFontFamily;
+    private $titleFontFamily;
 
     /**
      * @var int
      */
-    protected $titleFontSize;
+    private $titleFontSize;
 
     /**
      * @var string
      */
-    protected $titleFontStyle;
+    private $titleFontStyle;
 
     /**
      * @var string
      */
-    protected $titleFontColor;
+    private $titleFontColor;
 
     /**
      * @var int
      */
-    protected $titleSpacing;
+    private $titleSpacing;
 
     /**
      * @var int
      */
-    protected $titleMarginBottom;
+    private $titleMarginBottom;
 
     /**
      * @var string
      */
-    protected $bodyFontFamily;
+    private $bodyFontFamily;
 
     /**
      * @var int
      */
-    protected $bodyFontSize;
+    private $bodyFontSize;
 
     /**
      * @var string
      */
-    protected $bodyFontStyle;
+    private $bodyFontStyle;
 
     /**
      * @var string
      */
-    protected $bodyFontColor;
+    private $bodyFontColor;
 
     /**
      * @var int
      */
-    protected $bodySpacing;
+    private $bodySpacing;
 
     /**
      * @var string
      */
-    protected $footerFontFamily;
+    private $footerFontFamily;
 
     /**
      * @var int
      */
-    protected $footerFontSize;
+    private $footerFontSize;
 
     /**
      * @var string
      */
-    protected $footerFontStyle;
+    private $footerFontStyle;
 
     /**
      * @var string
      */
-    protected $footerFontColor;
+    private $footerFontColor;
 
     /**
      * @var int
      */
-    protected $footerSpacing;
+    private $footerSpacing;
 
     /**
      * @var int
      */
-    protected $footerMarginTop;
+    private $footerMarginTop;
 
     /**
      * @var int
      */
-    protected $xPadding;
+    private $xPadding;
 
     /**
      * @var int
      */
-    protected $yPadding;
+    private $yPadding;
 
     /**
      * @var int
      */
-    protected $caretSize;
+    private $caretSize;
 
     /**
      * @var int
      */
-    protected $cornerRadius;
+    private $cornerRadius;
 
     /**
      * @var string
      */
-    protected $multiKeyBackground;
+    private $multiKeyBackground;
 
     /**
      * @var bool
      */
-    protected $displayColors;
+    private $displayColors;
 
     /**
      * @var Callbacks
      */
-    protected $callbacks;
+    private $callbacks;
 
     /**
      * @return bool

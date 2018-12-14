@@ -17,47 +17,47 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     /**
      * @var bool
      */
-    protected $display;
+    private $display;
 
     /**
      * @var string
      */
-    protected $position;
+    private $position;
 
     /**
      * @var bool
      */
-    protected $fullWidth;
+    private $fullWidth;
 
     /**
      * @var int
      */
-    protected $fontSize;
+    private $fontSize;
 
     /**
      * @var string
      */
-    protected $fontFamily;
+    private $fontFamily;
 
     /**
      * @var string
      */
-    protected $fontColor;
+    private $fontColor;
 
     /**
      * @var string
      */
-    protected $fontStyle;
+    private $fontStyle;
 
     /**
      * @var int
      */
-    protected $padding;
+    private $padding;
 
     /**
      * @var string
      */
-    protected $text;
+    private $text;
 
     /**
      * @return bool
