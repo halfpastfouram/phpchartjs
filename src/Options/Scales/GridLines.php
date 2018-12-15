@@ -145,7 +145,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setBorderDash($borderDash)
     {
         if (is_array($borderDash)) {
-            $this->borderDash = $this->recursiveToString($borderDash);
+            $this->borderDash = $this->recursiveToFloat($borderDash);
         }
 
         return $this;
@@ -187,7 +187,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setLineWidth($lineWidth)
     {
         if (is_array($lineWidth)) {
-            $this->lineWidth = $this->recursiveToString($lineWidth);
+            $this->lineWidth = $this->recursiveToInt($lineWidth);
         } else {
             $this->lineWidth = is_null($lineWidth) ? null : intval($lineWidth);
         }
