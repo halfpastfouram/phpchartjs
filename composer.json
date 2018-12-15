@@ -8,8 +8,8 @@
   ],
   "homepage": "http://github.com/halfpastfouram/PHPChartJS",
   "type": "package",
-  "version": "v1.1.0",
-  "license": "AGPL-3.0-or-later",
+  "version": "dev-master",
+  "license": "AGPL 3.0",
   "authors": [
     {
       "name": "Bob Kruithof"
