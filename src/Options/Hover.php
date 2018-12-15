@@ -64,6 +64,14 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getIntersect()
+    {
+        return $this->intersect;
+    }
+
+    /**
      * @param bool $intersect
      *
      * @return $this
@@ -117,6 +125,8 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

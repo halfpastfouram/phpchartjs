@@ -204,6 +204,14 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getUsePointStyle()
+    {
+        return $this->usePointStyle;
+    }
+
+    /**
      * @param bool $usePointStyle
      *
      * @return Labels
@@ -217,6 +225,8 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

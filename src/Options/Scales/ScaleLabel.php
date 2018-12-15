@@ -53,6 +53,14 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
      * @param bool $display
      *
      * @return $this
@@ -166,6 +174,8 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

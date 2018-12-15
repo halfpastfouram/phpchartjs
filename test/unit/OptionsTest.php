@@ -10,6 +10,7 @@ use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
 use Halfpastfour\PHPChartJS\Options\Legend;
+use Zend\Json\Expr;
 
 /**
  * Class OptionsTest

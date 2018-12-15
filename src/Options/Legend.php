@@ -60,6 +60,14 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
      * @param bool $display
      *
      * @return $this
@@ -95,6 +103,14 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
      * @return bool
      */
     public function isFullWidth()
+    {
+        return $this->fullWidth;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getFullWidth()
     {
         return $this->fullWidth;
     }
@@ -172,6 +188,14 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getReverse()
+    {
+        return $this->reverse;
+    }
+
+    /**
      * @param bool $reverse
      *
      * @return $this
@@ -185,6 +209,8 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

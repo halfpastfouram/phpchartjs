@@ -4,12 +4,14 @@ namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Animation;
+use Halfpastfour\PHPChartJS\Options\Click;
 use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Layout;
 use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
+use Zend\Json\Expr;
 use Zend\Json\Json;
 
 /**
@@ -35,6 +37,11 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
      * @var Hover
      */
     protected $hover;
+
+    /**
+     * @var \Zend\Json\Expr
+     */
+    protected $onClick;
 
     /**
      * @var Scales
@@ -93,6 +100,26 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
+     * @return \Zend\Json\Expr
+     */
+    public function getOnClick()
+    {
+        return $this->onClick;
+    }
+
+    /**
+     * @param Expr $onClick
+     *
+     * @return $this
+     */
+    public function setOnClick($onClick)
+    {
+        $this->onClick = new Expr(strval($onClick));
+
+        return $this;
+    }
+
+    /**
      * @return Scales
      */
     public function getScales()
@@ -142,6 +169,8 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
