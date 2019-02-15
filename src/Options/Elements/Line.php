@@ -2,7 +2,6 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Elements;
 
-
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Json;

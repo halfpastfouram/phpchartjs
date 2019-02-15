@@ -2,11 +2,14 @@
 
 namespace Halfpastfour\PHPChartJS\Options\Elements;
 
-
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Zend\Json\Json;
 
+/**
+ * Class Rectangle
+ * @package Halfpastfour\PHPChartJS\Options\Elements
+ */
 class Rectangle implements ArraySerializableInterface, \JsonSerializable
 {
     use ArraySerializable;
