@@ -43,7 +43,7 @@ class Line implements ArraySerializableInterface, \JsonSerializable
      * @default 'rgba(0,0,0,0.1)'
      * @var string
      */
-    private $backGroundColor;
+    private $backgroundColor;
 
     /**
      * Line stroke width.
@@ -129,18 +129,18 @@ class Line implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return string
      */
-    public function getBackGroundColor()
+    public function getBackgroundColor()
     {
-        return $this->backGroundColor;
+        return $this->backgroundColor;
     }
 
     /**
-     * @param string $backGroundColor
+     * @param string $backgroundColor
      * @return Line
      */
-    public function setBackGroundColor($backGroundColor)
+    public function setBackgroundColor($backgroundColor)
     {
-        $this->backGroundColor = is_null($backGroundColor) ? null : strval($backGroundColor);
+        $this->backgroundColor = is_null($backgroundColor) ? null : strval($backgroundColor);
         return $this;
     }
 
