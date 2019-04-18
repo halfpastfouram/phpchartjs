@@ -10,6 +10,7 @@ use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
+use Zend\Json\Expr;
 use Zend\Json\Json;
 
 /**
@@ -55,6 +56,31 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
      * @var Tooltips
      */
     protected $tooltips;
+
+    /**
+     * @var Expr
+     */
+    protected $legendCallback;
+
+    /**
+     * @return Expr
+     */
+    public function getLegendCallback()
+    {
+    	return $this->legendCallback;
+    }
+
+    /**
+     * @param Expr $legendCallback
+     *
+     * @return $this
+     */
+    public function setLegendCallback($legendCallback)
+    {
+    	$this->legendCallback = new Expr(strval($legendCallback));
+
+    	return $this;
+    }
 
     /**
      * @return Layout
