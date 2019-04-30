@@ -13,14 +13,5 @@
     {
       "name": "Bob Kruithof"
     }
-  ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/goerob/PHPChartJS"
-    }
-  ],
-  "require": {
-    "halfpastfouram/phpchartjs": "dev-master"
-  }
+  ]
 }
