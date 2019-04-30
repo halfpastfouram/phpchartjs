@@ -7,12 +7,17 @@
     "php"
   ],
   "homepage": "http://github.com/halfpastfouram/PHPChartJS",
-  "type": "package",
-  "version": "v1.1.0",
+  "type": "project",
   "license": "AGPL-3.0-or-later",
   "authors": [
     {
       "name": "Bob Kruithof"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/goerob/PHPChartJS"
     }
   ],
   "require": {
