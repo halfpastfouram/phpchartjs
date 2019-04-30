@@ -19,6 +19,10 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     /**
      * @var string
      */
+    protected $stack;
+    /**
+     * @var string
+     */
     protected $type;
 
     /**
@@ -75,6 +79,26 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
      * @var int|int[]
      */
     protected $hoverBorderWidth;
+
+    /**
+     * @return string
+     */
+    public function getStack()
+    {
+    	return $this->stack;
+    }
+
+    /**
+     * @param string $stack
+     *
+     * @return $this
+     */
+    public function setStack($stack)
+    {
+    	$this->stack = strval($stack);
+
+    	return $this;
+    }
 
     /**
      * @return string
