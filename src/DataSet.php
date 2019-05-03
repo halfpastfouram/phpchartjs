@@ -81,6 +81,31 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     protected $hoverBorderWidth;
 
     /**
+     * @var bool
+     */
+    protected $hidden;
+
+    /**
+     * @return bool
+     */
+    public function isHidden()
+    {
+    	return $this->hidden;
+    }
+
+    /**
+     * @param bool $hidden
+     *
+     * @return $this
+     */
+    public function setHidden($hidden)
+    {
+    	$this->hidden = ! ! $hidden;
+
+    	return $this;
+    }
+
+    /**
      * @return string
      */
     public function getStack()
