@@ -10,6 +10,7 @@ use Halfpastfour\PHPChartJS\Options\Hover;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
 use Halfpastfour\PHPChartJS\Options\Legend;
+use Halfpastfour\PHPChartJS\Options\Elements;
 
 /**
  * Class OptionsTest
@@ -51,6 +52,15 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     {
         $layout = $this->options->getLayout();
         self::assertInstanceOf(Layout::class, $layout);
+    }
+
+    /**
+     *
+     */
+    public function testElements()
+    {
+        $layout = $this->options->getElements();
+        self::assertInstanceOf(Elements::class, $layout);
     }
 
     /**
