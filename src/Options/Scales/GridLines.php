@@ -9,6 +9,7 @@ use Zend\Json\Json;
 
 /**
  * Class GridLines
+ *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
 class GridLines implements ArraySerializableInterface, \JsonSerializable
@@ -328,6 +329,8 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
