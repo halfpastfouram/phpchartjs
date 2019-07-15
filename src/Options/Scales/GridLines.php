@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use Halfpastfour\PHPChartJS\Delegate\NumberUtils;
 use Halfpastfour\PHPChartJS\Delegate\StringUtils;
 use Zend\Json\Json;
 
@@ -16,6 +17,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 {
     use ArraySerializable;
     use StringUtils;
+    use NumberUtils;
 
     /**
      * @var bool

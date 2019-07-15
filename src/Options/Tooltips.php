@@ -834,6 +834,8 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return mixed
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
