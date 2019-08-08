@@ -111,6 +111,23 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
+    public function testAspectRatio()
+    {
+        // Test default value. Should be true.
+        self::assertTrue($this->options->isMaintainAspectRatio());
+
+        // Set to false.
+        self::assertSame($this->options, $this->options->setMaintainAspectRatio(false));
+        self::assertFalse($this->options->isMaintainAspectRatio());
+
+        // Set to true again.
+        self::assertSame($this->options, $this->options->setMaintainAspectRatio(true));
+        self::assertTrue($this->options->isMaintainAspectRatio());
+    }
+
+    /**
+     *
+     */
     public function testJsonSerialize()
     {
         $expected = $this->empty_options;

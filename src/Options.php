@@ -15,6 +15,7 @@ use Zend\Json\Json;
 
 /**
  * Class Options
+ *
  * @package Halfpastfour\PHPChartJS
  */
 class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
@@ -63,12 +64,17 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     protected $tooltips;
 
     /**
+     * @var bool
+     */
+    protected $maintainAspectRatio;
+
+    /**
      * @return Layout
      */
     public function getLayout()
     {
         if (is_null($this->layout)) {
-            $this->layout   = new Layout();
+            $this->layout = new Layout();
         }
 
         return $this->layout;
@@ -80,7 +86,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     public function getElements()
     {
         if (is_null($this->elements)) {
-            $this->elements   = new Elements();
+            $this->elements = new Elements();
         }
 
         return $this->elements;
@@ -159,10 +165,36 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
+     * @return bool
+     */
+    public function isMaintainAspectRatio()
+    {
+        if (is_null($this->maintainAspectRatio)) {
+            $this->maintainAspectRatio = true;
+        }
+
+        return $this->maintainAspectRatio;
+    }
+
+    /**
+     * @param bool $flag
+     *
+     * @return $this
+     */
+    public function setMaintainAspectRatio($flag)
+    {
+        $this->maintainAspectRatio = boolval($flag);
+
+        return $this;
+    }
+
+    /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return Json::encode($this->getArrayCopy(), false, ['enableJsonExprFinder' => true]);
     }
 }
