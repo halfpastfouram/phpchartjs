@@ -55,7 +55,7 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDisplay()
+    public function isDisplay()
     {
         return $this->display;
     }

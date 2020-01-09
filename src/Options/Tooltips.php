@@ -187,7 +187,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getEnabled()
+    public function isEnabled()
     {
         return $this->enabled;
     }
@@ -255,7 +255,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getIntersect()
+    public function isIntersect()
     {
         return $this->intersect;
     }
@@ -803,7 +803,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDisplayColors()
+    public function isDisplayColors()
     {
         return $this->displayColors;
     }

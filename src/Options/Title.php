@@ -70,7 +70,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDisplay()
+    public function isDisplay()
     {
         return $this->display;
     }
@@ -118,7 +118,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getFullWidth()
+    public function isFullWidth()
     {
         return $this->fullWidth;
     }

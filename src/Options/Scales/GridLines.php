@@ -90,7 +90,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDisplay()
+    public function isDisplay()
     {
         return $this->display;
     }
@@ -208,7 +208,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDrawBorder()
+    public function isDrawBorder()
     {
         return $this->drawBorder;
     }
@@ -236,7 +236,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDrawOnChartArea()
+    public function isDrawOnChartArea()
     {
         return $this->drawOnChartArea;
     }
@@ -256,7 +256,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDrawTicks()
+    public function isDrawTicks()
     {
         return $this->drawTicks;
     }
@@ -352,7 +352,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getOffsetGridLines()
+    public function isOffsetGridLines()
     {
         return $this->offsetGridLines;
     }

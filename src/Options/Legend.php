@@ -62,7 +62,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDisplay()
+    public function isDisplay()
     {
         return $this->display;
     }
@@ -110,7 +110,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getFullWidth()
+    public function isFullWidth()
     {
         return $this->fullWidth;
     }
@@ -190,7 +190,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getReverse()
+    public function isReverse()
     {
         return $this->reverse;
     }

@@ -137,7 +137,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getBeginAtZero()
+    public function isBeginAtZero()
     {
         return $this->beginAtZero;
     }
@@ -185,7 +185,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getAutoSkip()
+    public function isAutoSkip()
     {
         return $this->autoSkip;
     }
@@ -253,7 +253,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getDisplay()
+    public function isDisplay()
     {
         return $this->display;
     }
@@ -421,7 +421,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getMirror()
+    public function isMirror()
     {
         return $this->mirror;
     }
@@ -469,7 +469,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getReverse()
+    public function isReverse()
     {
         return $this->reverse;
     }

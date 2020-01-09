@@ -206,7 +206,7 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
     /**
      * @return bool
      */
-    public function getUsePointStyle()
+    public function isUsePointStyle()
     {
         return $this->usePointStyle;
     }
