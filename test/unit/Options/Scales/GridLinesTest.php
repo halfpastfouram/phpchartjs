@@ -40,7 +40,7 @@ class GridLinesTest extends \PHPUnit_Framework_TestCase
     private $input_data_single_value = [
         'display'          => true,
         'color'            => 'color',
-        'borderDash'       => [2.0],
+        'borderDash'       => ['2'],
         'borderDashOffset' => 3.0,
         'lineWidth'        => 4,
         'drawBorder'       => true,
@@ -55,9 +55,9 @@ class GridLinesTest extends \PHPUnit_Framework_TestCase
     private $input_data_nested_arrays = [
         'display'          => true,
         'color'            => ['color1', 'color2', ['color3', 'color4']],
-        'borderDash'       => [2.0, 3.0, [4.0, 5.0]],
+        'borderDash'       => ['2.0', '3.0', ['4.0', '5.0']],
         'borderDashOffset' => 3.0,
-        'lineWidth'        => [4, 5, [6, 7], 8],
+        'lineWidth'        => ['4', '5', ['6', '7'], '8'],
         'drawBorder'       => true,
         'drawOnChartArea'  => true,
         'drawTicks'        => true,
