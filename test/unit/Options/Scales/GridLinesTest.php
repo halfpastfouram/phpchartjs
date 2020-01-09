@@ -3,13 +3,15 @@
 namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class GridLinesTest
+ *
  * @package Test\Options\Scales
  */
-class GridLinesTest extends \PHPUnit_Framework_TestCase
+class GridLinesTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var GridLines
@@ -40,7 +42,7 @@ class GridLinesTest extends \PHPUnit_Framework_TestCase
     private $input_data_single_value = [
         'display'          => true,
         'color'            => 'color',
-        'borderDash'       => ['2'],
+        'borderDash'       => [2.0],
         'borderDashOffset' => 3.0,
         'lineWidth'        => 4,
         'drawBorder'       => true,
@@ -55,9 +57,9 @@ class GridLinesTest extends \PHPUnit_Framework_TestCase
     private $input_data_nested_arrays = [
         'display'          => true,
         'color'            => ['color1', 'color2', ['color3', 'color4']],
-        'borderDash'       => ['2.0', '3.0', ['4.0', '5.0']],
+        'borderDash'       => [2.0, 3.0, [4.0, 5.0]],
         'borderDashOffset' => 3.0,
-        'lineWidth'        => ['4', '5', ['6', '7'], '8'],
+        'lineWidth'        => [4, 5, [6, 7], 8],
         'drawBorder'       => true,
         'drawOnChartArea'  => true,
         'drawTicks'        => true,
@@ -133,7 +135,7 @@ class GridLinesTest extends \PHPUnit_Framework_TestCase
     {
         $expected = $this->input_data_single_value;
         TestUtils::setAttributes($this->gridLines, $this->input_data_single_value);
-        $result = json_decode($this->gridLines->jsonSerialize(), true);
+        $result = $this->gridLines->jsonSerialize();
         self::assertEquals($expected, $result);
     }
 }

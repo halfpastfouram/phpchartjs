@@ -3,14 +3,16 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 use Zend\Json\Expr;
 
 /**
  * Class ClickTest
+ *
  * @package Test\Options
  */
-class ClickTest extends \PHPUnit_Framework_TestCase
+class ClickTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Options
@@ -21,7 +23,7 @@ class ClickTest extends \PHPUnit_Framework_TestCase
         'onClick' => null,
     ];
 
-    private $input_data_no_expressions = ['onClick' => null];
+    private $input_data_no_expressions   = ['onClick' => null];
     private $input_data_with_expressions = null;
 
     /**
@@ -29,7 +31,7 @@ class ClickTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->options = new Options();
+        $this->options                     = new Options();
         $this->input_data_with_expressions = ['onClick' => new Expr('function(event, array) { echo "onClick"; }')];
     }
 
@@ -62,7 +64,7 @@ class ClickTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
         TestUtils::setAttributes($this->options, $this->input_data_no_expressions);
-        $result = json_decode($this->options->jsonSerialize(), true);
+        $result = $this->options->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

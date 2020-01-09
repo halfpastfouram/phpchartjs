@@ -3,17 +3,19 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Elements;
-use Halfpastfour\PHPChartJS\Options\Elements\Rectangle;
-use Halfpastfour\PHPChartJS\Options\Elements\Point;
-use Halfpastfour\PHPChartJS\Options\Elements\Line;
 use Halfpastfour\PHPChartJS\Options\Elements\Arc;
+use Halfpastfour\PHPChartJS\Options\Elements\Line;
+use Halfpastfour\PHPChartJS\Options\Elements\Point;
+use Halfpastfour\PHPChartJS\Options\Elements\Rectangle;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class ElementsTest
+ *
  * @package Test\Options
  */
-class ElementsTest extends \PHPUnit_Framework_TestCase
+class ElementsTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Elements
@@ -115,7 +117,7 @@ class ElementsTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data);
         TestUtils::setAttributes($this->elements, $this->input_data);
-        $result = json_decode($this->elements->jsonSerialize(), true);
+        $result = $this->elements->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

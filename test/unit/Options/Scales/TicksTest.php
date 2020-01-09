@@ -3,13 +3,15 @@
 namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\Ticks;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class TicksTest
+ *
  * @package Test\Options\Scales
  */
-class TicksTest extends \PHPUnit_Framework_TestCase
+class TicksTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Ticks
@@ -143,7 +145,7 @@ class TicksTest extends \PHPUnit_Framework_TestCase
     public function testExpr()
     {
         TestUtils::setAttributes($this->ticks, $this->input_data_2);
-        $result = $this->ticks->getCallback()->__toString();
+        $result   = $this->ticks->getCallback()->__toString();
         $expected = $this->input_data_2['callback'];
         self::assertSame($expected, $result);
     }
@@ -159,7 +161,7 @@ class TicksTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_1);
         TestUtils::setAttributes($this->ticks, $expected);
-        $result = json_decode($this->ticks->jsonSerialize(), true);
+        $result = $this->ticks->jsonSerialize();
         self::assertEquals($expected, $result);
     }
 }

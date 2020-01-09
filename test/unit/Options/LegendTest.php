@@ -4,14 +4,16 @@ namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\Legend;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 use Zend\Json\Expr;
 
 /**
  * Class LegendTest
+ *
  * @package Test\Options
  */
-class LegendTest extends \PHPUnit_Framework_TestCase
+class LegendTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Legend
@@ -117,7 +119,7 @@ class LegendTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
         TestUtils::setAttributes($this->legend, $this->input_data_no_expressions);
-        $result = json_decode($this->legend->jsonSerialize(), true);
+        $result = $this->legend->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

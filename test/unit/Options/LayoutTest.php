@@ -3,13 +3,15 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Layout;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class LayoutTest
+ *
  * @package Test\Options
  */
-class LayoutTest extends \PHPUnit_Framework_TestCase
+class LayoutTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Layout
@@ -84,8 +86,7 @@ class LayoutTest extends \PHPUnit_Framework_TestCase
     {
         $expected = $this->input_data;
         TestUtils::setAttributes($this->layout, $this->input_data);
-        $result = json_decode($this->layout->jsonSerialize(), true);
-        self::assertEquals($expected, $result);
+        self::assertEquals($expected, $this->layout->jsonSerialize());
     }
 
     /**
@@ -102,7 +103,7 @@ class LayoutTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->layout->padding()->setRight(5);
-        $result = json_decode($this->layout->jsonSerialize(), true);
+        $result = $this->layout->jsonSerialize();
         self::assertEquals(5, $result['padding']['right']);
     }
 }

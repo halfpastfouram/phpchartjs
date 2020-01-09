@@ -3,13 +3,15 @@
 namespace Test\Options\Elements;
 
 use Halfpastfour\PHPChartJS\Options\Elements\Rectangle;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class RectangleTest
+ *
  * @package Test\Options\Elements
  */
-class RectangleTest extends \PHPUnit_Framework_TestCase
+class RectangleTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Rectangle
@@ -82,7 +84,7 @@ class RectangleTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data);
         TestUtils::setAttributes($this->rectangle, $this->input_data);
-        $result = json_decode($this->rectangle->jsonSerialize(), true);
+        $result = $this->rectangle->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

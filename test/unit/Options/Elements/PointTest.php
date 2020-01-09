@@ -3,13 +3,15 @@
 namespace Test\Options\Elements;
 
 use Halfpastfour\PHPChartJS\Options\Elements\Point;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class PointTest
+ *
  * @package Test\Options\Elements
  */
-class PointTest extends \PHPUnit_Framework_TestCase
+class PointTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Point
@@ -20,45 +22,45 @@ class PointTest extends \PHPUnit_Framework_TestCase
      * @var array
      */
     private $data_types = [
-        'radius'            => 1, /* int */
-        'pointStyle'        => '', /* string */
-        'rotation'          => 1, /* int */
-        'backgroundColor'   => '', /* string */
-        'borderWidth'       => 1, /* int */
-        'borderColor'       => '', /* string */
-        'hitRadius'         => 1, /* int */
-        'hoverRadius'       => 1, /* int */
-        'hoverBorderWidth'  => 1, /* int */
+        'radius'           => 1, /* int */
+        'pointStyle'       => '', /* string */
+        'rotation'         => 1, /* int */
+        'backgroundColor'  => '', /* string */
+        'borderWidth'      => 1, /* int */
+        'borderColor'      => '', /* string */
+        'hitRadius'        => 1, /* int */
+        'hoverRadius'      => 1, /* int */
+        'hoverBorderWidth' => 1, /* int */
     ];
 
     /**
      * @var array
      */
     private $empty_data = [
-        'radius'            => null, /* int */
-        'pointStyle'        => null, /* string */
-        'rotation'          => null, /* int */
-        'backgroundColor'   => null, /* string */
-        'borderWidth'       => null, /* int */
-        'borderColor'       => null, /* string */
-        'hitRadius'         => null, /* int */
-        'hoverRadius'       => null, /* int */
-        'hoverBorderWidth'  => null, /* int */
+        'radius'           => null, /* int */
+        'pointStyle'       => null, /* string */
+        'rotation'         => null, /* int */
+        'backgroundColor'  => null, /* string */
+        'borderWidth'      => null, /* int */
+        'borderColor'      => null, /* string */
+        'hitRadius'        => null, /* int */
+        'hoverRadius'      => null, /* int */
+        'hoverBorderWidth' => null, /* int */
     ];
 
     /**
      * @var array
      */
     private $input_data = [
-        'radius'            => 2, /* int */
-        'pointStyle'        => 'pointStyle', /* string */
-        'rotation'          => 2, /* int */
-        'backgroundColor'   => 'backgroundColor', /* string */
-        'borderWidth'       => 2, /* int */
-        'borderColor'       => 'borderColor', /* string */
-        'hitRadius'         => 2, /* int */
-        'hoverRadius'       => 2, /* int */
-        'hoverBorderWidth'  => 2, /* int */
+        'radius'           => 2, /* int */
+        'pointStyle'       => 'pointStyle', /* string */
+        'rotation'         => 2, /* int */
+        'backgroundColor'  => 'backgroundColor', /* string */
+        'borderWidth'      => 2, /* int */
+        'borderColor'      => 'borderColor', /* string */
+        'hitRadius'        => 2, /* int */
+        'hoverRadius'      => 2, /* int */
+        'hoverBorderWidth' => 2, /* int */
     ];
 
     /**
@@ -97,7 +99,7 @@ class PointTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data);
         TestUtils::setAttributes($this->point, $this->input_data);
-        $result = json_decode($this->point->jsonSerialize(), true);
+        $result = $this->point->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

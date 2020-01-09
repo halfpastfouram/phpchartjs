@@ -3,13 +3,14 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Title;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class TitleTest
  * @package Test\Options
  */
-class TitleTest extends \PHPUnit_Framework_TestCase
+class TitleTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Title
@@ -97,7 +98,7 @@ class TitleTest extends \PHPUnit_Framework_TestCase
     {
         $expected = $this->input_data;
         TestUtils::setAttributes($this->title, $this->input_data);
-        $result = json_decode($this->title->jsonSerialize(), true);
+        $result = $this->title->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }
