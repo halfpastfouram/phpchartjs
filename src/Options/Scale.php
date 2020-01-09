@@ -161,6 +161,14 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
      * @param bool $display
      *
      * @return $this
@@ -190,6 +198,14 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
         $this->id = strval($id);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStacked()
+    {
+        return $this->stacked;
     }
 
     /**
@@ -594,6 +610,8 @@ abstract class Scale implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

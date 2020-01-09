@@ -135,6 +135,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isBeginAtZero()
+    {
+        return $this->beginAtZero;
+    }
+
+    /**
      * @param bool $beginAtZero
      *
      * @return $this
@@ -164,6 +172,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
         $this->stepSize = floatval($stepSize);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAutoSkip()
+    {
+        return $this->autoSkip;
     }
 
     /**
@@ -224,6 +240,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
         $this->callback = new Expr(strval($callback));
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDisplay()
+    {
+        return $this->display;
     }
 
     /**
@@ -395,6 +419,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isMirror()
+    {
+        return $this->mirror;
+    }
+
+    /**
      * @param bool $mirror
      *
      * @return $this
@@ -424,6 +456,14 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
         $this->padding = intval($padding);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReverse()
+    {
+        return $this->reverse;
     }
 
     /**
@@ -468,6 +508,8 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

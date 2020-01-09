@@ -185,6 +185,14 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
      * @param bool $enabled
      *
      * @return $this
@@ -234,6 +242,14 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
         $this->mode = strval($mode);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIntersect()
+    {
+        return $this->intersect;
     }
 
     /**
@@ -785,6 +801,14 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isDisplayColors()
+    {
+        return $this->displayColors;
+    }
+
+    /**
      * @param bool $displayColors
      *
      * @return $this
@@ -810,6 +834,8 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return mixed
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {

@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use Halfpastfour\PHPChartJS\Delegate\NumberUtils;
 use Halfpastfour\PHPChartJS\Delegate\StringUtils;
 use Zend\Json\Json;
 
@@ -16,6 +17,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
 {
     use ArraySerializable;
     use StringUtils;
+    use NumberUtils;
 
     /**
      * @var bool
@@ -86,6 +88,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
      * @param bool $display
      *
      * @return $this
@@ -137,7 +147,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setBorderDash($borderDash)
     {
         if (is_array($borderDash)) {
-            $this->borderDash = $this->recursiveToString($borderDash);
+            $this->borderDash = $this->recursiveToFloat($borderDash);
         }
 
         return $this;
@@ -179,12 +189,20 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setLineWidth($lineWidth)
     {
         if (is_array($lineWidth)) {
-            $this->lineWidth = $this->recursiveToString($lineWidth);
+            $this->lineWidth = $this->recursiveToInt($lineWidth);
         } else {
             $this->lineWidth = is_null($lineWidth) ? null : intval($lineWidth);
         }
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDrawBorder()
+    {
+        return $this->drawBorder;
     }
 
     /**
@@ -216,6 +234,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isDrawOnChartArea()
+    {
+        return $this->drawOnChartArea;
+    }
+
+    /**
      * @param bool $drawOnChartArea
      *
      * @return $this
@@ -225,6 +251,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
         $this->drawOnChartArea = boolval($drawOnChartArea);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDrawTicks()
+    {
+        return $this->drawTicks;
     }
 
     /**
@@ -305,6 +339,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
         $this->zeroLineColor = is_null($zeroLineColor) ? null : strval($zeroLineColor);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOffsetGridLines()
+    {
+        return $this->offsetGridLines;
     }
 
     /**

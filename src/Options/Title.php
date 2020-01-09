@@ -68,6 +68,14 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function isDisplay()
+    {
+        return $this->display;
+    }
+
+    /**
      * @param bool $display
      *
      * @return $this
@@ -97,6 +105,14 @@ class Title implements ArraySerializableInterface, \JsonSerializable
         $this->position = strval($position);
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFullWidth()
+    {
+        return $this->fullWidth;
     }
 
     /**
@@ -241,6 +257,8 @@ class Title implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @return string
+     * @throws \ReflectionException
+     * @throws \Zend_Reflection_Exception
      */
     public function jsonSerialize()
     {
