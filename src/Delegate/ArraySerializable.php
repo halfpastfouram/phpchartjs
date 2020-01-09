@@ -29,8 +29,8 @@ trait ArraySerializable
         }, get_object_vars($this));
 
         // Filter out null values and return the remaining.
-        return array_filter($currentValues, function ($value) {
-            return ! is_null($value);
-        });
+        return array_filter($currentValues, function ($value, $key) {
+            return ! is_null($value) && $key !== 'owner';
+        }, ARRAY_FILTER_USE_BOTH);
     }
 }

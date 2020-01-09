@@ -3,18 +3,19 @@
 namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Collection\Data;
-use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use JsonSerializable;
+use Halfpastfour\PHPChartJS\Delegate;
+use JsonSerializable as JsonSerializableInterface;
 
 /**
  * Class DataSet
  *
  * @package Halfpastfour\PHPChartJS
  */
-class DataSet implements ChartOwnedInterface, ArraySerializableInterface, JsonSerializable
+class DataSet implements ChartOwnedInterface, ArraySerializableInterface, JsonSerializableInterface
 {
     use ChartOwned;
-    use ArraySerializable;
+    use Delegate\ArraySerializable;
+    use Delegate\JsonSerializable;
 
     /**
      * @var string
@@ -348,13 +349,5 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, JsonSe
         $this->hoverBorderWidth = $hoverBorderWidth;
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
-    {
-        return $this->getArrayCopy();
     }
 }

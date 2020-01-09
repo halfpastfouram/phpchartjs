@@ -3,20 +3,15 @@
 namespace Halfpastfour\PHPChartJS\Collection;
 
 use Halfpastfour\Collection\Collection\ArrayAccess;
-use JsonSerializable;
+use Halfpastfour\PHPChartJS\Delegate;
+use JsonSerializable as JsonSerializableInterface;
 
 /**
  * Class Data
  *
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class Data extends ArrayAccess implements JsonSerializable
+class Data extends ArrayAccess implements JsonSerializableInterface
 {
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
-    {
-        return $this->data;
-    }
+    use Delegate\JsonSerializable;
 }

@@ -31,6 +31,12 @@ class DataSetCollection extends ArrayAccess implements JsonSerializable
      */
     public function jsonSerialize()
     {
-        return $this->getArrayCopy();
+        $rows = [];
+        foreach ($this->data as $row) {
+            /** @var DataSet $row */
+            $rows[] = $row->jsonSerialize();
+        }
+
+        return $rows;
     }
 }
