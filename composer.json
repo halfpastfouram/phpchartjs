@@ -8,7 +8,7 @@
   ],
   "homepage": "http://github.com/halfpastfouram/PHPChartJS",
   "type": "package",
-  "version": "dev-master",
+  "version": "v1.2.0-dev",
   "license": "AGPL-3.0-or-later",
   "authors": [
     {
