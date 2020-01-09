@@ -10,12 +10,11 @@ $line = $factory->create($factory::LINE);
 
 // Add Datasets
 $dataSet = $line->createDataSet();
-$dataSet->setLabel('Scatter Dataset')
-        ->data()->exchangeArray([
-        ['x' => -10, 'y' => 0],
-        ['x' => 0, 'y' => 10],
-        ['x' => 10, 'y' => 5],
-        ]);
+$dataSet->setLabel('Scatter Dataset')->data()->exchangeArray([
+    ['x' => -10, 'y' => 0],
+    ['x' => 0, 'y' => 10],
+    ['x' => 10, 'y' => 5],
+]);
 $line->addDataSet($dataSet);
 
 $scales = $line->options()->getScales();
