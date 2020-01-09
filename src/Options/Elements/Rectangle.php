@@ -130,5 +130,4 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
     {
         return Json::encode($this->getArrayCopy());
     }
-
 }
