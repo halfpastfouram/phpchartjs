@@ -30,7 +30,7 @@ class GridLines implements ArraySerializableInterface, JsonSerializable
     private $color;
 
     /**
-     * @var string[]
+     * @var float[]|null
      */
     private $borderDash;
 
@@ -124,7 +124,7 @@ class GridLines implements ArraySerializableInterface, JsonSerializable
     }
 
     /**
-     * @return \string[]
+     * @return float[]|null
      */
     public function getBorderDash()
     {
@@ -132,7 +132,7 @@ class GridLines implements ArraySerializableInterface, JsonSerializable
     }
 
     /**
-     * @param \float[] $borderDash
+     * @param float[] $borderDash
      *
      * @return $this
      */
