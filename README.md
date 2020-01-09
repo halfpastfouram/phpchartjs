@@ -158,7 +158,7 @@ For more information about the collections visit the [halfpastfouram/collection]
 ## Installation
 
 ### Using composer
-    $ composer require halfpastfouram/phpchartjs dev-master
+    $ composer require halfpastfouram/phpchartjs
 
 ### Development
 This project uses composer, which should be installed on your system. Most
