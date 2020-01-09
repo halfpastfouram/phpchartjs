@@ -4,14 +4,14 @@ namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\PHPChartJS\Collection\Data;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class DataSet
  *
  * @package Halfpastfour\PHPChartJS
  */
-class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
+class DataSet implements ChartOwnedInterface, ArraySerializableInterface, JsonSerializable
 {
     use ChartOwned;
     use ArraySerializable;
@@ -351,10 +351,10 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     *
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

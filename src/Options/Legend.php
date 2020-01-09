@@ -5,14 +5,15 @@ namespace Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\LabelsCollection;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class Legend
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Legend implements ArraySerializableInterface, \JsonSerializable
+class Legend implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -60,21 +61,13 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isDisplay()
-    {
-        return $this->display;
-    }
-
-    /**
      * @param bool $display
      *
      * @return $this
      */
     public function setDisplay($display)
     {
-        $this->display = ! ! $display;
+        $this->display = boolval($display);
 
         return $this;
     }
@@ -108,21 +101,13 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isFullWidth()
-    {
-        return $this->fullWidth;
-    }
-
-    /**
      * @param bool $fullWidth
      *
      * @return $this
      */
     public function setFullWidth($fullWidth)
     {
-        $this->fullWidth = ! ! $fullWidth;
+        $this->fullWidth = boolval($fullWidth);
 
         return $this;
     }
@@ -188,32 +173,22 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isReverse()
-    {
-        return $this->reverse;
-    }
-
-    /**
      * @param bool $reverse
      *
      * @return $this
      */
     public function setReverse($reverse)
     {
-        $this->reverse = ! ! $reverse;
+        $this->reverse = boolval($reverse);
 
         return $this;
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

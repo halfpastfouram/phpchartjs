@@ -6,14 +6,14 @@ use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Delegate\NumberUtils;
 use Halfpastfour\PHPChartJS\Delegate\StringUtils;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class GridLines
  *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class GridLines implements ArraySerializableInterface, \JsonSerializable
+class GridLines implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
     use StringUtils;
@@ -78,14 +78,6 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
      * @var bool
      */
     private $offsetGridLines;
-
-    /**
-     * @return bool
-     */
-    public function isDisplay()
-    {
-        return $this->display;
-    }
 
     /**
      * @return bool
@@ -206,14 +198,6 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isDrawBorder()
-    {
-        return $this->drawBorder;
-    }
-
-    /**
      * @param bool $drawBorder
      *
      * @return $this
@@ -234,14 +218,6 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isDrawOnChartArea()
-    {
-        return $this->drawOnChartArea;
-    }
-
-    /**
      * @param bool $drawOnChartArea
      *
      * @return $this
@@ -251,14 +227,6 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
         $this->drawOnChartArea = boolval($drawOnChartArea);
 
         return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDrawTicks()
-    {
-        return $this->drawTicks;
     }
 
     /**
@@ -350,14 +318,6 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isOffsetGridLines()
-    {
-        return $this->offsetGridLines;
-    }
-
-    /**
      * @param bool $offsetGridLines
      *
      * @return $this
@@ -370,12 +330,10 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

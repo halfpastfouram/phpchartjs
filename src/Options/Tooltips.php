@@ -5,14 +5,15 @@ namespace Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class Tooltips
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Tooltips implements ArraySerializableInterface, \JsonSerializable
+class Tooltips implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -185,21 +186,13 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
      * @param bool $enabled
      *
      * @return $this
      */
     public function setEnabled($enabled)
     {
-        $this->enabled = ! ! $enabled;
+        $this->enabled = boolval($enabled);
 
         return $this;
     }
@@ -253,21 +246,13 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isIntersect()
-    {
-        return $this->intersect;
-    }
-
-    /**
      * @param bool $intersect
      *
      * @return $this
      */
     public function setIntersect($intersect)
     {
-        $this->intersect = ! ! $intersect;
+        $this->intersect = boolval($intersect);
 
         return $this;
     }
@@ -801,21 +786,13 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isDisplayColors()
-    {
-        return $this->displayColors;
-    }
-
-    /**
      * @param bool $displayColors
      *
      * @return $this
      */
     public function setDisplayColors($displayColors)
     {
-        $this->displayColors = ! ! $displayColors;
+        $this->displayColors = boolval($displayColors);
 
         return $this;
     }
@@ -833,12 +810,10 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return mixed
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

@@ -4,15 +4,15 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class Ticks
  *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class Ticks implements ArraySerializableInterface, \JsonSerializable
+class Ticks implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -135,14 +135,6 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isBeginAtZero()
-    {
-        return $this->beginAtZero;
-    }
-
-    /**
      * @param bool $beginAtZero
      *
      * @return $this
@@ -183,21 +175,13 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isAutoSkip()
-    {
-        return $this->autoSkip;
-    }
-
-    /**
      * @param bool $autoSkip
      *
      * @return $this
      */
     public function setAutoSkip($autoSkip)
     {
-        $this->autoSkip = ! ! $autoSkip;
+        $this->autoSkip = boolval($autoSkip);
 
         return $this;
     }
@@ -251,21 +235,13 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isDisplay()
-    {
-        return $this->display;
-    }
-
-    /**
      * @param bool $display
      *
      * @return $this
      */
     public function setDisplay($display)
     {
-        $this->display = ! ! $display;
+        $this->display = boolval($display);
 
         return $this;
     }
@@ -419,21 +395,13 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isMirror()
-    {
-        return $this->mirror;
-    }
-
-    /**
      * @param bool $mirror
      *
      * @return $this
      */
     public function setMirror($mirror)
     {
-        $this->mirror = ! ! $mirror;
+        $this->mirror = boolval($mirror);
 
         return $this;
     }
@@ -467,21 +435,13 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isReverse()
-    {
-        return $this->reverse;
-    }
-
-    /**
      * @param bool $reverse
      *
      * @return $this
      */
     public function setReverse($reverse)
     {
-        $this->reverse = ! ! $reverse;
+        $this->reverse = boolval($reverse);
 
         return $this;
     }
@@ -507,12 +467,10 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, ['enableJsonExprFinder' => true]);
+        return $this->getArrayCopy();
     }
 }

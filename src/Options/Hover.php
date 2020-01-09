@@ -4,14 +4,15 @@ namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class Hover
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Hover implements ArraySerializableInterface, \JsonSerializable
+class Hover implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -124,12 +125,10 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

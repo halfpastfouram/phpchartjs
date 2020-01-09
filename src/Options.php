@@ -11,15 +11,15 @@ use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class Options
  *
  * @package Halfpastfour\PHPChartJS
  */
-class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
+class Options implements ChartOwnedInterface, ArraySerializableInterface, JsonSerializable
 {
     use ChartOwned;
     use ArraySerializable;
@@ -131,7 +131,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @param Expr $onClick
+     * @param string $onClick
      *
      * @return $this
      */
@@ -215,12 +215,10 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, ['enableJsonExprFinder' => true]);
+        return $this->getArrayCopy();
     }
 }

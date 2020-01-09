@@ -4,14 +4,15 @@ namespace Halfpastfour\PHPChartJS\Options\Legend;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class PieLegend
+ *
  * @package Halfpastfour\PHPChartJS\Options\Legend
  */
-class Labels implements ArraySerializableInterface, \JsonSerializable
+class Labels implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -204,14 +205,6 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return bool
-     */
-    public function isUsePointStyle()
-    {
-        return $this->usePointStyle;
-    }
-
-    /**
      * @param bool $usePointStyle
      *
      * @return Labels
@@ -224,12 +217,10 @@ class Labels implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

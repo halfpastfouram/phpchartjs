@@ -4,14 +4,15 @@ namespace Halfpastfour\PHPChartJS\Options\Tooltips;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use JsonSerializable;
 use Zend\Json\Expr;
-use Zend\Json\Json;
 
 /**
  * Class Callbacks
+ *
  * @package Halfpastfour\PHPChartJS\Tooltips
  */
-class Callbacks implements ArraySerializableInterface, \JsonSerializable
+class Callbacks implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -316,10 +317,10 @@ class Callbacks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

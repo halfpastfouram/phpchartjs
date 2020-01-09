@@ -3,20 +3,21 @@
 namespace Halfpastfour\PHPChartJS;
 
 use Halfpastfour\Collection\Collection\ArrayAccess;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class DataSetCollection
+ *
  * @package Halfpastfour\PHPChartJS
  */
-class DataSetCollection extends ArrayAccess implements \JsonSerializable
+class DataSetCollection extends ArrayAccess implements JsonSerializable
 {
     /**
      * @return array
      */
     public function getArrayCopy()
     {
-        $rows   = [];
+        $rows = [];
         foreach ($this->data as $row) {
             /** @var DataSet $row */
             $rows[] = $row->getArrayCopy();
@@ -26,10 +27,10 @@ class DataSetCollection extends ArrayAccess implements \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

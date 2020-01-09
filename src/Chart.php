@@ -220,7 +220,7 @@ abstract class Chart implements ChartInterface
     {
         $renderer = new Html($this);
 
-        return $renderer->render(! ! $pretty ? $renderer::RENDER_PRETTY : null);
+        return $renderer->render($pretty ? $renderer::RENDER_PRETTY : null);
     }
 
     /**

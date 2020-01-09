@@ -13,7 +13,7 @@ abstract class Renderer implements RendererInterface
     /**
      * Flag used for rendering JSON in pretty mode.
      */
-    const RENDER_PRETTY = 1;
+    const RENDER_PRETTY = JSON_PRETTY_PRINT;
 
     /**
      * @var Chart The chart that needs to be rendered.

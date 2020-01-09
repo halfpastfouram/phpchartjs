@@ -3,10 +3,10 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scale;
-use Zend\Json\Json;
 
 /**
  * Class XAxis
+ *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
 class XAxis extends Scale
@@ -62,10 +62,10 @@ class XAxis extends Scale
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

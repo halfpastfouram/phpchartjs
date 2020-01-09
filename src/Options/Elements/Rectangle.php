@@ -4,23 +4,25 @@ namespace Halfpastfour\PHPChartJS\Options\Elements;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class Rectangle
+ *
  * @package Halfpastfour\PHPChartJS\Options\Elements
  */
-class Rectangle implements ArraySerializableInterface, \JsonSerializable
+class Rectangle implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
     const BORDER_SKIPPED_BOTTOM = 'bottom';
-    const BORDER_SKIPPED_LEFT = 'left';
-    const BORDER_SKIPPED_TOP = 'top';
-    const BORDER_SKIPPED_RIGHT = 'right';
+    const BORDER_SKIPPED_LEFT   = 'left';
+    const BORDER_SKIPPED_TOP    = 'top';
+    const BORDER_SKIPPED_RIGHT  = 'right';
 
     /**
      * Bar fill color.
+     *
      * @default 'rgba(0,0,0,0.1)'
      * @var string
      */
@@ -28,6 +30,7 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * Bar stroke width.
+     *
      * @default 0
      * @var int
      */
@@ -35,6 +38,7 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * Bar stroke color.
+     *
      * @default 'rgba(0,0,0,0.1)'
      * @var string
      */
@@ -42,6 +46,7 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * Skipped (excluded) border: 'bottom', 'left', 'top' or 'right'.
+     *
      * @default self::BORDER_SKIPPED_BOTTOM
      * @var string
      */
@@ -57,11 +62,13 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @param string $backgroundColor
+     *
      * @return Rectangle
      */
     public function setBackgroundColor($backgroundColor)
     {
         $this->backgroundColor = is_null($backgroundColor) ? null : strval($backgroundColor);
+
         return $this;
     }
 
@@ -75,11 +82,13 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @param int $borderWidth
+     *
      * @return Rectangle
      */
     public function setBorderWidth($borderWidth)
     {
         $this->borderWidth = intval($borderWidth);
+
         return $this;
     }
 
@@ -93,11 +102,13 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @param string $borderColor
+     *
      * @return Rectangle
      */
     public function setBorderColor($borderColor)
     {
         $this->borderColor = is_null($borderColor) ? null : strval($borderColor);
+
         return $this;
     }
 
@@ -111,23 +122,21 @@ class Rectangle implements ArraySerializableInterface, \JsonSerializable
 
     /**
      * @param string $borderSkipped
+     *
      * @return Rectangle
      */
     public function setBorderSkipped($borderSkipped)
     {
         $this->borderSkipped = is_null($borderSkipped) ? null : strval($borderSkipped);
+
         return $this;
     }
 
-
-
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }
