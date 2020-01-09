@@ -37,9 +37,10 @@ $options->getScales()->getXAxes()->append($xAxis);
 $options->getScales()->getYAxes()->append($yAxis);
 
 ?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>Bar without scales</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 <body>

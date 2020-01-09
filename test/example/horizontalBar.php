@@ -29,9 +29,10 @@ $scales->getXAxes()->append($scales->createXAxis()->setStacked(true));
 $scales->getYAxes()->append($scales->createYAxis()->setStacked(true));
 
 ?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>Horizontal bar</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 <body>

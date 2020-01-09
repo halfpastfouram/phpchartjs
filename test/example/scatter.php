@@ -14,7 +14,7 @@ $scatter->setTitle('Scatter chart');
 $options = $scatter->options();
 $xAxis   = $options->getScales()->createXAxis();
 $xAxis->ticks()->setStepSize(1);
-$yAxis   = $options->getScales()->createYAxis();
+$yAxis = $options->getScales()->createYAxis();
 
 $options->getScales()->getXAxes()->append($xAxis);
 $options->getScales()->getYAxes()->append($yAxis);
@@ -36,7 +36,7 @@ $apples->setLabel('My first dataset')
         ['x' => 0, 'y' => 4],
         ['x' => 0, 'y' => 5],
         ['x' => 0, 'y' => 6],
-    ]);
+       ]);
 $scatter->addDataSet($apples);
 
 $oranges = $scatter->createDataSet();
@@ -50,13 +50,14 @@ $oranges->setLabel('My second dataset')
         ['x' => 1, 'y' => 4],
         ['x' => 1, 'y' => 5],
         ['x' => 1, 'y' => 6],
-    ]);
+        ]);
 $scatter->addDataSet($oranges);
 
 ?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>Scatter</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 <body>

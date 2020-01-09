@@ -22,7 +22,7 @@ $apples->setLabel('My first dataset')
         ['x' => rand(0, 40), 'y' => rand(0, 30), 'r' => rand(0, 50)],
         ['x' => rand(0, 40), 'y' => rand(0, 30), 'r' => rand(0, 50)],
         ['x' => rand(0, 40), 'y' => rand(0, 30), 'r' => rand(0, 50)],
-    ]);
+       ]);
 $bubble->addDataSet($apples);
 
 $oranges = $bubble->createDataSet();
@@ -35,13 +35,14 @@ $oranges->setLabel('My second dataset')
         ['x' => rand(0, 40), 'y' => rand(0, 30), 'r' => rand(0, 50)],
         ['x' => rand(0, 40), 'y' => rand(0, 30), 'r' => rand(0, 50)],
         ['x' => rand(0, 40), 'y' => rand(0, 30), 'r' => rand(0, 50)],
-    ]);
+        ]);
 $bubble->addDataSet($oranges);
 
 ?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>Bubble</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 <body>
