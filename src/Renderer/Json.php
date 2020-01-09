@@ -15,7 +15,6 @@ class Json extends Renderer
      * @param int|null $flags
      *
      * @return string
-     * @throws \ReflectionException
      */
     public function render($flags = JSON_PRETTY_PRINT)
     {
@@ -35,7 +34,7 @@ class Json extends Renderer
         }
 
         $options = $this->chart->options()->getArrayCopy();
-        if ($options) {
+        if (! empty($options)) {
             $config['options'] = $options;
         }
 
