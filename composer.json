@@ -37,6 +37,7 @@
     }
   },
   "scripts": {
+    "test": "./vendor/bin/phpunit",
     "cs-check": "./vendor/bin/phpcs",
     "cs-fix": "./vendor/bin/phpcbf"
   }
