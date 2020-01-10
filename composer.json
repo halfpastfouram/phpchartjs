@@ -1,14 +1,15 @@
 {
   "name": "halfpastfouram/phpchartjs",
-  "description": "PHP library for ChartJS 2.0",
+  "description": "PHP library for ChartJS",
   "keywords": [
     "chartjs",
     "graph",
     "php"
   ],
-  "homepage": "http://github.com/halfpastfouram/PHPChartJS",
+  "readme": "README.md",
+  "homepage": "http://halfpastfouram.github.io/PHPChartJS",
   "type": "package",
-  "version": "v1.2.0",
+  "version": "v1.2.1",
   "license": "AGPL-3.0-or-later",
   "authors": [
     {
