@@ -3,12 +3,14 @@
 namespace Collection;
 
 use Halfpastfour\PHPChartJS\Collection\Data;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class DataTest
+ *
  * @package Collection
  */
-class DataTest extends \PHPUnit_Framework_TestCase
+class DataTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var  Data
@@ -28,7 +30,7 @@ class DataTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsonSerializeEmpty()
     {
-        $expected = "[]";
+        $expected = [];
         $result   = $this->data->jsonSerialize();
         self::assertSame($expected, $result);
     }

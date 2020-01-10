@@ -3,13 +3,15 @@
 namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class ScaleLabelTest
+ *
  * @package Test\Options\Scales
  */
-class ScaleLabelTest extends \PHPUnit_Framework_TestCase
+class ScaleLabelTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var ScaleLabel
@@ -92,7 +94,7 @@ class ScaleLabelTest extends \PHPUnit_Framework_TestCase
     {
         $expected = $this->input_data;
         TestUtils::setAttributes($this->scaleLabel, $this->input_data);
-        $result = json_decode($this->scaleLabel->jsonSerialize(), true);
+        $result = $this->scaleLabel->jsonSerialize();
         self::assertEquals($expected, $result);
     }
 }

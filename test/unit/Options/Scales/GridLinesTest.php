@@ -3,13 +3,15 @@
 namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class GridLinesTest
+ *
  * @package Test\Options\Scales
  */
-class GridLinesTest extends \PHPUnit_Framework_TestCase
+class GridLinesTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var GridLines
@@ -133,7 +135,7 @@ class GridLinesTest extends \PHPUnit_Framework_TestCase
     {
         $expected = $this->input_data_single_value;
         TestUtils::setAttributes($this->gridLines, $this->input_data_single_value);
-        $result = json_decode($this->gridLines->jsonSerialize(), true);
+        $result = $this->gridLines->jsonSerialize();
         self::assertEquals($expected, $result);
     }
 }

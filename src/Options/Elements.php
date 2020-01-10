@@ -8,14 +8,14 @@ use Halfpastfour\PHPChartJS\Options\Elements\Arc;
 use Halfpastfour\PHPChartJS\Options\Elements\Line;
 use Halfpastfour\PHPChartJS\Options\Elements\Point;
 use Halfpastfour\PHPChartJS\Options\Elements\Rectangle;
-use Zend\Json\Expr;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class Elements
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Elements implements ArraySerializableInterface, \JsonSerializable
+class Elements implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -120,12 +120,10 @@ class Elements implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

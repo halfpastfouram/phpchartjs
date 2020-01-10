@@ -4,13 +4,14 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class ScaleLabel
+ *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
+class ScaleLabel implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -165,10 +166,10 @@ class ScaleLabel implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

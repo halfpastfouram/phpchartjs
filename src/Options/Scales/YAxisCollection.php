@@ -3,13 +3,15 @@
 namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\Collection\Collection\ArrayAccess;
-use Zend\Json\Json;
+use Halfpastfour\PHPChartJS\ArraySerializableInterface;
+use JsonSerializable;
 
 /**
  * Class YAxisCollection
+ *
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class YAxisCollection extends ArrayAccess implements \JsonSerializable
+class YAxisCollection extends ArrayAccess implements ArraySerializableInterface, JsonSerializable
 {
     /**
      * @return array
@@ -26,10 +28,10 @@ class YAxisCollection extends ArrayAccess implements \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

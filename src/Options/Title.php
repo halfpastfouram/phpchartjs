@@ -4,13 +4,14 @@ namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class LineOptions
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Title implements ArraySerializableInterface, \JsonSerializable
+class Title implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -74,7 +75,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
      */
     public function setDisplay($display)
     {
-        $this->display = ! ! $display;
+        $this->display = boolval($display);
 
         return $this;
     }
@@ -114,7 +115,7 @@ class Title implements ArraySerializableInterface, \JsonSerializable
      */
     public function setFullWidth($fullWidth)
     {
-        $this->fullWidth = ! ! $fullWidth;
+        $this->fullWidth = boolval($fullWidth);
 
         return $this;
     }
@@ -240,10 +241,10 @@ class Title implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

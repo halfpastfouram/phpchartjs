@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS\Renderer;
 
 /**
  * Class JavaScript
+ *
  * @package Halfpastfour\PHPChartJS\Renderer
  */
 class JavaScript extends Renderer
@@ -26,11 +27,24 @@ class JavaScript extends Renderer
         $jsonRenderer = new Json($this->chart);
         $json         = $jsonRenderer->render($flags);
         $script[]     = "var chart = new Chart( ctx, {$json} );";
+        $scriptString = implode("\n", $script);
 
         // Return the script
-        return "\nwindow.onload=(function(oldLoad){return function(){\n"
-            . "if( oldLoad ) oldLoad();\n"
-            . implode("\n", $script) . "\n"
-            . "}})(window.onload);\n";
+        return <<<JS
+window.onload=(function(oldLoad){return function(){
+  if (oldLoad) {
+    oldLoad();
+  }
+  
+  {$scriptString};
+  
+  if (! window.hasOwnProperty('chartInstances')) {
+    window.chartInstances = {};
+  }
+  
+  window.chartInstances['{$this->chart->getId()}'] = chart;
+}})(window.onload);
+JS
+            ;
     }
 }

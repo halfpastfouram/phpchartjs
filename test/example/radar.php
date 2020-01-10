@@ -43,9 +43,10 @@ $dataSet2->setLabel('My second dataset')
 $radar->addDataSet($dataSet2);
 
 ?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>Radar</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 <body>

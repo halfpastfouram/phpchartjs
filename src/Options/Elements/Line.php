@@ -4,19 +4,19 @@ namespace Halfpastfour\PHPChartJS\Options\Elements;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class Line
  * @package Halfpastfour\PHPChartJS\Options\Elements
  */
-class Line implements ArraySerializableInterface, \JsonSerializable
+class Line implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
     /** https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap */
-    const CAP_STYLE_BUTT = 'butt';
-    const CAP_STYLE_ROUND = 'round';
+    const CAP_STYLE_BUTT   = 'butt';
+    const CAP_STYLE_ROUND  = 'round';
     const CAP_STYLE_SQUARE = 'square';
 
     /** https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin */
@@ -314,12 +314,10 @@ class Line implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

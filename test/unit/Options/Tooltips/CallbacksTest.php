@@ -2,16 +2,17 @@
 
 namespace Test\Options\Tooltips;
 
-use Zend\Json\Expr;
-
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
+use Laminas\Json\Expr;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class CallbacksTest
+ *
  * @package Test\Options\Tooltips
  */
-class CallbacksTest extends \PHPUnit_Framework_TestCase
+class CallbacksTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Callbacks
@@ -23,7 +24,7 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
      */
     private $data_types = [
         'beforeTitle'  => '',
-        'title'     => '',
+        'title'        => '',
         'afterTitle'   => '',
         'beforeLabel'  => '',
         'label'        => '',
@@ -57,7 +58,7 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $empty_data   = [
+    private $empty_data = [
         'beforeTitle'  => null,
         'title'        => null,
         'afterTitle'   => null,
@@ -84,7 +85,7 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
         // Re-initialize Expr properties
         $keys = array_keys($this->empty_data);
         foreach ($keys as $key) {
-            $this->initial_data[ $key ] = new Expr('');
+            $this->initial_data[$key] = new Expr('');
         }
     }
 
@@ -117,8 +118,8 @@ class CallbacksTest extends \PHPUnit_Framework_TestCase
 
     public function testJsonSerializeEmpty()
     {
-        $expected = "[]";
-        $result = $this->callbacks->jsonSerialize();
+        $expected = [];
+        $result   = $this->callbacks->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

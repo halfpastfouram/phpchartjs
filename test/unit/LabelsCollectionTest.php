@@ -3,12 +3,14 @@
 namespace Test;
 
 use Halfpastfour\PHPChartJS\LabelsCollection;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class LabelsCollectionTest
+ *
  * @package Test
  */
-class LabelsCollectionTest extends \PHPUnit_Framework_TestCase
+class LabelsCollectionTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var  LabelsCollection
@@ -23,7 +25,7 @@ class LabelsCollectionTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $labelsArray = [ 'startingLabel', 'label1', 'label2', 'endLabel' ];
+    private $labelsArray = ['startingLabel', 'label1', 'label2', 'endLabel'];
 
     /**
      *
@@ -39,7 +41,7 @@ class LabelsCollectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsonSerializeEmpty()
     {
-        $expected = '[]';
+        $expected = [];
         $result   = $this->labelsCollectionEmpty->jsonSerialize();
         self::assertSame($expected, $result);
     }
@@ -49,7 +51,7 @@ class LabelsCollectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsonSerialize()
     {
-        $expected = "[\"" . implode("\",\"", $this->labelsArray) . "\"]";
+        $expected = $this->labelsArray;
         $result   = $this->labelsCollection->jsonSerialize();
         self::assertSame($expected, $result);
     }

@@ -5,14 +5,15 @@ namespace Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\LabelsCollection;
-use Zend\Json\Expr;
-use Zend\Json\Json;
+use JsonSerializable;
+use Laminas\Json\Expr;
 
 /**
  * Class Legend
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Legend implements ArraySerializableInterface, \JsonSerializable
+class Legend implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -66,7 +67,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
      */
     public function setDisplay($display)
     {
-        $this->display = ! ! $display;
+        $this->display = boolval($display);
 
         return $this;
     }
@@ -106,7 +107,7 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
      */
     public function setFullWidth($fullWidth)
     {
-        $this->fullWidth = ! ! $fullWidth;
+        $this->fullWidth = boolval($fullWidth);
 
         return $this;
     }
@@ -178,16 +179,16 @@ class Legend implements ArraySerializableInterface, \JsonSerializable
      */
     public function setReverse($reverse)
     {
-        $this->reverse = ! ! $reverse;
+        $this->reverse = boolval($reverse);
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

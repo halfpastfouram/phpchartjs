@@ -3,19 +3,15 @@
 namespace Halfpastfour\PHPChartJS\Collection;
 
 use Halfpastfour\Collection\Collection\ArrayAccess;
-use Zend\Json\Json;
+use Halfpastfour\PHPChartJS\Delegate;
+use JsonSerializable as JsonSerializableInterface;
 
 /**
  * Class Data
+ *
  * @package Halfpastfour\PHPChartJS\Collection
  */
-class Data extends ArrayAccess implements \JsonSerializable
+class Data extends ArrayAccess implements JsonSerializableInterface
 {
-    /**
-     * @return string
-     */
-    public function jsonSerialize()
-    {
-        return Json::encode($this->data);
-    }
+    use Delegate\JsonSerializable;
 }

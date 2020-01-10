@@ -4,16 +4,20 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Json;
+use Halfpastfour\PHPChartJS\Delegate\NumberUtils;
+use Halfpastfour\PHPChartJS\Delegate\StringUtils;
+use JsonSerializable;
 
 /**
  * Class GridLines
  *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class GridLines implements ArraySerializableInterface, \JsonSerializable
+class GridLines implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
+    use StringUtils;
+    use NumberUtils;
 
     /**
      * @var bool
@@ -26,7 +30,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     private $color;
 
     /**
-     * @var float[]
+     * @var float[]|null
      */
     private $borderDash;
 
@@ -111,13 +115,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setColor($color)
     {
         if (is_array($color)) {
-            array_walk_recursive(
-                $color,
-                function (&$value) {
-                    $value = strval($value);
-                }
-            );
-            $this->color = $color;
+            $this->color = $this->recursiveToString($color);
         } else {
             $this->color = is_null($color) ? null : strval($color);
         }
@@ -126,7 +124,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return \float[]
+     * @return float[]|null
      */
     public function getBorderDash()
     {
@@ -134,20 +132,14 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param \float[] $borderDash
+     * @param float[] $borderDash
      *
      * @return $this
      */
     public function setBorderDash($borderDash)
     {
         if (is_array($borderDash)) {
-            array_walk_recursive(
-                $borderDash,
-                function (&$value) {
-                    $value = floatval($value);
-                }
-            );
-            $this->borderDash = $borderDash;
+            $this->borderDash = $this->recursiveToFloat($borderDash);
         }
 
         return $this;
@@ -189,13 +181,7 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     public function setLineWidth($lineWidth)
     {
         if (is_array($lineWidth)) {
-            array_walk_recursive(
-                $lineWidth,
-                function (&$value) {
-                    $value = intval($value);
-                }
-            );
-            $this->lineWidth = $lineWidth;
+            $this->lineWidth = $this->recursiveToInt($lineWidth);
         } else {
             $this->lineWidth = is_null($lineWidth) ? null : intval($lineWidth);
         }
@@ -344,12 +330,10 @@ class GridLines implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

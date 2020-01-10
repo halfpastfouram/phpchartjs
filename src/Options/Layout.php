@@ -5,14 +5,14 @@ namespace Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Layout\Padding;
-use Zend\Json\Json;
+use JsonSerializable;
 
 /**
  * Class Layout
  *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Layout implements ArraySerializableInterface, \JsonSerializable
+class Layout implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -50,12 +50,10 @@ class Layout implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
-     * @throws \ReflectionException
-     * @throws \Zend_Reflection_Exception
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

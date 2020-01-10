@@ -11,13 +11,15 @@ use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
-use Zend\Json\Json;
+use JsonSerializable;
+use Laminas\Json\Expr;
 
 /**
  * Class Options
+ *
  * @package Halfpastfour\PHPChartJS
  */
-class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonSerializable
+class Options implements ChartOwnedInterface, ArraySerializableInterface, JsonSerializable
 {
     use ChartOwned;
     use ArraySerializable;
@@ -43,6 +45,11 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     protected $hover;
 
     /**
+     * @var \Laminas\Json\Expr
+     */
+    protected $onClick;
+
+    /**
      * @var Scales
      */
     protected $scales;
@@ -63,12 +70,17 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     protected $tooltips;
 
     /**
+     * @var bool
+     */
+    protected $maintainAspectRatio;
+
+    /**
      * @return Layout
      */
     public function getLayout()
     {
         if (is_null($this->layout)) {
-            $this->layout   = new Layout();
+            $this->layout = new Layout();
         }
 
         return $this->layout;
@@ -80,7 +92,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     public function getElements()
     {
         if (is_null($this->elements)) {
-            $this->elements   = new Elements();
+            $this->elements = new Elements();
         }
 
         return $this->elements;
@@ -108,6 +120,26 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
         }
 
         return $this->hover;
+    }
+
+    /**
+     * @return \Laminas\Json\Expr
+     */
+    public function getOnClick()
+    {
+        return $this->onClick;
+    }
+
+    /**
+     * @param string $onClick
+     *
+     * @return $this
+     */
+    public function setOnClick($onClick)
+    {
+        $this->onClick = new Expr(strval($onClick));
+
+        return $this;
     }
 
     /**
@@ -159,10 +191,34 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, \JsonS
     }
 
     /**
-     * @return string
+     * @return bool
+     */
+    public function isMaintainAspectRatio()
+    {
+        if (is_null($this->maintainAspectRatio)) {
+            $this->maintainAspectRatio = true;
+        }
+
+        return $this->maintainAspectRatio;
+    }
+
+    /**
+     * @param bool $flag
+     *
+     * @return $this
+     */
+    public function setMaintainAspectRatio($flag)
+    {
+        $this->maintainAspectRatio = boolval($flag);
+
+        return $this;
+    }
+
+    /**
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

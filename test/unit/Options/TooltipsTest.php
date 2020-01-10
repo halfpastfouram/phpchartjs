@@ -3,13 +3,15 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Tooltips;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class TooltipsTest
+ *
  * @package Test\Options
  */
-class TooltipsTest extends \PHPUnit_Framework_TestCase
+class TooltipsTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Tooltips
@@ -209,7 +211,7 @@ class TooltipsTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
         TestUtils::setAttributes($this->tooltips, $expected);
-        $result = json_decode($this->tooltips->jsonSerialize(), true);
+        $result = $this->tooltips->jsonSerialize();
         self::assertSame($expected, $result);
     }
 

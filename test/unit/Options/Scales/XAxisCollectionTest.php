@@ -4,12 +4,14 @@ namespace Test\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\XAxis;
 use Halfpastfour\PHPChartJS\Options\Scales\XAxisCollection;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class XAxisCollectionTest
+ *
  * @package Test\Options\Scales
  */
-class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
+class XAxisCollectionTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var XAxisCollection
@@ -38,9 +40,9 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetArrayCopyEmpty()
     {
-        $expected = [];
+        $expected        = [];
         $xAxisCollection = new XAxisCollection();
-        $result   = $xAxisCollection->getArrayCopy();
+        $result          = $xAxisCollection->getArrayCopy();
         self::assertSame($expected, $result);
     }
 
@@ -63,7 +65,7 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
     public function testJsonSerializeEmpty()
     {
         $expected = [];
-        $result   = json_decode($this->xAxisCollection->jsonSerialize(), true);
+        $result   = $this->xAxisCollection->jsonSerialize();
         self::assertSame($expected, $result);
     }
 
@@ -76,7 +78,7 @@ class XAxisCollectionTest extends \PHPUnit_Framework_TestCase
         $x                       = new XAxis();
         $expected[]              = $x->getArrayCopy();
         $this->xAxisCollection[] = $x;
-        $result                  = json_decode($this->xAxisCollection->jsonSerialize(), true);
+        $result                  = $this->xAxisCollection->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

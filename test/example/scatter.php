@@ -14,7 +14,7 @@ $scatter->setTitle('Scatter chart');
 $options = $scatter->options();
 $xAxis   = $options->getScales()->createXAxis();
 $xAxis->ticks()->setStepSize(1);
-$yAxis   = $options->getScales()->createYAxis();
+$yAxis = $options->getScales()->createYAxis();
 
 $options->getScales()->getXAxes()->append($xAxis);
 $options->getScales()->getYAxes()->append($yAxis);
@@ -27,36 +27,37 @@ $apples = $scatter->createDataSet();
 $apples->setLabel('My first dataset')
        ->setBackgroundColor('rgba( 0, 150, 0, .5 )')
        ->setPointStyle('rect')
-       ->setPointRadius(10)
-       ->data()->exchangeArray([
-        ['x' => 0, 'y' => 0],
-        ['x' => 0, 'y' => 1],
-        ['x' => 0, 'y' => 2],
-        ['x' => 0, 'y' => 3],
-        ['x' => 0, 'y' => 4],
-        ['x' => 0, 'y' => 5],
-        ['x' => 0, 'y' => 6],
-    ]);
+       ->setPointRadius(10);
+$apples->data()->exchangeArray([
+    ['x' => 0, 'y' => 0],
+    ['x' => 0, 'y' => 1],
+    ['x' => 0, 'y' => 2],
+    ['x' => 0, 'y' => 3],
+    ['x' => 0, 'y' => 4],
+    ['x' => 0, 'y' => 5],
+    ['x' => 0, 'y' => 6],
+]);
 $scatter->addDataSet($apples);
 
 $oranges = $scatter->createDataSet();
 $oranges->setLabel('My second dataset')
-        ->setBackgroundColor('rgba( 255, 153, 0, .5 )')
-        ->data()->exchangeArray([
-        ['x' => 1, 'y' => 0],
-        ['x' => 1, 'y' => 1],
-        ['x' => 1, 'y' => 2],
-        ['x' => 1, 'y' => 3],
-        ['x' => 1, 'y' => 4],
-        ['x' => 1, 'y' => 5],
-        ['x' => 1, 'y' => 6],
-    ]);
+        ->setBackgroundColor('rgba( 255, 153, 0, .5 )');
+$oranges->data()->exchangeArray([
+    ['x' => 1, 'y' => 0],
+    ['x' => 1, 'y' => 1],
+    ['x' => 1, 'y' => 2],
+    ['x' => 1, 'y' => 3],
+    ['x' => 1, 'y' => 4],
+    ['x' => 1, 'y' => 5],
+    ['x' => 1, 'y' => 6],
+]);
 $scatter->addDataSet($oranges);
 
 ?>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <title>Scatter</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </head>
 <body>

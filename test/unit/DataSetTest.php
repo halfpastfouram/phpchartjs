@@ -9,12 +9,15 @@ use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\ChartOwnedInterface;
 use Halfpastfour\PHPChartJS\Collection\Data;
 use Halfpastfour\PHPChartJS\DataSet;
+use JsonSerializable;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class DataSetTest
+ *
  * @package Test
  */
-class DataSetTest extends \PHPUnit_Framework_TestCase
+class DataSetTest extends PHPUnit_Framework_TestCase
 {
     /**
      *
@@ -28,7 +31,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
             $dataSet,
             'Class implements ArraySerializableInterface'
         );
-        $this->assertInstanceOf(\JsonSerializable::class, $dataSet, 'Class implements JsonSerializable');
+        $this->assertInstanceOf(JsonSerializable::class, $dataSet, 'Class implements JsonSerializable');
     }
 
     /**
@@ -75,7 +78,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Data::class, $dataCollection, 'The data collection is the right class');
         $this->assertInstanceOf(ArrayAccess::class, $dataCollection, 'The data collection extends Collection');
         $this->assertInstanceOf(
-            \JsonSerializable::class,
+            JsonSerializable::class,
             $dataCollection,
             'The data collection implements JsonSerializable'
         );
@@ -106,7 +109,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $dataSet->setBackgroundColor('#fff');
         $this->assertEquals('#fff', $dataSet->getBackgroundColor());
 
-        $backgroundColorArray = [ '#fff', 'rgb( 255, 255, 255 )', 'rgba( 255, 255, 255, .5 )', 'white' ];
+        $backgroundColorArray = ['#fff', 'rgb( 255, 255, 255 )', 'rgba( 255, 255, 255, .5 )', 'white'];
         $dataSet->setBackgroundColor($backgroundColorArray);
         $this->assertEquals(
             $backgroundColorArray,
@@ -127,7 +130,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $dataSet->setBorderColor('#fff');
         $this->assertEquals('#fff', $dataSet->getBorderColor(), 'The border color is set and returned correctly');
 
-        $borderColorArray = [ '#fff', 'rgb( 255, 255, 255 )', 'rgba( 255, 255, 255, .5 )', 'white' ];
+        $borderColorArray = ['#fff', 'rgb( 255, 255, 255 )', 'rgba( 255, 255, 255, .5 )', 'white'];
         $dataSet->setBorderColor($borderColorArray);
         $this->assertEquals(
             $borderColorArray,
@@ -168,9 +171,9 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_int($dataSet->getBorderWidth()), 'Return type should be int');
         $this->assertEquals(0, $dataSet->getBorderWidth(), 'The border width should equal int 0');
 
-        $dataSet->setBorderWidth([ 10, '20', '30abc', 40.00, 'abc50' ]);
+        $dataSet->setBorderWidth([10, '20', '30abc', 40.00, 'abc50']);
         $this->assertTrue(is_array($dataSet->getBorderWidth()), 'Return type should be array');
-        $this->assertEquals([ 10, 20, 30, 40, 0 ], $dataSet->getBorderWidth(), 'Return value should be array of int');
+        $this->assertEquals([10, 20, 30, 40, 0], $dataSet->getBorderWidth(), 'Return value should be array of int');
     }
 
     /**
@@ -201,10 +204,10 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(DataSet::class, $dataSet->setXAxisID('myXAxis'));
         $this->assertEquals('myXAxis', $dataSet->getXAxisID(), 'The correct value is returned');
-        $this->assertArraySubset([ 'xAxisID' => 'myXAxis' ], $dataSet->getArrayCopy());
+        $this->assertArraySubset(['xAxisID' => 'myXAxis'], $dataSet->getArrayCopy());
         $this->assertArraySubset(
-            [ 'xAxisID' => 'myXAxis' ],
-            json_decode($dataSet->jsonSerialize(), true),
+            ['xAxisID' => 'myXAxis'],
+            $dataSet->jsonSerialize(),
             'Serialized data is not correct'
         );
 
@@ -217,7 +220,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
                 'xAxisID' => 'myXAxis',
                 'yAxisID' => 'myYAxis',
             ],
-            json_decode($dataSet->jsonSerialize(), true),
+            $dataSet->jsonSerialize(),
             'The serialized data is not correct'
         );
     }
@@ -234,7 +237,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(DataSet::class, $dataSet->setHoverBackgroundColor('#fff'));
         $this->assertEquals('#fff', $dataSet->getHoverBackgroundColor(), 'The correct value is returned');
 
-        $newColors = [ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )' ];
+        $newColors = ['silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )'];
         $dataSet->setHoverBackgroundColor($newColors);
         $this->assertEquals($newColors, $dataSet->getHoverBackgroundColor(), 'The correct value is returned');
     }
@@ -251,9 +254,9 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(DataSet::class, $dataSet->setHoverBorderColor('#fff'));
         $this->assertEquals('#fff', $dataSet->getHoverBorderColor(), 'The correct value is returned');
 
-        $dataSet->setHoverBorderColor([ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )', 0 ]);
+        $dataSet->setHoverBorderColor(['silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )', 0]);
         $this->assertEquals(
-            [ 'silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )', '0' ],
+            ['silver', '#fff', 'rgb( 0, 0, 0 )', 'rgba( 255, 255, 255, .5 )', '0'],
             $dataSet->getHoverBorderColor(),
             'The correct value is returned'
         );
@@ -271,7 +274,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(DataSet::class, $dataSet->setHoverBorderWidth(1));
         $this->assertEquals(1, $dataSet->getHoverBorderWidth(), 'The correct value is returned');
 
-        $dataSet->setHoverBorderWidth([ 1, 10, '5a', 0 ]);
-        $this->assertEquals([ 1, 10, 5, 0 ], $dataSet->getHoverBorderWidth(), 'The correct value is returned');
+        $dataSet->setHoverBorderWidth([1, 10, '5a', 0]);
+        $this->assertEquals([1, 10, 5, 0], $dataSet->getHoverBorderWidth(), 'The correct value is returned');
     }
 }

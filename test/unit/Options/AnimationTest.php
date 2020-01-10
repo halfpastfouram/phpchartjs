@@ -3,13 +3,15 @@
 namespace Options;
 
 use Halfpastfour\PHPChartJS\Options\Animation;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class AnimationTest
+ *
  * @package Test\Options
  */
-class AnimationTest extends \PHPUnit_Framework_TestCase
+class AnimationTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Animation
@@ -92,7 +94,7 @@ class AnimationTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_no_expressions);
         TestUtils::setAttributes($this->animation, $this->input_data_no_expressions);
-        $result = json_decode($this->animation->jsonSerialize(), true);
+        $result = $this->animation->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

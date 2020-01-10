@@ -3,12 +3,13 @@
 namespace Test\Options\Layout;
 
 use Halfpastfour\PHPChartJS\Options\Layout\Padding;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class PaddingTest
  * @package Test\Options\Layout
  */
-class PaddingTest extends \PHPUnit_Framework_TestCase
+class PaddingTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Padding
@@ -69,7 +70,7 @@ class PaddingTest extends \PHPUnit_Framework_TestCase
     public function testJsonSerialize()
     {
         $this->padding->setTop(20);
-        $result = json_decode($this->padding->jsonSerialize(), true);
-        self::assertArraySubset([ 'top' => 20 ], $result);
+        $result = $this->padding->jsonSerialize();
+        self::assertArraySubset(['top' => 20], $result);
     }
 }

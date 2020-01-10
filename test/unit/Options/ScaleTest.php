@@ -6,10 +6,12 @@ use Halfpastfour\PHPChartJS\Options\Scale;
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
 use Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel;
 use Halfpastfour\PHPChartJS\Options\Scales\Ticks;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class AScale
+ *
  * @package Test\Options
  */
 class AScale extends Scale
@@ -18,9 +20,10 @@ class AScale extends Scale
 
 /**
  * Class ScaleTest
+ *
  * @package Test\Options
  */
-class ScaleTest extends \PHPUnit_Framework_TestCase
+class ScaleTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Scale
@@ -177,7 +180,7 @@ class ScaleTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data);
         TestUtils::setAttributes($this->scale, $this->input_data);
-        $result = json_decode($this->scale->jsonSerialize(), true);
+        $result = $this->scale->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

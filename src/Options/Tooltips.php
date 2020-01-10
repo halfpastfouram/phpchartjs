@@ -5,14 +5,15 @@ namespace Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
-use Zend\Json\Expr;
-use Zend\Json\Json;
+use JsonSerializable;
+use Laminas\Json\Expr;
 
 /**
  * Class Tooltips
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Tooltips implements ArraySerializableInterface, \JsonSerializable
+class Tooltips implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -191,13 +192,13 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
      */
     public function setEnabled($enabled)
     {
-        $this->enabled = ! ! $enabled;
+        $this->enabled = boolval($enabled);
 
         return $this;
     }
 
     /**
-     * @return \Zend\Json\Expr
+     * @return \Laminas\Json\Expr
      */
     public function getCustom()
     {
@@ -205,7 +206,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @param \Zend\Json\Expr $custom
+     * @param \Laminas\Json\Expr $custom
      *
      * @return $this
      */
@@ -251,7 +252,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
      */
     public function setIntersect($intersect)
     {
-        $this->intersect = ! ! $intersect;
+        $this->intersect = boolval($intersect);
 
         return $this;
     }
@@ -791,7 +792,7 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
      */
     public function setDisplayColors($displayColors)
     {
-        $this->displayColors = ! ! $displayColors;
+        $this->displayColors = boolval($displayColors);
 
         return $this;
     }
@@ -809,10 +810,10 @@ class Tooltips implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, [ 'enableJsonExprFinder' => true ]);
+        return $this->getArrayCopy();
     }
 }

@@ -2,8 +2,11 @@
 
 namespace Halfpastfour\PHPChartJS\Renderer;
 
+use DOMDocument;
+
 /**
  * Class Renderer
+ *
  * @package Halfpastfour\PHPChartJS
  */
 class Html extends Renderer
@@ -17,7 +20,7 @@ class Html extends Renderer
      */
     public function render($flags = null)
     {
-        $dom = new \DOMDocument();
+        $dom = new DOMDocument();
 
         // Render canvas HTML element
         $canvas = $dom->createElement('canvas');

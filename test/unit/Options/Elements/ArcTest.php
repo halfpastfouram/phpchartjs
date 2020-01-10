@@ -3,13 +3,15 @@
 namespace Test\Options\Elements;
 
 use Halfpastfour\PHPChartJS\Options\Elements\Arc;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class ArcTest
+ *
  * @package Test\Options\Elements
  */
-class ArcTest extends \PHPUnit_Framework_TestCase
+class ArcTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Arc
@@ -79,7 +81,7 @@ class ArcTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data);
         TestUtils::setAttributes($this->arc, $this->input_data);
-        $result = json_decode($this->arc->jsonSerialize(), true);
+        $result = $this->arc->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

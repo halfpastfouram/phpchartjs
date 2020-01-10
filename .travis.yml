@@ -4,6 +4,8 @@ php:
   - '7.0'
   - '7.1'
   - '7.2'
+  - '7.3'
+  - '7.4'
   - nightly
 
 before_script:
@@ -12,11 +14,9 @@ before_script:
   - mkdir build/logs -p
 
 script:
-  - phpunit
+  - composer test
   - composer cs-check
-
-after_success:
-  - vendor/bin/test-reporter
+  - php vendor/bin/security-checker security:check
 
 after_script:
   - rm -rf build/logs
@@ -27,5 +27,5 @@ matrix:
 
 branches:
   only:
-  - master
-  - dev
+    - master
+    - dev

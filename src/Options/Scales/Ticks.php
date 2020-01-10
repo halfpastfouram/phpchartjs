@@ -4,15 +4,15 @@ namespace Halfpastfour\PHPChartJS\Options\Scales;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Expr;
-use Zend\Json\Json;
+use JsonSerializable;
+use Laminas\Json\Expr;
 
 /**
  * Class Ticks
  *
  * @package Halfpastfour\PHPChartJS\Options\Scales
  */
-class Ticks implements ArraySerializableInterface, \JsonSerializable
+class Ticks implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -181,7 +181,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      */
     public function setAutoSkip($autoSkip)
     {
-        $this->autoSkip = ! ! $autoSkip;
+        $this->autoSkip = boolval($autoSkip);
 
         return $this;
     }
@@ -241,7 +241,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      */
     public function setDisplay($display)
     {
-        $this->display = ! ! $display;
+        $this->display = boolval($display);
 
         return $this;
     }
@@ -401,7 +401,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      */
     public function setMirror($mirror)
     {
-        $this->mirror = ! ! $mirror;
+        $this->mirror = boolval($mirror);
 
         return $this;
     }
@@ -441,7 +441,7 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
      */
     public function setReverse($reverse)
     {
-        $this->reverse = ! ! $reverse;
+        $this->reverse = boolval($reverse);
 
         return $this;
     }
@@ -467,10 +467,10 @@ class Ticks implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy(), false, ['enableJsonExprFinder' => true]);
+        return $this->getArrayCopy();
     }
 }

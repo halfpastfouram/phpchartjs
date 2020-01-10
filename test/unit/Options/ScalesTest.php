@@ -3,12 +3,14 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options\Scales;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class ScalesTest
+ *
  * @package Test\Options
  */
-class ScalesTest extends \PHPUnit_Framework_TestCase
+class ScalesTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Scales
@@ -70,18 +72,18 @@ class ScalesTest extends \PHPUnit_Framework_TestCase
         $x1 = new Scales\XAxis();
         $x1->setBarThickness(2);
         $xc[]              = $x1;
-        $expected['xAxes'] = json_decode($xc->jsonSerialize(), true);
+        $expected['xAxes'] = $xc->jsonSerialize();
 
         $yc = new Scales\YAxisCollection();
         $y1 = new Scales\YAxis();
         $y1->setBarThickness(3);
         $yc[] = $y1;
 
-        $expected['xAxes']          = json_decode($xc->jsonSerialize(), true);
-        $expected['yAxes']          = json_decode($yc->jsonSerialize(), true);
+        $expected['xAxes']          = $xc->jsonSerialize();
+        $expected['yAxes']          = $yc->jsonSerialize();
         $this->scales->getXAxes()[] = $x1;
         $this->scales->getYAxes()[] = $y1;
-        $result                     = json_decode($this->scales->jsonSerialize(), true);
+        $result                     = $this->scales->jsonSerialize();
         self::assertSame($expected, $result);
     }
 }

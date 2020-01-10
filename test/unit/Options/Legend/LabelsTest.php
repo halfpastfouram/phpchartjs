@@ -3,13 +3,14 @@
 namespace Test\Options\Legend;
 
 use Halfpastfour\PHPChartJS\Options\Legend\Labels;
+use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
 
 /**
  * Class LabelsTest
  * @package Test\Options\Legend
  */
-class LabelsTest extends \PHPUnit_Framework_TestCase
+class LabelsTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Labels $labels
@@ -125,7 +126,7 @@ class LabelsTest extends \PHPUnit_Framework_TestCase
     {
         $expected = TestUtils::removeNullsFromArray($this->input_data_1);
         TestUtils::setAttributes($this->labels, $expected);
-        $result = json_decode($this->labels->jsonSerialize(), true);
+        $result = $this->labels->jsonSerialize();
         self::assertEquals($expected, $result);
     }
 }

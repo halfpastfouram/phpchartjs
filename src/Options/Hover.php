@@ -4,14 +4,15 @@ namespace Halfpastfour\PHPChartJS\Options;
 
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
-use Zend\Json\Expr;
-use Zend\Json\Json;
+use JsonSerializable;
+use Laminas\Json\Expr;
 
 /**
  * Class Hover
+ *
  * @package Halfpastfour\PHPChartJS\Options
  */
-class Hover implements ArraySerializableInterface, \JsonSerializable
+class Hover implements ArraySerializableInterface, JsonSerializable
 {
     use ArraySerializable;
 
@@ -64,6 +65,14 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
+     * @return bool
+     */
+    public function getIntersect()
+    {
+        return $this->intersect;
+    }
+
+    /**
      * @param bool $intersect
      *
      * @return $this
@@ -96,7 +105,7 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return \Zend\Json\Expr
+     * @return \Laminas\Json\Expr
      */
     public function getOnHover()
     {
@@ -116,10 +125,10 @@ class Hover implements ArraySerializableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function jsonSerialize()
     {
-        return Json::encode($this->getArrayCopy());
+        return $this->getArrayCopy();
     }
 }

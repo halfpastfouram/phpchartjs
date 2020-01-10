@@ -2,17 +2,19 @@
 
 namespace Test;
 
-use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\Chart;
+use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Renderer\Html;
 use Halfpastfour\PHPChartJS\Renderer\Json;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class RendererTest
+ *
  * @package Test
  */
-class RendererTest extends \PHPUnit_Framework_TestCase
+class RendererTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Chart
@@ -26,10 +28,10 @@ class RendererTest extends \PHPUnit_Framework_TestCase
     {
         $chart = new Bar();
         $chart->setId('myChart')
-            ->addLabel('Label 1')->addLabel('Label 2')
-            ->setTitle('My beautiful chart')
-            ->setHeight(320)
-            ->setWidth(480);
+              ->addLabel('Label 1')->addLabel('Label 2')
+              ->setTitle('My beautiful chart')
+              ->setHeight(320)
+              ->setWidth(480);
 
         /** @var DataSet $dataSet */
         $chart->addDataSet($dataSet = $chart->createDataSet());
@@ -49,18 +51,20 @@ class RendererTest extends \PHPUnit_Framework_TestCase
     {
         $renderer = new Json($this->chart);
         $json     = $renderer->render();
-        $result   = preg_match('/
-		  (?(DEFINE)
-			 (?<number>   -? (?= [1-9]|0(?!\d) ) \d+ (\.\d+)? ([eE] [+-]? \d+)? )    
-			 (?<boolean>   true | false | null )
-			 (?<string>    " ([^"\\\\]* | \\\\ ["\\\\bfnrt\/] | \\\\ u [0-9a-f]{4} )* " )
-			 (?<array>     \[  (?:  (?&json)  (?: , (?&json)  )*  )?  \s* \] )
-			 (?<pair>      \s* (?&string) \s* : (?&json)  )
-			 (?<object>    \{  (?:  (?&pair)  (?: , (?&pair)  )*  )?  \s* \} )
-			 (?<json>   \s* (?: (?&number) | (?&boolean) | (?&string) | (?&array) | (?&object) ) \s* )
-		  )
-		  \A (?&json) \Z
-		  /six', $json, $matches);
+        $regex    = <<<REGEX
+/(?(DEFINE)
+ (?<number>   -? (?= [1-9]|0(?!\d) ) \d+ (\.\d+)? ([eE] [+-]? \d+)? )    
+ (?<boolean>   true | false | null )
+ (?<string>    " ([^"\\\\]* | \\\\ ["\\\\bfnrt\/] | \\\\ u [0-9a-f]{4} )* " )
+ (?<array>     \[  (?:  (?&json)  (?: , (?&json)  )*  )?  \s* \] )
+ (?<pair>      \s* (?&string) \s* : (?&json)  )
+ (?<object>    \{  (?:  (?&pair)  (?: , (?&pair)  )*  )?  \s* \} )
+ (?<json>   \s* (?: (?&number) | (?&boolean) | (?&string) | (?&array) | (?&object) ) \s* )
+)
+\A (?&json) \Z/six
+REGEX;
+
+        $result = preg_match($regex, $json, $matches);
 
         $this->assertEquals(1, $result, 'Validate JSON output');
     }

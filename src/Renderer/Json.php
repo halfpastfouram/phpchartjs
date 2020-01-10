@@ -2,10 +2,11 @@
 
 namespace Halfpastfour\PHPChartJS\Renderer;
 
-use Zend\Json\Json as JsonHelper;
+use Laminas\Json\Json as JsonHelper;
 
 /**
  * Class Json
+ *
  * @package Halfpastfour\PHPChartJS\Renderer
  */
 class Json extends Renderer
@@ -13,7 +14,7 @@ class Json extends Renderer
     /**
      * Render the necessary JSON for the chart to function in the frontend.
      *
-     * @param int|null $flags
+     * @param int|false $flags
      *
      * @return string
      */
@@ -24,22 +25,22 @@ class Json extends Renderer
             'data' => [],
         ];
 
-        $labels = $this->chart->labels()->getArrayCopy();
+        $labels = $this->chart->labels()->jsonSerialize();
         if ($labels) {
             $config['data']['labels'] = $labels;
         }
 
-        $dataSets = $this->chart->dataSets()->getArrayCopy();
+        $dataSets = $this->chart->dataSets()->jsonSerialize();
         if ($dataSets) {
             $config['data']['datasets'] = $dataSets;
         }
 
-        $options = $this->chart->options()->getArrayCopy();
-        if ($options) {
+        $options = $this->chart->options()->jsonSerialize();
+        if (! empty($options)) {
             $config['options'] = $options;
         }
 
-        $output = JsonHelper::encode($config, false, [ 'enableJsonExprFinder' => true ]);
+        $output = JsonHelper::encode($config, false, ['enableJsonExprFinder' => true]);
         if ($flags & Renderer::RENDER_PRETTY) {
             $output = JsonHelper::prettyPrint($output);
         }
