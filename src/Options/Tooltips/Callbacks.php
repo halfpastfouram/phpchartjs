@@ -5,7 +5,7 @@ namespace Halfpastfour\PHPChartJS\Options\Tooltips;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use JsonSerializable;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
 
 /**
  * Class Callbacks

@@ -2,7 +2,7 @@
 
 namespace Halfpastfour\PHPChartJS\Renderer;
 
-use Zend\Json\Json as JsonHelper;
+use Laminas\Json\Json as JsonHelper;
 
 /**
  * Class Json

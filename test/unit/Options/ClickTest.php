@@ -3,9 +3,9 @@
 namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\Options;
+use Laminas\Json\Expr;
 use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
-use Zend\Json\Expr;
 
 /**
  * Class ClickTest

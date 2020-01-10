@@ -12,7 +12,7 @@ use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
 use JsonSerializable;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
 
 /**
  * Class Options
@@ -45,7 +45,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, JsonSe
     protected $hover;
 
     /**
-     * @var \Zend\Json\Expr
+     * @var \Laminas\Json\Expr
      */
     protected $onClick;
 
@@ -123,7 +123,7 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, JsonSe
     }
 
     /**
-     * @return \Zend\Json\Expr
+     * @return \Laminas\Json\Expr
      */
     public function getOnClick()
     {

@@ -6,7 +6,7 @@ use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
 use JsonSerializable;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
 
 /**
  * Class Tooltips
@@ -198,7 +198,7 @@ class Tooltips implements ArraySerializableInterface, JsonSerializable
     }
 
     /**
-     * @return \Zend\Json\Expr
+     * @return \Laminas\Json\Expr
      */
     public function getCustom()
     {
@@ -206,7 +206,7 @@ class Tooltips implements ArraySerializableInterface, JsonSerializable
     }
 
     /**
-     * @param \Zend\Json\Expr $custom
+     * @param \Laminas\Json\Expr $custom
      *
      * @return $this
      */

@@ -5,7 +5,7 @@ namespace Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use JsonSerializable;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
 
 /**
  * Class Hover
@@ -105,7 +105,7 @@ class Hover implements ArraySerializableInterface, JsonSerializable
     }
 
     /**
-     * @return \Zend\Json\Expr
+     * @return \Laminas\Json\Expr
      */
     public function getOnHover()
     {

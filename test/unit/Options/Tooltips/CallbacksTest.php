@@ -3,9 +3,9 @@
 namespace Test\Options\Tooltips;
 
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
+use Laminas\Json\Expr;
 use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
-use Zend\Json\Expr;
 
 /**
  * Class CallbacksTest

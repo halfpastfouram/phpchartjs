@@ -6,7 +6,7 @@ use Halfpastfour\PHPChartJS\ArraySerializableInterface;
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use JsonSerializable;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
 
 /**
  * Class Legend

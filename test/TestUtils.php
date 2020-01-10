@@ -2,7 +2,8 @@
 
 namespace Test;
 
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
+use RuntimeException;
 
 /**
  * Class TestUtils
@@ -21,13 +22,13 @@ class TestUtils
     {
 
         if (! is_object($obj)) {
-            throw new \RuntimeException("First param should be an object. ");
+            throw new RuntimeException("First param should be an object. ");
         }
 
         foreach ($data as $key => $value) {
             $function = 'set' . ucfirst($key);
             if (! is_null($value) && method_exists($obj, $function)) {
-                $obj->$function( $value );
+                $obj->$function($value);
             }
         }
     }
@@ -46,14 +47,14 @@ class TestUtils
     {
 
         if (! is_object($obj)) {
-            throw new \RuntimeException("First param should be an object. ");
+            throw new RuntimeException("First param should be an object. ");
         }
 
         $array = [];
         foreach ($dataTypes as $key => $value) {
             $function = ( gettype($value) == "boolean" ? 'is' : 'get' ) . ucfirst($key);
             if (method_exists($obj, $function)) {
-                $getResult     = $obj->$function( $value );
+                $getResult     = $obj->$function($value);
                 $getResult     = $getResult instanceof Expr ? $getResult->__toString() : $getResult;
                 $array[ $key ] = $getResult;
             }

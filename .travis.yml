@@ -16,9 +16,7 @@ before_script:
 script:
   - composer test
   - composer cs-check
-
-after_success:
-  - vendor/bin/test-reporter
+  - php vendor/bin/security-checker security:check
 
 after_script:
   - rm -rf build/logs

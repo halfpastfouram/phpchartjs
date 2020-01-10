@@ -4,9 +4,9 @@ namespace Test\Options;
 
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\Legend;
+use Laminas\Json\Expr;
 use PHPUnit_Framework_TestCase;
 use Test\TestUtils;
-use Zend\Json\Expr;
 
 /**
  * Class LegendTest
