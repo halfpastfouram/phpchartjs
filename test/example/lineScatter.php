@@ -29,7 +29,7 @@ $scales->getXAxes()->append($xAxis);
 <html lang="en">
 <head>
     <title>Line scatter</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 </head>
 <body>
 <?php

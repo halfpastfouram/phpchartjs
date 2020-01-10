@@ -13,7 +13,7 @@
 [![Build Status](https://travis-ci.org/halfpastfouram/PHPChartJS.svg?branch=dev)](https://travis-ci.org/halfpastfouram/PHPChartJS)
 
 # PHPChartJS
-PHP OOP library for [ChartJS 2.4](http://www.chartjs.org/)
+PHP OOP library for [ChartJS](http://www.chartjs.org/)
 
 PHPChartJS acts as an interface between the ChartJS library and the server side code. Set up a chart in no time and have every aspect of the graph managable from your PHP code. This interface is set up to provide code completion in every scenario so you never have to guess or lookup what options are available for the chosen chart. The library is entirely object oriented.
 
