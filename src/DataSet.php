@@ -78,6 +78,11 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, JsonSe
     protected $hoverBorderWidth;
 
     /**
+     * @var bool|null
+     */
+    protected $hidden;
+
+    /**
      * @return string
      */
     public function getType()
@@ -347,6 +352,30 @@ class DataSet implements ChartOwnedInterface, ArraySerializableInterface, JsonSe
         }
 
         $this->hoverBorderWidth = $hoverBorderWidth;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isHidden()
+    {
+        if (is_null($this->hidden)) {
+            $this->hidden = false;
+        }
+
+        return $this->hidden;
+    }
+
+    /**
+     * @param bool|null $hidden
+     *
+     * @return $this
+     */
+    public function setHidden($hidden)
+    {
+        $this->hidden = is_null($hidden) ? null : boolval($hidden);
 
         return $this;
     }

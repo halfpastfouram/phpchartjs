@@ -277,4 +277,20 @@ class DataSetTest extends PHPUnit_Framework_TestCase
         $dataSet->setHoverBorderWidth([1, 10, '5a', 0]);
         $this->assertEquals([1, 10, 5, 0], $dataSet->getHoverBorderWidth(), 'The correct value is returned');
     }
+
+    /**
+     *
+     */
+    public function testVisibility()
+    {
+        $dataSet = new DataSet();
+        $this->assertArrayNotHasKey('hidden', $dataSet->jsonSerialize(), 'Value should not be present');
+        $this->assertFalse($dataSet->isHidden(), 'Default value should be false');
+        $this->assertArrayHasKey('hidden', $dataSet->jsonSerialize(), 'Value should be present');
+        $this->assertInstanceOf(DataSet::class, $dataSet->setHidden(true));
+        $this->assertTrue($dataSet->isHidden(), 'Value should be true');
+        $this->assertTrue($dataSet->jsonSerialize()['hidden'], 'Value should be true');
+        $this->assertInstanceOf(DataSet::class, $dataSet->setHidden(null));
+        $this->assertArrayNotHasKey('hidden', $dataSet->jsonSerialize(), 'Value should not be present');
+    }
 }
