@@ -184,6 +184,7 @@ class ChartTest extends PHPUnit_Framework_TestCase
         $expected = new DataSetCollection();
         $dataSet1 = new DataSet();
         $expected->append($dataSet1);
+        $dataSet1->setOwner($this->chart);
         $dataSet2 = new DataSet();
         $this->chart->addDataSet($dataSet2);
         self::assertEquals($dataSet1, $dataSet2);
