@@ -21,12 +21,12 @@ class JavaScript extends Renderer
         $script = [];
 
         // First, setup the canvas context
-        $script[] = "var ctx = document.getElementById( \"{$this->chart->getId()}\" ).getContext( \"2d\" );";
+        $script[] = "var ctx = document.getElementById(\"{$this->chart->getId()}\").getContext(\"2d\");";
 
         // Now, setup the chart instance
         $jsonRenderer = new Json($this->chart);
         $json         = $jsonRenderer->render($flags);
-        $script[]     = "var chart = new Chart( ctx, {$json} );";
+        $script[]     = "var chart = new Chart(ctx, {$json});";
         $scriptString = implode("\n", $script);
 
         // Return the script
