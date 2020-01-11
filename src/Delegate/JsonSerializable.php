@@ -27,4 +27,9 @@ trait JsonSerializable
             return $value;
         }, $this->getArrayCopy());
     }
+
+    /**
+     * @return array
+     */
+    abstract public function getArrayCopy();
 }

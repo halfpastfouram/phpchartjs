@@ -4,6 +4,7 @@ namespace Halfpastfour\PHPChartJS;
 
 /**
  * Class ChartOwned
+ *
  * @package Halfpastfour\PHPChartJS
  */
 trait ChartOwned
@@ -20,7 +21,7 @@ trait ChartOwned
      */
     public function setOwner(ChartInterface $chart)
     {
-        $this->owner        = $chart;
+        $this->owner = $chart;
 
         return $this;
     }

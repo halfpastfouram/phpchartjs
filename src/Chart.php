@@ -229,8 +229,11 @@ abstract class Chart implements ChartInterface
     public function createDataSet()
     {
         $datasetClass = static::MODEL['dataset'];
+        /** @var \Halfpastfour\PHPChartJS\DataSet $dataSet */
+        $dataSet = new $datasetClass();
+        $dataSet->setOwner($this);
 
-        return new $datasetClass();
+        return $dataSet;
     }
 
     /**
@@ -241,6 +244,7 @@ abstract class Chart implements ChartInterface
         if (is_null($this->options)) {
             $optionsClass  = static::MODEL['options'];
             $this->options = new $optionsClass($this);
+            $this->options->setOwner($this);
         }
 
         return $this->options;

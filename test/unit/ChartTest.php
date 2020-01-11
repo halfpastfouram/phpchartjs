@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use DOMDocument;
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\DataSet;
@@ -9,12 +10,14 @@ use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
 use Halfpastfour\PHPChartJS\DataSetCollection;
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\BarOptions;
+use PHPUnit_Framework_TestCase;
 
 /**
  * Class ChartTest
+ *
  * @package Halfpastfour\PHPChartJS
  */
-class ChartTest extends \PHPUnit_Framework_TestCase
+class ChartTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Chart
@@ -180,7 +183,8 @@ class ChartTest extends \PHPUnit_Framework_TestCase
     {
         $expected = new DataSetCollection();
         $dataSet1 = new DataSet();
-        $expected->append($dataSet1->setOwner($this->chart));
+        $expected->append($dataSet1);
+        $dataSet1->setOwner($this->chart);
         $dataSet2 = new DataSet();
         $this->chart->addDataSet($dataSet2);
         self::assertEquals($dataSet1, $dataSet2);
@@ -212,7 +216,7 @@ class ChartTest extends \PHPUnit_Framework_TestCase
     public function testRenderCanvas()
     {
         $chartHtml = "<div>" . $this->chart->render() . "</div>";
-        $htmlDoc   = new \DOMDocument();
+        $htmlDoc   = new DOMDocument();
         $htmlDoc->loadXML($chartHtml);
         $canvas = $htmlDoc->getElementsByTagName('canvas')->item(0);
         $result = $canvas->getAttribute('id');
@@ -227,7 +231,7 @@ class ChartTest extends \PHPUnit_Framework_TestCase
         $expected = '500';
         $this->chart->setHeight($expected);
         $chartHtml = "<div>" . $this->chart->render(true) . "</div>";
-        $htmlDoc   = new \DOMDocument();
+        $htmlDoc   = new DOMDocument();
         $htmlDoc->loadXML($chartHtml);
         $canvas = $htmlDoc->getElementsByTagName('canvas')->item(0);
         $result = $canvas->getAttribute('height');
@@ -242,7 +246,7 @@ class ChartTest extends \PHPUnit_Framework_TestCase
         $expected = '500';
         $this->chart->setWidth($expected);
         $chartHtml = "<div>" . $this->chart->render(true) . "</div>";
-        $htmlDoc   = new \DOMDocument();
+        $htmlDoc   = new DOMDocument();
         $htmlDoc->loadXML($chartHtml);
         $canvas = $htmlDoc->getElementsByTagName('canvas')->item(0);
         $result = $canvas->getAttribute('width');
@@ -255,7 +259,7 @@ class ChartTest extends \PHPUnit_Framework_TestCase
     public function testRenderScript()
     {
         $chartHtml = "<div>" . $this->chart->render(true) . "</div>";
-        $htmlDoc   = new \DOMDocument();
+        $htmlDoc   = new DOMDocument();
         $htmlDoc->loadXML($chartHtml);
         $script = $htmlDoc->getElementsByTagName('script')->item(0);
         self::assertNotEmpty($script->nodeValue);

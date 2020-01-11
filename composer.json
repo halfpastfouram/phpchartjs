@@ -9,7 +9,7 @@
   "readme": "README.md",
   "homepage": "http://halfpastfouram.github.io/PHPChartJS",
   "type": "package",
-  "version": "v1.2.1",
+  "version": "v1.3.0-dev",
   "license": "AGPL-3.0-or-later",
   "authors": [
     {
