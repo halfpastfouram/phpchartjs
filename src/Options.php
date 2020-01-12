@@ -75,6 +75,31 @@ class Options implements ChartOwnedInterface, ArraySerializableInterface, JsonSe
     protected $maintainAspectRatio;
 
     /**
+     * @var Expr
+     */
+    protected $legendCallback;
+
+    /**
+     * @return Expr
+     */
+    public function getLegendCallback()
+    {
+        return $this->legendCallback;
+    }
+
+    /**
+     * @param Expr $legendCallback
+     *
+     * @return $this
+     */
+    public function setLegendCallback($legendCallback)
+    {
+        $this->legendCallback = new Expr(strval($legendCallback));
+
+        return $this;
+    }
+
+    /**
      * @return Layout
      */
     public function getLayout()
