@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Halfpastfour\Collection\Collection\ArrayAccess;
 use Halfpastfour\PHPChartJS\ArraySerializableInterface;
@@ -10,14 +10,14 @@ use Halfpastfour\PHPChartJS\ChartOwnedInterface;
 use Halfpastfour\PHPChartJS\Collection\Data;
 use Halfpastfour\PHPChartJS\DataSet;
 use JsonSerializable;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class DataSetTest
  *
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
-class DataSetTest extends PHPUnit_Framework_TestCase
+class DataSetTest extends TestCase
 {
     /**
      *
@@ -204,25 +204,19 @@ class DataSetTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(DataSet::class, $dataSet->setXAxisID('myXAxis'));
         $this->assertEquals('myXAxis', $dataSet->getXAxisID(), 'The correct value is returned');
-        $this->assertArraySubset(['xAxisID' => 'myXAxis'], $dataSet->getArrayCopy());
-        $this->assertArraySubset(
-            ['xAxisID' => 'myXAxis'],
-            $dataSet->jsonSerialize(),
-            'Serialized data is not correct'
-        );
+        $arrayCopy = $dataSet->getArrayCopy();
+        $this->assertArrayHasKey('xAxisID', $arrayCopy, 'Serialized data is not correct');
+        $this->assertSame('myXAxis', $arrayCopy['xAxisID'], 'Serialized data is not correct');
 
         $this->assertNull($dataSet->getYAxisID(), 'The yAxisID value is not set');
 
         $this->assertInstanceOf(DataSet::class, $dataSet->setYAxisID('myYAxis'));
         $this->assertEquals('myYAxis', $dataSet->getYAxisID(), 'The correct value is not returned');
-        $this->assertArraySubset(
-            [
-                'xAxisID' => 'myXAxis',
-                'yAxisID' => 'myYAxis',
-            ],
-            $dataSet->jsonSerialize(),
-            'The serialized data is not correct'
-        );
+        $result = $dataSet->jsonSerialize();
+        $this->assertArrayHasKey('xAxisID', $result, 'The serialized data is not correct');
+        $this->assertArrayHasKey('yAxisID', $result, 'The serialized data is not correct');
+        $this->assertSame('myXAxis', $result['xAxisID'], 'The serialized data is not correct');
+        $this->assertSame('myYAxis', $result['yAxisID'], 'The serialized data is not correct');
     }
 
     /**

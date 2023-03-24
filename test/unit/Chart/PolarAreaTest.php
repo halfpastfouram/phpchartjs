@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\PolarArea;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\PolarAreaDataSet;
 use Halfpastfour\PHPChartJS\Options\PolarAreaOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PolarAreaTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class PolarAreaTest extends \PHPUnit_Framework_TestCase
+class PolarAreaTest extends TestCase
 {
     /**
      * Test the factory for creating a PolarArea chart

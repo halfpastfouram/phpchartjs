@@ -1,17 +1,17 @@
 <?php
 
-namespace Test\Options\Elements;
+namespace Halfpastfour\PHPChartJSTest\Options\Elements;
 
 use Halfpastfour\PHPChartJS\Options\Elements\Rectangle;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use PHPUnit\Framework\TestCase;
+use Halfpastfour\PHPChartJSTest\TestUtils;
 
 /**
  * Class RectangleTest
  *
- * @package Test\Options\Elements
+ * @package Halfpastfour\PHPChartJSTest\Options\Elements
  */
-class RectangleTest extends PHPUnit_Framework_TestCase
+class RectangleTest extends TestCase
 {
     /**
      * @var Rectangle
@@ -51,7 +51,7 @@ class RectangleTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->rectangle = new Rectangle();
     }

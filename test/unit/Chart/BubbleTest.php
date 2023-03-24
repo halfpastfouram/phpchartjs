@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Bubble;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BubbleDataSet;
 use Halfpastfour\PHPChartJS\Options\BubbleOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class BubbleTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class BubbleTest extends \PHPUnit_Framework_TestCase
+class BubbleTest extends TestCase
 {
     /**
      * Test the factory for creating a Bubble chart

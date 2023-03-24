@@ -1,21 +1,21 @@
 <?php
 
-namespace Test\Options;
+namespace Halfpastfour\PHPChartJSTest\Options;
 
 use Halfpastfour\PHPChartJS\Options\Elements;
 use Halfpastfour\PHPChartJS\Options\Elements\Arc;
 use Halfpastfour\PHPChartJS\Options\Elements\Line;
 use Halfpastfour\PHPChartJS\Options\Elements\Point;
 use Halfpastfour\PHPChartJS\Options\Elements\Rectangle;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use PHPUnit\Framework\TestCase;
+use Halfpastfour\PHPChartJSTest\TestUtils;
 
 /**
  * Class ElementsTest
  *
- * @package Test\Options
+ * @package Halfpastfour\PHPChartJSTest\Options
  */
-class ElementsTest extends PHPUnit_Framework_TestCase
+class ElementsTest extends TestCase
 {
     /**
      * @var Elements
@@ -55,7 +55,7 @@ class ElementsTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->elements = new Elements();
     }

@@ -1,18 +1,18 @@
 <?php
 
-namespace Test\Options\Tooltips;
+namespace Halfpastfour\PHPChartJSTest\Options\Tooltips;
 
 use Halfpastfour\PHPChartJS\Options\Tooltips\Callbacks;
 use Laminas\Json\Expr;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use PHPUnit\Framework\TestCase;
+use Halfpastfour\PHPChartJSTest\TestUtils;
 
 /**
  * Class CallbacksTest
  *
- * @package Test\Options\Tooltips
+ * @package Halfpastfour\PHPChartJSTest\Options\Tooltips
  */
-class CallbacksTest extends PHPUnit_Framework_TestCase
+class CallbacksTest extends TestCase
 {
     /**
      * @var Callbacks
@@ -78,7 +78,7 @@ class CallbacksTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->callbacks = new Callbacks();
 

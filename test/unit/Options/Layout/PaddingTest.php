@@ -1,15 +1,15 @@
 <?php
 
-namespace Test\Options\Layout;
+namespace Halfpastfour\PHPChartJSTest\Options\Layout;
 
 use Halfpastfour\PHPChartJS\Options\Layout\Padding;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PaddingTest
- * @package Test\Options\Layout
+ * @package Halfpastfour\PHPChartJSTest\Options\Layout
  */
-class PaddingTest extends PHPUnit_Framework_TestCase
+class PaddingTest extends TestCase
 {
     /**
      * @var Padding
@@ -19,7 +19,7 @@ class PaddingTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->padding = new Padding();
     }
@@ -71,6 +71,7 @@ class PaddingTest extends PHPUnit_Framework_TestCase
     {
         $this->padding->setTop(20);
         $result = $this->padding->jsonSerialize();
-        self::assertArraySubset(['top' => 20], $result);
+        self::assertArrayHasKey('top', $result);
+        self::assertEquals(20, $result['top']);
     }
 }

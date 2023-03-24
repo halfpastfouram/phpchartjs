@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Doughnut;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\PieDataSet;
 use Halfpastfour\PHPChartJS\Options\PieOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class DoughnutTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class DoughnutTest extends \PHPUnit_Framework_TestCase
+class DoughnutTest extends TestCase
 {
     /**
      * Test the factory for creating a Doughnut chart

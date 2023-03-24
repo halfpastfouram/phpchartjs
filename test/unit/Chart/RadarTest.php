@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Radar;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\RadarDataSet;
 use Halfpastfour\PHPChartJS\Options\RadarOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class RadarTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class RadarTest extends \PHPUnit_Framework_TestCase
+class RadarTest extends TestCase
 {
     /**
      * Test the factory for creating a Radar chart

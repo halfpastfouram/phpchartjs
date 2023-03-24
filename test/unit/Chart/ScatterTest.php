@@ -1,18 +1,19 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Scatter;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\ScatterDataSet;
 use Halfpastfour\PHPChartJS\Options\ScatterOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ScatterTest
  *
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class ScatterTest extends \PHPUnit_Framework_TestCase
+class ScatterTest extends TestCase
 {
     /**
      * Test the factory for creating a Scatter chart

@@ -1,17 +1,17 @@
 <?php
 
-namespace Test\Options;
+namespace Halfpastfour\PHPChartJSTest\Options;
 
 use Halfpastfour\PHPChartJS\Options\Hover;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use Halfpastfour\PHPChartJSTest\TestUtils;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class HoverTest
  *
- * @package Test\Options
+ * @package Halfpastfour\PHPChartJSTest\Options
  */
-class HoverTest extends PHPUnit_Framework_TestCase
+class HoverTest extends TestCase
 {
     /**
      * @var Hover
@@ -61,7 +61,7 @@ class HoverTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->hover = new Hover();
     }

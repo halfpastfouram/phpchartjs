@@ -1,16 +1,16 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Halfpastfour\PHPChartJS\LabelsCollection;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class LabelsCollectionTest
  *
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
-class LabelsCollectionTest extends PHPUnit_Framework_TestCase
+class LabelsCollectionTest extends TestCase
 {
     /**
      * @var  LabelsCollection
@@ -30,7 +30,7 @@ class LabelsCollectionTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->labelsCollectionEmpty = new LabelsCollection();
         $this->labelsCollection      = new LabelsCollection($this->labelsArray);
