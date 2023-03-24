@@ -6,3 +6,4 @@ composer.phar
 codeCoverage
 build
 *DS_Store
+/report.xml

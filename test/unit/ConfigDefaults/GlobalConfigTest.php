@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\ConfigDefaults;
+namespace Halfpastfour\PHPChartJSTest\ConfigDefaults;
 
 use Halfpastfour\PHPChartJS\ConfigDefaults\AnimationConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\ElementsConfig;
@@ -8,23 +8,24 @@ use Halfpastfour\PHPChartJS\ConfigDefaults\GlobalConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\HoverConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\LayoutConfig;
 use Halfpastfour\PHPChartJS\ConfigDefaults\TooltipsConfig;
-use Test\TestUtils;
+use Halfpastfour\PHPChartJSTest\TestUtils;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class GlobalConfigTest
- * @package Test\ConfigDefaults
+ * @package Halfpastfour\PHPChartJSTest\ConfigDefaults
  */
-class GlobalConfigTest extends \PHPUnit_Framework_TestCase
+class GlobalConfigTest extends TestCase
 {
     /**
      * @var GlobalConfig $config
      */
-    private $config;
+    private GlobalConfig $config;
 
     /**
      * @var array
      */
-    private $data_types = [
+    private array $data_types = [
         'defaultFontColor'  => '',
         'defaultFontFamily' => '',
         'defaultFontSize'   => 1,
@@ -34,7 +35,7 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $input_data = [
+    private array $input_data = [
         'defaultFontColor'  => 'defaultFontColor',
         'defaultFontFamily' => 'defaultFontFamily',
         'defaultFontSize'   => 2,
@@ -44,7 +45,7 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $empty_data = [
+    private array $empty_data = [
         'defaultFontColor'  => null,
         'defaultFontFamily' => null,
         'defaultFontSize'   => null,
@@ -54,7 +55,7 @@ class GlobalConfigTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->config = GlobalConfig::getInstance();
     }

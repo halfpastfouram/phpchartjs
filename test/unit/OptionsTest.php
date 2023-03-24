@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Halfpastfour\PHPChartJS\Options;
 use Halfpastfour\PHPChartJS\Options\Animation;
@@ -11,14 +11,14 @@ use Halfpastfour\PHPChartJS\Options\Legend;
 use Halfpastfour\PHPChartJS\Options\Scales;
 use Halfpastfour\PHPChartJS\Options\Title;
 use Halfpastfour\PHPChartJS\Options\Tooltips;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class OptionsTest
  *
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
-class OptionsTest extends PHPUnit_Framework_TestCase
+class OptionsTest extends TestCase
 {
     /**
      * @var Options $options
@@ -33,7 +33,7 @@ class OptionsTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->options = new Options();
     }

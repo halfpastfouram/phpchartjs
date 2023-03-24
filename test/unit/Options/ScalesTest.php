@@ -1,16 +1,16 @@
 <?php
 
-namespace Test\Options;
+namespace Halfpastfour\PHPChartJSTest\Options;
 
 use Halfpastfour\PHPChartJS\Options\Scales;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ScalesTest
  *
- * @package Test\Options
+ * @package Halfpastfour\PHPChartJSTest\Options
  */
-class ScalesTest extends PHPUnit_Framework_TestCase
+class ScalesTest extends TestCase
 {
     /**
      * @var Scales
@@ -20,7 +20,7 @@ class ScalesTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->scales = new Scales();
     }
@@ -68,6 +68,7 @@ class ScalesTest extends PHPUnit_Framework_TestCase
      */
     public function testJsonSerialize()
     {
+        $expected = [];
         $xc = new Scales\XAxisCollection();
         $x1 = new Scales\XAxis();
         $x1->setBarThickness(2);

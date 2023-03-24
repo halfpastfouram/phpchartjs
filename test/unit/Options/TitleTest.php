@@ -1,16 +1,16 @@
 <?php
 
-namespace Test\Options;
+namespace Halfpastfour\PHPChartJSTest\Options;
 
 use Halfpastfour\PHPChartJS\Options\Title;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use PHPUnit\Framework\TestCase;
+use Halfpastfour\PHPChartJSTest\TestUtils;
 
 /**
  * Class TitleTest
- * @package Test\Options
+ * @package Halfpastfour\PHPChartJSTest\Options
  */
-class TitleTest extends PHPUnit_Framework_TestCase
+class TitleTest extends TestCase
 {
     /**
      * @var Title
@@ -65,7 +65,7 @@ class TitleTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->title = new Title();
     }

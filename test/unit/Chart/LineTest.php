@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Line;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\LineDataSet;
 use Halfpastfour\PHPChartJS\Options\LineOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class LineTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class LineTest extends \PHPUnit_Framework_TestCase
+class LineTest extends TestCase
 {
     /**
      * Test the factory for creating a Line chart

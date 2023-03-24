@@ -1,26 +1,26 @@
 <?php
 
-namespace Collection;
+namespace Halfpastfour\PHPChartJSTest\Collection;
 
 use Halfpastfour\PHPChartJS\Collection\Data;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class DataTest
  *
  * @package Collection
  */
-class DataTest extends PHPUnit_Framework_TestCase
+class DataTest extends TestCase
 {
     /**
      * @var  Data
      */
-    private $data;
+    private Data $data;
 
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->data = new Data();
     }

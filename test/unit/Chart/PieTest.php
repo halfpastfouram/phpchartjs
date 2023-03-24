@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Pie;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\PieDataSet;
 use Halfpastfour\PHPChartJS\Options\PieOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PieTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class PieTest extends \PHPUnit_Framework_TestCase
+class PieTest extends TestCase
 {
     /**
      * Test the factory for creating a Pie chart
@@ -31,7 +32,7 @@ class PieTest extends \PHPUnit_Framework_TestCase
     public function testDataSet()
     {
         $Pie       = new Pie();
-        $chartData = [ 0, 1, 4, 2, 3, 0, 5, 2, 6 ];
+        $chartData = [0, 1, 4, 2, 3, 0, 5, 2, 6];
 
         // DataSet
         $dataSet = $Pie->createDataSet();

@@ -1,17 +1,17 @@
 <?php
 
-namespace Test\Options\Scales;
+namespace Halfpastfour\PHPChartJSTest\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\GridLines;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use PHPUnit\Framework\TestCase;
+use Halfpastfour\PHPChartJSTest\TestUtils;
 
 /**
  * Class GridLinesTest
  *
- * @package Test\Options\Scales
+ * @package Halfpastfour\PHPChartJSTest\Options\Scales
  */
-class GridLinesTest extends PHPUnit_Framework_TestCase
+class GridLinesTest extends TestCase
 {
     /**
      * @var GridLines
@@ -90,7 +90,7 @@ class GridLinesTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->gridLines = new GridLines();
     }

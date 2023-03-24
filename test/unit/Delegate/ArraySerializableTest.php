@@ -1,14 +1,15 @@
 <?php
 
-namespace Test\Delegate;
+namespace Halfpastfour\PHPChartJSTest\Delegate;
 
 use Halfpastfour\PHPChartJS\Delegate\ArraySerializable;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ArraySerializableTest
- * @package Test\Delegate
+ * @package Halfpastfour\PHPChartJSTest\Delegate
  */
-class ArraySerializableTest extends \PHPUnit_Framework_TestCase
+class ArraySerializableTest extends TestCase
 {
     /**
      * @var A
@@ -23,7 +24,7 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->classA = new A(1, 2);
         $this->classB = new B(3, 4, 5, 6);
@@ -44,7 +45,7 @@ class ArraySerializableTest extends \PHPUnit_Framework_TestCase
 
 /**
  * Class A
- * @package Test\Delegate
+ * @package Halfpastfour\PHPChartJSTest\Delegate
  */
 class A
 {
@@ -139,7 +140,7 @@ class A
 
 /**
  * Class B
- * @package Test\Delegate
+ * @package Halfpastfour\PHPChartJSTest\Delegate
  */
 class B extends A
 {

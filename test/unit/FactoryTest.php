@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\Chart\Bubble;
@@ -12,12 +12,13 @@ use Halfpastfour\PHPChartJS\Chart\PolarArea;
 use Halfpastfour\PHPChartJS\Chart\Radar;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\Factory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class FactoryTest
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
-class FactoryTest extends \PHPUnit_Framework_TestCase
+class FactoryTest extends TestCase
 {
     /**
      *

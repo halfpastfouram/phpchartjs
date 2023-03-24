@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use DOMDocument;
 use Halfpastfour\PHPChartJS\Chart;
@@ -10,14 +10,14 @@ use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
 use Halfpastfour\PHPChartJS\DataSetCollection;
 use Halfpastfour\PHPChartJS\LabelsCollection;
 use Halfpastfour\PHPChartJS\Options\BarOptions;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ChartTest
  *
  * @package Halfpastfour\PHPChartJS
  */
-class ChartTest extends PHPUnit_Framework_TestCase
+class ChartTest extends TestCase
 {
     /**
      * @var Chart
@@ -39,7 +39,7 @@ class ChartTest extends PHPUnit_Framework_TestCase
     /**
      * @var array
      */
-    private $empty_data = [
+    private array $empty_data = [
         'height' => null, /* int */
         'width'  => null, /* int */
         'title'  => null, /* string */
@@ -48,7 +48,7 @@ class ChartTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->chart = new Bar();
     }

@@ -1,17 +1,17 @@
 <?php
 
-namespace Test\Options\Elements;
+namespace Halfpastfour\PHPChartJSTest\Options\Elements;
 
 use Halfpastfour\PHPChartJS\Options\Elements\Arc;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use Halfpastfour\PHPChartJSTest\TestUtils;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ArcTest
  *
- * @package Test\Options\Elements
+ * @package Halfpastfour\PHPChartJSTest\Options\Elements
  */
-class ArcTest extends PHPUnit_Framework_TestCase
+class ArcTest extends TestCase
 {
     /**
      * @var Arc
@@ -48,7 +48,7 @@ class ArcTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->arc = new Arc();
     }

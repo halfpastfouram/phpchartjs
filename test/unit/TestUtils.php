@@ -1,13 +1,13 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Laminas\Json\Expr;
 use RuntimeException;
 
 /**
  * Class TestUtils
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
 class TestUtils
 {
@@ -20,7 +20,6 @@ class TestUtils
      */
     public static function setAttributes($obj, array $data)
     {
-
         if (! is_object($obj)) {
             throw new RuntimeException("First param should be an object. ");
         }
@@ -45,14 +44,13 @@ class TestUtils
      */
     public static function getAttributes($obj, array $dataTypes)
     {
-
         if (! is_object($obj)) {
             throw new RuntimeException("First param should be an object. ");
         }
 
         $array = [];
         foreach ($dataTypes as $key => $value) {
-            $function = ( gettype($value) == "boolean" ? 'is' : 'get' ) . ucfirst($key);
+            $function = (gettype($value) == "boolean" ? 'is' : 'get') . ucfirst($key);
             if (method_exists($obj, $function)) {
                 $getResult     = $obj->$function($value);
                 $getResult     = $getResult instanceof Expr ? $getResult->__toString() : $getResult;

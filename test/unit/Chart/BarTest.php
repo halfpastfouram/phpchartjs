@@ -1,17 +1,18 @@
 <?php
 
-namespace Test\Chart;
+namespace Halfpastfour\PHPChartJSTest\Chart;
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\ChartInterface;
 use Halfpastfour\PHPChartJS\DataSet\BarDataSet;
 use Halfpastfour\PHPChartJS\Options\BarOptions;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class BarTest
- * @package Test\Chart
+ * @package Halfpastfour\PHPChartJSTest\Chart
  */
-class BarTest extends \PHPUnit_Framework_TestCase
+class BarTest extends TestCase
 {
     /**
      * Test the factory for creating a Bar chart

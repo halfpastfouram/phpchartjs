@@ -1,20 +1,20 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Halfpastfour\PHPChartJS\Chart;
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\DataSet;
 use Halfpastfour\PHPChartJS\Renderer\Html;
 use Halfpastfour\PHPChartJS\Renderer\Json;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class RendererTest
  *
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
-class RendererTest extends PHPUnit_Framework_TestCase
+class RendererTest extends TestCase
 {
     /**
      * @var Chart
@@ -24,7 +24,7 @@ class RendererTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $chart = new Bar();
         $chart->setId('myChart')

@@ -1,18 +1,18 @@
 <?php
 
-namespace Test;
+namespace Halfpastfour\PHPChartJSTest;
 
 use Halfpastfour\PHPChartJS\Chart\Bar;
 use Halfpastfour\PHPChartJS\ChartOwnedInterface;
 use Halfpastfour\PHPChartJS\Options;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ChartOwnedTest
  *
- * @package Test
+ * @package Halfpastfour\PHPChartJSTest
  */
-class ChartOwnedTest extends PHPUnit_Framework_TestCase
+class ChartOwnedTest extends TestCase
 {
     /**
      *

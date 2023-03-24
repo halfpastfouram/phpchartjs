@@ -1,17 +1,17 @@
 <?php
 
-namespace Test\Options\Scales;
+namespace Halfpastfour\PHPChartJSTest\Options\Scales;
 
 use Halfpastfour\PHPChartJS\Options\Scales\ScaleLabel;
-use PHPUnit_Framework_TestCase;
-use Test\TestUtils;
+use PHPUnit\Framework\TestCase;
+use Halfpastfour\PHPChartJSTest\TestUtils;
 
 /**
  * Class ScaleLabelTest
  *
- * @package Test\Options\Scales
+ * @package Halfpastfour\PHPChartJSTest\Options\Scales
  */
-class ScaleLabelTest extends PHPUnit_Framework_TestCase
+class ScaleLabelTest extends TestCase
 {
     /**
      * @var ScaleLabel
@@ -57,7 +57,7 @@ class ScaleLabelTest extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->scaleLabel = new ScaleLabel();
     }
